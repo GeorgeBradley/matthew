@@ -32,6 +32,18 @@
     <title>Matthew Bradley | Artisan Maker</title>
 </head>
 <body>
+
+    <!-- Modal Structure -->
+<div class="modal" id="imageModal">
+    <div class="modal-content">
+        <button class="close-modal">&times;</button>
+        <img class="modal-image" src="" alt="Enlarged view">
+        <div class="modal-caption">
+            <h3 id="modalCaption"></h3>
+            <a id="seeMoreLink" class="see-more-btn" href="#">See More</a>
+        </div>
+    </div>
+</div>
 <!-- HTML -->
 <header class="site-header" role="banner">
     <div class="header-container">
@@ -73,10 +85,12 @@
 
 <div class="slider-container">
     <div class="slider-track">
-        <div class="slider-item"><img src="slider-img-1.png" alt="Slide 1"></div>
-        <div class="slider-item"><img src="slider-img-2.png" alt="Slide 2"></div>
-        <div class="slider-item"><img src="slider-img-3.png" alt="Slide 3"></div>
-        <div class="slider-item"><img src="slider-img-4.png" alt="Slide 4"></div>
+        <div class="slider-item"  data-caption="Beautiful Landscape 1" data-link="/more-info-1"><img src="slider-img-4.png" alt="Slide 4"></div>
+        <div class="slider-item"  data-caption="Beautiful Landscape 1" data-link="/more-info-1"><img src="slider-img-3.png" alt="Slide 3"></div>
+        <div class="slider-item"  data-caption="Beautiful Landscape 1" data-link="/more-info-1" ><img src="slider-img-1.png" alt="Slide 1"></div>
+        <div class="slider-item"  data-caption="Beautiful Landscape 1" data-link="/more-info-1"><img src="slider-img-2.png" alt="Slide 2"></div>
+
+ 
         <!-- Add more images as needed -->
     </div>
 </div>

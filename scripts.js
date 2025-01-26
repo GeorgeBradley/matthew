@@ -208,4 +208,51 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Start auto-slide
     setInterval(nextSlide, 3000); // Adjust timing here (3000 = 3 seconds)
+
+    
+    // Modal functionality
+    const modal = document.getElementById('imageModal');
+    const modalImage = modal.querySelector('.modal-image');
+    const modalCaption = document.getElementById('modalCaption');
+    const seeMoreLink = document.getElementById('seeMoreLink');
+
+    // Open modal on image click
+    document.querySelectorAll('.slider-item').forEach(item => {
+        item.addEventListener('click', (e) => {
+            const img = item.querySelector('img');
+            modal.style.display = 'block';
+            modalImage.src = img.src;
+            modalCaption.textContent = item.dataset.caption || img.alt;
+            seeMoreLink.href = item.dataset.link || '#';
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    // Close modal
+    function closeModal() {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+
+    // Close handlers
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal || e.target.closest('.close-modal')) {
+            closeModal();
+        }
+    });
+
+    // ESC key close
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.style.display === 'block') {
+            closeModal();
+        }
+    });
 });
+
+
+
+
+
+
+
+
