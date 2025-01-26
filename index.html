@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en-GB" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Matthew Bradley - Model maker, prop sculptor, and stop-motion artisan blending historical craftsmanship with Tolkienesque fantasy. Creating wonder through tactile storytelling.">
+    
+    <!-- Preconnect to external resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Preload critical CSS -->
+    <link rel="preload" href="styles.css" as="style">
+    
+    <!-- Primary CSS -->
+    <link rel="stylesheet" href="styles.css" media="all">
+    
+    <!-- Theme Color and Web App Manifest -->
+    <meta name="theme-color" content="#3a5f40">
+    <link rel="manifest" href="site.webmanifest">
+    
+    <!-- Favicon Package -->
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+    
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
+    
+    <title>Matthew Bradley | Artisan Maker</title>
+</head>
+<body>
+<!-- HTML -->
+<header class="site-header" role="banner">
+    <div class="header-container">
+        <!-- Full-Logo -->
+        <a href="#home" class="logo-link">
+            <img src="Header.png" alt="Matthew Bradley - Artisan Maker" 
+                 class="logo" loading="lazy">
+        </a>
+
+        <!-- Navigation -->
+        <nav class="main-nav" role="navigation" aria-label="Main navigation">
+            <!-- Animated Hamburger -->
+            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                <div class="hamburger-box">
+                    <div class="hamburger-inner"></div>
+                </div>
+            </button>
+
+            <!-- Menu Structure -->
+            <div class="nav-overlay"></div>
+            <div class="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#portfolio" class="nav-link">Portfolio & CV</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                    <li class="nav-cta">
+                        <a href="mailto:your@email.com" class="nav-button">
+                            <span>Get in Touch</span>
+                            <svg class="button-icon" viewBox="0 0 24 24">
+                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"/>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<div class="slider-container">
+    <div class="slider-track">
+        <div class="slider-item"><img src="slider-img-1.png" alt="Slide 1"></div>
+        <div class="slider-item"><img src="slider-img-2.png" alt="Slide 2"></div>
+        <div class="slider-item"><img src="slider-img-3.png" alt="Slide 3"></div>
+        <div class="slider-item"><img src="slider-img-4.png" alt="Slide 4"></div>
+        <!-- Add more images as needed -->
+    </div>
+</div>
+
+   
+    <!-- Future Page Footer -->
+    <!-- <footer role="contentinfo">...</footer> -->
+
+    <!-- Load JavaScript -->
+    <script src="scripts.js" defer></script>
+    
+    <!-- Progressive Enhancement -->
+    <noscript>
+        <style>
+            .no-js-warning {
+                padding: 1em;
+                background: var(--deep-umber);
+                color: white;
+                text-align: center;
+            }
+        </style>
+        <div class="no-js-warning" role="alert">
+            For full functionality of this site, please enable JavaScript.
+        </div>
+    </noscript>
+</body>
+</html>
