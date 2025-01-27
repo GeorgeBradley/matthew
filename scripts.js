@@ -187,101 +187,104 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 // Initialize Carousel
-const showcaseTrack = document.getElementById('showcaseTrack');
+const carouselTrack = document.querySelector('.showcase-carousel-track');
 const totalItems = 20;
-let currentAngle = 0;
-let currentIndex = 1;
+let currentSlide = 0;
 
-// Create carousel items
+// Generate carousel items
 for(let i = 1; i <= totalItems; i++) {
     const item = document.createElement('div');
-    item.className = 'showcase-item';
+    item.className = 'showcase-carousel-item';
     item.innerHTML = `
-        <img src="feature-img/feature${i}.jpg" alt="Project ${i}" data-index="${i}">
+        <img src="feature-img/feature-${i}.jpg" alt="Project ${i}" data-index="${i}">
+        <div class="project-number">${String(i).padStart(2, '0')}</div>
     `;
-    showcaseTrack.appendChild(item);
+    carouselTrack.appendChild(item);
 }
 
-// Position items in circular layout
-const items = document.querySelectorAll('.showcase-item');
-const radius = 600; // Match perspective distance
-const angleStep = 360 / totalItems;
-
-items.forEach((item, index) => {
-    const angle = index * angleStep;
-    item.style.transform = `
-        rotateY(${angle}deg)
-        translateZ(${radius}px)
-    `;
-});
+// Set initial active slide
+document.querySelectorAll('.showcase-carousel-item')[0].classList.add('active');
 
 // Navigation handlers
-document.querySelector('.showcase-prev').addEventListener('click', () => {
-    currentAngle += angleStep;
-    showcaseTrack.style.transform = `rotateY(${currentAngle}deg)`;
-    currentIndex = currentIndex > 1 ? currentIndex - 1 : totalItems;
+document.querySelector('.showcase-carousel-prev').addEventListener('click', () => {
+    currentSlide = (currentSlide > 0) ? currentSlide - 1 : totalItems - 1;
+    updateCarousel();
 });
 
-document.querySelector('.showcase-next').addEventListener('click', () => {
-    currentAngle -= angleStep;
-    showcaseTrack.style.transform = `rotateY(${currentAngle}deg)`;
-    currentIndex = currentIndex < totalItems ? currentIndex + 1 : 1;
+document.querySelector('.showcase-carousel-next').addEventListener('click', () => {
+    currentSlide = (currentSlide < totalItems - 1) ? currentSlide + 1 : 0;
+    updateCarousel();
 });
 
-// Modal functionality
-const modal = document.getElementById('showcaseModal');
-const modalImg = document.getElementById('showcaseModalImg');
-const modalCounter = document.querySelector('.showcase-modal-counter');
+function updateCarousel() {
+    const items = document.querySelectorAll('.showcase-carousel-item');
+    const offset = -currentSlide * (items[0].offsetWidth + 20);
+    carouselTrack.style.transform = `translateX(${offset}px)`;
+    
+    items.forEach((item, index) => {
+        item.classList.toggle('active', index === currentSlide);
+    });
+}
 
-items.forEach(item => {
-    item.addEventListener('click', function() {
-        modal.style.display = 'block';
-        currentIndex = parseInt(this.querySelector('img').dataset.index);
-        updateModalImage(currentIndex);
+// Lightbox functionality
+const lightbox = document.querySelector('.showcase-lightbox');
+const lightboxSlider = document.querySelector('.showcase-lightbox-slider');
+const lightboxCounter = document.querySelector('.showcase-lightbox-counter');
+
+// Generate lightbox items
+for(let i = 1; i <= totalItems; i++) {
+    const item = document.createElement('div');
+    item.className = 'showcase-lightbox-item';
+    item.innerHTML = `<img src="feature-img/feature-${i}.jpg" alt="Project ${i}">`;
+    lightboxSlider.appendChild(item);
+}
+
+document.querySelectorAll('.showcase-carousel-item').forEach((item, index) => {
+    item.addEventListener('click', () => {
+        lightbox.style.display = 'block';
+        currentSlide = index;
+        updateLightbox();
     });
 });
 
-// Close modal
-document.querySelector('.showcase-close-modal').onclick = () => {
-    modal.style.display = 'none';
-};
-
-// Modal navigation
-document.querySelector('.showcase-modal-prev').addEventListener('click', () => {
-    currentIndex = currentIndex > 1 ? currentIndex - 1 : totalItems;
-    updateModalImage(currentIndex);
+document.querySelector('.showcase-lightbox-close').addEventListener('click', () => {
+    lightbox.style.display = 'none';
 });
 
-document.querySelector('.showcase-modal-next').addEventListener('click', () => {
-    currentIndex = currentIndex < totalItems ? currentIndex + 1 : 1;
-    updateModalImage(currentIndex);
-});
-
-// Keyboard controls
+// Lightbox navigation
 document.addEventListener('keydown', (e) => {
-    if(modal.style.display === 'block') {
-        if(e.key === 'ArrowLeft') {
-            currentIndex = currentIndex > 1 ? currentIndex - 1 : totalItems;
-            updateModalImage(currentIndex);
-        }
-        if(e.key === 'ArrowRight') {
-            currentIndex = currentIndex < totalItems ? currentIndex + 1 : 1;
-            updateModalImage(currentIndex);
-        }
-        if(e.key === 'Escape') {
-            modal.style.display = 'none';
-        }
+    if(lightbox.style.display === 'block') {
+        if(e.key === 'ArrowLeft') navigateLightbox(-1);
+        if(e.key === 'ArrowRight') navigateLightbox(1);
+        if(e.key === 'Escape') lightbox.style.display = 'none';
     }
 });
 
-function updateModalImage(index) {
-    modalImg.src = `feature-img/feature-${index}.jpg`;
-    modalCounter.textContent = `${index} / ${totalItems}`;
-    modalImg.style.animation = 'none';
-    void modalImg.offsetWidth; // Trigger reflow
-    modalImg.style.animation = 'showcaseZoom 0.3s';
+function navigateLightbox(direction) {
+    currentSlide = (currentSlide + direction + totalItems) % totalItems;
+    updateLightbox();
 }
 
+function updateLightbox() {
+    document.querySelectorAll('.showcase-lightbox-item').forEach((item, index) => {
+        item.classList.toggle('active', index === currentSlide);
+    });
+    lightboxCounter.textContent = `${currentSlide + 1} / ${totalItems}`;
+}
+
+// Swipe detection for mobile
+let touchStartX = 0;
+let touchEndX = 0;
+
+lightboxSlider.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].screenX;
+});
+
+lightboxSlider.addEventListener('touchend', e => {
+    touchEndX = e.changedTouches[0].screenX;
+    if(touchStartX - touchEndX > 50) navigateLightbox(1);
+    if(touchEndX - touchStartX > 50) navigateLightbox(-1);
+});
 
 
 
