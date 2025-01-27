@@ -186,66 +186,100 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+// Initialize Carousel
+const showcaseTrack = document.getElementById('showcaseTrack');
+const totalItems = 20;
+let currentAngle = 0;
+let currentIndex = 1;
 
-// Generate showcase grid items
-const showcaseGrid = document.querySelector('.showcase-grid');
-const totalShowcaseImages = 20;
-
-for (let i = 1; i <= totalShowcaseImages; i++) {
-    const gridItem = document.createElement('div');
-    gridItem.className = 'showcase-grid-item';
-    gridItem.innerHTML = `
+// Create carousel items
+for(let i = 1; i <= totalItems; i++) {
+    const item = document.createElement('div');
+    item.className = 'showcase-item';
+    item.innerHTML = `
         <img src="feature-img/feature${i}.jpg" alt="Project ${i}" data-index="${i}">
     `;
-    showcaseGrid.appendChild(gridItem);
+    showcaseTrack.appendChild(item);
 }
 
-// Showcase Lightbox functionality
-const showcaseLightbox = document.getElementById('showcaseLightbox');
-const showcaseExpandedImg = document.getElementById('showcaseExpandedImg');
-const showcaseClose = document.querySelector('.showcase-close');
-const showcaseCounter = document.querySelector('.showcase-image-counter');
-let currentShowcaseIndex = 1;
+// Position items in circular layout
+const items = document.querySelectorAll('.showcase-item');
+const radius = 600; // Match perspective distance
+const angleStep = 360 / totalItems;
 
-document.querySelectorAll('.showcase-grid-item img').forEach(img => {
-    img.addEventListener('click', function() {
-        showcaseLightbox.style.display = 'block';
-        currentShowcaseIndex = parseInt(this.dataset.index);
-        updateShowcaseImage(currentShowcaseIndex);
+items.forEach((item, index) => {
+    const angle = index * angleStep;
+    item.style.transform = `
+        rotateY(${angle}deg)
+        translateZ(${radius}px)
+    `;
+});
+
+// Navigation handlers
+document.querySelector('.showcase-prev').addEventListener('click', () => {
+    currentAngle += angleStep;
+    showcaseTrack.style.transform = `rotateY(${currentAngle}deg)`;
+    currentIndex = currentIndex > 1 ? currentIndex - 1 : totalItems;
+});
+
+document.querySelector('.showcase-next').addEventListener('click', () => {
+    currentAngle -= angleStep;
+    showcaseTrack.style.transform = `rotateY(${currentAngle}deg)`;
+    currentIndex = currentIndex < totalItems ? currentIndex + 1 : 1;
+});
+
+// Modal functionality
+const modal = document.getElementById('showcaseModal');
+const modalImg = document.getElementById('showcaseModalImg');
+const modalCounter = document.querySelector('.showcase-modal-counter');
+
+items.forEach(item => {
+    item.addEventListener('click', function() {
+        modal.style.display = 'block';
+        currentIndex = parseInt(this.querySelector('img').dataset.index);
+        updateModalImage(currentIndex);
     });
 });
 
-showcaseClose.onclick = function() {
-    showcaseLightbox.style.display = 'none';
+// Close modal
+document.querySelector('.showcase-close-modal').onclick = () => {
+    modal.style.display = 'none';
 };
 
-window.onclick = function(event) {
-    if (event.target === showcaseLightbox) {
-        showcaseLightbox.style.display = 'none';
-    }
-};
+// Modal navigation
+document.querySelector('.showcase-modal-prev').addEventListener('click', () => {
+    currentIndex = currentIndex > 1 ? currentIndex - 1 : totalItems;
+    updateModalImage(currentIndex);
+});
 
-// Keyboard navigation
+document.querySelector('.showcase-modal-next').addEventListener('click', () => {
+    currentIndex = currentIndex < totalItems ? currentIndex + 1 : 1;
+    updateModalImage(currentIndex);
+});
+
+// Keyboard controls
 document.addEventListener('keydown', (e) => {
-    if (showcaseLightbox.style.display === 'block') {
-        if (e.key === 'ArrowRight') {
-            currentShowcaseIndex = currentShowcaseIndex < totalShowcaseImages ? currentShowcaseIndex + 1 : 1;
-            updateShowcaseImage(currentShowcaseIndex);
-        } else if (e.key === 'ArrowLeft') {
-            currentShowcaseIndex = currentShowcaseIndex > 1 ? currentShowcaseIndex - 1 : totalShowcaseImages;
-            updateShowcaseImage(currentShowcaseIndex);
-        } else if (e.key === 'Escape') {
-            showcaseLightbox.style.display = 'none';
+    if(modal.style.display === 'block') {
+        if(e.key === 'ArrowLeft') {
+            currentIndex = currentIndex > 1 ? currentIndex - 1 : totalItems;
+            updateModalImage(currentIndex);
+        }
+        if(e.key === 'ArrowRight') {
+            currentIndex = currentIndex < totalItems ? currentIndex + 1 : 1;
+            updateModalImage(currentIndex);
+        }
+        if(e.key === 'Escape') {
+            modal.style.display = 'none';
         }
     }
 });
 
-function updateShowcaseImage(index) {
-    showcaseExpandedImg.src = `feature-img/feature${index}.jpg`;
-    showcaseCounter.textContent = `${index} / ${totalShowcaseImages}`;
-    showcaseExpandedImg.style.animation = 'none';
-    void showcaseExpandedImg.offsetWidth; // Trigger reflow
-    showcaseExpandedImg.style.animation = 'showcaseFadeIn 0.3s ease';
+function updateModalImage(index) {
+    modalImg.src = `feature-img/feature${index}.jpg`;
+    modalCounter.textContent = `${index} / ${totalItems}`;
+    modalImg.style.animation = 'none';
+    void modalImg.offsetWidth; // Trigger reflow
+    modalImg.style.animation = 'showcaseZoom 0.3s';
 }
 
 
