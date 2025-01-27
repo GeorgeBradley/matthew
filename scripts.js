@@ -175,3 +175,77 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+// Generate grid items dynamically
+const worksGrid = document.querySelector('.works-grid');
+const totalImages = 20;
+
+for (let i = 1; i <= totalImages; i++) {
+    const gridItem = document.createElement('div');
+    gridItem.className = 'grid-item';
+    gridItem.innerHTML = `
+        <img src="feature-img/feature-${i}.jpg" alt="Project ${i}" data-index="${i}">
+    `;
+    worksGrid.appendChild(gridItem);
+}
+
+// Lightbox functionality
+const lightbox = document.getElementById('lightbox');
+const expandedImg = document.getElementById('expanded-img');
+const closeBtn = document.querySelector('.close');
+const imageCounter = document.querySelector('.image-counter');
+
+document.querySelectorAll('.grid-item img').forEach(img => {
+    img.addEventListener('click', function() {
+        lightbox.style.display = 'block';
+        expandedImg.src = this.src.replace('feature-', 'feature-');
+        currentIndex = parseInt(this.dataset.index);
+        imageCounter.textContent = `${currentIndex} / ${totalImages}`;
+    });
+});
+
+closeBtn.onclick = function() {
+    lightbox.style.display = 'none';
+};
+
+window.onclick = function(event) {
+    if (event.target === lightbox) {
+        lightbox.style.display = 'none';
+    }
+};
+
+// Keyboard navigation
+let currentIndex = 1;
+
+document.addEventListener('keydown', (e) => {
+    if (lightbox.style.display === 'block') {
+        if (e.key === 'ArrowRight') {
+            currentIndex = currentIndex < totalImages ? currentIndex + 1 : 1;
+        } else if (e.key === 'ArrowLeft') {
+            currentIndex = currentIndex > 1 ? currentIndex - 1 : totalImages;
+        } else if (e.key === 'Escape') {
+            lightbox.style.display = 'none';
+            return;
+        }
+        
+        expandedImg.src = `feature-img/feature-${currentIndex}.jpg`;
+        imageCounter.textContent = `${currentIndex} / ${totalImages}`;
+    }
+});
+
+
+
+
+
+
