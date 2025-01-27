@@ -780,187 +780,180 @@ nav {
 
 
 
-.showcase-carousel {
+:root {
+    --showcase-accent: #8a7352;
+    --showcase-dark: #2a2520;
+    --showcase-light: #f5f1ec;
+}
+
+.showcase-carousel-wrapper {
     position: relative;
+    padding: 4rem 0;
+    background: linear-gradient(15deg, var(--showcase-dark) 0%, #3a3329 100%);
+}
+
+.showcase-carousel-container {
     max-width: 1400px;
-    margin: 4rem auto;
+    margin: 0 auto;
     padding: 0 2rem;
     overflow: hidden;
 }
 
-.showcase-container {
-    position: relative;
-    height: 600px;
-    perspective: 1000px;
+.showcase-carousel-track {
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform;
 }
 
-.showcase-track {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.showcase-item {
-    position: absolute;
-    width: 300px;
-    height: 400px;
-    border-radius: 15px;
+.showcase-carousel-item {
+    flex: 0 0 calc(33.333% - 2rem);
+    margin: 0 1rem;
+    border-radius: 20px;
     overflow: hidden;
+    transform: scale(0.95);
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
     cursor: pointer;
-    transform-origin: center 600px;
-    transition: transform 0.8s, opacity 0.8s, z-index 0.8s;
-    box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.3);
 }
 
-.showcase-item img {
+.showcase-carousel-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.7) 100%);
+    z-index: 1;
 }
 
-.showcase-item:hover img {
+.showcase-carousel-item.active {
     transform: scale(1.05);
+    z-index: 2;
 }
 
-.showcase-nav {
+.showcase-carousel-item img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    display: block;
+}
+
+.showcase-carousel-controls button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(255,255,255,0.9);
-    border: none;
-    padding: 1rem;
-    font-size: 2rem;
-    cursor: pointer;
+    background: rgba(255,255,255,0.1);
+    border: 2px solid rgba(255,255,255,0.2);
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
-    width: 60px;
-    height: 60px;
+    cursor: pointer;
+    transition: all 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    transition: all 0.3s ease;
 }
 
-.showcase-nav:hover {
-    background: white;
+.showcase-carousel-controls button:hover {
+    background: var(--showcase-accent);
+    border-color: var(--showcase-accent);
     transform: translateY(-50%) scale(1.1);
 }
 
-.showcase-prev { left: 2rem; }
-.showcase-next { right: 2rem; }
+.showcase-carousel-controls button svg {
+    fill: white;
+    width: 24px;
+    height: 24px;
+}
 
-/* Modal Styles */
-.showcase-modal {
+.showcase-carousel-prev { left: 2rem; }
+.showcase-carousel-next { right: 2rem; }
+
+/* Lightbox Styles */
+.showcase-lightbox {
     display: none;
     position: fixed;
-    z-index: 1000;
-    left: 0;
     top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     background: rgba(0,0,0,0.95);
+    z-index: 1000;
+}
+
+.showcase-lightbox-content {
+    position: relative;
+    height: 100vh;
     padding: 2rem;
 }
 
-.showcase-modal-content {
+.showcase-lightbox-slider {
+    height: 100%;
     position: relative;
-    max-width: 90%;
-    max-height: 90vh;
-    margin: 0 auto;
-    animation: showcaseZoom 0.3s;
 }
 
-@keyframes showcaseZoom {
-    from { transform: scale(0.8); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
+.showcase-lightbox-item {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
+    width: 90%;
+    max-width: 1200px;
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.showcase-modal-img {
-    width: auto;
-    max-width: 100%;
-    height: auto;
-    max-height: 80vh;
-    display: block;
-    margin: 0 auto;
+.showcase-lightbox-item.active {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+.showcase-lightbox-item img {
+    width: 100%;
+    height: 80vh;
+    object-fit: contain;
     border-radius: 10px;
 }
 
-.showcase-close-modal {
+.showcase-lightbox-close {
     position: absolute;
     top: 30px;
-    right: 40px;
+    right: 30px;
     color: white;
     font-size: 40px;
     cursor: pointer;
-    transition: color 0.3s;
+    transition: color 0.3s ease;
 }
 
-.showcase-close-modal:hover {
-    color: #aaa;
+.showcase-lightbox-close:hover {
+    color: var(--showcase-accent);
 }
 
-.showcase-modal-nav {
+.showcase-lightbox-counter {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 2rem;
-}
-
-.showcase-modal-prev,
-.showcase-modal-next {
-    background: rgba(255,255,255,0.9);
-    border: none;
-    padding: 1rem;
-    font-size: 2rem;
-    cursor: pointer;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-}
-
-.showcase-modal-prev:hover,
-.showcase-modal-next:hover {
-    background: white;
-    transform: scale(1.1);
-}
-
-.showcase-modal-counter {
-    position: absolute;
-    bottom: -30px;
+    bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
     color: white;
     font-size: 1.2rem;
+    background: rgba(0,0,0,0.5);
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
 }
 
 @media (max-width: 768px) {
-    .showcase-container {
-        height: 400px;
+    .showcase-carousel-item {
+        flex: 0 0 calc(100% - 2rem);
     }
     
-    .showcase-item {
-        width: 200px;
-        height: 300px;
-        transform-origin: center 400px;
+    .showcase-carousel-controls button {
+        width: 40px;
+        height: 40px;
     }
     
-    .showcase-nav {
-        width: 50px;
-        height: 50px;
-        font-size: 1.5rem;
-    }
-    
-    .showcase-modal-nav {
-        padding: 0 1rem;
+    .showcase-lightbox-item img {
+        height: 60vh;
     }
 }
