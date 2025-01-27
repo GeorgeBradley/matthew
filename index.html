@@ -59,23 +59,37 @@
         <span></span>
     </button>
 </nav>
-<!-- Works Section -->
-<section class="works-section" id="works">
-    <h2 class="section-title">Artisan Creations</h2>
-    
-    <div class="works-grid">
-        <!-- Dynamic grid items will be inserted here -->
+
+
+
+<!-- Showcase Carousel Section -->
+<section class="showcase-carousel">
+    <div class="showcase-container">
+        <div class="showcase-track" id="showcaseTrack">
+            <!-- Dynamic carousel items will be inserted here -->
+        </div>
     </div>
+    <button class="showcase-nav showcase-prev">❮</button>
+    <button class="showcase-nav showcase-next">❯</button>
 </section>
 
-<!-- Lightbox Modal -->
-<div class="lightbox" id="lightbox">
-    <span class="close">&times;</span>
-    <div class="lightbox-content">
-        <img id="expanded-img" alt="Expanded View">
-        <div class="image-counter"></div>
+<!-- Showcase Modal -->
+<div class="showcase-modal" id="showcaseModal">
+    <span class="showcase-close-modal">&times;</span>
+    <div class="showcase-modal-content">
+        <img class="showcase-modal-img" id="showcaseModalImg">
+        <div class="showcase-modal-counter"></div>
+    </div>
+    <div class="showcase-modal-nav">
+        <button class="showcase-modal-prev">❮</button>
+        <button class="showcase-modal-next">❯</button>
     </div>
 </div>
+
+
+
+
+
 
 <div class="slider-container">
     <div class="slider-track">
