@@ -187,64 +187,66 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-// Generate grid items dynamically
-const worksGrid = document.querySelector('.works-grid');
-const totalImages = 20;
+// Generate showcase grid items
+const showcaseGrid = document.querySelector('.showcase-grid');
+const totalShowcaseImages = 20;
 
-for (let i = 1; i <= totalImages; i++) {
+for (let i = 1; i <= totalShowcaseImages; i++) {
     const gridItem = document.createElement('div');
-    gridItem.className = 'grid-item';
+    gridItem.className = 'showcase-grid-item';
     gridItem.innerHTML = `
-        <img src="feature-img/feature-${i}.jpg" alt="Project ${i}" data-index="${i}">
+        <img src="feature-img/feature${i}.jpg" alt="Project ${i}" data-index="${i}">
     `;
-    worksGrid.appendChild(gridItem);
+    showcaseGrid.appendChild(gridItem);
 }
 
-// Lightbox functionality
-const lightbox = document.getElementById('lightbox');
-const expandedImg = document.getElementById('expanded-img');
-const closeBtn = document.querySelector('.close');
-const imageCounter = document.querySelector('.image-counter');
+// Showcase Lightbox functionality
+const showcaseLightbox = document.getElementById('showcaseLightbox');
+const showcaseExpandedImg = document.getElementById('showcaseExpandedImg');
+const showcaseClose = document.querySelector('.showcase-close');
+const showcaseCounter = document.querySelector('.showcase-image-counter');
+let currentShowcaseIndex = 1;
 
-document.querySelectorAll('.grid-item img').forEach(img => {
+document.querySelectorAll('.showcase-grid-item img').forEach(img => {
     img.addEventListener('click', function() {
-        lightbox.style.display = 'block';
-        expandedImg.src = this.src.replace('feature-', 'feature-');
-        currentIndex = parseInt(this.dataset.index);
-        imageCounter.textContent = `${currentIndex} / ${totalImages}`;
+        showcaseLightbox.style.display = 'block';
+        currentShowcaseIndex = parseInt(this.dataset.index);
+        updateShowcaseImage(currentShowcaseIndex);
     });
 });
 
-closeBtn.onclick = function() {
-    lightbox.style.display = 'none';
+showcaseClose.onclick = function() {
+    showcaseLightbox.style.display = 'none';
 };
 
 window.onclick = function(event) {
-    if (event.target === lightbox) {
-        lightbox.style.display = 'none';
+    if (event.target === showcaseLightbox) {
+        showcaseLightbox.style.display = 'none';
     }
 };
 
 // Keyboard navigation
-let currentIndex = 1;
-
 document.addEventListener('keydown', (e) => {
-    if (lightbox.style.display === 'block') {
+    if (showcaseLightbox.style.display === 'block') {
         if (e.key === 'ArrowRight') {
-            currentIndex = currentIndex < totalImages ? currentIndex + 1 : 1;
+            currentShowcaseIndex = currentShowcaseIndex < totalShowcaseImages ? currentShowcaseIndex + 1 : 1;
+            updateShowcaseImage(currentShowcaseIndex);
         } else if (e.key === 'ArrowLeft') {
-            currentIndex = currentIndex > 1 ? currentIndex - 1 : totalImages;
+            currentShowcaseIndex = currentShowcaseIndex > 1 ? currentShowcaseIndex - 1 : totalShowcaseImages;
+            updateShowcaseImage(currentShowcaseIndex);
         } else if (e.key === 'Escape') {
-            lightbox.style.display = 'none';
-            return;
+            showcaseLightbox.style.display = 'none';
         }
-        
-        expandedImg.src = `feature-img/feature-${currentIndex}.jpg`;
-        imageCounter.textContent = `${currentIndex} / ${totalImages}`;
     }
 });
 
-
+function updateShowcaseImage(index) {
+    showcaseExpandedImg.src = `feature-img/feature${index}.jpg`;
+    showcaseCounter.textContent = `${index} / ${totalShowcaseImages}`;
+    showcaseExpandedImg.style.animation = 'none';
+    void showcaseExpandedImg.offsetWidth; // Trigger reflow
+    showcaseExpandedImg.style.animation = 'showcaseFadeIn 0.3s ease';
+}
 
 
 
