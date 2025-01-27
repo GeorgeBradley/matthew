@@ -275,7 +275,7 @@ document.addEventListener('keydown', (e) => {
 });
 
 function updateModalImage(index) {
-    modalImg.src = `feature-img/feature${index}.jpg`;
+    modalImg.src = `feature-img/feature-${index}.jpg`;
     modalCounter.textContent = `${index} / ${totalItems}`;
     modalImg.style.animation = 'none';
     void modalImg.offsetWidth; // Trigger reflow
