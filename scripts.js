@@ -49,118 +49,37 @@ window.onerror = function(message, source, lineno, colno, error) {
 
 
 
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+const navItems = document.querySelectorAll('.nav-links a');
 
-// JavaScript
-class PremiumNavigation {
-    constructor() {
-        this.navToggle = document.querySelector('.nav-toggle');
-        this.navMenu = document.querySelector('.nav-menu');
-        this.navOverlay = document.querySelector('.nav-overlay');
-        this.navLinks = document.querySelectorAll('.nav-link');
-        this.header = document.querySelector('.site-header');
-        this.lastScrollY = window.scrollY;
+hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    hamburger.classList.toggle('active');
+});
 
-        this.init();
+navItems.forEach(item => {
+    item.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        hamburger.classList.remove('active');
+    });
+});
+
+document.addEventListener('click', (e) => {
+    if (!navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+        navLinks.classList.remove('active');
+        hamburger.classList.remove('active');
     }
+});
 
-    init() {
-        // Menu Toggle
-        this.navToggle.addEventListener('click', () => this.toggleMenu());
-        
-        // Close on Overlay Click
-        this.navOverlay.addEventListener('click', () => this.closeMenu());
-        
-        // Smooth Scroll
-        this.navLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                this.closeMenu();
-                this.scrollToSection(link.hash);
-                this.setActiveLink(link);
-            });
+// Smooth scroll for navigation items
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
         });
-
-        // Header Scroll Behavior
-        window.addEventListener('scroll', () => this.handleScroll());
-        
-        // Close on Escape
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') this.closeMenu();
-        });
-
-        // Initialize Active Link
-        this.setActiveLinkOnScroll();
-    }
-
-    toggleMenu() {
-        const isExpanded = this.navToggle.getAttribute('aria-expanded') === 'true';
-        this.navToggle.setAttribute('aria-expanded', !isExpanded);
-        this.navMenu.classList.toggle('active', !isExpanded);
-        this.navOverlay.classList.toggle('active', !isExpanded);
-        document.body.classList.toggle('nav-active', !isExpanded);
-    }
-
-    closeMenu() {
-        this.navToggle.setAttribute('aria-expanded', 'false');
-        this.navMenu.classList.remove('active');
-        this.navOverlay.classList.remove('active');
-        document.body.classList.remove('nav-active');
-    }
-
-    scrollToSection(target) {
-        const element = document.querySelector(target);
-        if (element) {
-            const headerHeight = document.querySelector('.site-header').offsetHeight;
-            const offset = element.offsetTop - headerHeight;
-            
-            window.scrollTo({
-                top: offset,
-                behavior: 'smooth'
-            });
-        }
-    }
-
-    setActiveLink(activeLink) {
-        this.navLinks.forEach(link => link.classList.remove('active'));
-        activeLink.classList.add('active');
-    }
-
-    handleScroll() {
-        const currentScrollY = window.scrollY;
-        
-        // Hide header on scroll down
-        if (currentScrollY > this.lastScrollY && currentScrollY > 100) {
-            this.header.style.transform = 'translateY(-100%)';
-        } else {
-            this.header.style.transform = 'translateY(0)';
-        }
-        
-        this.lastScrollY = currentScrollY;
-        
-        // Update active link based on scroll position
-        this.setActiveLinkOnScroll();
-    }
-
-    setActiveLinkOnScroll() {
-        const sections = document.querySelectorAll('section');
-        const scrollPosition = window.scrollY + this.header.offsetHeight + 100;
-
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.offsetHeight;
-            
-            if (scrollPosition >= sectionTop && 
-                scrollPosition <= sectionTop + sectionHeight) {
-                const targetLink = document.querySelector(`.nav-link[href="#${section.id}"]`);
-                if (targetLink) this.setActiveLink(targetLink);
-            }
-        });
-    }
-}
-
-// Initialize
-document.addEventListener('DOMContentLoaded', () => {
-    new PremiumNavigation();
+    });
 });
 
 
