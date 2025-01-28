@@ -185,7 +185,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-
 // Initialize Carousel
 const carouselTrack = document.querySelector('.showcase-carousel-track');
 const totalItems = 20;
@@ -254,12 +253,16 @@ function closeModal() {
 }
 
 // Enhanced close functionality
-closeButton.addEventListener('click', (event) => {
-    event.preventDefault(); // Prevents default action if any
-    event.stopPropagation(); // Prevents event from bubbling up
-    closeModal();
-    console.log('Close button clicked'); // For debugging
-});
+if (closeButton) {
+    closeButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        closeModal();
+        console.log('Close button clicked'); // Debugging
+    });
+} else {
+    console.error("Close button not found!");
+}
 
 // Close modal by clicking outside
 document.addEventListener('click', (e) => {
@@ -275,7 +278,7 @@ document.addEventListener('keydown', (e) => {
         if(e.key === 'ArrowRight') navigateLightbox(1);
         if(e.key === 'Escape') {
             closeModal();
-            console.log("Escape key pressed to close modal"); // For debugging
+            console.log("Escape key pressed to close modal"); // Debugging
         }
     }
 });
