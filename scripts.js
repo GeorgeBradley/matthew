@@ -247,8 +247,16 @@ document.querySelectorAll('.showcase-carousel-item').forEach((item, index) => {
     });
 });
 
-document.querySelector('.showcase-lightbox-close').addEventListener('click', () => {
+document.querySelector('.showcase-lightbox-close').addEventListener('click', function(event) {
+    event.stopPropagation(); // Prevents the click event from affecting other elements
     lightbox.style.display = 'none';
+});
+
+// Ensure that clicking outside the modal also closes it
+window.addEventListener('click', function(event) {
+    if (event.target === lightbox) {
+        lightbox.style.display = 'none';
+    }
 });
 
 // Lightbox navigation
