@@ -212,7 +212,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const lightboxSlide = document.createElement('div');
             lightboxSlide.className = 'showcase-lightbox-slide';
             lightboxSlide.innerHTML = `
-                <img src="feature.img/feature-${imgNumber}.jpg" 
+                <img src="feature-img/feature-${imgNumber}.jpg" 
                      alt="Feature ${imgNumber}">
             `;
             lightboxSlider.appendChild(lightboxSlide);
