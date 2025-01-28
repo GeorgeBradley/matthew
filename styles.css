@@ -786,26 +786,26 @@ nav {
     --showcase-light: #f5f1ec;
 }
 
-.showcase-carousel-wrapper {
+.showcase-showcase-carousel-wrapper {
     position: relative;
     padding: 4rem 0;
     background: linear-gradient(15deg, var(--showcase-dark) 0%, #3a3329 100%);
 }
 
-.showcase-carousel-container {
+.showcase-showcase-carousel-container {
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 2rem;
     overflow: hidden;
 }
 
-.showcase-carousel-track {
+.showcase-showcase-carousel-track {
     display: flex;
     transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     will-change: transform;
 }
 
-.showcase-carousel-item {
+.showcase-showcase-carousel-item {
     flex: 0 0 calc(33.333% - 2rem);
     margin: 0 1rem;
     border-radius: 20px;
@@ -817,7 +817,7 @@ nav {
     box-shadow: 0 25px 50px rgba(0,0,0,0.3);
 }
 
-.showcase-carousel-item::before {
+.showcase-showcase-carousel-item::before {
     content: '';
     position: absolute;
     top: 0;
@@ -828,19 +828,19 @@ nav {
     z-index: 1;
 }
 
-.showcase-carousel-item.active {
+.showcase-showcase-carousel-item.active {
     transform: scale(1.05);
     z-index: 2;
 }
 
-.showcase-carousel-item img {
+.showcase-showcase-carousel-item img {
     width: 100%;
     height: 600px;
     object-fit: cover;
     display: block;
 }
 
-.showcase-carousel-controls button {
+.showcase-showcase-carousel-controls button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -856,23 +856,23 @@ nav {
     justify-content: center;
 }
 
-.showcase-carousel-controls button:hover {
+.showcase-showcase-carousel-controls button:hover {
     background: var(--showcase-accent);
     border-color: var(--showcase-accent);
     transform: translateY(-50%) scale(1.1);
 }
 
-.showcase-carousel-controls button svg {
+.showcase-showcase-carousel-controls button svg {
     fill: white;
     width: 24px;
     height: 24px;
 }
 
-.showcase-carousel-prev { left: 2rem; }
-.showcase-carousel-next { right: 2rem; }
+.showcase-showcase-carousel-prev { left: 2rem; }
+.showcase-showcase-carousel-next { right: 2rem; }
 
 /* Lightbox Styles */
-.showcase-lightbox {
+.showcase-showcase-lightbox {
     display: none;
     position: fixed;
     top: 0;
@@ -883,18 +883,18 @@ nav {
     z-index: 1000;
 }
 
-.showcase-lightbox-content {
+.showcase-showcase-lightbox-content {
     position: relative;
     height: 100vh;
     padding: 2rem;
 }
 
-.showcase-lightbox-slider {
+.showcase-showcase-lightbox-slider {
     height: 100%;
     position: relative;
 }
 
-.showcase-lightbox-item {
+.showcase-showcase-lightbox-item {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -905,34 +905,33 @@ nav {
     transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.showcase-lightbox-item.active {
+.showcase-showcase-lightbox-item.active {
     transform: translate(-50%, -50%) scale(1);
     opacity: 1;
 }
 
-.showcase-lightbox-item img {
+.showcase-showcase-lightbox-item img {
     width: 100%;
     height: 80vh;
     object-fit: contain;
     border-radius: 10px;
 }
 
-
-.showcase-lightbox-close {
+.showcase-showcase-lightbox-close {
     position: absolute;
     top: 30px;
     right: 30px;
     color: white;
     font-size: 40px;
     cursor: pointer;
-    z-index: 1001; /* Ensure it's above other elements */
     transition: color 0.3s ease;
 }
 
-.showcase-lightbox-close:hover {
+.showcase-showcase-lightbox-close:hover {
     color: var(--showcase-accent);
 }
-.showcase-lightbox-counter {
+
+.showcase-showcase-lightbox-counter {
     position: absolute;
     bottom: 30px;
     left: 50%;
@@ -945,16 +944,16 @@ nav {
 }
 
 @media (max-width: 768px) {
-    .showcase-carousel-item {
+    .showcase-showcase-carousel-item {
         flex: 0 0 calc(100% - 2rem);
     }
     
-    .showcase-carousel-controls button {
+    .showcase-showcase-carousel-controls button {
         width: 40px;
         height: 40px;
     }
     
-    .showcase-lightbox-item img {
+    .showcase-showcase-lightbox-item img {
         height: 60vh;
     }
 }
