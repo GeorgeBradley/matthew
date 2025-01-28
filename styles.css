@@ -917,6 +917,7 @@ nav {
     border-radius: 10px;
 }
 
+
 .showcase-lightbox-close {
     position: absolute;
     top: 30px;
@@ -924,13 +925,13 @@ nav {
     color: white;
     font-size: 40px;
     cursor: pointer;
+    z-index: 1001; /* Ensure it's above other elements */
     transition: color 0.3s ease;
 }
 
 .showcase-lightbox-close:hover {
     color: var(--showcase-accent);
 }
-
 .showcase-lightbox-counter {
     position: absolute;
     bottom: 30px;
