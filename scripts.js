@@ -187,7 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Initialize Carousel
 const showcaseCarouselTrack = document.querySelector('.showcase-showcase-carousel-track');
-const showcaseTotalItems = 20;
+const showcaseTotalItems = 17;
 let showcaseCurrentSlide = 0;
 
 // Generate carousel items
