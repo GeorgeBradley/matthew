@@ -184,103 +184,145 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+document.addEventListener('DOMContentLoaded', () => {
+        const totalImages = 17;
+        const carouselTrack = document.querySelector('.showcase-carousel-track');
+        const lightboxSlider = document.querySelector('.showcase-lightbox-slider');
+        const dotsContainer = document.querySelector('.showcase-carousel-dots');
+        let currentIndex = 0;
+        let lightboxIndex = 0;
+        let itemWidth;
 
-// Initialize Carousel
-const carouselTrack = document.querySelector('.showcase-carousel-track');
-const totalItems = 20;
-let currentSlide = 0;
+        // Generate elements
+        Array.from({length: totalImages}).forEach((_, i) => {
+            const imgNumber = i + 1;
 
-// Generate carousel items
-for(let i = 1; i <= totalItems; i++) {
-    const item = document.createElement('div');
-    item.className = 'showcase-carousel-item';
-    item.innerHTML = `
-        <img src="feature-img/feature-${i}.jpg" alt="Project ${i}" data-index="${i}">
-        <div class="project-number">${String(i).padStart(2, '0')}</div>
-    `;
-    carouselTrack.appendChild(item);
-}
+            // Carousel Item
+            const carouselItem = document.createElement('div');
+            carouselItem.className = 'showcase-carousel-item';
+            carouselItem.innerHTML = `
+                <img src="feature.img/feature-${imgNumber}.jpg" 
+                     alt="Feature ${imgNumber}" 
+                     loading="lazy"
+                     data-index="${i}">
+            `;
+            carouselTrack.appendChild(carouselItem);
 
-// Set initial active slide
-document.querySelectorAll('.showcase-carousel-item')[0].classList.add('active');
+            // Lightbox Slide
+            const lightboxSlide = document.createElement('div');
+            lightboxSlide.className = 'showcase-lightbox-slide';
+            lightboxSlide.innerHTML = `
+                <img src="feature.img/feature-${imgNumber}.jpg" 
+                     alt="Feature ${imgNumber}">
+            `;
+            lightboxSlider.appendChild(lightboxSlide);
 
-// Navigation handlers
-document.querySelector('.showcase-carousel-prev').addEventListener('click', () => {
-    currentSlide = (currentSlide > 0) ? currentSlide - 1 : totalItems - 1;
-    updateCarousel();
-});
+            // Navigation Dots
+            const dot = document.createElement('div');
+            dot.className = 'dot';
+            dot.dataset.index = i;
+            dotsContainer.appendChild(dot);
+        });
 
-document.querySelector('.showcase-carousel-next').addEventListener('click', () => {
-    currentSlide = (currentSlide < totalItems - 1) ? currentSlide + 1 : 0;
-    updateCarousel();
-});
+        // Initialize variables after DOM creation
+        const items = document.querySelectorAll('.showcase-carousel-item');
+        const dots = document.querySelectorAll('.dot');
+        itemWidth = items[0].offsetWidth + 20; // Include margin
 
-function updateCarousel() {
-    const items = document.querySelectorAll('.showcase-carousel-item');
-    const offset = -currentSlide * (items[0].offsetWidth + 20);
-    carouselTrack.style.transform = `translateX(${offset}px)`;
-    
-    items.forEach((item, index) => {
-        item.classList.toggle('active', index === currentSlide);
+        // Carousel Functions
+        function updateCarousel() {
+            carouselTrack.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[currentIndex].classList.add('active');
+        }
+
+        // Event Listeners
+        document.querySelector('.showcase-carousel-prev').addEventListener('click', () => {
+            currentIndex = Math.max(currentIndex - 1, 0);
+            updateCarousel();
+        });
+
+        document.querySelector('.showcase-carousel-next').addEventListener('click', () => {
+            currentIndex = Math.min(currentIndex + 1, totalImages - 1);
+            updateCarousel();
+        });
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentIndex = index;
+                updateCarousel();
+            });
+        });
+
+        // Lightbox Functions
+        const lightbox = document.querySelector('.showcase-lightbox');
+
+        function openLightbox(index) {
+            lightboxIndex = index;
+            lightbox.style.display = 'block';
+            updateLightbox();
+        }
+
+        function updateLightbox() {
+            lightboxSlider.style.transform = `translateX(-${lightboxIndex * 100}%)`;
+            document.querySelector('.showcase-lightbox-counter').textContent = 
+                `${lightboxIndex + 1} / ${totalImages}`;
+        }
+
+        document.querySelectorAll('.showcase-carousel-item img').forEach((img, index) => {
+            img.addEventListener('click', () => openLightbox(index));
+        });
+
+        document.querySelector('.showcase-lightbox-close').addEventListener('click', () => {
+            lightbox.style.display = 'none';
+        });
+
+        document.querySelector('.showcase-lightbox-prev').addEventListener('click', () => {
+            lightboxIndex = Math.max(lightboxIndex - 1, 0);
+            updateLightbox();
+        });
+
+        document.querySelector('.showcase-lightbox-next').addEventListener('click', () => {
+            lightboxIndex = Math.min(lightboxIndex + 1, totalImages - 1);
+            updateLightbox();
+        });
+
+        // Keyboard Navigation
+        document.addEventListener('keydown', (e) => {
+            if (lightbox.style.display === 'block') {
+                if (e.key === 'Escape') lightbox.style.display = 'none';
+                if (e.key === 'ArrowLeft') lightboxIndex = Math.max(lightboxIndex - 1, 0);
+                if (e.key === 'ArrowRight') lightboxIndex = Math.min(lightboxIndex + 1, totalImages - 1);
+                updateLightbox();
+            }
+        });
+
+        // Touch Handling
+        let touchStartX = 0;
+        lightboxSlider.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+        }, false);
+
+        lightboxSlider.addEventListener('touchend', (e) => {
+            const touchEndX = e.changedTouches[0].clientX;
+            const deltaX = touchStartX - touchEndX;
+            
+            if (Math.abs(deltaX) > 50) {
+                if (deltaX > 0) {
+                    lightboxIndex = Math.min(lightboxIndex + 1, totalImages - 1);
+                } else {
+                    lightboxIndex = Math.max(lightboxIndex - 1, 0);
+                }
+                updateLightbox();
+            }
+        });
+
+        // Responsive Adjustments
+        window.addEventListener('resize', () => {
+            itemWidth = items[0].offsetWidth + 20;
+            updateCarousel();
+        });
+
+        // Initial setup
+        updateCarousel();
     });
-}
-
-// Lightbox functionality
-const lightbox = document.querySelector('.showcase-lightbox');
-const lightboxSlider = document.querySelector('.showcase-lightbox-slider');
-const lightboxCounter = document.querySelector('.showcase-lightbox-counter');
-
-// Generate lightbox items
-for(let i = 1; i <= totalItems; i++) {
-    const item = document.createElement('div');
-    item.className = 'showcase-lightbox-item';
-    item.innerHTML = `<img src="feature-img/feature-${i}.jpg" alt="Project ${i}">`;
-    lightboxSlider.appendChild(item);
-}
-
-document.querySelectorAll('.showcase-carousel-item').forEach((item, index) => {
-    item.addEventListener('click', () => {
-        lightbox.style.display = 'block';
-        currentSlide = index;
-        updateLightbox();
-    });
-});
-
-document.querySelector('.showcase-lightbox-close').addEventListener('click', () => {
-    lightbox.style.display = 'none';
-});
-
-// Lightbox navigation
-document.addEventListener('keydown', (e) => {
-    if(lightbox.style.display === 'block') {
-        if(e.key === 'ArrowLeft') navigateLightbox(-1);
-        if(e.key === 'ArrowRight') navigateLightbox(1);
-        if(e.key === 'Escape') lightbox.style.display = 'none';
-    }
-});
-
-function navigateLightbox(direction) {
-    currentSlide = (currentSlide + direction + totalItems) % totalItems;
-    updateLightbox();
-}
-
-function updateLightbox() {
-    document.querySelectorAll('.showcase-lightbox-item').forEach((item, index) => {
-        item.classList.toggle('active', index === currentSlide);
-    });
-    lightboxCounter.textContent = `${currentSlide + 1} / ${totalItems}`;
-}
-
-// Swipe detection for mobile
-let touchStartX = 0;
-let touchEndX = 0;
-
-lightboxSlider.addEventListener('touchstart', e => {
-    touchStartX = e.changedTouches[0].screenX;
-});
-
-lightboxSlider.addEventListener('touchend', e => {
-    touchEndX = e.changedTouches[0].screenX;
-    if(touchStartX - touchEndX > 50) navigateLightbox(1);
-    if(touchEndX - touchStartX > 50) navigateLightbox(-1);
-});
