@@ -806,7 +806,8 @@ nav {
 }
 
 .showcase-carousel-item {
-    flex: 0 0 calc(33.333% - 2rem);
+     flex: 0 0 calc(33.333% - 2rem);
+    height: 300px; /* Reduced height */
     margin: 0 1rem;
     border-radius: 20px;
     overflow: hidden;
@@ -834,10 +835,10 @@ nav {
 }
 
 .showcase-carousel-item img {
+   height: 100%;
     width: 100%;
-    height: 600px;
     object-fit: cover;
-    display: block;
+    aspect-ratio: 16/9; /* Landscape ratio */
 }
 
 .showcase-carousel-controls button {
@@ -911,10 +912,11 @@ nav {
 }
 
 .showcase-lightbox-item img {
-    width: 100%;
-    height: 80vh;
+  width: auto;
+    height: 70vh;
+    max-width: 90vw;
     object-fit: contain;
-    border-radius: 10px;
+    aspect-ratio: 16/9;
 }
 
 .showcase-lightbox-close {
