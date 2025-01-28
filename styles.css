@@ -925,6 +925,7 @@ nav {
     font-size: 40px;
     cursor: pointer;
     transition: color 0.3s ease;
+    z-index: 1001; /* Added z-index */
 }
 
 .showcase-lightbox-close:hover {
