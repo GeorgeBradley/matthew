@@ -230,6 +230,7 @@ function updateCarousel() {
 const lightbox = document.querySelector('.showcase-lightbox');
 const lightboxSlider = document.querySelector('.showcase-lightbox-slider');
 const lightboxCounter = document.querySelector('.showcase-lightbox-counter');
+const closeButton = document.querySelector('.showcase-lightbox-close');
 
 // Generate lightbox items
 for(let i = 1; i <= totalItems; i++) {
@@ -247,15 +248,23 @@ document.querySelectorAll('.showcase-carousel-item').forEach((item, index) => {
     });
 });
 
-document.querySelector('.showcase-lightbox-close').addEventListener('click', function(event) {
-    event.stopPropagation(); // Prevents the click event from affecting other elements
+// Close modal function
+function closeModal() {
     lightbox.style.display = 'none';
+}
+
+// Enhanced close functionality
+closeButton.addEventListener('click', (event) => {
+    event.preventDefault(); // Prevents default action if any
+    event.stopPropagation(); // Prevents event from bubbling up
+    closeModal();
+    console.log('Close button clicked'); // For debugging
 });
 
-// Ensure that clicking outside the modal also closes it
-window.addEventListener('click', function(event) {
-    if (event.target === lightbox) {
-        lightbox.style.display = 'none';
+// Close modal by clicking outside
+document.addEventListener('click', (e) => {
+    if (!lightbox.contains(e.target) && lightbox.style.display === 'block') {
+        closeModal();
     }
 });
 
@@ -264,7 +273,10 @@ document.addEventListener('keydown', (e) => {
     if(lightbox.style.display === 'block') {
         if(e.key === 'ArrowLeft') navigateLightbox(-1);
         if(e.key === 'ArrowRight') navigateLightbox(1);
-        if(e.key === 'Escape') lightbox.style.display = 'none';
+        if(e.key === 'Escape') {
+            closeModal();
+            console.log("Escape key pressed to close modal"); // For debugging
+        }
     }
 });
 
@@ -293,6 +305,3 @@ lightboxSlider.addEventListener('touchend', e => {
     if(touchStartX - touchEndX > 50) navigateLightbox(1);
     if(touchEndX - touchStartX > 50) navigateLightbox(-1);
 });
-
-
-
