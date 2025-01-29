@@ -216,4 +216,13 @@ document.addEventListener('DOMContentLoaded', function() {
     startSlide(); // Start the slideshow when the page loads
 });
   
-document.getElementById("footer-year").innerHTML = new Date().getFullYear();
+
+
+
+
+
+
+
+
+
+document.getElementById('current-year').textContent = new Date().getFullYear();
