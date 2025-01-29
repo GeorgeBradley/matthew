@@ -312,6 +312,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const delta = touchStartX - touchMoveX;
     if (Math.abs(delta) > 50) {
       navigateSlider(delta > 0 ? 1 : -1);
+    } else {
+      // Small swipe, adjust slider position to nearest image
+      adjustSliderPosition();
     }
   });
 
