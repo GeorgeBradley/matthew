@@ -903,35 +903,52 @@ nav {
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 .contact-section h2 {
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: #333;
+    margin-bottom: 40px;
+    font-weight: 600;
+    text-transform: uppercase;
 }
 
 .contact-item {
     display: flex;
     align-items: center;
+    justify-content: center;
     margin-bottom: 20px;
-    font-size: 1.2rem;
-    color: #555;
+    padding: 15px;
+    transition: background-color 0.3s;
+    border-radius: 8px;
 }
 
 .contact-item i {
-    margin-right: 10px;
+    font-size: 2rem;
     color: #007BFF;
+    margin-right: 20px;
+}
+
+.contact-item:hover {
+    background-color: #f0f8ff;
+}
+
+.contact-text h3 {
     font-size: 1.5rem;
-}
-
-.contact-item a {
     color: #007BFF;
-    text-decoration: none;
-    transition: color 0.3s;
+    margin: 0;
+    text-transform: uppercase;
 }
 
-.contact-item a:hover {
+.contact-text a, .contact-text span {
+    font-size: 1.2rem;
+    color: #555;
+    text-decoration: none;
+    display: block;
+    margin-top: 5px;
+}
+
+.contact-text a:hover {
     color: #0056b3;
 }
