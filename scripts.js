@@ -108,7 +108,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 
 
-// JavaScript
 document.addEventListener('DOMContentLoaded', function() {
   const featureSlider = document.querySelector('.feature-slider');
   const featureLightbox = document.querySelector('.feature-lightbox');
@@ -116,6 +115,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const featurePrev = document.querySelector('.feature-prev');
   const featureNext = document.querySelector('.feature-next');
   let featureCurrentIndex = 0;
+  const images = [];
 
   // Generate slider images
   for (let i = 1; i <= 17; i++) {
@@ -127,6 +127,7 @@ document.addEventListener('DOMContentLoaded', function() {
     img.dataset.desc = `Description for Project ${i}`;
     img.addEventListener('click', openLightbox);
     featureSlider.appendChild(img);
+    images.push(img);
   }
 
   // Lightbox controls
@@ -134,10 +135,11 @@ document.addEventListener('DOMContentLoaded', function() {
     featureCurrentIndex = parseInt(e.target.dataset.index);
     updateLightbox();
     featureLightbox.style.display = 'block';
+    document.body.style.overflow = 'hidden'; // Disable background scrolling
   }
 
   function updateLightbox() {
-    const img = document.querySelectorAll('.feature-slider img')[featureCurrentIndex];
+    const img = images[featureCurrentIndex];
     featureLightbox.querySelector('.feature-lightbox-img').src = img.src;
     featureLightbox.querySelector('.feature-lightbox-title').textContent = img.dataset.title;
     featureLightbox.querySelector('.feature-lightbox-desc').textContent = img.dataset.desc;
@@ -145,12 +147,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function closeLightbox() {
     featureLightbox.style.display = 'none';
+    document.body.style.overflow = ''; // Re-enable scrolling
   }
 
   function navigate(direction) {
-    featureCurrentIndex += direction;
-    if (featureCurrentIndex < 0) featureCurrentIndex = 16;
-    if (featureCurrentIndex > 16) featureCurrentIndex = 0;
+    featureCurrentIndex = (featureCurrentIndex + direction + images.length) % images.length;
     updateLightbox();
   }
 
@@ -162,8 +163,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
   document.querySelector('.feature-lightbox-prev').addEventListener('click', () => navigate(-1));
   document.querySelector('.feature-lightbox-next').addEventListener('click', () => navigate(1));
-  featurePrev.addEventListener('click', () => featureSlider.scrollBy(-300, 0));
-  featureNext.addEventListener('click', () => featureSlider.scrollBy(300, 0));
+
+  featurePrev.addEventListener('click', () => {
+    const scrollLeft = featureSlider.scrollLeft;
+    const index = scrollLeft > 0 ? featureCurrentIndex - 1 : images.length - 1;
+    featureSlider.scrollTo({
+      left: index * 300,
+      behavior: 'smooth'
+    });
+    featureCurrentIndex = index;
+  });
+
+  featureNext.addEventListener('click', () => {
+    const scrollLeft = featureSlider.scrollLeft;
+    const index = scrollLeft < (images.length - 1) * 300 ? featureCurrentIndex + 1 : 0;
+    featureSlider.scrollTo({
+      left: index * 300,
+      behavior: 'smooth'
+    });
+    featureCurrentIndex = index;
+  });
 
   // Keyboard controls
   document.addEventListener('keydown', (e) => {
@@ -182,5 +201,3 @@ document.addEventListener('DOMContentLoaded', function() {
     if (Math.abs(delta) > 50) navigate(delta > 0 ? 1 : -1);
   });
 });
-
-
