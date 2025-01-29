@@ -67,19 +67,19 @@
   </div>
   <div class="feature-slider-container">
     <div class="feature-slider"></div>
-    <button class="feature-arrow feature-prev">❮</button>
-    <button class="feature-arrow feature-next">❯</button>
+    <button class="feature-arrow feature-prev" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
+    <button class="feature-arrow feature-next" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
   </div>
-  <div class="feature-lightbox">
-    <span class="feature-close">&times;</span>
+  <div class="feature-lightbox" aria-hidden="true">
+    <span class="feature-close" aria-label="Close lightbox">×</span>
     <div class="feature-lightbox-content">
-      <img class="feature-lightbox-img">
+      <img class="feature-lightbox-img" alt="Enlarged Project Image">
       <div class="feature-caption">
         <h3 class="feature-lightbox-title"></h3>
         <p class="feature-lightbox-desc"></p>
       </div>
-      <a class="feature-lightbox-prev">❮</a>
-      <a class="feature-lightbox-next">❯</a>
+      <button class="feature-lightbox-prev" aria-label="Previous image in lightbox"><i class="fas fa-chevron-left"></i></button>
+      <button class="feature-lightbox-next" aria-label="Next image in lightbox"><i class="fas fa-chevron-right"></i></button>
     </div>
   </div>
 </section>
