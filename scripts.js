@@ -117,6 +117,7 @@ document.addEventListener('DOMContentLoaded', function() {
   let featureCurrentIndex = 0;
   const images = [];
   const imageWidth = 300; // Assuming each image is 300px wide
+  let scrolling = false;
 
   // Generate slider images
   for (let i = 1; i <= 17; i++) {
@@ -151,6 +152,42 @@ document.addEventListener('DOMContentLoaded', function() {
     document.body.style.overflow = ''; // Re-enable scrolling
   }
 
+  // Adjust slider position when user stops scrolling
+  featureSlider.addEventListener('scroll', function() {
+    scrolling = true;
+  });
+
+  featureSlider.addEventListener('scrollend', function() {
+    scrolling = false;
+    const scrollPosition = featureSlider.scrollLeft;
+    const nearestIndex = Math.round(scrollPosition / imageWidth);
+    featureSlider.scrollTo({
+      left: nearestIndex * imageWidth,
+      behavior: 'smooth'
+    });
+    featureCurrentIndex = nearestIndex % images.length;
+  });
+
+  // If 'scrollend' is not supported, fallback to a timeout
+  if (!('onscrollend' in document.createElement('div'))) {
+    let scrollTimeout;
+    featureSlider.addEventListener('scroll', function() {
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        if (scrolling) {
+          scrolling = false;
+          const scrollPosition = featureSlider.scrollLeft;
+          const nearestIndex = Math.round(scrollPosition / imageWidth);
+          featureSlider.scrollTo({
+            left: nearestIndex * imageWidth,
+            behavior: 'smooth'
+          });
+          featureCurrentIndex = nearestIndex % images.length;
+        }
+      }, 200);
+    });
+  }
+
   function navigateSlider(direction) {
     featureCurrentIndex = (featureCurrentIndex + direction + images.length) % images.length;
     featureSlider.scrollTo({
@@ -159,27 +196,30 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Event listeners
-  featureClose.addEventListener('click', closeLightbox);
-  featureLightbox.addEventListener('click', function(e) {
-    if (e.target === featureLightbox) closeLightbox();
+  // Event listeners for navigation
+  featurePrev.addEventListener('click', () => {
+    if (!scrolling) navigateSlider(-1);
+  });
+  featureNext.addEventListener('click', () => {
+    if (!scrolling) navigateSlider(1);
   });
 
   document.querySelector('.feature-lightbox-prev').addEventListener('click', () => {
-    featureCurrentIndex = (featureCurrentIndex - 1 + images.length) % images.length;
-    updateLightbox();
+    if (!scrolling) {
+      featureCurrentIndex = (featureCurrentIndex - 1 + images.length) % images.length;
+      updateLightbox();
+    }
   });
   document.querySelector('.feature-lightbox-next').addEventListener('click', () => {
-    featureCurrentIndex = (featureCurrentIndex + 1) % images.length;
-    updateLightbox();
+    if (!scrolling) {
+      featureCurrentIndex = (featureCurrentIndex + 1) % images.length;
+      updateLightbox();
+    }
   });
-
-  featurePrev.addEventListener('click', () => navigateSlider(-1));
-  featureNext.addEventListener('click', () => navigateSlider(1));
 
   // Keyboard controls
   document.addEventListener('keydown', (e) => {
-    if (featureLightbox.style.display === 'block') {
+    if (featureLightbox.style.display === 'block' && !scrolling) {
       if (e.key === 'Escape') closeLightbox();
       if (e.key === 'ArrowLeft') {
         featureCurrentIndex = (featureCurrentIndex - 1 + images.length) % images.length;
@@ -196,10 +236,12 @@ document.addEventListener('DOMContentLoaded', function() {
   let touchStartX = 0;
   featureLightbox.addEventListener('touchstart', (e) => touchStartX = e.changedTouches[0].screenX);
   featureLightbox.addEventListener('touchend', (e) => {
-    const delta = touchStartX - e.changedTouches[0].screenX;
-    if (Math.abs(delta) > 50) {
-      featureCurrentIndex = (featureCurrentIndex + (delta > 0 ? 1 : -1) + images.length) % images.length;
-      updateLightbox();
+    if (!scrolling) {
+      const delta = touchStartX - e.changedTouches[0].screenX;
+      if (Math.abs(delta) > 50) {
+        featureCurrentIndex = (featureCurrentIndex + (delta > 0 ? 1 : -1) + images.length) % images.length;
+        updateLightbox();
+      }
     }
   });
 });
