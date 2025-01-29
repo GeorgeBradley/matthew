@@ -114,63 +114,105 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 
 document.addEventListener('DOMContentLoaded', function() {
-    const featureGallery = document.querySelector('#feature-gallery .feature-slider');
-    let featureCurrentIndex = 0;
-    let featureImages = [];
+    const slider = document.getElementById('feature-slider');
+    const lightbox = document.getElementById('feature-lightbox');
+    const modalImg = document.getElementById('feature-img-modal');
+    const captionText = document.getElementById('feature-caption');
+    const closeBtn = document.getElementsByClassName('feature-close')[0];
+    let currentIndex = 0;
+    const images = [];
+    const prevButton = document.getElementById('feature-prev');
+    const nextButton = document.getElementById('feature-next');
+    let autoSlide;
 
-    // Generate images dynamically
+    // Dynamically add images to slider with lazy loading
     for (let i = 1; i <= 17; i++) {
-        let featureImg = document.createElement('img');
-        featureImg.src = `feature-img/feature-${i}.jpg`;
-        featureImg.alt = `Project ${i}`;
-        featureImg.dataset.lightbox = 'gallery';
-        featureImg.dataset.title = `Project ${i}`;
-        featureImg.style.display = 'none'; // Initially hide all images
-        featureImages.push(featureImg);
-        featureGallery.appendChild(featureImg);
+        let img = document.createElement('img');
+        img.src = `data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7`; // Placeholder for lazy loading
+        img.dataset.src = `feature-img/feature-${i}.jpg`;
+        img.alt = `Work ${i}`;
+        img.title = `Work ${i}`;
+        img.loading = "lazy";
+        img.addEventListener('click', function() {
+            openLightbox(this.dataset.src, this.alt);
+        });
+        slider.appendChild(img);
+        images.push(img);
     }
 
-    // Show the first image
-    if (featureImages.length > 0) {
-        featureImages[0].style.display = 'block';
+    function loadImage(img) {
+        const src = img.dataset.src;
+        if (!src) return;
+        img.src = src;
+        img.removeAttribute('data-src');
     }
 
-    // Function to switch images
-    function featureSwitchImage(direction) {
-        featureImages[featureCurrentIndex].style.display = 'none';
-        if (direction === 'next') {
-            featureCurrentIndex = (featureCurrentIndex + 1) % featureImages.length;
+    // Implement lazy loading
+    function handleLazyLoad() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        images.forEach(img => {
+            if (img.getBoundingClientRect().top < window.innerHeight && img.dataset.src) {
+                loadImage(img);
+            }
+        });
+    }
+
+    window.addEventListener('scroll', handleLazyLoad);
+    handleLazyLoad(); // Load images on initial load
+
+    function openLightbox(src, alt) {
+        modalImg.src = src;
+        modalImg.alt = alt; // For accessibility
+        captionText.innerHTML = alt;
+        lightbox.style.display = "block";
+    }
+
+    closeBtn.onclick = function() { 
+        lightbox.style.display = "none";
+    }
+
+    // Close lightbox if clicked outside of image
+    window.onclick = function(event) {
+        if (event.target == lightbox) {
+            lightbox.style.display = "none";
+        }
+    }
+
+    // Navigation for the slider
+    function slideTo(index) {
+        currentIndex = (index + images.length) % images.length;
+        slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    prevButton.addEventListener('click', () => slideTo(currentIndex - 1));
+    nextButton.addEventListener('click', () => slideTo(currentIndex + 1));
+
+    // Keyboard navigation
+    document.addEventListener('keydown', function(event) {
+        if (lightbox.style.display === "block") {
+            if (event.key === "Escape") lightbox.style.display = "none";
         } else {
-            featureCurrentIndex = (featureCurrentIndex - 1 + featureImages.length) % featureImages.length;
+            if (event.key === "ArrowLeft") slideTo(currentIndex - 1);
+            if (event.key === "ArrowRight") slideTo(currentIndex + 1);
         }
-        featureImages[featureCurrentIndex].style.display = 'block';
+    });
+
+    // Automatic slide every 3 seconds
+    function autoSlideFunction() {
+        slideTo(currentIndex + 1);
     }
 
-    // Event listeners for swipe functionality
-    let featureStartX, featureMoveX;
-    featureGallery.addEventListener('touchstart', function(e) {
-        featureStartX = e.touches[0].clientX;
-    });
+    function startSlide() {
+        autoSlide = setInterval(autoSlideFunction, 3000);
+    }
 
-    featureGallery.addEventListener('touchmove', function(e) {
-        featureMoveX = e.touches[0].clientX;
-    });
+    function stopSlide() {
+        clearInterval(autoSlide);
+    }
 
-    featureGallery.addEventListener('touchend', function(e) {
-        if (featureStartX - featureMoveX > 50) { // Swipe left
-            featureSwitchImage('next');
-        } else if (featureMoveX - featureStartX > 50) { // Swipe right
-            featureSwitchImage('prev');
-        }
-    });
+    slider.addEventListener('mouseenter', stopSlide);
+    slider.addEventListener('mouseleave', startSlide);
 
-    // Click to open Lightbox
-    featureGallery.addEventListener('click', function(e) {
-        if (e.target.tagName === 'IMG') {
-            e.preventDefault();
-            e.target.click(); // This will trigger Lightbox to open
-        }
-    });
+    startSlide(); // Start the slideshow when the page loads
 });
-
   
