@@ -777,11 +777,10 @@ nav {
 
 
 
-
-/* CSS */
 .feature-works {
   padding: 4rem 2rem;
   background: #f8f9fa;
+  font-family: 'Arial', sans-serif;
 }
 
 .feature-header {
@@ -792,6 +791,7 @@ nav {
 .feature-header h2 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
+  color: #333;
 }
 
 .feature-slider-container {
@@ -807,6 +807,7 @@ nav {
   scrollbar-width: none;
   -ms-overflow-style: none;
   padding: 1rem 0;
+  justify-content: center; /* Center images */
 }
 
 .feature-slider::-webkit-scrollbar {
@@ -818,14 +819,15 @@ nav {
   width: 300px;
   height: 200px;
   object-fit: cover;
-  margin-right: 1rem;
+  margin: 0 5px;
   cursor: pointer;
   border-radius: 8px;
   transition: transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 .feature-slider img:hover {
-  transform: scale(1.03);
+  transform: scale(1.05);
 }
 
 .feature-arrow {
@@ -834,15 +836,16 @@ nav {
   transform: translateY(-50%);
   background: rgba(0,0,0,0.5);
   color: white;
-  padding: 1rem;
   border: none;
   cursor: pointer;
   border-radius: 50%;
+  font-size: 2rem;
+  padding: 1rem;
   z-index: 1;
 }
 
-.feature-prev { left: 1rem; }
-.feature-next { right: 1rem; }
+.feature-prev { left: 0; }
+.feature-next { right: 0; }
 
 .feature-lightbox {
   display: none;
@@ -857,31 +860,38 @@ nav {
 
 .feature-lightbox-content {
   position: relative;
-  max-width: 90%;
-  max-height: 90vh;
-  margin: 2% auto;
-  text-align: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .feature-lightbox-img {
-  max-width: 100%;
-  max-height: 80vh;
+  max-width: 90%;
+  max-height: 90%;
   object-fit: contain;
   border-radius: 8px;
 }
 
 .feature-close {
   position: absolute;
-  top: 2rem;
-  right: 3rem;
+  top: 1rem;
+  right: 1rem;
   color: white;
   font-size: 3rem;
   cursor: pointer;
+  z-index: 1001;
 }
 
 .feature-caption {
   color: white;
   padding: 1rem;
+  position: absolute;
+  bottom: 20px;
+  background: rgba(0,0,0,0.7);
+  width: calc(100% - 40px);
+  border-radius: 4px;
 }
 
 .feature-lightbox-prev,
@@ -895,6 +905,7 @@ nav {
   padding: 1rem;
   background: rgba(0,0,0,0.5);
   border-radius: 50%;
+  z-index: 1001;
 }
 
 .feature-lightbox-prev { left: 2rem; }
