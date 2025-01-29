@@ -991,87 +991,66 @@ nav {
 }
 
 
-.footer {
-  background-color: #333;
-  color: #fff;
-  padding: 40px 0;
-  text-align: center;
-  font-size: 16px;
-}
 
-.footer-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
 
-.footer-copyright {
-  font-size: 14px;
-  margin-bottom: 20px;
-}
 
-.footer-contact {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
 
-.footer-contact-item {
-  margin: 10px 20px;
-  width: calc(25% - 40px);
-}
 
-.footer-contact-item:last-child {
-  margin-right: 0;
-}
 
-.footer-contact-label {
-  font-weight: bold;
-  margin-right: 10px;
-  display: block;
-  font-size: 14px;
-  color: #ccc;
-}
 
-.footer-contact-value {
-  font-size: 16px;
-}
+        .footer {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: auto;
+        }
 
-.footer-contact-value i {
-  margin-right: 10px;
-  font-size: 18px;
-}
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
 
-.footer-contact-value a {
-  color: #fff;
-  text-decoration: none;
-}
+        .footer-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: transform 0.3s ease;
+        }
 
-.footer-contact-value a:hover {
-  text-decoration: underline;
-}
+        .footer-name:hover {
+            transform: scale(1.05);
+        }
 
-#footer-year {
-  font-weight: bold;
-}
+        .footer-date {
+            color: #888;
+            font-size: 0.9rem;
+            font-weight: 300;
+            transition: color 0.3s ease;
+        }
 
-/* Add some media queries to make the footer responsive */
+        .footer-date:hover {
+            color: #ffd700;
+        }
 
-@media (max-width: 768px) {
-  .footer-contact-item {
-    width: calc(50% - 40px);
-  }
-}
+        @media (max-width: 768px) {
+            .footer {
+                padding: 1.5rem 5%;
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
 
-@media (max-width: 480px) {
-  .footer-contact-item {
-    width: 100%;
-    margin: 10px 0;
-  }
-  .footer-contact-label {
-    margin-bottom: 5px;
-  }
-}
+            .footer-name {
+                font-size: 1.1rem;
+            }
+
+            .footer-date {
+                font-size: 0.85rem;
+            }
+        }
