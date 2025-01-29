@@ -908,6 +908,8 @@ nav {
   font-weight: bold;
   font-size: 24px;
   color: #333;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .contact-info {
@@ -923,6 +925,12 @@ nav {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
 .contact-item i {
@@ -935,15 +943,18 @@ nav {
   font-weight: bold;
   margin-right: 10px;
   color: #666;
+  font-size: 16px;
 }
 
 .contact-item a {
   text-decoration: none;
   color: #337ab7;
+  font-size: 16px;
 }
 
 .contact-item a:hover {
   color: #23527c;
+  text-decoration: underline;
 }
 
 @media only screen and (max-width: 768px) {
@@ -951,4 +962,30 @@ nav {
     width: 100%;
     margin: 20px 0;
   }
+}
+
+@media only screen and (max-width: 480px) {
+  .contact-section {
+    padding: 20px;
+  }
+  .contact-item {
+    padding: 10px;
+  }
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+}
+
+.contact-item i {
+  margin-right: 10px;
+}
+
+.contact-item span {
+  margin-right: 10px;
+}
+
+.contact-item a {
+  margin-left: 10px;
 }
