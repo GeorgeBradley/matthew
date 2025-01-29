@@ -991,7 +991,6 @@ nav {
 }
 
 
-
 .footer {
   background-color: #333;
   color: #fff;
@@ -1033,6 +1032,8 @@ nav {
   font-weight: bold;
   margin-right: 10px;
   display: block;
+  font-size: 14px;
+  color: #ccc;
 }
 
 .footer-contact-value {
@@ -1069,5 +1070,8 @@ nav {
   .footer-contact-item {
     width: 100%;
     margin: 10px 0;
+  }
+  .footer-contact-label {
+    margin-bottom: 5px;
   }
 }
