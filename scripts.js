@@ -191,6 +191,7 @@ document.addEventListener('DOMContentLoaded', function() {
   function adjustSliderPosition() {
     const scrollPosition = featureSlider.scrollLeft;
     const nearestIndex = Math.round(scrollPosition / imageWidth);
+    // Ensure scroll position matches exactly one image's width
     featureSlider.scrollTo({
       left: nearestIndex * imageWidth,
       behavior: 'smooth'
@@ -200,6 +201,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function navigateSlider(direction) {
     featureCurrentIndex = (featureCurrentIndex + direction + images.length) % images.length;
+    // Directly set the scroll position to prevent partial image showing
     featureSlider.scrollTo({
       left: featureCurrentIndex * imageWidth,
       behavior: 'smooth'
@@ -326,4 +328,3 @@ document.addEventListener('DOMContentLoaded', function() {
   featureNext.setAttribute('aria-label', 'Next image');
   featureClose.setAttribute('aria-label', 'Close lightbox');
 });
-
