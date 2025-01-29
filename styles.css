@@ -785,31 +785,3 @@ nav {
 
 
 
-#feature-my-works {
-    text-align: center;
-    padding: 2rem 0;
-}
-
-#feature-my-works h2 {
-    margin-bottom: 1rem;
-}
-
-#feature-my-works p {
-    margin-bottom: 2rem;
-}
-
-.feature-slider {
-    max-width: 800px;
-    margin: 0 auto;
-    overflow: hidden;
-}
-
-.feature-slider img {
-    width: 100%;
-    height: auto;
-    display: none;
-}
-
-.feature-slider img:first-child {
-    display: block;
-}
