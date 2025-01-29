@@ -123,7 +123,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const img = document.createElement('img');
     img.src = `feature-img/placeholder.jpg`; // Use a placeholder initially
     img.dataset.src = `feature-img/feature-${i}.jpg`; // Real source for lazy loading
-    img.srcset = `feature-img/feature-${i}@2x.jpg 2x, feature-img/feature-${i}.jpg 1x`; // For high-res displays
     img.alt = `Project ${i}`;
     img.dataset.index = i - 1;
     img.dataset.title = `Project ${i}`;
@@ -132,11 +131,9 @@ document.addEventListener('DOMContentLoaded', function() {
     img.addEventListener('click', openLightbox);
     img.addEventListener('load', function() {
       this.style.opacity = 1; // Fade in when loaded
-      this.setAttribute('aria-busy', 'false');
     });
     img.style.opacity = 0; // Start invisible
     img.style.width = `${imageWidth}px`; // Set initial width
-    img.setAttribute('aria-busy', 'true'); // Accessibility: Indicate image is loading
     featureSlider.appendChild(img);
     images.push(img);
   }
@@ -147,7 +144,6 @@ document.addEventListener('DOMContentLoaded', function() {
     updateLightbox();
     featureLightbox.style.display = 'block';
     document.body.style.overflow = 'hidden'; // Disable background scrolling
-    featureLightbox.querySelector('.feature-lightbox-img').focus(); // Focus management
   }
 
   function updateLightbox() {
@@ -155,26 +151,11 @@ document.addEventListener('DOMContentLoaded', function() {
     featureLightbox.querySelector('.feature-lightbox-img').src = img.dataset.src;
     featureLightbox.querySelector('.feature-lightbox-title').textContent = img.dataset.title;
     featureLightbox.querySelector('.feature-lightbox-desc').textContent = img.dataset.desc;
-    
-    // Remove previous counter if exists
-    const prevCounter = featureLightbox.querySelector('.image-counter');
-    if (prevCounter) prevCounter.remove();
-    
-    // Add new counter
-    const counter = document.createElement('div');
-    counter.textContent = `${featureCurrentIndex + 1} / ${images.length}`;
-    counter.className = 'image-counter';
-    featureLightbox.querySelector('.feature-lightbox-content').appendChild(counter);
-    
-    // Accessibility: Announce changes for screen readers
-    const announcement = new SpeechSynthesisUtterance(`Viewing ${img.dataset.title}`);
-    window.speechSynthesis.speak(announcement);
   }
 
   function closeLightbox() {
     featureLightbox.style.display = 'none';
     document.body.style.overflow = ''; // Re-enable scrolling
-    featureSlider.querySelector('img').focus(); // Focus back to slider
   }
 
   // Adjust slider position when user stops scrolling
@@ -184,7 +165,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
   featureSlider.addEventListener('scrollend', function() {
     scrolling = false;
-    adjustSliderPosition();
+    const scrollPosition = featureSlider.scrollLeft;
+    const nearestIndex = Math.round(scrollPosition / imageWidth);
+    featureSlider.scrollTo({
+      left: nearestIndex * imageWidth,
+      behavior: 'smooth'
+    });
+    featureCurrentIndex = nearestIndex % images.length;
   });
 
   // If 'scrollend' is not supported, fallback to a timeout
@@ -195,20 +182,16 @@ document.addEventListener('DOMContentLoaded', function() {
       scrollTimeout = setTimeout(() => {
         if (scrolling) {
           scrolling = false;
-          adjustSliderPosition();
+          const scrollPosition = featureSlider.scrollLeft;
+          const nearestIndex = Math.round(scrollPosition / imageWidth);
+          featureSlider.scrollTo({
+            left: nearestIndex * imageWidth,
+            behavior: 'smooth'
+          });
+          featureCurrentIndex = nearestIndex % images.length;
         }
       }, 200);
     });
-  }
-
-  function adjustSliderPosition() {
-    const scrollPosition = featureSlider.scrollLeft;
-    const nearestIndex = Math.round(scrollPosition / imageWidth);
-    featureSlider.scrollTo({
-      left: nearestIndex * imageWidth,
-      behavior: 'smooth'
-    });
-    featureCurrentIndex = nearestIndex % images.length;
   }
 
   function navigateSlider(direction) {
@@ -217,56 +200,26 @@ document.addEventListener('DOMContentLoaded', function() {
       left: featureCurrentIndex * imageWidth,
       behavior: 'smooth'
     });
-    preloadImages(direction);
-  }
-
-  function preloadImages(direction) {
-    const preloadAmount = 2; // Preload 2 images before and after
-    for (let i = -preloadAmount; i <= preloadAmount; i++) {
-      let index = (featureCurrentIndex + i + images.length) % images.length;
-      if (!images[index].src || images[index].src === 'feature-img/placeholder.jpg') {
-        images[index].src = images[index].dataset.src;
-      }
-    }
-  }
-
-  function disableButtons(disabled) {
-    [featurePrev, featureNext].forEach(btn => {
-      btn.disabled = disabled;
-      btn.style.opacity = disabled ? 0.5 : 1; // Visual feedback for disabled state
-    });
   }
 
   // Event listeners for navigation
   featurePrev.addEventListener('click', () => {
-    if (!scrolling) {
-      disableButtons(true);
-      navigateSlider(-1);
-      setTimeout(() => disableButtons(false), 300); // Re-enable after animation
-    }
+    if (!scrolling) navigateSlider(-1);
   });
   featureNext.addEventListener('click', () => {
-    if (!scrolling) {
-      disableButtons(true);
-      navigateSlider(1);
-      setTimeout(() => disableButtons(false), 300); // Re-enable after animation
-    }
+    if (!scrolling) navigateSlider(1);
   });
 
   document.querySelector('.feature-lightbox-prev').addEventListener('click', () => {
     if (!scrolling) {
-      disableButtons(true);
       featureCurrentIndex = (featureCurrentIndex - 1 + images.length) % images.length;
       updateLightbox();
-      setTimeout(() => disableButtons(false), 300); // Re-enable after animation
     }
   });
   document.querySelector('.feature-lightbox-next').addEventListener('click', () => {
     if (!scrolling) {
-      disableButtons(true);
       featureCurrentIndex = (featureCurrentIndex + 1) % images.length;
       updateLightbox();
-      setTimeout(() => disableButtons(false), 300); // Re-enable after animation
     }
   });
 
@@ -288,9 +241,6 @@ document.addEventListener('DOMContentLoaded', function() {
         featureCurrentIndex = (featureCurrentIndex + 1) % images.length;
         updateLightbox();
       }
-    } else if (e.target === featureSlider && !featureLightbox.style.display) {
-      if (e.key === 'ArrowLeft') navigateSlider(-1);
-      if (e.key === 'ArrowRight') navigateSlider(1);
     }
   });
 
@@ -312,9 +262,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const delta = touchStartX - touchMoveX;
     if (Math.abs(delta) > 50) {
       navigateSlider(delta > 0 ? 1 : -1);
-    } else {
-      // Small swipe, adjust slider position to nearest image
-      adjustSliderPosition();
     }
   });
 
