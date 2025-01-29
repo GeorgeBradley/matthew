@@ -33,18 +33,7 @@
 </head>
 <body>
 
-    <!-- Modal Structure -->
-<div class="modal" id="imageModal">
-    <div class="modal-content">
-        <button class="close-modal">&times;</button>
-        <img class="modal-image" src="" alt="Enlarged view">
-        <div class="modal-caption">
-            <h3 id="modalCaption"></h3>
-            <a id="seeMoreLink" class="see-more-btn" href="#">See More</a>
-        </div>
-    </div>
-</div>
-<!-- HTML -->
+ 
 <nav>
     <img src="Header.png" alt="Logo" class="logo">
     <div class="nav-links">
@@ -59,35 +48,19 @@
         <span></span>
     </button>
 </nav>
-
-<section id="feature-my-works">
-        <h2>My Works</h2>
-        <div id="feature-slider-container">
-            <div id="feature-slider">
-                <!-- Images will be dynamically added here -->
-            </div>
-            <button id="feature-prev" aria-label="Previous image">&lt;</button>
-            <button id="feature-next" aria-label="Next image">&gt;</button>
-        </div>
-    </section>
-
-    <!-- Lightbox -->
-    <div id="feature-lightbox" class="feature-modal">
-        <span class="feature-close" aria-label="Close">&times;</span>
-        <img class="feature-modal-content" id="feature-img-modal" alt="Enlarged view of work">
-        <div id="feature-caption"></div>
-    </div>
-
 <div class="slider-container">
-    <div class="slider-track">
-        <div class="slider-item"  data-caption="Beautiful Landscape 1" data-link="/more-info-1"><img src="slider-img-4.png" alt="Slide 4"></div>
-        <div class="slider-item"  data-caption="Beautiful Landscape 1" data-link="/more-info-1"><img src="slider-img-3.png" alt="Slide 3"></div>
-        <div class="slider-item"  data-caption="Beautiful Landscape 1" data-link="/more-info-1" ><img src="slider-img-1.png" alt="Slide 1"></div>
-        <div class="slider-item"  data-caption="Beautiful Landscape 1" data-link="/more-info-1"><img src="slider-img-2.png" alt="Slide 2"></div>
-
-
-     <!-- Add more images as needed -->
+    <div class="slider-track"></div>
+    
+    <div class="arrow-nav">
+        <button class="arrow-button prev-btn" aria-label="Previous slide">
+            <svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg>
+        </button>
+        <button class="arrow-button next-btn" aria-label="Next slide">
+            <svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
     </div>
+    
+    <div class="slider-controls"></div>
 </div>
 
 <!-- About Me Section -->
@@ -113,6 +86,7 @@
             </div>
             <a href="#contact" class="cta-button">Explore My World</a>
         </div>
+        
     </div>
 </div>
 
@@ -120,260 +94,11 @@
 
 
 
-
- <section class="features-section">
-        <h2 class="section-heading">Featured Projects</h2>
-        <div class="features-container">
+<div class="projects-grid" id="projects-container"></div>
 
 
 
-       <!-- Card 2 -->
-<div class="feature-card">
-    <div class="card-image">
-        <img src="feature-img/feature-2.jpg" alt="AI Automation Interface">
-    </div>
-    <div class="card-content">
-        <h3 class="project-name">Olbas Oil – The power to breathe (Advert)</h3>
-        <p class="card-caption">At Yamination Studios
 
-            Role: Sculptor, Model Maker</p>
-        <a href="#" class="see-more-btn">See More</a>
-    </div>
-</div>
-
-<!-- Card 3 -->
-<div class="feature-card">
-    <div class="card-image">
-        <img src="feature-img/feature-3.jpg" alt="Blockchain Network">
-    </div>
-    <div class="card-content">
-        <h3 class="project-name">Secure Blockchain System</h3>
-        <p class="card-caption">Decentralized ledger technology for tamper-proof transactions and record keeping.</p>
-        <a href="#" class="see-more-btn">See Technology</a>
-    </div>
-</div>
-
-<!-- Card 4 -->
-<div class="feature-card">
-    <div class="card-image">
-        <img src="feature-img/feature-4.jpg" alt="IoT Ecosystem">
-    </div>
-    <div class="card-content">
-        <h3 class="project-name">IoT Management Suite</h3>
-        <p class="card-caption">Comprehensive control center for enterprise-scale IoT device networks.</p>
-        <a href="#" class="see-more-btn">Manage Devices</a>
-    </div>
-</div>
-
-<!-- Cards 5-22 (Continued pattern) -->
-<!-- Replace placeholder text with your actual content -->
-
-<div class="feature-card">
-    <div class="card-image">
-        <img src="feature-img/feature-5.jpg" alt="VR Training System">
-    </div>
-    <div class="card-content">
-        <h3 class="project-name">VR Training Simulator</h3>
-        <p class="card-caption">Immersive training environments with realistic scenarios and analytics.</p>
-        <a href="#" class="see-more-btn">Try Demo</a>
-    </div>
-</div>
-
-<div class="feature-card">
-    <div class="card-image">
-        <img src="feature-img/feature-6.jpg" alt="Quantum Computing">
-    </div>
-    <div class="card-content">
-        <h3 class="project-name">Quantum Compute Interface</h3>
-        <p class="card-caption">Next-generation computing power for complex problem solving.</p>
-        <a href="#" class="see-more-btn">Explore Power</a>
-    </div>
-</div>
-
-<div class="feature-card">
-    <div class="card-image">
-        <img src="feature-img/feature-7.jpg" alt="Smart City Model">
-    </div>
-    <div class="card-content">
-        <h3 class="project-name">Smart City Platform</h3>
-        <p class="card-caption">Integrated urban management system for modern municipalities.</p>
-        <a href="#" class="see-more-btn">View Solutions</a>
-    </div>
-</div>
-
-<!-- Continue this pattern changing these elements for each card:
-1. img src number (feature-[N].jpg)
-2. alt text description
-3. project-name
-4. card-caption
-5. see-more-btn text -->
-
-<!-- Example remaining cards (8-22) -->
-<div class="feature-card">
-    <div class="card-image">
-        <img src="feature-img/feature-8.jpg" alt="Biometric Security">
-    </div>
-    <div class="card-content">
-        <h3 class="project-name">  </h3>
-        <p class="card-caption"></p>
-        <a href="#" class="see-more-btn">Secure Now</a>
-    </div>
-</div>
-
-<div class="feature-card">
-    <div class="card-image">
-        <img src="feature-img/feature-9.jpg" alt="Edge Computing">
-    </div>
-    <div class="card-content">
-        <h3 class="project-name">Edge Network Solution</h3>
-        <p class="card-caption">Distributed computing architecture for low-latency processing.</p>
-        <a href="#" class="see-more-btn">Optimize Network</a>
-    </div>
-</div>
-<div class="feature-card">
-    <div class="card-image">
-        <img src="feature-img/feature-10.jpg" alt="Edge Computing">
-    </div>
-    <div class="card-content">
-        <h3 class="project-name">Edge Network Solution</h3>
-        <p class="card-caption">Distributed computing architecture for low-latency processing.</p>
-        <a href="#" class="see-more-btn">Optimize Network</a>
-    </div>
-</div>
-<div class="feature-card">
-    <div class="card-image">
-        <img src="feature-img/feature-11.jpg" alt="Edge Computing">
-    </div>
-    <div class="card-content">
-        <h3 class="project-name">Edge Network Solution</h3>
-        <p class="card-caption">Distributed computing architecture for low-latency processing.</p>
-        <a href="#" class="see-more-btn">Optimize Network</a>
-    </div>
-
-
-</div>
-
-<div class="feature-card">
-    <div class="card-image">
-        <img src="feature-img/feature-12.jpg" alt="Edge Computing">
-    </div>
-    <div class="card-content">
-        <h3 class="project-name">Edge Network Solution</h3>
-        <p class="card-caption">Distributed computing architecture for low-latency processing.</p>
-        <a href="#" class="see-more-btn">Optimize Network</a>
-    </div>
-</div>
-
-<div class="feature-card">
-    <div class="card-image">
-        <img src="feature-img/feature-13.jpg" alt="Edge Computing">
-    </div>
-    <div class="card-content">
-        <h3 class="project-name">Edge Network Solution</h3>
-        <p class="card-caption">Distributed computing architecture for low-latency processing.</p>
-        <a href="#" class="see-more-btn">Optimize Network</a>
-    </div>
-</div>
-<div class="feature-card">
-    <div class="card-image">
-        <img src="feature-img/feature-14.jpg" alt="Edge Computing">
-    </div>
-    <div class="card-content">
-        <h3 class="project-name">Edge Network Solution</h3>
-        <p class="card-caption">Distributed computing architecture for low-latency processing.</p>
-        <a href="#" class="see-more-btn">Optimize Network</a>
-    </div>
-</div>
-<div class="feature-card">
-    <div class="card-image">
-        <img src="feature-img/feature-15.jpg" alt="Edge Computing">
-    </div>
-    <div class="card-content">
-        <h3 class="project-name">Edge Network Solution</h3>
-        <p class="card-caption">Distributed computing architecture for low-latency processing.</p>
-        <a href="#" class="see-more-btn">Optimize Network</a>
-    </div>
-
-
-</div>
-
-<div class="feature-card">
-    <div class="card-image">
-        <img src="feature-img/feature-16.jpg" alt="Edge Computing">
-    </div>
-    <div class="card-content">
-        <h3 class="project-name">Edge Network Solution</h3>
-        <p class="card-caption">Distributed computing architecture for low-latency processing.</p>
-        <a href="#" class="see-more-btn">Optimize Network</a>
-    </div>
-</div>
-
-<div class="feature-card">
-    <div class="card-image">
-        <img src="feature-img/feature-17.jpg" alt="Edge Computing">
-    </div>
-    <div class="card-content">
-        <h3 class="project-name">Edge Network Solution</h3>
-        <p class="card-caption">Distributed computing architecture for low-latency processing.</p>
-        <a href="#" class="see-more-btn">Optimize Network</a>
-    </div>
-</div>
-<div class="feature-card">
-    <div class="card-image">
-        <img src="feature-img/feature-18.jpg" alt="Edge Computing">
-    </div>
-    <div class="card-content">
-        <h3 class="project-name">Edge Network Solution</h3>
-        <p class="card-caption">Distributed computing architecture for low-latency processing.</p>
-        <a href="#" class="see-more-btn">Optimize Network</a>
-    </div>
-</div>
-<div class="feature-card">
-    <div class="card-image">
-        <img src="feature-img/feature-19.jpg" alt="Edge Computing">
-    </div>
-    <div class="card-content">
-        <h3 class="project-name">Edge Network Solution</h3>
-        <p class="card-caption">Distributed computing architecture for low-latency processing.</p>
-        <a href="#" class="see-more-btn">Optimize Network</a>
-    </div>
-</div>
-<div class="feature-card">
-    <div class="card-image">
-        <img src="feature-img/feature-20.jpg" alt="Edge Computing">
-    </div>
-    <div class="card-content">
-        <h3 class="project-name">Edge Network Solution</h3>
-        <p class="card-caption">Distributed computing architecture for low-latency processing.</p>
-        <a href="#" class="see-more-btn">Optimize Network</a>
-    </div>
-</div>
-<!-- Continue this pattern up to feature-22.jpg -->
-
-<div class="feature-card">
-    <div class="card-image">
-        <img src="feature-img/feature-21.jpg" alt="AR Collaboration">
-    </div>
-    <div class="card-content">
-        <h3 class="project-name">AR Workspace Suite</h3>
-        <p class="card-caption">Mixed reality environment for collaborative remote teams.</p>
-        <a href="#" class="see-more-btn">Join Beta</a>
-    </div>
-</div>
-
-
-<div class="feature-card">
-    <div class="card-image">
-        <img src="feature-img/feature-22.jpg" alt="AR Collaboration">
-    </div>
-    <div class="card-content">
-        <h3 class="project-name">AR Workspace Suite</h3>
-        <p class="card-caption">Mixed reality environment for collaborative remote teams.</p>
-        <a href="#" class="see-more-btn">Join Beta</a>
-    </div>
-</div>
-    </div>
-</section>
 <section class="contact-section">
     <div class="contact-container">
         <h2 class="section-title">Get in Touch</h2>
@@ -424,12 +149,15 @@
         </div>
     </footer>
 
-<!-- Include Lightbox2 CSS -->
+<!-- Include Lightbox2 CSS -->
 
-<!-- Include Lightbox2 JS -->
+
+<!-- Include Lightbox2 JS -->
+
+<script src="feature-project.js" defer></script>
     <!-- Load JavaScript -->
     <script src="scripts.js" defer></script>
-    
+
     <!-- Progressive Enhancement -->
     <noscript>
         <style>
