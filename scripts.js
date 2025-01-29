@@ -302,6 +302,202 @@ document.addEventListener('DOMContentLoaded', function() {
   lazyLoadImages(); // Initial check for images in viewport
 
   // Update image width on resize
+  fundocument.addEventListener('DOMContentLoaded', function() {
+  const featureSlider = document.querySelector('.feature-slider');
+  const featureLightbox = document.querySelector('.feature-lightbox');
+  const featureClose = document.querySelector('.feature-close');
+  const featurePrev = document.querySelector('.feature-prev');
+  const featureNext = document.querySelector('.feature-next');
+  let featureCurrentIndex = 0;
+  const images = [];
+  let imageWidth = 300; // Initial width, can be adjusted
+  let scrolling = false;
+
+  // Generate slider images with lazy loading
+  for (let i = 1; i <= 17; i++) {
+    const img = document.createElement('img');
+    img.src = `feature-img/placeholder.jpg`; // Use a placeholder initially
+    img.dataset.src = `feature-img/feature-${i}.jpg`; // Real source for lazy loading
+    img.alt = `Project ${i}`;
+    img.dataset.index = i - 1;
+    img.dataset.title = `Project ${i}`;
+    img.dataset.desc = `Description for Project ${i}`;
+    img.loading = 'lazy'; // For supported browsers
+    img.addEventListener('click', openLightbox);
+    img.addEventListener('load', function() {
+      this.style.opacity = 1; // Fade in when loaded
+    });
+    img.style.opacity = 0; // Start invisible
+    img.style.width = `${imageWidth}px`; // Set initial width
+    featureSlider.appendChild(img);
+    images.push(img);
+  }
+
+  // Lightbox controls
+  function openLightbox(e) {
+    featureCurrentIndex = parseInt(e.target.dataset.index);
+    updateLightbox();
+    featureLightbox.style.display = 'block';
+    document.body.style.overflow = 'hidden'; // Disable background scrolling
+  }
+
+  function updateLightbox() {
+    const img = images[featureCurrentIndex];
+    featureLightbox.querySelector('.feature-lightbox-img').src = img.dataset.src;
+    featureLightbox.querySelector('.feature-lightbox-title').textContent = img.dataset.title;
+    featureLightbox.querySelector('.feature-lightbox-desc').textContent = img.dataset.desc;
+  }
+
+  function closeLightbox() {
+    featureLightbox.style.display = 'none';
+    document.body.style.overflow = ''; // Re-enable scrolling
+  }
+
+  // Adjust slider position when user stops scrolling
+  featureSlider.addEventListener('scroll', function() {
+    scrolling = true;
+  });
+
+  featureSlider.addEventListener('scrollend', function() {
+    scrolling = false;
+    adjustSliderPosition();
+  });
+
+  // If 'scrollend' is not supported, fallback to a timeout
+  if (!('onscrollend' in document.createElement('div'))) {
+    let scrollTimeout;
+    featureSlider.addEventListener('scroll', function() {
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        if (scrolling) {
+          scrolling = false;
+          adjustSliderPosition();
+        }
+      }, 200);
+    });
+  }
+
+  function adjustSliderPosition() {
+    const scrollPosition = featureSlider.scrollLeft;
+    const nearestIndex = Math.round(scrollPosition / imageWidth);
+    featureSlider.scrollTo({
+      left: nearestIndex * imageWidth,
+      behavior: 'smooth'
+    });
+    featureCurrentIndex = nearestIndex % images.length;
+  }
+
+  function navigateSlider(direction) {
+    featureCurrentIndex = (featureCurrentIndex + direction + images.length) % images.length;
+    featureSlider.scrollTo({
+      left: featureCurrentIndex * imageWidth,
+      behavior: 'smooth'
+    });
+  }
+
+  // Event listeners for navigation
+  featurePrev.addEventListener('click', () => {
+    if (!scrolling) navigateSlider(-1);
+  });
+  featureNext.addEventListener('click', () => {
+    if (!scrolling) navigateSlider(1);
+  });
+
+  document.querySelector('.feature-lightbox-prev').addEventListener('click', () => {
+    if (!scrolling) {
+      featureCurrentIndex = (featureCurrentIndex - 1 + images.length) % images.length;
+      updateLightbox();
+    }
+  });
+  document.querySelector('.feature-lightbox-next').addEventListener('click', () => {
+    if (!scrolling) {
+      featureCurrentIndex = (featureCurrentIndex + 1) % images.length;
+      updateLightbox();
+    }
+  });
+
+  // Close button functionality
+  featureClose.addEventListener('click', closeLightbox);
+  featureLightbox.addEventListener('click', function(e) {
+    if (e.target === featureLightbox) closeLightbox();
+  });
+
+  // Keyboard controls
+  document.addEventListener('keydown', (e) => {
+    if (featureLightbox.style.display === 'block' && !scrolling) {
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') {
+        featureCurrentIndex = (featureCurrentIndex - 1 + images.length) % images.length;
+        updateLightbox();
+      }
+      if (e.key === 'ArrowRight') {
+        featureCurrentIndex = (featureCurrentIndex + 1) % images.length;
+        updateLightbox();
+      }
+    }
+  });
+
+  // Touch swipe for mobile
+  let touchStartX = 0;
+  let touchMoveX = 0;
+
+  featureSlider.addEventListener('touchstart', (e) => {
+    touchStartX = e.touches[0].clientX;
+    touchMoveX = 0;
+  });
+
+  featureSlider.addEventListener('touchmove', (e) => {
+    touchMoveX = e.touches[0].clientX;
+    e.preventDefault(); // Prevent scrolling while swiping
+  });
+
+  featureSlider.addEventListener('touchend', () => {
+    const delta = touchStartX - touchMoveX;
+    if (Math.abs(delta) > 50) {
+      navigateSlider(delta > 0 ? 1 : -1);
+    } else {
+      // Small swipe, adjust to nearest image
+      adjustSliderPosition();
+    }
+  });
+
+  featureLightbox.addEventListener('touchstart', (e) => touchStartX = e.changedTouches[0].screenX);
+  featureLightbox.addEventListener('touchend', (e) => {
+    if (!scrolling) {
+      const delta = touchStartX - e.changedTouches[0].screenX;
+      if (Math.abs(delta) > 50) {
+        featureCurrentIndex = (featureCurrentIndex + (delta > 0 ? 1 : -1) + images.length) % images.length;
+        updateLightbox();
+      }
+    }
+  });
+
+  // Lazy load images
+  function lazyLoadImages() {
+    images.forEach(img => {
+      if (img.getBoundingClientRect().top < window.innerHeight && img.src !== img.dataset.src) {
+        img.src = img.dataset.src;
+      }
+    });
+  }
+
+  function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+      const later = () => {
+        clearTimeout(timeout);
+        func(...args);
+      };
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
+  }
+
+  const debouncedLazyLoad = debounce(lazyLoadImages, 100);
+  window.addEventListener('scroll', debouncedLazyLoad);
+  lazyLoadImages(); // Initial check for images in viewport
+
+  // Update image width on resize
   function updateImageWidth() {
     const containerWidth = featureSlider.parentElement.clientWidth;
     const itemsPerView = Math.floor(containerWidth / imageWidth);
@@ -319,3 +515,4 @@ document.addEventListener('DOMContentLoaded', function() {
   featureNext.setAttribute('aria-label', 'Next image');
   featureClose.setAttribute('aria-label', 'Close lightbox');
 });
+    
