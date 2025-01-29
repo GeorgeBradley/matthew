@@ -116,6 +116,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const featureNext = document.querySelector('.feature-next');
   let featureCurrentIndex = 0;
   const images = [];
+  const imageWidth = 300; // Assuming each image is 300px wide
 
   // Generate slider images
   for (let i = 1; i <= 17; i++) {
@@ -150,9 +151,12 @@ document.addEventListener('DOMContentLoaded', function() {
     document.body.style.overflow = ''; // Re-enable scrolling
   }
 
-  function navigate(direction) {
+  function navigateSlider(direction) {
     featureCurrentIndex = (featureCurrentIndex + direction + images.length) % images.length;
-    updateLightbox();
+    featureSlider.scrollTo({
+      left: featureCurrentIndex * imageWidth,
+      behavior: 'smooth'
+    });
   }
 
   // Event listeners
@@ -161,35 +165,30 @@ document.addEventListener('DOMContentLoaded', function() {
     if (e.target === featureLightbox) closeLightbox();
   });
 
-  document.querySelector('.feature-lightbox-prev').addEventListener('click', () => navigate(-1));
-  document.querySelector('.feature-lightbox-next').addEventListener('click', () => navigate(1));
-
-  featurePrev.addEventListener('click', () => {
-    const scrollLeft = featureSlider.scrollLeft;
-    const index = scrollLeft > 0 ? featureCurrentIndex - 1 : images.length - 1;
-    featureSlider.scrollTo({
-      left: index * 300,
-      behavior: 'smooth'
-    });
-    featureCurrentIndex = index;
+  document.querySelector('.feature-lightbox-prev').addEventListener('click', () => {
+    featureCurrentIndex = (featureCurrentIndex - 1 + images.length) % images.length;
+    updateLightbox();
+  });
+  document.querySelector('.feature-lightbox-next').addEventListener('click', () => {
+    featureCurrentIndex = (featureCurrentIndex + 1) % images.length;
+    updateLightbox();
   });
 
-  featureNext.addEventListener('click', () => {
-    const scrollLeft = featureSlider.scrollLeft;
-    const index = scrollLeft < (images.length - 1) * 300 ? featureCurrentIndex + 1 : 0;
-    featureSlider.scrollTo({
-      left: index * 300,
-      behavior: 'smooth'
-    });
-    featureCurrentIndex = index;
-  });
+  featurePrev.addEventListener('click', () => navigateSlider(-1));
+  featureNext.addEventListener('click', () => navigateSlider(1));
 
   // Keyboard controls
   document.addEventListener('keydown', (e) => {
     if (featureLightbox.style.display === 'block') {
       if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowLeft') navigate(-1);
-      if (e.key === 'ArrowRight') navigate(1);
+      if (e.key === 'ArrowLeft') {
+        featureCurrentIndex = (featureCurrentIndex - 1 + images.length) % images.length;
+        updateLightbox();
+      }
+      if (e.key === 'ArrowRight') {
+        featureCurrentIndex = (featureCurrentIndex + 1) % images.length;
+        updateLightbox();
+      }
     }
   });
 
@@ -198,6 +197,9 @@ document.addEventListener('DOMContentLoaded', function() {
   featureLightbox.addEventListener('touchstart', (e) => touchStartX = e.changedTouches[0].screenX);
   featureLightbox.addEventListener('touchend', (e) => {
     const delta = touchStartX - e.changedTouches[0].screenX;
-    if (Math.abs(delta) > 50) navigate(delta > 0 ? 1 : -1);
+    if (Math.abs(delta) > 50) {
+      featureCurrentIndex = (featureCurrentIndex + (delta > 0 ? 1 : -1) + images.length) % images.length;
+      updateLightbox();
+    }
   });
 });
