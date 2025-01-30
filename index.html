@@ -140,90 +140,12 @@
         </div>
     </footer>
 
-<!-- Include Lightbox2 CSS -->
 
+ <script src="scripts.js" defer></script>
 
-<!-- Include Lightbox2 JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.14.2/simple-lightbox.min.js"></script>
-const HERO_API_URL = 'https://GeorgeBradley.github.io/matthew/feature-project.json';
-
-let heroCurrentSlide = 0;
-let heroSlides = [];
-let heroTimeoutId;
-
-async function initializeHeroSlider() {
-  try {
-    const response = await fetch(HERO_API_URL);
-    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-    
-    const projects = await response.json();
-    
-    heroSlides = projects.map(project => ({
-      image: project['feature-project-thumbnail'],
-      alt: `Thumbnail for ${project['feature-project-name']}`,
-      name: project['feature-project-name'],
-      description: project['feature-project-description'],
-      company: project['feature-project-company-name']
-    }));
-
-    const container = document.getElementById('hero-slide-container');
-    container.innerHTML = '';
-
-    heroSlides.forEach((slide, index) => {
-      const slideDiv = document.createElement('div');
-      slideDiv.className = `hero-slide ${index === 0 ? 'active' : ''}`;
-      
-      const img = new Image();
-      img.src = slide.image;
-      img.alt = slide.alt;
-      img.onerror = () => console.error('Failed to load image:', slide.image);
-      
-      const textDiv = document.createElement('div');
-      textDiv.className = 'hero-text-content';
-      textDiv.innerHTML = `
-        <h2>${slide.name}</h2>
-        <p>${slide.description}</p>
-        <p>${slide.company}</p>
-      `;
-
-      slideDiv.appendChild(img);
-      slideDiv.appendChild(textDiv);
-      container.appendChild(slideDiv);
-    });
-
-    startHeroSlider();
-  } catch (error) {
-    console.error('Error:', error);
-  }
-}
-
-function startHeroSlider() {
-  const slides = document.querySelectorAll('.hero-slide');
-  if (slides.length === 0) return;
-
-  function nextSlide() {
-    slides[heroCurrentSlide].classList.remove('active');
-    heroCurrentSlide = (heroCurrentSlide + 1) % slides.length;
-    slides[heroCurrentSlide].classList.add('active');
-    heroTimeoutId = setTimeout(nextSlide, 5000);
-  }
-
-  document.querySelector('.hero-container').addEventListener('mouseenter', () => {
-    clearTimeout(heroTimeoutId);
-  });
-
-  document.querySelector('.hero-container').addEventListener('mouseleave', () => {
-    heroTimeoutId = setTimeout(nextSlide, 5000);
-  });
-
-  heroTimeoutId = setTimeout(nextSlide, 5000);
-}
-
-document.addEventListener('DOMContentLoaded', initializeHeroSlider);
-</script>
 <script src="feature-project.js" defer></script>
-    <!-- Load JavaScript -->
-    <script src="scripts.js" defer></script>
+   
+
 
     <!-- Progressive Enhancement -->
     <noscript>
