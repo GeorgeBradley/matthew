@@ -387,44 +387,43 @@ window.addEventListener('load', () => {
 
 
 
+document.addEventListener('DOMContentLoaded', () => {
+            try {
+                const gallery = document.querySelector('.hero-gallery');
+                const totalImages = 17;
 
- // Immediately-invoked function to ensure DOM readiness
-        (function initHeroGallery() {
-            const gallery = document.querySelector('.hero-gallery');
-            const totalImages = 17;
+                // Clear gallery first
+                while (gallery.firstChild) {
+                    gallery.removeChild(gallery.firstChild);
+                }
 
-            // Clear existing content (just in case)
-            gallery.innerHTML = '';
+                // Create images
+                for (let i = 1; i <= totalImages; i++) {
+                    const link = document.createElement('a');
+                    link.href = `https://picsum.photos/1920/800?random=${i}`;
+                    link.setAttribute('data-lightbox', 'hero-gallery');
+                    link.setAttribute('data-title', `Image ${i}`);
+                    
+                    const img = document.createElement('img');
+                    img.className = 'hero-image';
+                    img.src = `https://picsum.photos/1920/800?random=${i}`;
+                    img.alt = `Hero Image ${i}`;
+                    
+                    link.appendChild(img);
+                    gallery.appendChild(link);
+                }
 
-            // Create document fragment for batch insertion
-            const fragment = document.createDocumentFragment();
+                // Initialize lightbox
+                new SimpleLightbox('.hero-gallery a', {
+                    captionsData: 'data-title',
+                    captionDelay: 200
+                });
 
-            for (let i = 1; i <= totalImages; i++) {
-                const imgLink = document.createElement('a');
-                imgLink.href = `feature-img/feature-${i}.jpg`;
-                imgLink.setAttribute('data-lightbox', 'hero-gallery');
-                imgLink.setAttribute('data-title`, `Image ${i}`);
+                console.log('Successfully injected', gallery.children.length, 'images');
+                console.log('First image source:', gallery.firstElementChild.href);
 
-                const img = document.createElement('img');
-                img.src = `feature-img/feature-${i}.jpg`;
-                img.className = 'hero-image';
-                img.alt = `Feature Image ${i}`;
-                
-                imgLink.appendChild(img);
-                fragment.appendChild(imgLink);
+            } catch (error) {
+                console.error('Injection error:', error);
             }
-
-            // Add all elements to DOM at once
-            gallery.appendChild(fragment);
-
-            // Initialize lightbox after DOM insertion
-            new SimpleLightbox('.hero-gallery a', {
-                captionsData: 'data-title',
-                captionDelay: 200
-            });
-
-            console.log(`Injected ${totalImages} hero images successfully!`);
-        })();
-
-
+        });
 
