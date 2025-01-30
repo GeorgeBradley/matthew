@@ -54,10 +54,12 @@ function renderProjectDetails(project) {
                     <div class="gallery-grid" data-gallery='${JSON.stringify(sortedGallery)}'>
                         ${sortedGallery.map((image, index) => `
                             <div class="gallery-item">
-                                <img src="${image.image}" 
-                                     alt="${image['alt-text']}" 
-                                     class="gallery-thumbnail" 
-                                     data-index="${index}">
+                                <div class="gallery-thumbnail-container">
+                                    <img src="${image.image}" 
+                                         alt="${image['alt-text']}" 
+                                         class="gallery-thumbnail" 
+                                         data-index="${index}">
+                                </div>
                                 <div class="gallery-caption">${image.description}</div>
                             </div>
                         `).join('')}
@@ -91,12 +93,14 @@ function renderProjectDetails(project) {
 
             <div class="lightbox" id="galleryLightbox">
                 <div class="lightbox-content">
-                    <span class="close-btn">&times;</span>
-                    <img class="lightbox-image" src="" alt="">
+                    <div class="lightbox-image-container">
+                        <img class="lightbox-image" src="" alt="">
+                    </div>
                     <div class="lightbox-description"></div>
-                    <button class="prev-btn">❮</button>
-                    <button class="next-btn">❯</button>
                 </div>
+                <span class="close-btn">&times;</span>
+                <button class="prev-btn">❮</button>
+                <button class="next-btn">❯</button>
             </div>
         </article>
     `;
@@ -119,12 +123,14 @@ function renderProjectDetails(project) {
             galleryData = JSON.parse(galleryGrid.dataset.gallery);
             currentIndex = parseInt(thumbnail.dataset.index);
             updateLightbox(currentIndex);
-            lightbox.style.display = 'block';
+            lightbox.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
         });
     });
 
     closeBtn.addEventListener('click', () => {
         lightbox.style.display = 'none';
+        document.body.style.overflow = 'auto';
     });
 
     prevBtn.addEventListener('click', () => {
@@ -147,6 +153,20 @@ function renderProjectDetails(project) {
     lightbox.addEventListener('click', (e) => {
         if (e.target === lightbox) {
             lightbox.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    });
+
+    // Handle keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (lightbox.style.display === 'flex') {
+            if (e.key === 'ArrowLeft') {
+                prevBtn.click();
+            } else if (e.key === 'ArrowRight') {
+                nextBtn.click();
+            } else if (e.key === 'Escape') {
+                closeBtn.click();
+            }
         }
     });
 }
