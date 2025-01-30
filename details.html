@@ -94,6 +94,7 @@
 /* =============== Gallery Styles =============== */
 /* =============== Gallery Styles =============== */
 /* =============== Gallery Styles =============== */
+/* =============== Gallery Styles =============== */
 .gallery-section {
     margin: 4rem 0;
     padding: 0 1rem;
@@ -228,7 +229,7 @@
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Navigation Controls */
+/* =============== Enhanced Navigation Controls =============== */
 .close-btn {
     position: fixed;
     top: 30px;
@@ -252,10 +253,21 @@
     width: 20px;
     height: 2px;
     background: white;
+    transition: all 0.2s ease;
 }
 
 .close-btn::before { transform: rotate(45deg); }
 .close-btn::after { transform: rotate(-45deg); }
+
+.close-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.close-btn:hover::before,
+.close-btn:hover::after {
+    transform: rotate(0deg);
+    width: 24px;
+}
 
 .prev-btn, .next-btn {
     position: fixed;
@@ -269,13 +281,64 @@
     border-radius: 50%;
     cursor: pointer;
     font-size: 24px;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     align-items: center;
     justify-content: center;
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Responsive Adjustments */
+.prev-btn:hover, .next-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.prev-btn::before,
+.next-btn::before {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border: 2px solid white;
+    border-width: 2px 2px 0 0;
+    transition: all 0.2s ease;
+}
+
+.prev-btn::before {
+    transform: rotate(-135deg);
+    margin-left: 4px;
+}
+
+.next-btn::before {
+    transform: rotate(45deg);
+    margin-right: 4px;
+}
+
+.prev-btn:hover::before,
+.next-btn:hover::before {
+    width: 14px;
+    height: 14px;
+}
+
+.prev-btn { 
+    left: 30px;
+    padding-right: 4px;
+}
+
+.next-btn { 
+    right: 30px;
+    padding-left: 4px;
+}
+
+/* =============== Animations =============== */
+@keyframes lightboxFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* =============== Responsive Adjustments =============== */
 @media (max-width: 768px) {
     .gallery-grid {
         grid-template-columns: 1fr;
@@ -295,6 +358,32 @@
     .lightbox-description {
         font-size: 0.9rem;
         padding: 0.8rem;
+    }
+    
+    .prev-btn, .next-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+    
+    .close-btn {
+        top: 20px;
+        right: 20px;
+        width: 35px;
+        height: 35px;
+    }
+}
+
+@media (max-width: 480px) {
+    .prev-btn, .next-btn {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .prev-btn::before,
+    .next-btn::before {
+        width: 10px;
+        height: 10px;
     }
 }
     </style>
