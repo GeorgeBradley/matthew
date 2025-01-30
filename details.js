@@ -1,4 +1,3 @@
-// details.html
 const API_URL = 'https://GeorgeBradley.github.io/matthew/feature-project.json';
 const detailsContainer = document.getElementById('project-detail-container');
 const urlParams = new URLSearchParams(window.location.search);
@@ -6,16 +5,16 @@ const projectId = urlParams.get('id');
 
 async function fetchProjectDetails() {
     if (!projectId) redirectToIndex();
-    
+
     try {
         const response = await fetch(API_URL);
         if (!response.ok) throw new Error('Network response failed');
         const projects = await response.json();
         const project = projects.find(p => p.id === Number(projectId));
-        
+
         if (!project) throw new Error('Project not found');
         renderProjectDetails(project);
-        
+
     } catch (error) {
         console.error('Error:', error);
         showDetailError();
@@ -28,40 +27,40 @@ function renderProjectDetails(project) {
             <a href="index.html" class="back-button">← Back to Projects</a>
             
             <div class="detail-header">
-                <h1 class="project-title">${project.name}</h1>
-                ${project.startYear ? `
+                <h1 class="project-title">${project["feature-project-name"]}</h1>
+                ${project["feature-project-start-year"] ? `
                 <div class="project-meta">
                     <span class="date-range">
-                        ${project.startYear}${project.endYear ? ` - ${project.endYear}` : ''}
+                        ${project["feature-project-start-year"]}${project["feature-project-end-year"] ? ` - ${project["feature-project-end-year"]}` : ''}
                     </span>
                 </div>` : ''}
             </div>
 
-            <img src="${project.thumbnail}" 
-                 alt="${project.name}" 
+            <img src="${project["feature-project-thumbnail"]}" 
+                 alt="${project["feature-project-name"]}" 
                  class="detail-image">
 
             <div class="detail-content">
-                <p class="project-description">${project.description}</p>
+                <p class="project-description">${project["feature-project-description"]}</p>
 
                 <div class="detail-grid">
-                    ${project.company ? `
+                    ${project["feature-project-company-name"] ? `
                     <div class="detail-item">
                         <h3>Company</h3>
-                        <p>${project.company}</p>
+                        <p>${project["feature-project-company-name"]}</p>
                     </div>` : ''}
                     
-                    ${project.client ? `
+                    ${project["feature-project-client"] ? `
                     <div class="detail-item">
                         <h3>Client</h3>
-                        <p>${project.client}</p>
+                        <p>${project["feature-project-client"]}</p>
                     </div>` : ''}
                     
-                    ${project.skills?.length ? `
+                    ${project["feature-project-skills"]?.length ? `
                     <div class="detail-item">
                         <h3>Skills Used</h3>
                         <div class="skill-list">
-                            ${project.skills.map(skill => `
+                            ${project["feature-project-skills"].map(skill => `
                                 <span class="skill-tag">${skill}</span>
                             `).join('')}
                         </div>
