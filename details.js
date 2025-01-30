@@ -1,16 +1,37 @@
-function loadProjectDetails() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const projectId = urlParams.get('id');
-    const project = JSON.parse(localStorage.getItem(projectId));
+document.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
+    const projectId = params.get('id');
+    const storedProject = sessionStorage.getItem('currentProject');
 
-    if (!project) {
+    // Validate project data
+    if (!projectId || !storedProject) {
         window.location.href = 'index.html';
         return;
     }
 
+    try {
+        const project = JSON.parse(storedProject);
+        
+        // Security check - verify ID match
+        if (project.id !== projectId) {
+            throw new Error('Project ID mismatch');
+        }
+
+        // Render project details
+        renderProjectDetails(project);
+        
+    } catch (error) {
+        console.error('Error loading project:', error);
+        window.location.href = 'index.html';
+    }
+});
+
+function renderProjectDetails(project) {
     const container = document.getElementById('project-detail-container');
+    
+    // Build your detail page template here
     container.innerHTML = `
-        <article class="project-detail">
+         <article class="project-detail">
             <img src="${project['feature-project-thumbnail']}" 
                  class="detail-image"
                  alt="${project['feature-project-name']}">
@@ -49,7 +70,11 @@ function loadProjectDetails() {
             </div>
         </article>
     `;
-}
 
+    // Clear session storage after successful render
+    sessionStorage.removeItem('currentProject');
+}
 // Load project on page load
-loadProjectDetails();
+loadProjectDetails();  container.innerHTML = `
+       
+    `;
