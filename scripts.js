@@ -388,7 +388,35 @@ window.addEventListener('load', () => {
 
 
 
+// Hero gallery initialization
+        const heroGallery = document.querySelector('.hero-gallery');
+        const totalHeroImages = 17;
 
+        for (let i = 1; i <= totalHeroImages; i++) {
+            const heroImgLink = document.createElement('a');
+            heroImgLink.href = `feature-img/feature-${i}.jpg`;
+            heroImgLink.setAttribute('data-lightbox', 'hero-gallery');
+            heroImgLink.setAttribute('data-title', `Image ${i}`);
+
+            const heroImg = document.createElement('img');
+            heroImg.src = `feature-img/feature-${i}.jpg`;
+            heroImg.className = 'hero-image';
+            heroImg.alt = `Feature ${i}`;
+
+            heroImgLink.appendChild(heroImg);
+            heroGallery.appendChild(heroImgLink);
+        }
+
+        // Hero lightbox configuration
+        const heroLightbox = new SimpleLightbox('.hero-gallery a', {
+            captionsData: 'data-title',
+            captionDelay: 200,
+            animationSpeed: 200,
+            fadeSpeed: 200,
+            doubleTapZoom: 2,
+            uniqueImages: true,
+            history: false
+        });
 
 
 
