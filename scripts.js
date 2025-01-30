@@ -286,83 +286,6 @@ document.getElementById('current-year').textContent = new Date().getFullYear();
 
 
 
-const SLIDES = 17;
-let currentSlide = 0;
-let autoSlideInterval;
-
-const sliderTrack = document.querySelector('.slider-track');
-const dotsContainer = document.querySelector('.slider-controls');
-
-// Generate slides
-for (let i = 1; i <= SLIDES; i++) {
-    const slide = document.createElement('div');
-    slide.className = 'slide';
-    slide.innerHTML = `
-        <img src="feature-img/feature-${i}.jpg" 
-             alt="Featured Image ${i}" 
-             loading="${i <= 3 ? 'eager' : 'lazy'}">
-    `;
-    sliderTrack.appendChild(slide);
-
-    const dot = document.createElement('button');
-    dot.className = 'slider-dot';
-    dot.addEventListener('click', () => goToSlide(i - 1));
-    dotsContainer.appendChild(dot);
-}
-
-const slides = document.querySelectorAll('.slide');
-const dots = document.querySelectorAll('.slider-dot');
-const prevBtn = document.querySelector('.prev-btn');
-const nextBtn = document.querySelector('.next-btn');
-
-slides[currentSlide].classList.add('active');
-dots[currentSlide].classList.add('active');
-
-function startAutoSlide() {
-    autoSlideInterval = setInterval(nextSlide, 3000);
-}
-
-function nextSlide() { goToSlide((currentSlide + 1) % SLIDES); }
-function prevSlide() { goToSlide((currentSlide - 1 + SLIDES) % SLIDES); }
-
-function goToSlide(index) {
-    slides[currentSlide].classList.remove('active');
-    dots[currentSlide].classList.remove('active');
-    currentSlide = index;
-    slides[currentSlide].classList.add('active');
-    dots[currentSlide].classList.add('active');
-}
-
-// Event listeners
-prevBtn.addEventListener('click', prevSlide);
-nextBtn.addEventListener('click', nextSlide);
-
-// Touch support
-let touchStartX = 0;
-sliderTrack.addEventListener('touchstart', e => {
-    touchStartX = e.touches[0].clientX;
-}, { passive: true });
-
-sliderTrack.addEventListener('touchend', e => {
-    const touchEndX = e.changedTouches[0].clientX;
-    const diff = touchStartX - touchEndX;
-    if (Math.abs(diff) > 30) diff > 0 ? nextSlide() : prevSlide();
-});
-
-// Keyboard navigation
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowLeft') prevSlide();
-    if (e.key === 'ArrowRight') nextSlide();
-});
-
-startAutoSlide();
-
-// Preload first few images
-window.addEventListener('load', () => {
-    for (let i = 1; i <= Math.min(4, SLIDES); i++) {
-        new Image().src = `feature-img/feature-${i}.jpg`;
-    }
-});
 
 
 
@@ -387,78 +310,160 @@ window.addEventListener('load', () => {
 
 
 
-const HERO_API_URL = 'https://GeorgeBradley.github.io/matthew/feature-project.json';
 
-let heroCurrentSlide = 0;
-let heroSlides = [];
-let heroTimeoutId;
 
-async function initializeHeroSlider() {
-  try {
-    const response = await fetch(HERO_API_URL);
-    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
 
-    const projects = await response.json();
+        class HeroSlider {
+            constructor() {
+                this.API_URL = 'https://GeorgeBradley.github.io/matthew/feature-project.json';
+                this.currentIndex = 0;
+                this.intervalTime = 5000;
+                this.intervalId = null;
+                this.touchStartX = 0;
+                this.touchEndX = 0;
+                this.init();
+            }
 
-    heroSlides = projects.map(project => ({
-      image: project['feature-project-thumbnail'],
-      alt: `Thumbnail for ${project['feature-project-name']}`,
-      name: project['feature-project-name'],
-      description: project['feature-project-description'],
-      company: project['feature-project-company-name']
-    }));
+            async init() {
+                try {
+                    await this.loadData();
+                    this.createSlides();
+                    this.createDots();
+                    this.startAutoPlay();
+                    this.addEventListeners();
+                    document.querySelector('.loading').remove();
+                } catch (error) {
+                    this.handleError(error);
+                }
+            }
 
-    const container = document.getElementById('hero-slide-container');
-    container.innerHTML = '';
+            async loadData() {
+                const response = await fetch(this.API_URL);
+                if (!response.ok) throw new Error('Network response was not ok');
+                this.projects = await response.json();
+            }
 
-    heroSlides.forEach((slide, index) => {
-      const slideDiv = document.createElement('div');
-      slideDiv.className = `hero-slide ${index === 0 ? 'active' : ''}`;
+            createSlides() {
+                const slidesContainer = document.querySelector('.hero-slides');
+                this.slides = this.projects.map(project => {
+                    const slide = document.createElement('div');
+                    slide.className = 'hero-slide';
+                    
+                    const img = new Image();
+                    img.src = project['feature-project-thumbnail'];
+                    img.alt = project['feature-project-name'];
+                    img.loading = 'eager';
+                    
+                    const progress = document.createElement('div');
+                    progress.className = 'progress-bar';
+                    
+                    const content = document.createElement('div');
+                    content.className = 'hero-content';
+                    
+                    const text = document.createElement('div');
+                    text.className = 'hero-text';
+                    
+                    const title = document.createElement('h1');
+                    title.className = 'hero-title';
+                    title.textContent = project['feature-project-name'];
+                    
+                    const description = document.createElement('p');
+                    description.className = 'hero-description';
+                    description.textContent = project['feature-project-description'];
+                    
+                    text.append(title, description);
+                    content.appendChild(text);
+                    slide.append(img, progress, content);
+                    slidesContainer.appendChild(slide);
+                    return slide;
+                });
+                this.slides[0].classList.add('active');
+            }
 
-      const img = new Image();
-      img.src = slide.image;
-      img.alt = slide.alt;
-      img.onerror = () => console.error('Failed to load image:', slide.image);
+            createDots() {
+                const dotsContainer = document.querySelector('.hero-dots');
+                this.dots = this.projects.map((_, index) => {
+                    const dot = document.createElement('button');
+                    dot.className = 'hero-dot';
+                    dot.ariaLabel = `Go to slide ${index + 1}`;
+                    dot.addEventListener('click', () => this.goToSlide(index));
+                    dotsContainer.appendChild(dot);
+                    return dot;
+                });
+                this.dots[0].classList.add('active');
+            }
 
-      const textDiv = document.createElement('div');
-      textDiv.className = 'hero-text-content';
-      textDiv.innerHTML = `
-        <h2>${slide.name}</h2>
-        <p>${slide.description}</p>
-        <p>${slide.company}</p>
-      `;
+            goToSlide(index) {
+                if (index === this.currentIndex) return;
+                
+                this.slides[this.currentIndex].classList.remove('active');
+                this.dots[this.currentIndex].classList.remove('active');
+                
+                this.currentIndex = index;
+                
+                this.slides[this.currentIndex].classList.add('active');
+                this.dots[this.currentIndex].classList.add('active');
+                
+                this.resetAutoPlay();
+            }
 
-      slideDiv.appendChild(img);
-      slideDiv.appendChild(textDiv);
-      container.appendChild(slideDiv);
-    });
+            nextSlide() {
+                const nextIndex = (this.currentIndex + 1) % this.slides.length;
+                this.goToSlide(nextIndex);
+            }
 
-    startHeroSlider();
-  } catch (error) {
-    console.error('Error:', error);
-  }
-}
+            startAutoPlay() {
+                this.intervalId = setInterval(() => this.nextSlide(), this.intervalTime);
+            }
 
-function startHeroSlider() {
-  const slides = document.querySelectorAll('.hero-slide');
-  if (slides.length === 0) return;
+            resetAutoPlay() {
+                clearInterval(this.intervalId);
+                this.startAutoPlay();
+            }
 
-  function nextSlide() {
-    slides[heroCurrentSlide].classList.remove('active');
-    heroCurrentSlide = (heroCurrentSlide + 1) % slides.length;
-    slides[heroCurrentSlide].classList.add('active');
-    heroTimeoutId = setTimeout(nextSlide, 5000);
-  }
+            handleTouchStart(e) {
+                this.touchStartX = e.changedTouches[0].screenX;
+            }
 
-  document.querySelector('.hero-container').addEventListener('mouseenter', () => {
-    clearTimeout(heroTimeoutId);
-  });
+            handleTouchEnd(e) {
+                this.touchEndX = e.changedTouches[0].screenX;
+                const diff = this.touchStartX - this.touchEndX;
+                if (Math.abs(diff) > 50) {
+                    diff > 0 ? this.nextSlide() : this.prevSlide();
+                }
+            }
 
-  document.querySelector('.hero-container').addEventListener('mouseleave', () => {
-    heroTimeoutId = setTimeout(nextSlide, 5000);
-  });
+            addEventListeners() {
+                // Touch events
+                document.querySelector('.hero-container').addEventListener('touchstart', e => this.handleTouchStart(e));
+                document.querySelector('.hero-container').addEventListener('touchend', e => this.handleTouchEnd(e));
+                
+                // Keyboard navigation
+                document.addEventListener('keydown', e => {
+                    if (e.key === 'ArrowLeft') this.prevSlide();
+                    if (e.key === 'ArrowRight') this.nextSlide();
+                });
+            }
 
-  heroTimeoutId = setTimeout(nextSlide, 5000);
-}
+            prevSlide() {
+                const prevIndex = (this.currentIndex - 1 + this.slides.length) % this.slides.length;
+                this.goToSlide(prevIndex);
+            }
 
-document.addEventListener('DOMContentLoaded', initializeHeroSlider);
+            handleError(error) {
+                console.error('Error:', error);
+                const loading = document.querySelector('.loading');
+                loading.innerHTML = `
+                    <div style="text-align: center">
+                        <p>⚠️ Failed to load content</p>
+                        <button onclick="location.reload()" 
+                                style="margin-top: 1rem; padding: 0.5rem 1rem; background: white; border: none; border-radius: 4px; cursor: pointer">
+                            Retry
+                        </button>
+                    </div>
+                `;
+            }
+        }
+
+        // Initialize slider
+        new HeroSlider();
