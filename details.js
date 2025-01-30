@@ -126,44 +126,98 @@ function renderProjectDetails(project, projects) {
         </article>
     `;
 
-    // Lightbox functionality
+ // Update the lightbox functionality in your existing JS
+function initLightbox(galleryImages) {
     const lightbox = document.getElementById('galleryLightbox');
     const lightboxImage = lightbox.querySelector('.lightbox-image');
     const lightboxDescription = lightbox.querySelector('.lightbox-description');
     const closeBtn = lightbox.querySelector('.close-btn');
     const prevBtn = lightbox.querySelector('.prev-btn');
     const nextBtn = lightbox.querySelector('.next-btn');
-
-    const galleryItems = document.querySelectorAll('.gallery-thumbnail');
+    
     let currentImageIndex = 0;
+    let touchStartX = 0;
 
+    function updateLightbox(index) {
+        currentImageIndex = (index + galleryImages.length) % galleryImages.length;
+        const image = galleryImages[currentImageIndex];
+        
+        // Show loading state
+        lightboxImage.style.opacity = '0';
+        const spinner = document.createElement('div');
+        spinner.className = 'loading-spinner';
+        lightboxImageContainer.appendChild(spinner);
+        
+        // Preload image
+        const img = new Image();
+        img.src = image.image;
+        img.onload = () => {
+            spinner.remove();
+            lightboxImage.src = image.image;
+            lightboxImage.alt = image['alt-text'];
+            lightboxDescription.textContent = image.description;
+            lightboxImage.style.opacity = '1';
+        };
+    }
+
+    function handleSwipe(direction) {
+        if (direction === 'left') nextImage();
+        if (direction === 'right') prevImage();
+    }
+
+    function nextImage() {
+        updateLightbox(currentImageIndex + 1);
+    }
+
+    function prevImage() {
+        updateLightbox(currentImageIndex - 1);
+    }
+
+    // Event Listeners
     galleryItems.forEach((item, index) => {
         item.addEventListener('click', () => {
             currentImageIndex = index;
-            const image = sortedGallery[currentImageIndex];
-            lightboxImage.src = image.image;
-            lightboxDescription.textContent = image.description;
+            updateLightbox(currentImageIndex);
             lightbox.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
         });
     });
 
     closeBtn.addEventListener('click', () => {
         lightbox.style.display = 'none';
+        document.body.style.overflow = '';
     });
 
-    prevBtn.addEventListener('click', () => {
-        currentImageIndex = (currentImageIndex === 0) ? sortedGallery.length - 1 : currentImageIndex - 1;
-        const image = sortedGallery[currentImageIndex];
-        lightboxImage.src = image.image;
-        lightboxDescription.textContent = image.description;
+    prevBtn.addEventListener('click', prevImage);
+    nextBtn.addEventListener('click', nextImage);
+
+    // Keyboard Navigation
+    document.addEventListener('keydown', (e) => {
+        if (lightbox.style.display === 'flex') {
+            if (e.key === 'ArrowLeft') prevImage();
+            if (e.key === 'ArrowRight') nextImage();
+            if (e.key === 'Escape') closeBtn.click();
+        }
     });
 
-    nextBtn.addEventListener('click', () => {
-        currentImageIndex = (currentImageIndex === sortedGallery.length - 1) ? 0 : currentImageIndex + 1;
-        const image = sortedGallery[currentImageIndex];
-        lightboxImage.src = image.image;
-        lightboxDescription.textContent = image.description;
+    // Touch Handling
+    lightbox.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
     });
+
+    lightbox.addEventListener('touchend', (e) => {
+        const touchEndX = e.changedTouches[0].clientX;
+        const deltaX = touchEndX - touchStartX;
+        
+        if (Math.abs(deltaX) > 50) {
+            handleSwipe(deltaX > 0 ? 'right' : 'left');
+        }
+    });
+
+    // Prevent background scroll
+    lightbox.addEventListener('touchmove', (e) => {
+        e.preventDefault();
+    }, { passive: false });
 }
 
 // Rest of the code remains the same
