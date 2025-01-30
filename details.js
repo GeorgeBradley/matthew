@@ -23,6 +23,10 @@ async function fetchProjectDetails() {
 }
 
 function renderProjectDetails(project) {
+    const sortedGallery = project["feature-project-gallery"] 
+        ? [...project["feature-project-gallery"]].sort((a, b) => a.order - b.order) 
+        : [];
+
     detailsContainer.innerHTML = `
         <article class="project-detail">
             <a href="index.html" class="back-button">← Back to Projects</a>
@@ -43,6 +47,22 @@ function renderProjectDetails(project) {
 
             <div class="detail-content">
                 <p class="project-description">${project["feature-project-description"]}</p>
+
+                ${sortedGallery.length ? `
+                <div class="gallery-section">
+                    <h2>Gallery</h2>
+                    <div class="gallery-grid" data-gallery='${JSON.stringify(sortedGallery)}'>
+                        ${sortedGallery.map((image, index) => `
+                            <div class="gallery-item">
+                                <img src="${image.image}" 
+                                     alt="${image['alt-text']}" 
+                                     class="gallery-thumbnail" 
+                                     data-index="${index}">
+                                <div class="gallery-caption">${image.description}</div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>` : ''}
 
                 <div class="detail-grid">
                     ${project["feature-project-company-name"] ? `
@@ -68,8 +88,67 @@ function renderProjectDetails(project) {
                     </div>` : ''}
                 </div>
             </div>
+
+            <div class="lightbox" id="galleryLightbox">
+                <div class="lightbox-content">
+                    <span class="close-btn">&times;</span>
+                    <img class="lightbox-image" src="" alt="">
+                    <div class="lightbox-description"></div>
+                    <button class="prev-btn">❮</button>
+                    <button class="next-btn">❯</button>
+                </div>
+            </div>
         </article>
     `;
+
+    // Lightbox functionality
+    const galleryThumbnails = detailsContainer.querySelectorAll('.gallery-thumbnail');
+    const lightbox = detailsContainer.querySelector('#galleryLightbox');
+    const lightboxImage = lightbox.querySelector('.lightbox-image');
+    const lightboxDescription = lightbox.querySelector('.lightbox-description');
+    const closeBtn = lightbox.querySelector('.close-btn');
+    const prevBtn = lightbox.querySelector('.prev-btn');
+    const nextBtn = lightbox.querySelector('.next-btn');
+
+    let currentIndex = 0;
+    let galleryData = [];
+
+    galleryThumbnails.forEach(thumbnail => {
+        thumbnail.addEventListener('click', () => {
+            const galleryGrid = thumbnail.closest('.gallery-grid');
+            galleryData = JSON.parse(galleryGrid.dataset.gallery);
+            currentIndex = parseInt(thumbnail.dataset.index);
+            updateLightbox(currentIndex);
+            lightbox.style.display = 'block';
+        });
+    });
+
+    closeBtn.addEventListener('click', () => {
+        lightbox.style.display = 'none';
+    });
+
+    prevBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + galleryData.length) % galleryData.length;
+        updateLightbox(currentIndex);
+    });
+
+    nextBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % galleryData.length;
+        updateLightbox(currentIndex);
+    });
+
+    function updateLightbox(index) {
+        const image = galleryData[index];
+        lightboxImage.src = image.image;
+        lightboxImage.alt = image['alt-text'];
+        lightboxDescription.textContent = image.description;
+    }
+
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+            lightbox.style.display = 'none';
+        }
+    });
 }
 
 function showDetailError() {
