@@ -387,43 +387,78 @@ window.addEventListener('load', () => {
 
 
 
-document.addEventListener('DOMContentLoaded', () => {
-            try {
-                const gallery = document.querySelector('.hero-gallery');
-                const totalImages = 17;
+const API_URL = 'https://GeorgeBradley.github.io/matthew/feature-project.json';
 
-                // Clear gallery first
-                while (gallery.firstChild) {
-                    gallery.removeChild(gallery.firstChild);
-                }
+let currentSlide = 0;
+let slides = [];
+let timeoutId;
 
-                // Create images
-                for (let i = 1; i <= totalImages; i++) {
-                    const link = document.createElement('a');
-                    link.href = `https://picsum.photos/1920/800?random=${i}`;
-                    link.setAttribute('data-lightbox', 'hero-gallery');
-                    link.setAttribute('data-title', `Image ${i}`);
-                    
-                    const img = document.createElement('img');
-                    img.className = 'hero-image';
-                    img.src = `https://picsum.photos/1920/800?random=${i}`;
-                    img.alt = `Hero Image ${i}`;
-                    
-                    link.appendChild(img);
-                    gallery.appendChild(link);
-                }
+async function initializeSlider() {
+  try {
+    const response = await fetch(API_URL);
+    const projects = await response.json();
+    
+    // Create slides array from all gallery images
+    slides = projects.flatMap(project => 
+      project['feature-project-gallery'].map(galleryItem => ({
+        image: galleryItem.image,
+        alt: galleryItem['alt-text'],
+        projectName: project['feature-project-name'],
+        description: project['feature-project-description'],
+        company: project['feature-project-company-name']
+      }))
+    );
 
-                // Initialize lightbox
-                new SimpleLightbox('.hero-gallery a', {
-                    captionsData: 'data-title',
-                    captionDelay: 200
-                });
+    // Create slide elements
+    const container = document.getElementById('slideContainer');
+    slides.forEach((slideData, index) => {
+      const slideDiv = document.createElement('div');
+      slideDiv.className = `slide ${index === 0 ? 'active' : ''}`;
+      
+      const img = document.createElement('img');
+      img.src = slideData.image;
+      img.alt = slideData.alt;
+      
+      const textDiv = document.createElement('div');
+      textDiv.className = 'hero-text';
+      textDiv.innerHTML = `
+        <h2>${slideData.projectName}</h2>
+        <p>${slideData.description}</p>
+        <p>${slideData.company}</p>
+      `;
+      
+      slideDiv.appendChild(img);
+      slideDiv.appendChild(textDiv);
+      container.appendChild(slideDiv);
+    });
 
-                console.log('Successfully injected', gallery.children.length, 'images');
-                console.log('First image source:', gallery.firstElementChild.href);
+    startSlider();
+  } catch (error) {
+    console.error('Error loading projects:', error);
+  }
+}
 
-            } catch (error) {
-                console.error('Injection error:', error);
-            }
-        });
+function startSlider() {
+  function nextSlide() {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[currentSlide].classList.add('active');
+    timeoutId = setTimeout(nextSlide, 3000);
+  }
 
+  // Convert to array for easier manipulation
+  slides = Array.from(document.getElementsByClassName('slide'));
+  
+  // Pause on hover
+  document.querySelector('.hero').addEventListener('mouseenter', () => {
+    clearTimeout(timeoutId);
+  });
+  
+  document.querySelector('.hero').addEventListener('mouseleave', () => {
+    timeoutId = setTimeout(nextSlide, 3000);
+  });
+
+  timeoutId = setTimeout(nextSlide, 3000);
+}
+
+document.addEventListener('DOMContentLoaded', initializeSlider);
