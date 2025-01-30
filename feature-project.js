@@ -18,17 +18,17 @@ function createProjectCard(project) {
     const card = document.createElement('article');
     card.className = 'project-card';
     card.innerHTML = `
-        <img src="${project.thumbnail}" 
-             alt="${project.name}" 
+        <img src="${project['feature-project-thumbnail']}" 
+             alt="${project['feature-project-name']}" 
              class="card-image">
         <div class="card-content">
-            <h2 class="project-name">${project.name}</h2>
-            <p class="project-description">${project.description}</p>
+            <h2 class="project-name">${project['feature-project-name']}</h2>
+            <p class="project-description">${project['feature-project-description']}</p>
             
-            ${project.startYear ? `
+            ${project['feature-project-start-year'] ? `
             <div class="meta-info">
                 <span class="date-range">
-                    ${project.startYear}${project.endYear ? ` - ${project.endYear}` : ''}
+                    ${project['feature-project-start-year']}${project['feature-project-end-year'] ? ` - ${project['feature-project-end-year']}` : ''}
                 </span>
             </div>` : ''}
             
@@ -41,7 +41,6 @@ function createProjectCard(project) {
     `;
     return card;
 }
-
 function showLoading() {
     projectsContainer.innerHTML = `
         <div class="loading-state">
