@@ -395,88 +395,80 @@ let heroTimeoutId;
 
 async function initializeHeroSlider() {
   try {
-    const debug = document.getElementById('debugInfo');
-    debug.textContent = 'Fetching data...';
-    
     const response = await fetch(HERO_API_URL);
     if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
     
-    const heroProjects = await response.json();
-    debug.textContent = `Loaded ${heroProjects.length} projects`;
+    const projects = await response.json();
+    console.log('Loaded projects:', projects); // Debug log
     
-    // Use project thumbnails
-    heroSlides = heroProjects.map(project => ({
+    // Create array of just project thumbnails and their data
+    heroSlides = projects.map(project => ({
       image: project['feature-project-thumbnail'],
       alt: `Thumbnail for ${project['feature-project-name']}`,
-      projectName: project['feature-project-name'],
+      name: project['feature-project-name'],
       description: project['feature-project-description'],
       company: project['feature-project-company-name']
     }));
 
-    const heroContainer = document.getElementById('hero-slide-container');
-    
-    // Clear existing content
-    heroContainer.innerHTML = '';
-    
-    heroSlides.forEach((heroSlideData, index) => {
-      const heroSlideDiv = document.createElement('div');
-      heroSlideDiv.className = `hero-slide ${index === 0 ? 'active' : ''}`;
+    console.log('Processed slides:', heroSlides); // Debug log
+
+    const container = document.getElementById('hero-slide-container');
+    container.innerHTML = ''; // Clear previous content
+
+    heroSlides.forEach((slide, index) => {
+      const slideDiv = document.createElement('div');
+      slideDiv.className = `hero-slide ${index === 0 ? 'active' : ''}`;
       
-      const heroImg = document.createElement('img');
-      heroImg.src = heroSlideData.image;
-      heroImg.alt = heroSlideData.alt;
+      const img = new Image();
+      img.src = slide.image;
+      img.alt = slide.alt;
+      img.onerror = () => console.error('Failed to load image:', slide.image);
       
-      // Add error handling for images
-      heroImg.onerror = () => {
-        console.error('Failed to load image:', heroSlideData.image);
-        heroImg.style.backgroundColor = '#333';
-      };
-      
-      const heroTextDiv = document.createElement('div');
-      heroTextDiv.className = 'hero-text-content';
-      heroTextDiv.innerHTML = `
-        <h2>${heroSlideData.projectName}</h2>
-        <p>${heroSlideData.description}</p>
-        <p>${heroSlideData.company}</p>
+      const textDiv = document.createElement('div');
+      textDiv.className = 'hero-text-content';
+      textDiv.innerHTML = `
+        <h2>${slide.name}</h2>
+        <p>${slide.description}</p>
+        <p>${slide.company}</p>
       `;
-      
-      heroSlideDiv.appendChild(heroImg);
-      heroSlideDiv.appendChild(heroTextDiv);
-      heroContainer.appendChild(heroSlideDiv);
+
+      slideDiv.appendChild(img);
+      slideDiv.appendChild(textDiv);
+      container.appendChild(slideDiv);
     });
 
     startHeroSlider();
   } catch (error) {
-    const debug = document.getElementById('debugInfo');
-    debug.textContent = `Error: ${error.message}`;
-    console.error('Error loading hero projects:', error);
+    console.error('Error:', error);
+    alert(`Error loading content: ${error.message}`);
   }
 }
 
 function startHeroSlider() {
-  function heroNextSlide() {
-    heroSlides[heroCurrentSlide].classList.remove('active');
-    heroCurrentSlide = (heroCurrentSlide + 1) % heroSlides.length;
-    heroSlides[heroCurrentSlide].classList.add('active');
-    heroTimeoutId = setTimeout(heroNextSlide, 3000);
-  }
-
-  heroSlides = Array.from(document.getElementsByClassName('hero-slide'));
-  
-  if (heroSlides.length === 0) {
+  const slides = document.querySelectorAll('.hero-slide');
+  if (slides.length === 0) {
     console.error('No slides found');
     return;
   }
 
+  function nextSlide() {
+    slides[heroCurrentSlide].classList.remove('active');
+    heroCurrentSlide = (heroCurrentSlide + 1) % slides.length;
+    slides[heroCurrentSlide].classList.add('active');
+    heroTimeoutId = setTimeout(nextSlide, 3000);
+  }
+
+  // Control pause on hover
   document.querySelector('.hero-container').addEventListener('mouseenter', () => {
     clearTimeout(heroTimeoutId);
   });
-  
+
   document.querySelector('.hero-container').addEventListener('mouseleave', () => {
-    heroTimeoutId = setTimeout(heroNextSlide, 3000);
+    heroTimeoutId = setTimeout(nextSlide, 3000);
   });
 
-  heroTimeoutId = setTimeout(heroNextSlide, 3000);
+  // Start cycling
+  heroTimeoutId = setTimeout(nextSlide, 3000);
 }
 
 document.addEventListener('DOMContentLoaded', initializeHeroSlider);
