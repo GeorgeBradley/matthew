@@ -22,7 +22,49 @@
         "description": "The puppets in action during a theatre performance.",
         "alt-text": "Silhouettes of shadow puppets projected onto a screen.",
         "order": 3
-      }
+      }, 
+      {
+        "image": "feature-img/feature-1-4.jpg",
+        "description": "The puppets in action during a theatre performance.",
+        "alt-text": "Silhouettes of shadow puppets projected onto a screen.",
+        "order": 4
+      },
+         
+      {
+        "image": "feature-img/feature-1-5.jpg",
+        "description": "The puppets in action during a theatre performance.",
+        "alt-text": "Silhouettes of shadow puppets projected onto a screen.",
+        "order": 5
+      }, 
+         
+      {
+        "image": "feature-img/feature-1-6.jpg",
+        "description": "The puppets in action during a theatre performance.",
+        "alt-text": "Silhouettes of shadow puppets projected onto a screen.",
+        "order": 6
+      }, 
+         
+      {
+        "image": "feature-img/feature-1-7.jpg",
+        "description": "The puppets in action during a theatre performance.",
+        "alt-text": "Silhouettes of shadow puppets projected onto a screen.",
+        "order": 7
+      },
+        
+      {
+        "image": "feature-img/feature-1-8.jpg",
+        "description": "The puppets in action during a theatre performance.",
+        "alt-text": "Silhouettes of shadow puppets projected onto a screen.",
+        "order": 8
+      }, 
+      {
+        "image": "feature-img/feature-1-9.jpg",
+        "description": "The puppets in action during a theatre performance.",
+        "alt-text": "Silhouettes of shadow puppets projected onto a screen.",
+        "order": 9
+      }, 
+      
+      
     ],
     "feature-project-link": "https://puppetcraft.com/shadow-odyssey",
     "feature-project-start-year": 2018,
