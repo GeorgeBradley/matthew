@@ -395,10 +395,16 @@ let heroTimeoutId;
 
 async function initializeHeroSlider() {
   try {
-    const response = await fetch(HERO_API_URL);
-    const heroProjects = await response.json();
+    const debug = document.getElementById('debugInfo');
+    debug.textContent = 'Fetching data...';
     
-    // Use project thumbnails instead of gallery images
+    const response = await fetch(HERO_API_URL);
+    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+    
+    const heroProjects = await response.json();
+    debug.textContent = `Loaded ${heroProjects.length} projects`;
+    
+    // Use project thumbnails
     heroSlides = heroProjects.map(project => ({
       image: project['feature-project-thumbnail'],
       alt: `Thumbnail for ${project['feature-project-name']}`,
@@ -408,6 +414,10 @@ async function initializeHeroSlider() {
     }));
 
     const heroContainer = document.getElementById('hero-slide-container');
+    
+    // Clear existing content
+    heroContainer.innerHTML = '';
+    
     heroSlides.forEach((heroSlideData, index) => {
       const heroSlideDiv = document.createElement('div');
       heroSlideDiv.className = `hero-slide ${index === 0 ? 'active' : ''}`;
@@ -415,6 +425,12 @@ async function initializeHeroSlider() {
       const heroImg = document.createElement('img');
       heroImg.src = heroSlideData.image;
       heroImg.alt = heroSlideData.alt;
+      
+      // Add error handling for images
+      heroImg.onerror = () => {
+        console.error('Failed to load image:', heroSlideData.image);
+        heroImg.style.backgroundColor = '#333';
+      };
       
       const heroTextDiv = document.createElement('div');
       heroTextDiv.className = 'hero-text-content';
@@ -431,6 +447,8 @@ async function initializeHeroSlider() {
 
     startHeroSlider();
   } catch (error) {
+    const debug = document.getElementById('debugInfo');
+    debug.textContent = `Error: ${error.message}`;
     console.error('Error loading hero projects:', error);
   }
 }
@@ -445,6 +463,11 @@ function startHeroSlider() {
 
   heroSlides = Array.from(document.getElementsByClassName('hero-slide'));
   
+  if (heroSlides.length === 0) {
+    console.error('No slides found');
+    return;
+  }
+
   document.querySelector('.hero-container').addEventListener('mouseenter', () => {
     clearTimeout(heroTimeoutId);
   });
