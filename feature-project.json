@@ -179,6 +179,20 @@
         "description": "Children interacting with the eco-friendly puppets.",
         "alt-text": "A group of children using puppets in an educational setting.",
         "order": 3
+      },
+          
+      {
+        "image": "feature-img/feature-3-4.jpg",
+        "description": "Children interacting with the eco-friendly puppets.",
+        "alt-text": "A group of children using puppets in an educational setting.",
+        "order": 4
+      },
+
+       {
+        "image": "feature-img/feature-3-5.jpg",
+        "description": "Children interacting with the eco-friendly puppets.",
+        "alt-text": "A group of children using puppets in an educational setting.",
+        "order": 5
       }
     ],
     "feature-project-link": "https://greenpuppets.org/eco-series",
