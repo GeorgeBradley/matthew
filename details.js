@@ -1,80 +1,93 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const params = new URLSearchParams(window.location.search);
-    const projectId = params.get('id');
-    const storedProject = sessionStorage.getItem('currentProject');
+// details.html
+const API_URL = 'https://GeorgeBradley.github.io/matthew/feature-project.json';
+const detailsContainer = document.getElementById('project-detail-container');
+const urlParams = new URLSearchParams(window.location.search);
+const projectId = urlParams.get('id');
 
-    // Validate project data
-    if (!projectId || !storedProject) {
-        window.location.href = 'index.html';
-        return;
-    }
-
+async function fetchProjectDetails() {
+    if (!projectId) redirectToIndex();
+    
     try {
-        const project = JSON.parse(storedProject);
+        const response = await fetch(API_URL);
+        if (!response.ok) throw new Error('Network response failed');
+        const projects = await response.json();
+        const project = projects.find(p => p.id === projectId);
         
-        // Security check - verify ID match
-        if (project.id !== projectId) {
-            throw new Error('Project ID mismatch');
-        }
-
-        // Render project details
+        if (!project) throw new Error('Project not found');
         renderProjectDetails(project);
         
     } catch (error) {
-        console.error('Error loading project:', error);
-        window.location.href = 'index.html';
+        console.error('Error:', error);
+        showDetailError();
     }
-});
+}
 
 function renderProjectDetails(project) {
-    const container = document.getElementById('project-detail-container');
-    
-    // Build your detail page template here
-    container.innerHTML = `
-         <article class="project-detail">
-            <img src="${project['feature-project-thumbnail']}" 
-                 class="detail-image"
-                 alt="${project['feature-project-name']}">
+    detailsContainer.innerHTML = `
+        <article class="project-detail">
+            <a href="index.html" class="back-button">← Back to Projects</a>
             
-            <div class="detail-section">
-                <h1 class="detail-title">${project['feature-project-name']}</h1>
-                <p class="detail-text">${project['feature-project-description']}</p>
-                
-                ${project['feature-project-start-year'] || project['feature-project-end-year'] ? `
-                <div class="detail-text">
-                    <strong>Duration:</strong> 
-                    ${project['feature-project-start-year'] || ''}
-                    ${project['feature-project-end-year'] ? ` - ${project['feature-project-end-year']}` : ''}
+            <div class="detail-header">
+                <h1 class="project-title">${project.name}</h1>
+                ${project.startYear ? `
+                <div class="project-meta">
+                    <span class="date-range">
+                        ${project.startYear}${project.endYear ? ` - ${project.endYear}` : ''}
+                    </span>
                 </div>` : ''}
+            </div>
 
-                ${project['feature-project-company-name'] ? `
-                <div class="detail-text">
-                    <strong>Company:</strong> ${project['feature-project-company-name']}
-                </div>` : ''}
+            <img src="${project.thumbnail}" 
+                 alt="${project.name}" 
+                 class="detail-image">
 
-                ${project['feature-project-client'] ? `
-                <div class="detail-text">
-                    <strong>Client:</strong> ${project['feature-project-client']}
-                </div>` : ''}
+            <div class="detail-content">
+                <p class="project-description">${project.description}</p>
 
-                ${project['feature-project-job-category'] ? `
-                <div class="detail-text">
-                    <strong>Role:</strong> ${project['feature-project-job-category']}
-                </div>` : ''}
-
-                ${project['feature-project-skills']?.length ? `
-                <div class="detail-text">
-                    <strong>Skills:</strong> 
-                    ${project['feature-project-skills'].join(', ')}
-                </div>` : ''}
+                <div class="detail-grid">
+                    ${project.company ? `
+                    <div class="detail-item">
+                        <h3>Company</h3>
+                        <p>${project.company}</p>
+                    </div>` : ''}
+                    
+                    ${project.client ? `
+                    <div class="detail-item">
+                        <h3>Client</h3>
+                        <p>${project.client}</p>
+                    </div>` : ''}
+                    
+                    ${project.skills?.length ? `
+                    <div class="detail-item">
+                        <h3>Skills Used</h3>
+                        <div class="skill-list">
+                            ${project.skills.map(skill => `
+                                <span class="skill-tag">${skill}</span>
+                            `).join('')}
+                        </div>
+                    </div>` : ''}
+                </div>
             </div>
         </article>
     `;
-
-    // Clear session storage after successful render
-    sessionStorage.removeItem('currentProject');
 }
-// Load project on page load
-loadProjectDetails();  container.innerHTML = `
-       
+
+function showDetailError() {
+    detailsContainer.innerHTML = `
+        <div class="error-state">
+            <p>⚠️ Project not found</p>
+            <a href="index.html" class="back-button">Return to Projects</a>
+        </div>
     `;
+}
+
+function redirectToIndex() {
+    window.location.href = 'index.html';
+}
+
+// Initial load
+if (projectId) {
+    fetchProjectDetails();
+} else {
+    redirectToIndex();
+}
