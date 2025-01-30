@@ -12,7 +12,7 @@ async function fetchProjectDetails() {
         const projects = await response.json();
 
         const project = projects.find(p => p.id === Number(projectId));
-        
+
         if (!project) throw new Error('Project not found');
         renderProjectDetails(project);
 
@@ -22,11 +22,7 @@ async function fetchProjectDetails() {
     }
 }
 
-function renderProjectDetails(project, projects) {
-    const currentIndex = projects.findIndex(p => p.id === project.id);
-    const prevProject = projects[currentIndex - 1];
-    const nextProject = projects[currentIndex + 1];
-    
+function renderProjectDetails(project) {
     const sortedGallery = project["feature-project-gallery"] 
         ? [...project["feature-project-gallery"]].sort((a, b) => a.order - b.order) 
         : [];
@@ -95,22 +91,6 @@ function renderProjectDetails(project, projects) {
                 </div>
             </div>
 
-            <div class="project-navigation">
-                ${prevProject ? `
-                    <a href="details.html?id=${prevProject.id}" class="nav-button prev-project">
-                        ← Previous Project
-                        <span>${prevProject["feature-project-name"]}</span>
-                    </a>
-                ` : '<div class="nav-spacer"></div>'}
-                
-                ${nextProject ? `
-                    <a href="details.html?id=${nextProject.id}" class="nav-button next-project">
-                        Next Project →
-                        <span>${nextProject["feature-project-name"]}</span>
-                    </a>
-                ` : '<div class="nav-spacer"></div>'}
-            </div>
-
             <div class="lightbox" id="galleryLightbox">
                 <div class="lightbox-content">
                     <div class="lightbox-image-container">
@@ -124,6 +104,7 @@ function renderProjectDetails(project, projects) {
             </div>
         </article>
     `;
+
     // Lightbox functionality
     const galleryThumbnails = detailsContainer.querySelectorAll('.gallery-thumbnail');
     const lightbox = detailsContainer.querySelector('#galleryLightbox');
