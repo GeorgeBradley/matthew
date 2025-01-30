@@ -1,5 +1,5 @@
 // index.html
-const API_URL = 'https://GeorgeBradley.github.io/matthew/feature-project.html';
+const API_URL = 'https://GeorgeBradley.github.io/matthew/feature-project.json';
 const projectsContainer = document.getElementById('projects-container');
 
 async function fetchProjects() {
