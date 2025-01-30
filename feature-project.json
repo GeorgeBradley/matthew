@@ -226,7 +226,77 @@
         "description": "Final animatronic puppet performing on set.",
         "alt-text": "An animatronic puppet moving its face expressively during filming.",
         "order": 3
+      },
+
+        {
+        "image": "feature-img/feature-4-4.jpg",
+        "description": "Final animatronic puppet performing on set.",
+        "alt-text": "An animatronic puppet moving its face expressively during filming.",
+        "order": 4
+      },
+        {
+        "image": "feature-img/feature-4-5.jpg",
+        "description": "Final animatronic puppet performing on set.",
+        "alt-text": "An animatronic puppet moving its face expressively during filming.",
+        "order": 5
+      },
+
+        {
+        "image": "feature-img/feature-4-6.jpg",
+        "description": "Final animatronic puppet performing on set.",
+        "alt-text": "An animatronic puppet moving its face expressively during filming.",
+        "order": 3
+      },
+
+        {
+        "image": "feature-img/feature-4-7.jpg",
+        "description": "Final animatronic puppet performing on set.",
+        "alt-text": "An animatronic puppet moving its face expressively during filming.",
+        "order": 7
+      },
+        {
+        "image": "feature-img/feature-4-8.jpg",
+        "description": "Final animatronic puppet performing on set.",
+        "alt-text": "An animatronic puppet moving its face expressively during filming.",
+        "order": 8
+      },
+        {
+        "image": "feature-img/feature-4-9.jpg",
+        "description": "Final animatronic puppet performing on set.",
+        "alt-text": "An animatronic puppet moving its face expressively during filming.",
+        "order": 9
+      },
+        {
+        "image": "feature-img/feature-4-10.jpg",
+        "description": "Final animatronic puppet performing on set.",
+        "alt-text": "An animatronic puppet moving its face expressively during filming.",
+        "order": 10
+      },
+        {
+        "image": "feature-img/feature-4-11.jpg",
+        "description": "Final animatronic puppet performing on set.",
+        "alt-text": "An animatronic puppet moving its face expressively during filming.",
+        "order": 11
+      },
+        {
+        "image": "feature-img/feature-4-12.jpg",
+        "description": "Final animatronic puppet performing on set.",
+        "alt-text": "An animatronic puppet moving its face expressively during filming.",
+        "order": 12
+      }, 
+        {
+        "image": "feature-img/feature-4-13.jpg",
+        "description": "Final animatronic puppet performing on set.",
+        "alt-text": "An animatronic puppet moving its face expressively during filming.",
+        "order": 13
+      },
+        {
+        "image": "feature-img/feature-4-14.jpg",
+        "description": "Final animatronic puppet performing on set.",
+        "alt-text": "An animatronic puppet moving its face expressively during filming.",
+        "order": 14
       }
+      
     ],
     "feature-project-link": "https://futurepuppet.tech/animatronic-x1",
     "feature-project-start-year": 2022,
