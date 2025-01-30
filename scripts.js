@@ -388,35 +388,43 @@ window.addEventListener('load', () => {
 
 
 
-// Hero gallery initialization
-        const heroGallery = document.querySelector('.hero-gallery');
-        const totalHeroImages = 17;
+ // Immediately-invoked function to ensure DOM readiness
+        (function initHeroGallery() {
+            const gallery = document.querySelector('.hero-gallery');
+            const totalImages = 17;
 
-        for (let i = 1; i <= totalHeroImages; i++) {
-            const heroImgLink = document.createElement('a');
-            heroImgLink.href = `feature-img/feature-${i}.jpg`;
-            heroImgLink.setAttribute('data-lightbox', 'hero-gallery');
-            heroImgLink.setAttribute('data-title', `Image ${i}`);
+            // Clear existing content (just in case)
+            gallery.innerHTML = '';
 
-            const heroImg = document.createElement('img');
-            heroImg.src = `feature-img/feature-${i}.jpg`;
-            heroImg.className = 'hero-image';
-            heroImg.alt = `Feature ${i}`;
+            // Create document fragment for batch insertion
+            const fragment = document.createDocumentFragment();
 
-            heroImgLink.appendChild(heroImg);
-            heroGallery.appendChild(heroImgLink);
-        }
+            for (let i = 1; i <= totalImages; i++) {
+                const imgLink = document.createElement('a');
+                imgLink.href = `feature-img/feature-${i}.jpg`;
+                imgLink.setAttribute('data-lightbox', 'hero-gallery');
+                imgLink.setAttribute('data-title`, `Image ${i}`);
 
-        // Hero lightbox configuration
-        const heroLightbox = new SimpleLightbox('.hero-gallery a', {
-            captionsData: 'data-title',
-            captionDelay: 200,
-            animationSpeed: 200,
-            fadeSpeed: 200,
-            doubleTapZoom: 2,
-            uniqueImages: true,
-            history: false
-        });
+                const img = document.createElement('img');
+                img.src = `feature-img/feature-${i}.jpg`;
+                img.className = 'hero-image';
+                img.alt = `Feature Image ${i}`;
+                
+                imgLink.appendChild(img);
+                fragment.appendChild(imgLink);
+            }
+
+            // Add all elements to DOM at once
+            gallery.appendChild(fragment);
+
+            // Initialize lightbox after DOM insertion
+            new SimpleLightbox('.hero-gallery a', {
+                captionsData: 'data-title',
+                captionDelay: 200
+            });
+
+            console.log(`Injected ${totalImages} hero images successfully!`);
+        })();
 
 
 
