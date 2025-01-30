@@ -397,11 +397,9 @@ async function initializeHeroSlider() {
   try {
     const response = await fetch(HERO_API_URL);
     if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-    
+
     const projects = await response.json();
-    console.log('Loaded projects:', projects); // Debug log
-    
-    // Create array of just project thumbnails and their data
+
     heroSlides = projects.map(project => ({
       image: project['feature-project-thumbnail'],
       alt: `Thumbnail for ${project['feature-project-name']}`,
@@ -410,20 +408,18 @@ async function initializeHeroSlider() {
       company: project['feature-project-company-name']
     }));
 
-    console.log('Processed slides:', heroSlides); // Debug log
-
     const container = document.getElementById('hero-slide-container');
-    container.innerHTML = ''; // Clear previous content
+    container.innerHTML = '';
 
     heroSlides.forEach((slide, index) => {
       const slideDiv = document.createElement('div');
       slideDiv.className = `hero-slide ${index === 0 ? 'active' : ''}`;
-      
+
       const img = new Image();
       img.src = slide.image;
       img.alt = slide.alt;
       img.onerror = () => console.error('Failed to load image:', slide.image);
-      
+
       const textDiv = document.createElement('div');
       textDiv.className = 'hero-text-content';
       textDiv.innerHTML = `
@@ -440,35 +436,29 @@ async function initializeHeroSlider() {
     startHeroSlider();
   } catch (error) {
     console.error('Error:', error);
-    alert(`Error loading content: ${error.message}`);
   }
 }
 
 function startHeroSlider() {
   const slides = document.querySelectorAll('.hero-slide');
-  if (slides.length === 0) {
-    console.error('No slides found');
-    return;
-  }
+  if (slides.length === 0) return;
 
   function nextSlide() {
     slides[heroCurrentSlide].classList.remove('active');
     heroCurrentSlide = (heroCurrentSlide + 1) % slides.length;
     slides[heroCurrentSlide].classList.add('active');
-    heroTimeoutId = setTimeout(nextSlide, 3000);
+    heroTimeoutId = setTimeout(nextSlide, 5000);
   }
 
-  // Control pause on hover
   document.querySelector('.hero-container').addEventListener('mouseenter', () => {
     clearTimeout(heroTimeoutId);
   });
 
   document.querySelector('.hero-container').addEventListener('mouseleave', () => {
-    heroTimeoutId = setTimeout(nextSlide, 3000);
+    heroTimeoutId = setTimeout(nextSlide, 5000);
   });
 
-  // Start cycling
-  heroTimeoutId = setTimeout(nextSlide, 3000);
+  heroTimeoutId = setTimeout(nextSlide, 5000);
 }
 
 document.addEventListener('DOMContentLoaded', initializeHeroSlider);
