@@ -11,7 +11,7 @@ async function fetchProjectDetails() {
         const response = await fetch(API_URL);
         if (!response.ok) throw new Error('Network response failed');
         const projects = await response.json();
-        const project = projects.find(p => p.id === projectId);
+        const project = projects.find(p => p.id === Number(projectId));
         
         if (!project) throw new Error('Project not found');
         renderProjectDetails(project);
