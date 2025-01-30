@@ -387,19 +387,18 @@ window.addEventListener('load', () => {
 
 
 
-const API_URL = 'https://GeorgeBradley.github.io/matthew/feature-project.json';
+const HERO_API_URL = 'https://GeorgeBradley.github.io/matthew/feature-project.json';
 
-let currentSlide = 0;
-let slides = [];
-let timeoutId;
+let heroCurrentSlide = 0;
+let heroSlides = [];
+let heroTimeoutId;
 
-async function initializeSlider() {
+async function initializeHeroSlider() {
   try {
-    const response = await fetch(API_URL);
-    const projects = await response.json();
+    const response = await fetch(HERO_API_URL);
+    const heroProjects = await response.json();
     
-    // Create slides array from all gallery images
-    slides = projects.flatMap(project => 
+    heroSlides = heroProjects.flatMap(project => 
       project['feature-project-gallery'].map(galleryItem => ({
         image: galleryItem.image,
         alt: galleryItem['alt-text'],
@@ -409,56 +408,53 @@ async function initializeSlider() {
       }))
     );
 
-    // Create slide elements
-    const container = document.getElementById('slideContainer');
-    slides.forEach((slideData, index) => {
-      const slideDiv = document.createElement('div');
-      slideDiv.className = `slide ${index === 0 ? 'active' : ''}`;
+    const heroContainer = document.getElementById('hero-slide-container');
+    heroSlides.forEach((heroSlideData, index) => {
+      const heroSlideDiv = document.createElement('div');
+      heroSlideDiv.className = `hero-slide ${index === 0 ? 'active' : ''}`;
       
-      const img = document.createElement('img');
-      img.src = slideData.image;
-      img.alt = slideData.alt;
+      const heroImg = document.createElement('img');
+      heroImg.src = heroSlideData.image;
+      heroImg.alt = heroSlideData.alt;
       
-      const textDiv = document.createElement('div');
-      textDiv.className = 'hero-text';
-      textDiv.innerHTML = `
-        <h2>${slideData.projectName}</h2>
-        <p>${slideData.description}</p>
-        <p>${slideData.company}</p>
+      const heroTextDiv = document.createElement('div');
+      heroTextDiv.className = 'hero-text-content';
+      heroTextDiv.innerHTML = `
+        <h2>${heroSlideData.projectName}</h2>
+        <p>${heroSlideData.description}</p>
+        <p>${heroSlideData.company}</p>
       `;
       
-      slideDiv.appendChild(img);
-      slideDiv.appendChild(textDiv);
-      container.appendChild(slideDiv);
+      heroSlideDiv.appendChild(heroImg);
+      heroSlideDiv.appendChild(heroTextDiv);
+      heroContainer.appendChild(heroSlideDiv);
     });
 
-    startSlider();
+    startHeroSlider();
   } catch (error) {
-    console.error('Error loading projects:', error);
+    console.error('Error loading hero projects:', error);
   }
 }
 
-function startSlider() {
-  function nextSlide() {
-    slides[currentSlide].classList.remove('active');
-    currentSlide = (currentSlide + 1) % slides.length;
-    slides[currentSlide].classList.add('active');
-    timeoutId = setTimeout(nextSlide, 3000);
+function startHeroSlider() {
+  function heroNextSlide() {
+    heroSlides[heroCurrentSlide].classList.remove('active');
+    heroCurrentSlide = (heroCurrentSlide + 1) % heroSlides.length;
+    heroSlides[heroCurrentSlide].classList.add('active');
+    heroTimeoutId = setTimeout(heroNextSlide, 3000);
   }
 
-  // Convert to array for easier manipulation
-  slides = Array.from(document.getElementsByClassName('slide'));
+  heroSlides = Array.from(document.getElementsByClassName('hero-slide'));
   
-  // Pause on hover
-  document.querySelector('.hero').addEventListener('mouseenter', () => {
-    clearTimeout(timeoutId);
+  document.querySelector('.hero-container').addEventListener('mouseenter', () => {
+    clearTimeout(heroTimeoutId);
   });
   
-  document.querySelector('.hero').addEventListener('mouseleave', () => {
-    timeoutId = setTimeout(nextSlide, 3000);
+  document.querySelector('.hero-container').addEventListener('mouseleave', () => {
+    heroTimeoutId = setTimeout(heroNextSlide, 3000);
   });
 
-  timeoutId = setTimeout(nextSlide, 3000);
+  heroTimeoutId = setTimeout(heroNextSlide, 3000);
 }
 
-document.addEventListener('DOMContentLoaded', initializeSlider);
+document.addEventListener('DOMContentLoaded', initializeHeroSlider);
