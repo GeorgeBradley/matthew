@@ -97,6 +97,55 @@
         "description": "A historical reenactment featuring marionette puppets.",
         "alt-text": "Marionettes performing on stage with historical set design.",
         "order": 3
+      },
+         
+      {
+        "image": "feature-img/feature-2-4.jpg",
+        "description": "A historical reenactment featuring marionette puppets.",
+        "alt-text": "Marionettes performing on stage with historical set design.",
+        "order": 4
+      },
+         
+      {
+        "image": "feature-img/feature-2-5.jpg",
+        "description": "A historical reenactment featuring marionette puppets.",
+        "alt-text": "Marionettes performing on stage with historical set design.",
+        "order": 5
+      },
+         
+      {
+        "image": "feature-img/feature-2-6.jpg",
+        "description": "A historical reenactment featuring marionette puppets.",
+        "alt-text": "Marionettes performing on stage with historical set design.",
+        "order": 6
+      },
+         
+      {
+        "image": "feature-img/feature-2-7.jpg",
+        "description": "A historical reenactment featuring marionette puppets.",
+        "alt-text": "Marionettes performing on stage with historical set design.",
+        "order": 7
+      },
+         
+      {
+        "image": "feature-img/feature-2-8.jpg",
+        "description": "A historical reenactment featuring marionette puppets.",
+        "alt-text": "Marionettes performing on stage with historical set design.",
+        "order": 8
+      },
+         
+      {
+        "image": "feature-img/feature-2-9.jpg",
+        "description": "A historical reenactment featuring marionette puppets.",
+        "alt-text": "Marionettes performing on stage with historical set design.",
+        "order": 9
+      },
+         
+      {
+        "image": "feature-img/feature-2-10.jpg",
+        "description": "A historical reenactment featuring marionette puppets.",
+        "alt-text": "Marionettes performing on stage with historical set design.",
+        "order": 10
       }
     ],
     "feature-project-link": "https://stringtheorycreations.com/marionette-revival",
