@@ -398,15 +398,14 @@ async function initializeHeroSlider() {
     const response = await fetch(HERO_API_URL);
     const heroProjects = await response.json();
     
-    heroSlides = heroProjects.flatMap(project => 
-      project['feature-project-gallery'].map(galleryItem => ({
-        image: galleryItem.image,
-        alt: galleryItem['alt-text'],
-        projectName: project['feature-project-name'],
-        description: project['feature-project-description'],
-        company: project['feature-project-company-name']
-      }))
-    );
+    // Use project thumbnails instead of gallery images
+    heroSlides = heroProjects.map(project => ({
+      image: project['feature-project-thumbnail'],
+      alt: `Thumbnail for ${project['feature-project-name']}`,
+      projectName: project['feature-project-name'],
+      description: project['feature-project-description'],
+      company: project['feature-project-company-name']
+    }));
 
     const heroContainer = document.getElementById('hero-slide-container');
     heroSlides.forEach((heroSlideData, index) => {
