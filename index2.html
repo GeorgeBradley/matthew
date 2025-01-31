@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Project Details – Enhanced Gallery & Lightbox</title>
+  <title>Project Details – Optimized Gallery & Lightbox</title>
   <style>
     /* ================= Variables ================= */
     :root {
@@ -54,13 +54,13 @@
       background: var(--card-bg);
       border-radius: 16px;
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-      padding: 3rem;
+      padding: 2rem 2rem 3rem;
       border: 1px solid var(--border);
     }
     .detail-header {
       text-align: center;
-      margin-bottom: 3rem;
-      padding-bottom: 2rem;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
       border-bottom: 1px solid var(--border);
     }
     .project-title {
@@ -91,7 +91,7 @@
     .detail-content {
       display: flex;
       flex-direction: column;
-      gap: 3rem;
+      gap: 2rem;
     }
     .project-description {
       font-size: 1.1rem;
@@ -105,7 +105,7 @@
       flex-wrap: wrap;
       gap: 2rem;
       justify-content: center;
-      margin-top: 2rem;
+      margin-top: 1.5rem;
     }
     .detail-item {
       flex: 1;
@@ -137,12 +137,12 @@
     }
     /* ================= Gallery Styles ================= */
     .gallery-section {
-      margin: 4rem 0;
+      margin: 2rem 0;
       padding: 0 1rem;
     }
     .gallery-section h2 {
       text-align: center;
-      margin-bottom: 2.5rem;
+      margin-bottom: 1.5rem;
       color: var(--text);
       font-size: 1.75rem;
       font-weight: 600;
@@ -161,29 +161,29 @@
     }
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1rem;
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0 1rem;
+      padding: 0 0.5rem;
     }
     .gallery-item {
       position: relative;
       overflow: hidden;
       border-radius: 12px;
-      background: var(--card-bg);
+      /* Remove white background to let the image fill the container */
       border: 1px solid var(--border);
       cursor: pointer;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .gallery-item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
     }
+    /* Use aspect-ratio to keep a consistent thumbnail */
     .gallery-thumbnail {
       width: 100%;
-      height: 0;
-      padding-bottom: 70%;
+      aspect-ratio: 16 / 9;
       object-fit: cover;
       display: block;
     }
@@ -195,7 +195,7 @@
       right: 0;
       background: rgba(59, 130, 246, 0.8);
       color: #fff;
-      padding: 0.75rem;
+      padding: 0.5rem;
       text-align: center;
       font-size: 0.9rem;
       opacity: 0;
@@ -221,7 +221,6 @@
     .lightbox.active {
       display: flex;
     }
-    /* The lightbox container will wrap the image and caption */
     .lightbox-content {
       position: relative;
       background: #000;
@@ -246,15 +245,14 @@
       margin: 0 auto;
       transition: opacity 0.3s ease;
     }
-    /* Caption placed immediately below image container */
     .lightbox-caption {
       background: var(--primary);
       color: #fff;
-      padding: 1rem;
+      padding: 0.75rem 1rem;
       font-size: 1rem;
       text-align: center;
     }
-    /* Navigation buttons positioned inside the image container */
+    /* Navigation buttons inside the image container */
     .nav-btn {
       position: absolute;
       top: 50%;
@@ -277,7 +275,6 @@
     }
     .prev-btn { left: 10px; }
     .next-btn { right: 10px; }
-    /* Using simple arrow icons */
     .nav-btn::before {
       content: '';
       border: solid #fff;
@@ -287,7 +284,7 @@
     }
     .prev-btn::before { transform: rotate(135deg); }
     .next-btn::before { transform: rotate(-45deg); }
-    /* Close button in top-right of lightbox-content */
+    /* Close button */
     .close-btn {
       position: absolute;
       top: 10px;
@@ -338,18 +335,17 @@
     .project-navigation {
       display: flex;
       justify-content: space-between;
-      margin: 4rem 0;
+      margin: 2rem 0 0;
       padding: 0 1rem;
       max-width: 1200px;
-      margin-left: auto;
-      margin-right: auto;
+      margin: 2rem auto 0;
       flex-wrap: wrap;
       gap: 1rem;
     }
     .nav-button {
       display: flex;
       align-items: center;
-      padding: 1.25rem 2rem;
+      padding: 1rem 1.5rem;
       background: var(--background);
       border-radius: 8px;
       transition: all 0.2s ease;
@@ -368,7 +364,7 @@
     .nav-spacer { flex: 1; }
     /* ================= Responsive ================= */
     @media (max-width: 1024px) {
-      .project-detail { padding: 2rem; margin: 1rem; }
+      .project-detail { padding: 1.5rem; margin: 1rem; }
       .project-title { font-size: 2rem; }
     }
     @media (max-width: 768px) {
@@ -378,7 +374,7 @@
       .detail-image { height: 250px; }
       .project-description { font-size: 1rem; }
       .detail-item { flex: 1 1 100%; }
-      .gallery-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .gallery-grid { grid-template-columns: 1fr; gap: 0.75rem; }
       .project-navigation { flex-direction: column; gap: 1rem; }
       .nav-button, .nav-spacer { width: 100%; }
       .nav-btn { bottom: 15px; top: auto; transform: none; }
