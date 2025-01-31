@@ -1,20 +1,11 @@
 /* ================ CSS Variables ================ */
 :root {
-    --earth-green: #3a5f40;
-    --warm-tan: #d4c8b5;
-    --deep-umber: #5e4630;
-    --moss: #6b8065;
-    --hobbit-gold: #c8a951;
+    --primary-color: #3a5f40;  /* Earth Green */
+    --secondary-color: #d4c8b5;  /* Warm Tan */
+    --tertiary-color: #5e4630;  /* Deep Umber */
     
-    --primary-color: var(--earth-green);
-    --secondary-color: var(--moss);
-    --accent-color: var(--hobbit-gold);
-    --background-color: var(--warm-tan);
-    --text-color: var(--deep-umber);
-    --shadow-color: rgba(94, 70, 48, 0.15);
-
     --transition-base: 0.2s ease-in-out;
-    --shadow-sm: 0 1px 3px var(--shadow-color);
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
     --transition-duration: 0.6s;
     --slide-interval: 3s;
     --control-size: 40px;
@@ -42,8 +33,8 @@ body {
     line-height: 1.6;
     text-rendering: optimizeLegibility;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background: linear-gradient(to bottom right, var(--background-color), var(--secondary-color) 120%);
-    color: var(--text-color);
+    background: linear-gradient(to bottom right, var(--secondary-color), var(--tertiary-color) 120%);
+    color: var(--tertiary-color);
     display: flex;
     flex-direction: column;
     padding-top: 100px;
@@ -85,7 +76,7 @@ h1, h2, h3 {
 @media print {
     body {
         background: none !important;
-        color: var(--text-color);
+        color: var(--tertiary-color);
         font-size: 12pt;
     }
 
@@ -121,7 +112,7 @@ h1, h2, h3 {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--background-color);
+    background: var(--secondary-color);
 }
 
 .slide.active {
@@ -161,13 +152,13 @@ h1, h2, h3 {
     align-items: center;
     justify-content: center;
     pointer-events: all;
-    box-shadow: 0 2px 6px var(--shadow-color);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
 .arrow-button svg {
     width: 20px;
     height: 20px;
-    stroke: var(--text-color);
+    stroke: var(--tertiary-color);
     stroke-width: 2;
 }
 
@@ -196,7 +187,7 @@ h1, h2, h3 {
 }
 
 .slider-dot.active {
-    background: var(--text-color);
+    background: var(--tertiary-color);
     transform: scale(1.3);
 }
 
@@ -217,7 +208,7 @@ h1, h2, h3 {
 /* About Section */
 .about-section {
     padding: 4rem 2rem;
-    background: linear-gradient(45deg, var(--background-color) 0%, var(--warm-tan) 100%);
+    background: linear-gradient(45deg, var(--secondary-color) 0%, var(--secondary-color) 100%);
     font-family: 'Helvetica Neue', sans-serif;
 }
 
@@ -238,13 +229,13 @@ h1, h2, h3 {
     width: 250px;
     height: 250px;
     border-radius: 50%;
-    background: var(--warm-tan);
+    background: var(--secondary-color);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 4rem;
     border: 4px solid var(--primary-color);
-    box-shadow: 0 15px 30px var(--shadow-color);
+    box-shadow: 0 15px 30px rgba(94, 70, 48, 0.15);
     transition: transform 0.3s ease;
 }
 
@@ -258,7 +249,7 @@ h1, h2, h3 {
     border-radius: 50%;
     object-fit: cover;
     border: 4px solid var(--primary-color);
-    box-shadow: 0 15px 30px var(--shadow-color);
+    box-shadow: 0 15px 30px rgba(94, 70, 48, 0.15);
 }
 
 .about-content {
@@ -268,12 +259,12 @@ h1, h2, h3 {
 .about-title {
     font-family: 'Playfair Display', serif;
     font-size: 2.8rem;
-    color: var(--text-color);
+    color: var(--tertiary-color);
     margin-bottom: 1.5rem;
 }
 
 .name-highlight {
-    color: var(--accent-color);
+    color: var(--primary-color);
     position: relative;
     display: inline-block;
 }
@@ -285,34 +276,34 @@ h1, h2, h3 {
     left: 0;
     width: 100%;
     height: 3px;
-    background: linear-gradient(90deg, var(--accent-color) 0%, var(--background-color) 100%);
+    background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
 }
 
 .about-text {
-    color: var(--secondary-color);
+    color: var(--tertiary-color);
     line-height: 1.7;
     font-size: 1.1rem;
     max-width: 600px;
 }
 
 .highlight {
-    color: var(--accent-color);
+    color: var(--primary-color);
     font-weight: 600;
 }
 
 .signature-quote {
     font-style: italic;
-    color: var(--secondary-color);
+    color: var(--tertiary-color);
     margin: 1.5rem 0;
     padding-left: 1rem;
-    border-left: 3px solid var(--accent-color);
+    border-left: 3px solid var(--primary-color);
 }
 
 .cta-button {
     display: inline-block;
     padding: 1rem 2rem;
     background: var(--primary-color);
-    color: white;
+    color: var(--secondary-color);
     text-decoration: none;
     border-radius: 30px;
     font-weight: 600;
@@ -321,7 +312,7 @@ h1, h2, h3 {
 }
 
 .cta-button:hover {
-    background: var(--background-color);
+    background: var(--secondary-color);
     color: var(--primary-color);
     border-color: var(--primary-color);
     transform: translateY(-2px);
@@ -375,7 +366,7 @@ h1, h2, h3 {
     top: 50%;
     transform: translateY(-50%);
     background: var(--primary-color);
-    color: var(--background-color);
+    color: var(--secondary-color);
     border: none;
     padding: 10px;
     cursor: pointer;
@@ -415,7 +406,7 @@ h1, h2, h3 {
     position: absolute;
     top: 15px;
     right: 35px;
-    color: var(--background-color);
+    color: var(--secondary-color);
     font-size: 40px;
     font-weight: bold;
     cursor: pointer;
@@ -427,7 +418,7 @@ h1, h2, h3 {
     width: 80%;
     max-width: 700px;
     text-align: center;
-    color: var(--background-color);
+    color: var(--secondary-color);
     padding: 10px 0;
     height: 150px;
 }
@@ -445,8 +436,8 @@ h1, h2, h3 {
 /* Contact Section */
 .contact-section {
     padding: 4rem 1.5rem;
-    background-color: var(--secondary-color);
-    color: var(--background-color);
+    background-color: var(--tertiary-color);
+    color: var(--secondary-color);
 }
 
 .contact-container {
@@ -508,7 +499,7 @@ h1, h2, h3 {
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
-    color: var(--background-color);
+    color: var(--secondary-color);
     flex-shrink: 0;
     transition: var(--transition-base);
 }
@@ -551,8 +542,8 @@ h1, h2, h3 {
 
 /* Footer */
 .footer {
-    background-color: var(--secondary-color);
-    color: var(--background-color);
+    background-color: var(--tertiary-color);
+    color: var(--secondary-color);
     padding: 2rem 5%;
     display: flex;
     justify-content: space-between;
@@ -580,14 +571,14 @@ h1, h2, h3 {
 }
 
 .footer-date {
-    color: var(--background-color);
+    color: var(--secondary-color);
     font-size: 0.9rem;
     font-weight: 300;
     transition: color 0.3s ease;
 }
 
 .footer-date:hover {
-    color: var(--accent-color);
+    color: var(--primary-color);
 }
 
 @media (max-width: 768px) {
@@ -619,16 +610,16 @@ h1, h2, h3 {
 }
 
 .project-card {
-    background: var(--background-color);
+    background: var(--secondary-color);
     border-radius: 1.5rem;
-    box-shadow: 0 4px 6px -1px var(--shadow-color);
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
     flex: 1 1 340px;
     max-width: 440px;
     position: relative;
     cursor: pointer;
-    border: 1px solid var(--moss);
+    border: 1px solid var(--tertiary-color);
     transform-style: preserve-3d;
 }
 
@@ -679,13 +670,13 @@ h1, h2, h3 {
 .card-content {
     padding: 2rem;
     position: relative;
-    background: var(--background-color);
+    background: var(--secondary-color);
     margin-top: -2rem;
 }
 
 .project-name {
     font-size: 1.5rem;
-    color: var(--text-color);
+    color: var(--tertiary-color);
     margin-bottom: 1rem;
     font-weight: 700;
     line-height: 1.3;
@@ -710,7 +701,7 @@ h1, h2, h3 {
 }
 
 .project-description {
-    color: var(--secondary-color);
+    color: var(--tertiary-color);
     margin-bottom: 1.5rem;
     font-size: 1rem;
     line-height: 1.6;
@@ -746,12 +737,12 @@ h1, h2, h3 {
 
 .project-card:hover .date-range {
     background: var(--primary-color);
-    color: var(--background-color);
+    color: var(--secondary-color);
 }
 
 .project-type {
     font-size: 0.875rem;
-    color: var(--accent-color);
+    color: var(--primary-color);
     background: rgba(245, 158, 11, 0.1);
     padding: 0.5rem 1rem;
     border-radius: 100px;
@@ -764,7 +755,7 @@ h1, h2, h3 {
     flex-wrap: wrap;
     margin-top: 1.5rem;
     padding-top: 1.5rem;
-    border-top: 1px solid var(--secondary-color);
+    border-top: 1px solid var(--tertiary-color);
 }
 
 .skill-tag {
@@ -832,11 +823,11 @@ h1, h2, h3 {
     flex: 1 1 340px;
     max-width: 440px;
     height: 400px;
-    background: var(--background-color);
+    background: var(--secondary-color);
     border-radius: 1.5rem;
     overflow: hidden;
     position: relative;
-    background: linear-gradient(120deg, var(--warm-tan) 30%, var(--moss) 38%, var(--moss) 40%, var(--warm-tan) 48%);
+    background: linear-gradient(120deg, var(--secondary-color) 30%, var(--tertiary-color) 38%, var(--tertiary-color) 40%, var(--secondary-color) 48%);
     background-size: 200% 100%;
     animation: skeleton-loading 1.5s infinite linear;
 }
@@ -849,21 +840,21 @@ h1, h2, h3 {
     text-align: center;
     padding: 4rem 2rem;
     width: 100%;
-    background: var(--background-color);
+    background: var(--secondary-color);
     border-radius: 1.5rem;
-    box-shadow: 0 4px 6px -1px var(--shadow-color);
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
     margin: 2rem;
 }
 
 .error-icon {
     font-size: 3rem;
-    color: var(--accent-color);
+    color: var(--primary-color);
     margin-bottom: 1rem;
 }
 
 .retry-button {
     background: var(--primary-color);
-    color: var(--background-color);
+    color: var(--secondary-color);
     border: none;
     padding: 0.875rem 2rem;
     border-radius: 100px;
@@ -905,7 +896,7 @@ h1, h2, h3 {
     height: 100vh;
     max-height: 80vw; /* Maintain aspect ratio */
     overflow: hidden;
-    background: var(--secondary-color);
+    background: var(--tertiary-color);
     isolation: isolate;
 }
 
@@ -947,7 +938,7 @@ h1, h2, h3 {
     right: 0;
     padding: var(--text-padding);
     background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
-    color: var(--background-color);
+    color: var(--secondary-color);
     z-index: 2;
     transform: translateZ(0);
 }
@@ -1014,8 +1005,8 @@ h1, h2, h3 {
 }
 
 .hero-dot.active {
-    background: var(--background-color);
-    border-color: var(--background-color);
+    background: var(--secondary-color);
+    border-color: var(--secondary-color);
     transform: scale(1.1);
 }
 
@@ -1063,7 +1054,7 @@ h1, h2, h3 {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: var(--background-color);
+    color: var(--secondary-color);
     font-size: 1.5rem;
     display: flex;
     align-items: center;
@@ -1074,7 +1065,7 @@ h1, h2, h3 {
     width: 24px;
     height: 24px;
     border: 3px solid rgba(255, 255, 255, 0.2);
-    border-top-color: var(--background-color);
+    border-top-color: var(--secondary-color);
     border-radius: 50%;
     animation: spin 1s linear infinite;
 }
