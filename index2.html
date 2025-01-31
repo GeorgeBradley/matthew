@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Puppet Animation</title>
+  <title>Stop-Motion Puppets, Props, and Models</title>
   <style>
     /* General Styles */
     body {
@@ -11,12 +11,13 @@
       font-family: Arial, sans-serif;
       background-color: #f4f4f9;
       color: #333;
+      line-height: 1.6;
     }
 
     header {
       text-align: center;
       padding: 20px;
-      background-color: #6a1b9a;
+      background-color: #3e2723; /* Earthy brown for a crafty feel */
       color: white;
     }
 
@@ -27,12 +28,25 @@
       padding: 20px;
     }
 
+    h2 {
+      margin-top: 20px;
+      color: #3e2723;
+    }
+
+    p {
+      max-width: 600px;
+      text-align: center;
+      margin: 10px auto;
+    }
+
     #webgl-container {
       width: 100%;
       max-width: 800px;
       height: 400px;
       position: relative;
       margin: 20px 0;
+      border: 2px solid #3e2723;
+      background-color: #d7ccc8; /* Light beige for a workshop vibe */
     }
 
     #webgl-canvas {
@@ -50,7 +64,7 @@
 
     button {
       padding: 10px 20px;
-      background-color: #6a1b9a;
+      background-color: #3e2723;
       color: white;
       border: none;
       border-radius: 5px;
@@ -59,13 +73,13 @@
     }
 
     button:hover {
-      background-color: #4a148c;
+      background-color: #5d4037;
     }
 
     footer {
       text-align: center;
       padding: 10px;
-      background-color: #6a1b9a;
+      background-color: #3e2723;
       color: white;
       position: fixed;
       bottom: 0;
@@ -87,8 +101,8 @@
 </head>
 <body>
   <header>
-    <h1>Puppet Animation</h1>
-    <p>Explore the art of puppet making, sculpting, and animation.</p>
+    <h1>Stop-Motion Puppets, Props, and Models</h1>
+    <p>Celebrating the art of crafting puppets, props, and models for stop-motion animation.</p>
   </header>
 
   <main>
@@ -103,10 +117,24 @@
       <button id="rotate-right">Rotate Right</button>
       <button id="reset-view">Reset View</button>
     </div>
+
+    <!-- Section Description -->
+    <h2>The Magic of Stop-Motion</h2>
+    <p>
+      Stop-motion animation brings inanimate objects to life through meticulous craftsmanship and frame-by-frame movement.
+      From hand-sculpted puppets to intricately designed props, every piece is a work of art that tells a story.
+    </p>
+
+    <h2>Puppets and Props</h2>
+    <p>
+      Puppets are the heart of stop-motion animation. They are crafted with precision, often featuring wire armatures for
+      poseability and detailed textures to mimic real-life materials. Props and models complement the puppets, creating
+      immersive worlds that captivate audiences.
+    </p>
   </main>
 
   <footer>
-    <p>&copy; 2023 Puppet Animation. All rights reserved.</p>
+    <p>&copy; 2023 Stop-Motion Puppets, Props, and Models. All rights reserved.</p>
   </footer>
 
   <!-- Three.js Script -->
