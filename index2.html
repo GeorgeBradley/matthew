@@ -1,202 +1,127 @@
-<!DOCTYPE html>
-<html>
+!DOCTYPE html>
+<html lang="en">
 <head>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-.hero-container {
-  position: relative;
-  width: 100%;
-  padding-top: 41.84%; /* 2.39:1 aspect ratio */
-  overflow: hidden;
-  background: #000;
-  font-family: 'Inter', sans-serif;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puppet Animation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
 
-.hero-slide-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
+        .puppet-section {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
 
-.hero-slide {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1);
-}
+        .puppet-section h2 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 40px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
 
-.hero-slide.active {
-  opacity: 1;
-}
+        .puppet-content {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
 
-.hero-slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: brightness(0.95);
-}
+        .puppet-text {
+            max-width: 600px;
+            margin: 20px;
+        }
 
-.hero-text-content {
-  position: absolute;
-  bottom: 12%;
-  left: 0;
-  right: 0;
-  color: white;
-  max-width: 90%;
-  margin: 0 auto;
-  padding: 1.5rem;
-  z-index: 2;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-  background: linear-gradient(90deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.6) 100%);
-  backdrop-filter: blur(3px);
-  border-radius: 8px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-}
+        .puppet-text h3 {
+            font-size: 2rem;
+            color: #007BFF;
+            margin-bottom: 20px;
+        }
 
-.hero-slide.active .hero-text-content {
-  opacity: 1;
-  transform: translateY(0);
-}
+        .puppet-text p {
+            font-size: 1.2rem;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
 
-.hero-text-content h2 {
-  font-size: 2rem;
-  margin: 0 0 0.8rem 0;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  line-height: 1.1;
-  color: #fff;
-}
+        .puppet-3d {
+            width: 600px;
+            height: 400px;
+            background-color: #e0e0e0;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
 
-.hero-text-content p {
-  font-size: 1.05rem;
-  margin: 0 0 0.6rem 0;
-  line-height: 1.5;
-  opacity: 0.9;
-  font-weight: 400;
-  max-width: 800px;
-}
+        @media (max-width: 768px) {
+            .puppet-content {
+                flex-direction: column;
+            }
 
-.hero-text-content p:last-child {
-  font-size: 0.9rem;
-  opacity: 0.8;
-  font-weight: 300;
-  letter-spacing: 0.01em;
-}
-
-.hero-slide:after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 50%;
-  background: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
-  z-index: 1;
-}
-
-@media (max-width: 768px) {
-  .hero-text-content {
-    max-width: 95%;
-    padding: 1rem;
-    bottom: 8%;
-  }
-  
-  .hero-text-content h2 {
-    font-size: 1.5rem;
-  }
-  
-  .hero-text-content p {
-    font-size: 0.95rem;
-  }
-}
-</style>
+            .puppet-3d {
+                width: 100%;
+                height: 300px;
+            }
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js"></script>
 </head>
 <body>
-  <div class="hero-container">
-    <div class="hero-slide-container" id="hero-slide-container"></div>
-  </div>
+    <section id="puppet-animation" class="puppet-section">
+        <h2>Puppet Animation</h2>
+        <div class="puppet-content">
+            <div class="puppet-text">
+                <h3>Crafting Magic</h3>
+                <p>Dive into the art of puppet making, sculpting, and creating intricate models and props. Each piece is a unique blend of artistry and craftsmanship.</p>
+                <p>Explore the process from initial sketches to the final animated scenes, where each puppet comes to life in its own magical world.</p>
+            </div>
+            <div class="puppet-3d" id="puppet-3d"></div>
+        </div>
+    </section>
+    <script>
+        // Initialize WebGL scene
+        var scene = new THREE.Scene();
+        var camera = new THREE.PerspectiveCamera(75, 600 / 400, 0.1, 1000);
+        var renderer = new THREE.WebGLRenderer();
+        renderer.setSize(600, 400);
+        document.getElementById('puppet-3d').appendChild(renderer.domElement);
 
-<script>
-const HERO_API_URL = 'https://GeorgeBradley.github.io/matthew/feature-project.json';
+        // Add lighting
+        var ambientLight = new THREE.AmbientLight(0x404040);
+        scene.add(ambientLight);
 
-let heroCurrentSlide = 0;
-let heroSlides = [];
-let heroTimeoutId;
+        var pointLight = new THREE.PointLight(0xffffff, 1, 100);
+        pointLight.position.set(10, 10, 10);
+        scene.add(pointLight);
 
-async function initializeHeroSlider() {
-  try {
-    const response = await fetch(HERO_API_URL);
-    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-    
-    const projects = await response.json();
-    
-    heroSlides = projects.map(project => ({
-      image: project['feature-project-thumbnail'],
-      alt: `Thumbnail for ${project['feature-project-name']}`,
-      name: project['feature-project-name'],
-      description: project['feature-project-description'],
-      company: project['feature-project-company-name']
-    }));
+        // Load 3D model (you'll need to replace this with a real model URL)
+        var loader = new THREE.ObjectLoader();
+        loader.load('path/to/puppet-model.json', function (object) {
+            scene.add(object);
+            object.position.set(0, 0, -5);
+        });
 
-    const container = document.getElementById('hero-slide-container');
-    container.innerHTML = '';
+        // Camera positioning
+        camera.position.z = 5;
 
-    heroSlides.forEach((slide, index) => {
-      const slideDiv = document.createElement('div');
-      slideDiv.className = `hero-slide ${index === 0 ? 'active' : ''}`;
-      
-      const img = new Image();
-      img.src = slide.image;
-      img.alt = slide.alt;
-      img.onerror = () => console.error('Failed to load image:', slide.image);
-      
-      const textDiv = document.createElement('div');
-      textDiv.className = 'hero-text-content';
-      textDiv.innerHTML = `
-        <h2>${slide.name}</h2>
-        <p>${slide.description}</p>
-        <p>${slide.company}</p>
-      `;
-
-      slideDiv.appendChild(img);
-      slideDiv.appendChild(textDiv);
-      container.appendChild(slideDiv);
-    });
-
-    startHeroSlider();
-  } catch (error) {
-    console.error('Error:', error);
-  }
-}
-
-function startHeroSlider() {
-  const slides = document.querySelectorAll('.hero-slide');
-  if (slides.length === 0) return;
-
-  function nextSlide() {
-    slides[heroCurrentSlide].classList.remove('active');
-    heroCurrentSlide = (heroCurrentSlide + 1) % slides.length;
-    slides[heroCurrentSlide].classList.add('active');
-    heroTimeoutId = setTimeout(nextSlide, 5000);
-  }
-
-  document.querySelector('.hero-container').addEventListener('mouseenter', () => {
-    clearTimeout(heroTimeoutId);
-  });
-
-  document.querySelector('.hero-container').addEventListener('mouseleave', () => {
-    heroTimeoutId = setTimeout(nextSlide, 5000);
-  });
-
-  heroTimeoutId = setTimeout(nextSlide, 5000);
-}
-
-document.addEventListener('DOMContentLoaded', initializeHeroSlider);
-</script>
+        // Animation loop
+        function animate() {
+            requestAnimationFrame(animate);
+            renderer.render(scene, camera);
+        }
+        animate();
+    </script>
 </body>
 </html>
