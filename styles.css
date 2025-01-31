@@ -1,8 +1,8 @@
 /* ================ CSS Variables ================ */
 :root {
     --primary-color: #359494;
---secondary-color: #070707;   /* Warm Cream */
---tertiary-color: #4A3524;    /* Rich Coffee Brown */
+--secondary-color: white;   /* Warm Cream */
+--tertiary-color: #070707;    /* Rich Coffee Brown */
 --accent-color-1: #C75233;    /* Terracotta Red */
 --accent-color-2: #3A7068;    /* Muted Teal */
 --text-dark: #2A2A2A;         /* Dark Gray for text */
