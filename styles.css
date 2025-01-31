@@ -1,8 +1,12 @@
 /* ================ CSS Variables ================ */
 :root {
-    --primary-color: #3a5f40;  /* Earth Green */
-    --secondary-color: #d4c8b5;  /* Warm Tan */
-    --tertiary-color: #5e4630;  /* Deep Umber */
+    --primary-color: #2D4A30;      /* Deep Forest Green */
+--secondary-color: #F5F1E8;   /* Warm Cream */
+--tertiary-color: #4A3524;    /* Rich Coffee Brown */
+--accent-color-1: #C75233;    /* Terracotta Red */
+--accent-color-2: #3A7068;    /* Muted Teal */
+--text-dark: #2A2A2A;         /* Dark Gray for text */
+--text-light: #FFFFFF;        /* White for text */
     
     --transition-base: 0.2s ease-in-out;
     --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
