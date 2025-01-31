@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Project Details – Modern Gallery & Lightbox</title>
+  <title>Project Details – Enhanced Gallery & Lightbox</title>
   <style>
-    /* ============== Root Variables ============== */
+    /* ================= Variables ================= */
     :root {
       --primary: #3b82f6;
       --secondary: #64748b;
@@ -13,10 +13,9 @@
       --card-bg: #ffffff;
       --text: #1e293b;
       --border: #e2e8f0;
-      --lightbox-bg: rgba(0, 0, 0, 0.95);
+      --lightbox-bg: rgba(0, 0, 0, 0.9);
     }
-
-    /* ============== Global Styles ============== */
+    /* ================= Global ================= */
     *, *::before, *::after {
       box-sizing: border-box;
     }
@@ -32,8 +31,7 @@
       text-decoration: none;
       color: inherit;
     }
-
-    /* ============== Back Link ============== */
+    /* ================= Back Link ================= */
     .back-link {
       display: inline-flex;
       align-items: center;
@@ -49,8 +47,7 @@
     .back-link:hover {
       background: #2563eb;
     }
-
-    /* ============== Project Detail Container ============== */
+    /* ================= Project Detail Container ================= */
     .project-detail {
       max-width: 1200px;
       margin: 2rem auto;
@@ -82,7 +79,6 @@
       font-size: 0.95rem;
       margin-top: 1rem;
     }
-
     .detail-image {
       width: 100%;
       height: 400px;
@@ -91,8 +87,7 @@
       margin: 2rem 0;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     }
-
-    /* ============== Content Sections ============== */
+    /* ================= Content ================= */
     .detail-content {
       display: flex;
       flex-direction: column;
@@ -140,8 +135,7 @@
       font-size: 0.85rem;
       font-weight: 500;
     }
-
-    /* ============== Gallery Styles ============== */
+    /* ================= Gallery Styles ================= */
     .gallery-section {
       margin: 4rem 0;
       padding: 0 1rem;
@@ -174,48 +168,43 @@
       padding: 0 1rem;
     }
     .gallery-item {
-      background: var(--card-bg);
-      border-radius: 12px;
+      position: relative;
       overflow: hidden;
+      border-radius: 12px;
+      background: var(--card-bg);
       border: 1px solid var(--border);
+      cursor: pointer;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      display: flex;
-      flex-direction: column;
     }
     .gallery-item:hover {
       transform: translateY(-5px);
       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
     }
-    .gallery-thumbnail-container {
-      position: relative;
-      width: 100%;
-      padding-top: 70%;
-      overflow: hidden;
-      background: #f0f0f0;
-    }
     .gallery-thumbnail {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
       width: 100%;
-      height: 100%;
+      height: 0;
+      padding-bottom: 70%;
       object-fit: cover;
-      transition: transform 0.3s ease;
+      display: block;
     }
-    .gallery-item:hover .gallery-thumbnail {
-      transform: translate(-50%, -50%) scale(1.05);
-    }
-    .gallery-caption {
-      background: var(--primary);
+    /* Overlay caption on gallery items */
+    .gallery-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(59, 130, 246, 0.8);
       color: #fff;
-      padding: 1rem;
+      padding: 0.75rem;
       text-align: center;
       font-size: 0.9rem;
-      line-height: 1.4;
+      opacity: 0;
+      transition: opacity 0.3s ease;
     }
-
-    /* ============== Lightbox Styles ============== */
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+    /* ================= Lightbox Styles ================= */
     .lightbox {
       display: none;
       position: fixed;
@@ -225,7 +214,6 @@
       height: 100%;
       background: var(--lightbox-bg);
       z-index: 1000;
-      animation: fadeIn 0.3s ease;
       align-items: center;
       justify-content: center;
       padding: 1rem;
@@ -233,42 +221,44 @@
     .lightbox.active {
       display: flex;
     }
+    /* The lightbox container will wrap the image and caption */
     .lightbox-content {
       position: relative;
+      background: #000;
+      border-radius: 12px;
+      overflow: hidden;
       max-width: 90%;
       max-height: 90%;
       display: flex;
       flex-direction: column;
-      align-items: center;
     }
     .lightbox-image-container {
-      width: 100%;
       position: relative;
-      overflow: hidden;
-      border-radius: 12px;
+      width: 100%;
+      text-align: center;
       background: #000;
     }
     .lightbox-image {
-      width: 100%;
-      height: auto;
+      max-width: 100%;
       max-height: 80vh;
       object-fit: contain;
-      transition: opacity 0.3s ease;
       display: block;
+      margin: 0 auto;
+      transition: opacity 0.3s ease;
     }
-    .lightbox-description {
-      background: rgba(0, 0, 0, 0.8);
+    /* Caption placed immediately below image container */
+    .lightbox-caption {
+      background: var(--primary);
       color: #fff;
-      width: 100%;
-      text-align: center;
       padding: 1rem;
       font-size: 1rem;
-      border-bottom-left-radius: 12px;
-      border-bottom-right-radius: 12px;
+      text-align: center;
     }
-    /* Lightbox Navigation & Close */
-    .close-btn, .nav-btn {
+    /* Navigation buttons positioned inside the image container */
+    .nav-btn {
       position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
       background: rgba(255, 255, 255, 0.15);
       border: none;
       border-radius: 50%;
@@ -281,33 +271,13 @@
       backdrop-filter: blur(4px);
       transition: transform 0.3s ease, background 0.3s ease;
     }
-    .close-btn {
-      top: 20px;
-      right: 20px;
-    }
-    .close-btn:hover,
     .nav-btn:hover {
-      transform: scale(1.1);
+      transform: translateY(-50%) scale(1.1);
       background: rgba(255, 255, 255, 0.25);
     }
-    /* Close Icon */
-    .close-btn::before,
-    .close-btn::after {
-      content: '';
-      position: absolute;
-      width: 20px;
-      height: 2px;
-      background: #fff;
-    }
-    .close-btn::before { transform: rotate(45deg); }
-    .close-btn::after { transform: rotate(-45deg); }
-    /* Navigation Buttons */
-    .nav-btn {
-      top: 50%;
-      transform: translateY(-50%);
-    }
-    .prev-btn { left: 20px; }
-    .next-btn { right: 20px; }
+    .prev-btn { left: 10px; }
+    .next-btn { right: 10px; }
+    /* Using simple arrow icons */
     .nav-btn::before {
       content: '';
       border: solid #fff;
@@ -317,8 +287,39 @@
     }
     .prev-btn::before { transform: rotate(135deg); }
     .next-btn::before { transform: rotate(-45deg); }
-
-    /* Loading Spinner */
+    /* Close button in top-right of lightbox-content */
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(255, 255, 255, 0.15);
+      border: none;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(4px);
+      transition: transform 0.3s ease, background 0.3s ease;
+      z-index: 10;
+    }
+    .close-btn:hover {
+      transform: scale(1.1);
+      background: rgba(255, 255, 255, 0.25);
+    }
+    .close-btn::before,
+    .close-btn::after {
+      content: '';
+      position: absolute;
+      width: 18px;
+      height: 2px;
+      background: #fff;
+    }
+    .close-btn::before { transform: rotate(45deg); }
+    .close-btn::after { transform: rotate(-45deg); }
+    /* Loading spinner inside lightbox */
     .loading-spinner {
       position: absolute;
       width: 40px;
@@ -327,16 +328,13 @@
       border-radius: 50%;
       border-top-color: #fff;
       animation: spin 1s ease-in-out infinite;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      display: none;
     }
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    /* ============== Project Navigation ============== */
+    @keyframes spin { to { transform: rotate(360deg); } }
+    /* ================= Project Navigation ================= */
     .project-navigation {
       display: flex;
       justify-content: space-between;
@@ -368,8 +366,7 @@
       border-color: var(--primary);
     }
     .nav-spacer { flex: 1; }
-
-    /* ============== Responsive ============== */
+    /* ================= Responsive ================= */
     @media (max-width: 1024px) {
       .project-detail { padding: 2rem; margin: 1rem; }
       .project-title { font-size: 2rem; }
@@ -391,8 +388,7 @@
       .detail-image { height: 200px; }
       .nav-btn { width: 40px; height: 40px; }
       .nav-btn::before { padding: 6px; }
-      .lightbox-image-container { height: 65vh; }
-      .close-btn { top: 15px; right: 15px; }
+      .close-btn { top: 5px; right: 5px; width: 32px; height: 32px; }
     }
   </style>
 </head>
@@ -401,14 +397,14 @@
   <div id="project-detail-container"></div>
 
   <script>
-    // ======= Global Variables =======
+    // ================= Global Variables =================
     const API_URL = 'https://GeorgeBradley.github.io/matthew/feature-project.json';
     const detailsContainer = document.getElementById('project-detail-container');
     const urlParams = new URLSearchParams(window.location.search);
     const projectId = urlParams.get('id');
     let allProjects = [];
 
-    // ======= Fetch & Render Project =======
+    // ================= Fetch & Render Project =================
     async function fetchProjectDetails() {
       if (!projectId) redirectToIndex();
 
@@ -416,7 +412,6 @@
         const response = await fetch(API_URL);
         if (!response.ok) throw new Error('Network response failed');
         allProjects = await response.json();
-
         const project = allProjects.find(p => p.id === Number(projectId));
         if (!project) throw new Error('Project not found');
 
@@ -432,10 +427,9 @@
       const currentIndex = projects.findIndex(p => p.id === project.id);
       const prevProject = projects[currentIndex - 1];
       const nextProject = projects[currentIndex + 1];
-
-      const sortedGallery = project["feature-project-gallery"] 
-          ? [...project["feature-project-gallery"]].sort((a, b) => a.order - b.order)
-          : [];
+      const sortedGallery = project["feature-project-gallery"]
+        ? [...project["feature-project-gallery"]].sort((a, b) => a.order - b.order)
+        : [];
 
       detailsContainer.innerHTML = `
         <article class="project-detail">
@@ -451,8 +445,8 @@
           </div>
 
           <img src="${project["feature-project-thumbnail"]}" 
-              alt="${project["feature-project-name"]}" 
-              class="detail-image">
+               alt="${project["feature-project-name"]}" 
+               class="detail-image">
 
           <div class="detail-content">
             <p class="project-description">${project["feature-project-description"]}</p>
@@ -462,13 +456,11 @@
                 <div class="gallery-grid">
                   ${sortedGallery.map((image, index) => `
                     <div class="gallery-item">
-                      <div class="gallery-thumbnail-container">
-                        <img src="${image.image}" 
-                          alt="${image['alt-text']}" 
-                          class="gallery-thumbnail" 
-                          data-index="${index}">
-                      </div>
-                      <div class="gallery-caption">${image.description}</div>
+                      <img src="${image.image}" 
+                           alt="${image['alt-text']}" 
+                           class="gallery-thumbnail" 
+                           data-index="${index}">
+                      <div class="gallery-overlay">${image.description}</div>
                     </div>
                   `).join('')}
                 </div>
@@ -515,28 +507,28 @@
             ` : '<div class="nav-spacer"></div>'}
           </div>
 
+          <!-- Lightbox -->
           <div class="lightbox" id="galleryLightbox">
             <div class="lightbox-content">
+              <button class="close-btn" aria-label="Close lightbox"></button>
               <div class="lightbox-image-container">
                 <img class="lightbox-image" src="" alt="">
-                <div class="loading-spinner" style="display:none;"></div>
+                <div class="loading-spinner"></div>
+                <button class="nav-btn prev-btn" aria-label="Previous image"></button>
+                <button class="nav-btn next-btn" aria-label="Next image"></button>
               </div>
-              <div class="lightbox-description"></div>
+              <div class="lightbox-caption"></div>
             </div>
-            <button class="close-btn" aria-label="Close lightbox"></button>
-            <button class="nav-btn prev-btn" aria-label="Previous image"></button>
-            <button class="nav-btn next-btn" aria-label="Next image"></button>
           </div>
         </article>
       `;
     }
 
-    // ======= Lightbox Functionality =======
+    // ================= Lightbox Functionality =================
     function initLightbox(galleryImages) {
       const lightbox = document.getElementById('galleryLightbox');
       const lightboxImage = lightbox.querySelector('.lightbox-image');
-      const lightboxImageContainer = lightbox.querySelector('.lightbox-image-container');
-      const lightboxDescription = lightbox.querySelector('.lightbox-description');
+      const lightboxCaption = lightbox.querySelector('.lightbox-caption');
       const closeBtn = lightbox.querySelector('.close-btn');
       const prevBtn = lightbox.querySelector('.prev-btn');
       const nextBtn = lightbox.querySelector('.next-btn');
@@ -549,8 +541,6 @@
       function updateLightbox(index) {
         currentImageIndex = (index + galleryImages.length) % galleryImages.length;
         const image = galleryImages[currentImageIndex];
-
-        // Reset and show spinner
         lightboxImage.style.opacity = '0';
         spinner.style.display = 'block';
 
@@ -560,25 +550,22 @@
           spinner.style.display = 'none';
           lightboxImage.src = image.image;
           lightboxImage.alt = image['alt-text'];
-          lightboxDescription.textContent = image.description;
+          lightboxCaption.textContent = image.description;
           lightboxImage.style.opacity = '1';
         };
-      }
-
-      function handleSwipe(direction) {
-        if (direction === 'left') nextImage();
-        if (direction === 'right') prevImage();
       }
 
       function nextImage() {
         updateLightbox(currentImageIndex + 1);
       }
-
       function prevImage() {
         updateLightbox(currentImageIndex - 1);
       }
+      function handleSwipe(direction) {
+        if (direction === 'left') nextImage();
+        if (direction === 'right') prevImage();
+      }
 
-      // Event Listeners for gallery items
       galleryItems.forEach((item, index) => {
         item.addEventListener('click', () => {
           currentImageIndex = index;
@@ -595,7 +582,6 @@
       prevBtn.addEventListener('click', prevImage);
       nextBtn.addEventListener('click', nextImage);
 
-      // Keyboard Navigation
       document.addEventListener('keydown', (e) => {
         if (lightbox.classList.contains('active')) {
           if (e.key === 'ArrowLeft') prevImage();
@@ -603,8 +589,6 @@
           if (e.key === 'Escape') closeBtn.click();
         }
       });
-
-      // Touch Handling for swipe gestures
       lightbox.addEventListener('touchstart', (e) => {
         touchStartX = e.touches[0].clientX;
       });
@@ -615,13 +599,9 @@
           handleSwipe(deltaX > 0 ? 'right' : 'left');
         }
       });
-      // Prevent default on touch move
-      lightbox.addEventListener('touchmove', (e) => {
-        e.preventDefault();
-      }, { passive: false });
     }
 
-    // ======= Error & Redirect Handling =======
+    // ================= Error & Redirect =================
     function showDetailError() {
       detailsContainer.innerHTML = `
         <div class="error-state" style="text-align:center; padding:2rem;">
@@ -630,12 +610,10 @@
         </div>
       `;
     }
-
     function redirectToIndex() {
       window.location.href = 'index.html';
     }
-
-    // ======= Initial Load =======
+    // ================= Initial Load =================
     if (projectId) {
       fetchProjectDetails();
     } else {
