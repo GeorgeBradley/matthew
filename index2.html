@@ -3,213 +3,135 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stop-Motion Puppets, Props, and Models</title>
+  <title>Interactive Puppet Animation</title>
   <style>
-    /* General Styles */
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f9;
-      color: #333;
-      line-height: 1.6;
-    }
-
-    header {
-      text-align: center;
-      padding: 20px;
-      background-color: #3e2723; /* Earthy brown for a crafty feel */
-      color: white;
-    }
-
-    main {
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 20px;
-    }
-
-    h2 {
-      margin-top: 20px;
-      color: #3e2723;
-    }
-
-    p {
-      max-width: 600px;
-      text-align: center;
-      margin: 10px auto;
-    }
-
-    #webgl-container {
-      width: 100%;
-      max-width: 800px;
-      height: 400px;
-      position: relative;
-      margin: 20px 0;
-      border: 2px solid #3e2723;
-      background-color: #d7ccc8; /* Light beige for a workshop vibe */
-    }
-
-    #webgl-canvas {
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
-
-    #controls {
-      display: flex;
-      gap: 10px;
       justify-content: center;
-      margin-top: 20px;
+      align-items: center;
+      height: 100vh;
+      background-color: #f4f4f9;
+      font-family: Arial, sans-serif;
     }
-
-    button {
-      padding: 10px 20px;
-      background-color: #3e2723;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s;
+    svg {
+      width: 300px;
+      height: auto;
     }
-
-    button:hover {
-      background-color: #5d4037;
-    }
-
-    footer {
+    .controls {
+      position: absolute;
+      bottom: 20px;
       text-align: center;
-      padding: 10px;
-      background-color: #3e2723;
-      color: white;
-      position: fixed;
-      bottom: 0;
-      width: 100%;
     }
-
-    /* Mobile-Friendly Styles */
-    @media (max-width: 600px) {
-      #webgl-container {
-        height: 300px;
-      }
-
-      button {
-        padding: 8px 16px;
-        font-size: 14px;
-      }
+    button {
+      margin: 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
+  <!-- SVG Puppet -->
+  <svg id="puppet" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
+    <!-- Body -->
+    <rect x="90" y="50" width="20" height="100" fill="#8B4513" />
+    <!-- Head -->
+    <circle cx="100" cy="30" r="20" fill="#FFD700" />
+    <!-- Left Arm -->
+    <line id="left-arm" x1="90" y1="70" x2="50" y2="100" stroke="#8B4513" stroke-width="10" />
+    <!-- Right Arm -->
+    <line id="right-arm" x1="110" y1="70" x2="150" y2="100" stroke="#8B4513" stroke-width="10" />
+    <!-- Left Leg -->
+    <line id="left-leg" x1="90" y1="150" x2="70" y2="200" stroke="#8B4513" stroke-width="10" />
+    <!-- Right Leg -->
+    <line id="right-leg" x1="110" y1="150" x2="130" y2="200" stroke="#8B4513" stroke-width="10" />
+  </svg>
 
-<div class="sketchfab-embed-wrapper"> <iframe title="Pacific Walrus" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/e52f2b153215483bbe0e8b3deaac814c/embed"> </iframe> <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a href="https://sketchfab.com/3d-models/pacific-walrus-e52f2b153215483bbe0e8b3deaac814c?utm_medium=embed&utm_campaign=share-popup&utm_content=e52f2b153215483bbe0e8b3deaac814c" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> Pacific Walrus </a> by <a href="https://sketchfab.com/Eurypterus?utm_medium=embed&utm_campaign=share-popup&utm_content=e52f2b153215483bbe0e8b3deaac814c" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> Diana Varro </a> on <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=e52f2b153215483bbe0e8b3deaac814c" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a></p></div>
-  <header>
-    <h1>Stop-Motion Puppets, Props, and Models</h1>
-    <p>Celebrating the art of crafting puppets, props, and models for stop-motion animation.</p>
-  </header>
+  <!-- Controls -->
+  <div class="controls">
+    <button onclick="wave()">Wave</button>
+    <button onclick="dance()">Dance</button>
+    <button onclick="reset()">Reset</button>
+  </div>
 
-  <main>
-    <!-- WebGL Canvas -->
-    <div id="webgl-container">
-      <canvas id="webgl-canvas"></canvas>
-    </div>
-
-    <!-- Controls -->
-    <div id="controls">
-      <button id="rotate-left">Rotate Left</button>
-      <button id="rotate-right">Rotate Right</button>
-      <button id="reset-view">Reset View</button>
-    </div>
-
-    <!-- Section Description -->
-    <h2>The Magic of Stop-Motion</h2>
-    <p>
-      Stop-motion animation brings inanimate objects to life through meticulous craftsmanship and frame-by-frame movement.
-      From hand-sculpted puppets to intricately designed props, every piece is a work of art that tells a story.
-    </p>
-
-    <h2>Puppets and Props</h2>
-    <p>
-      Puppets are the heart of stop-motion animation. They are crafted with precision, often featuring wire armatures for
-      poseability and detailed textures to mimic real-life materials. Props and models complement the puppets, creating
-      immersive worlds that captivate audiences.
-    </p>
-  </main>
-
-  <footer>
-    <p>&copy; 2023 Stop-Motion Puppets, Props, and Models. All rights reserved.</p>
-  </footer>
-
-  <!-- Three.js Script -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
   <script>
-    // Scene Setup
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('webgl-canvas') });
+    // Function to animate the puppet waving
+    function wave() {
+      const leftArm = document.getElementById('left-arm');
+      const rightArm = document.getElementById('right-arm');
 
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    camera.position.z = 5;
+      // Wave left arm
+      leftArm.animate(
+        [
+          { transform: 'rotate(0deg)', transformOrigin: '90px 70px' },
+          { transform: 'rotate(-45deg)', transformOrigin: '90px 70px' },
+          { transform: 'rotate(0deg)', transformOrigin: '90px 70px' }
+        ],
+        {
+          duration: 500,
+          iterations: 4
+        }
+      );
 
-    // Lighting
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-    scene.add(ambientLight);
-
-    const pointLight = new THREE.PointLight(0xffffff, 0.5);
-    pointLight.position.set(5, 5, 5);
-    scene.add(pointLight);
-
-    // Load Puppet Model
-    const loader = new THREE.GLTFLoader();
-    let puppet;
-
-    // Replace the URL below with a stop-motion-themed model
-    loader.load(
-      'https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/AnimatedCube/glTF/AnimatedCube.gltf', // Example placeholder
-      (gltf) => {
-        puppet = gltf.scene;
-        puppet.scale.set(1, 1, 1); // Adjust scale if needed
-        scene.add(puppet);
-      },
-      undefined,
-      (error) => {
-        console.error('Error loading model:', error);
-      }
-    );
-
-    // Animation Loop
-    function animate() {
-      requestAnimationFrame(animate);
-
-      if (puppet) {
-        puppet.rotation.y += 0.01; // Slowly rotate the puppet
-      }
-
-      renderer.render(scene, camera);
+      // Wave right arm
+      rightArm.animate(
+        [
+          { transform: 'rotate(0deg)', transformOrigin: '110px 70px' },
+          { transform: 'rotate(45deg)', transformOrigin: '110px 70px' },
+          { transform: 'rotate(0deg)', transformOrigin: '110px 70px' }
+        ],
+        {
+          duration: 500,
+          iterations: 4
+        }
+      );
     }
-    animate();
 
-    // Handle Window Resize
-    window.addEventListener('resize', () => {
-      const width = window.innerWidth;
-      const height = window.innerHeight;
-      renderer.setSize(width, height);
-      camera.aspect = width / height;
-      camera.updateProjectionMatrix();
-    });
+    // Function to animate the puppet dancing
+    function dance() {
+      const leftLeg = document.getElementById('left-leg');
+      const rightLeg = document.getElementById('right-leg');
 
-    // Control Buttons
-    document.getElementById('rotate-left').addEventListener('click', () => {
-      if (puppet) puppet.rotation.y -= 0.1;
-    });
+      // Dance left leg
+      leftLeg.animate(
+        [
+          { transform: 'rotate(0deg)', transformOrigin: '90px 150px' },
+          { transform: 'rotate(-30deg)', transformOrigin: '90px 150px' },
+          { transform: 'rotate(0deg)', transformOrigin: '90px 150px' }
+        ],
+        {
+          duration: 500,
+          iterations: Infinity
+        }
+      );
 
-    document.getElementById('rotate-right').addEventListener('click', () => {
-      if (puppet) puppet.rotation.y += 0.1;
-    });
+      // Dance right leg
+      rightLeg.animate(
+        [
+          { transform: 'rotate(0deg)', transformOrigin: '110px 150px' },
+          { transform: 'rotate(30deg)', transformOrigin: '110px 150px' },
+          { transform: 'rotate(0deg)', transformOrigin: '110px 150px' }
+        ],
+        {
+          duration: 500,
+          iterations: Infinity
+        }
+      );
+    }
 
-    document.getElementById('reset-view').addEventListener('click', () => {
-      if (puppet) puppet.rotation.set(0, 0, 0);
-    });
+    // Function to reset the puppet to its original position
+    function reset() {
+      const leftArm = document.getElementById('left-arm');
+      const rightArm = document.getElementById('right-arm');
+      const leftLeg = document.getElementById('left-leg');
+      const rightLeg = document.getElementById('right-leg');
+
+      leftArm.style.transform = 'rotate(0deg)';
+      rightArm.style.transform = 'rotate(0deg)';
+      leftLeg.style.transform = 'rotate(0deg)';
+      rightLeg.style.transform = 'rotate(0deg)';
+    }
   </script>
 </body>
 </html>
