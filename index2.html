@@ -161,8 +161,9 @@
     const loader = new THREE.GLTFLoader();
     let puppet;
 
+    // Replace the URL below with a stop-motion-themed model
     loader.load(
-      'https://threejs.org/examples/models/gltf/DamagedHelmet/glTF/DamagedHelmet.gltf', // Replace with your model URL
+      'https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/AnimatedCube/glTF/AnimatedCube.gltf', // Example placeholder
       (gltf) => {
         puppet = gltf.scene;
         puppet.scale.set(1, 1, 1); // Adjust scale if needed
