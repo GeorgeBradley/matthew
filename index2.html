@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Project Details</title>
   <style>
-    /* =============== Global Styles =============== */
+    /* =============== Base Styles & Variables =============== */
     :root {
       --primary: #3b82f6;
       --secondary: #64748b;
@@ -13,7 +13,7 @@
       --card-bg: #ffffff;
       --text: #1e293b;
       --border: #e2e8f0;
-      --shadow: rgba(0, 0, 0, 0.1);
+      --shadow: rgba(0, 0, 0, 0.08);
     }
     
     * {
@@ -26,46 +26,62 @@
     body {
       background: var(--background);
       line-height: 1.6;
-      color: var(--text);
     }
     
+    /* =============== Navbar (Do Not Change) =============== */
     nav {
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
       padding: 1rem 2rem;
       background: var(--card-bg);
       border-bottom: 1px solid var(--border);
     }
     
     .logo {
-      max-width: 150px;
+      max-height: 50px;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
     }
     
     .nav-links a {
-      margin: 0 1rem;
       text-decoration: none;
       color: var(--text);
-      font-weight: 500;
+      padding: 0.5rem 1rem;
+      transition: color 0.3s ease;
+    }
+    
+    .nav-links a:hover {
+      color: var(--primary);
     }
     
     .cta-button {
       background: var(--primary);
       color: #fff;
-      padding: 0.5rem 1rem;
       border-radius: 4px;
-      transition: background 0.3s ease;
-    }
-    
-    .cta-button:hover {
-      background: #2563eb;
+      padding: 0.5rem 1rem;
     }
     
     .hamburger {
       display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: transparent;
+      border: none;
     }
     
-    /* =============== Back Link Styles =============== */
+    .hamburger span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background: var(--text);
+    }
+    
+    /* =============== Spacing for Content =============== */
     .back-link {
       display: inline-flex;
       align-items: center;
@@ -84,13 +100,13 @@
       background: #2563eb;
     }
     
-    /* =============== Project Detail Styles =============== */
+    /* =============== Project Detail Container =============== */
     .project-detail {
       max-width: 1200px;
       margin: 2rem auto;
       background: var(--card-bg);
       border-radius: 16px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 8px 30px var(--shadow);
       padding: 3rem;
       border: 1px solid var(--border);
     }
@@ -129,6 +145,7 @@
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     }
     
+    /* =============== Detail Content & Grid =============== */
     .detail-content {
       display: flex;
       flex-direction: column;
@@ -220,10 +237,11 @@
     }
     
     .gallery-item {
-      background: #fff;
-      border-radius: 12px;
+      position: relative;
       overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       display: flex;
       flex-direction: column;
@@ -231,15 +249,15 @@
     
     .gallery-item:hover {
       transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
     }
     
     .gallery-thumbnail-container {
       position: relative;
       width: 100%;
-      padding-top: 65%;
+      padding-top: 70%; /* modern ratio */
       overflow: hidden;
-      background: #f0f4f8;
+      background: #f8f8f8;
     }
     
     .gallery-thumbnail {
@@ -247,8 +265,8 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 90%;
-      height: auto;
+      max-width: 100%;
+      max-height: 100%;
       object-fit: cover;
       transition: transform 0.3s ease;
     }
@@ -259,20 +277,15 @@
     
     .gallery-caption {
       background: var(--primary);
-      color: #fff;
+      color: white;
       padding: 1rem;
       text-align: center;
       font-size: 0.9rem;
       line-height: 1.4;
-      border-top: 1px solid rgba(255, 255, 255, 0.2);
-      transition: background 0.3s ease;
+      border-radius: 0 0 8px 8px;
     }
     
-    .gallery-caption:hover {
-      background: #2563eb;
-    }
-    
-    /* =============== Lightbox Styles =============== */
+    /* =============== Enhanced Lightbox Styles =============== */
     .lightbox {
       display: none;
       position: fixed;
@@ -280,28 +293,26 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.98);
+      background: rgba(0, 0, 0, 0.95);
       z-index: 1000;
       animation: lightboxFadeIn 0.3s ease;
-      touch-action: none;
+      overflow: hidden;
     }
     
     .lightbox-content {
       position: relative;
       width: 95%;
-      max-width: 1400px;
-      height: 95vh;
-      margin: auto;
+      max-width: 1200px;
+      margin: 5vh auto;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
     }
     
     .lightbox-image-container {
       position: relative;
       width: 100%;
-      height: 85vh;
+      height: 75vh;
       background: #000;
       border-radius: 12px;
       overflow: hidden;
@@ -319,18 +330,16 @@
     
     .lightbox-description {
       background: rgba(0, 0, 0, 0.9);
-      color: #fff;
+      color: white;
       text-align: center;
-      padding: 1.2rem;
+      padding: 1rem;
       font-size: 1rem;
       width: 100%;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 0 0 12px 12px;
+      margin-top: 1rem;
     }
     
-    /* Navigation Controls */
+    /* Lightbox Navigation & Close Button */
     .close-btn {
       position: fixed;
       top: 25px;
@@ -341,7 +350,7 @@
       border: none;
       border-radius: 50%;
       cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: background 0.3s ease, transform 0.3s ease;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -359,8 +368,7 @@
       position: absolute;
       width: 22px;
       height: 2px;
-      background: #fff;
-      transition: all 0.2s ease;
+      background: white;
     }
     
     .close-btn::before { transform: rotate(45deg); }
@@ -373,11 +381,10 @@
       width: 56px;
       height: 56px;
       background: rgba(255, 255, 255, 0.15);
-      color: #fff;
       border: none;
       border-radius: 50%;
       cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: background 0.3s ease, transform 0.3s ease;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -391,43 +398,22 @@
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     }
     
-    .nav-btn::before {
-      content: '';
-      position: absolute;
-      width: 16px;
-      height: 16px;
-      border: 2px solid #fff;
-      border-width: 2px 2px 0 0;
-    }
-    
     .prev-btn {
       left: 25px;
-      padding-right: 4px;
-    }
-    
-    .prev-btn::before {
-      transform: rotate(-135deg);
-      margin-left: 4px;
     }
     
     .next-btn {
       right: 25px;
-      padding-left: 4px;
     }
     
-    .next-btn::before {
-      transform: rotate(45deg);
-      margin-right: 4px;
-    }
-    
-    /* Loading Spinner */
+    /* Loading Spinner for Lightbox */
     .loading-spinner {
       position: absolute;
       width: 40px;
       height: 40px;
       border: 3px solid rgba(255, 255, 255, 0.3);
       border-radius: 50%;
-      border-top-color: #fff;
+      border-top-color: white;
       animation: spin 1s ease-in-out infinite;
     }
     
@@ -457,7 +443,7 @@
       padding: 1.25rem 2rem;
       background: var(--background);
       border-radius: 8px;
-      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
       text-decoration: none;
       color: var(--text);
       gap: 1rem;
@@ -548,11 +534,6 @@
         height: 40px;
       }
       
-      .nav-btn::before {
-        width: 14px;
-        height: 14px;
-      }
-      
       .lightbox-image-container {
         height: 65vh;
       }
@@ -565,6 +546,7 @@
   </style>
 </head>
 <body>
+  <!-- Navbar (Do Not Change) -->
   <nav>
     <img src="Header.png" alt="Logo" class="logo" />
     <div class="nav-links">
@@ -579,14 +561,15 @@
       <span></span>
     </button>
   </nav>
-  
   <br /><br /><br /><br /><br />
   
-  <a href="index.html" class="back-link">← Back to Projects</a>
+  <a href="index.html" class="back-link">
+    ← Back to Projects
+  </a>
   <div id="project-detail-container"></div>
   
+  <!-- =============== JavaScript =============== -->
   <script>
-    // =============== JavaScript for Project Details and Gallery ===============
     const API_URL = 'https://GeorgeBradley.github.io/matthew/feature-project.json';
     const detailsContainer = document.getElementById('project-detail-container');
     const urlParams = new URLSearchParams(window.location.search);
@@ -627,11 +610,11 @@
           <div class="detail-header">
             <h1 class="project-title">${project["feature-project-name"]}</h1>
             ${project["feature-project-start-year"] ? `
-              <div class="project-meta">
-                <span class="date-range">
-                  ${project["feature-project-start-year"]}${project["feature-project-end-year"] ? ` - ${project["feature-project-end-year"]}` : ''}
-                </span>
-              </div>` : ''}
+            <div class="project-meta">
+              <span class="date-range">
+                ${project["feature-project-start-year"]}${project["feature-project-end-year"] ? ` - ${project["feature-project-end-year"]}` : ''}
+              </span>
+            </div>` : ''}
           </div>
     
           <img src="${project["feature-project-thumbnail"]}" 
@@ -761,7 +744,7 @@
         updateLightbox(currentImageIndex - 1);
       }
     
-      // Event Listeners for gallery items
+      // Event Listeners for Gallery Thumbnails
       galleryItems.forEach((item, index) => {
         item.addEventListener('click', () => {
           currentImageIndex = index;
