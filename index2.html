@@ -5,54 +5,91 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Interactive Puppet Animation</title>
   <style>
+    /* General Styles */
     body {
       margin: 0;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      background-color: #f4f4f9;
-      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow: hidden;
     }
-    svg {
-      width: 300px;
+
+    /* SVG Puppet Container */
+    .puppet-container {
+      position: relative;
+      width: 350px;
       height: auto;
-    }
-    .controls {
-      position: absolute;
-      bottom: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      background: #ffffff;
+      padding: 20px;
       text-align: center;
     }
+
+    /* SVG Puppet */
+    svg {
+      width: 100%;
+      height: auto;
+    }
+
+    /* Controls */
+    .controls {
+      margin-top: 20px;
+    }
+
     button {
       margin: 5px;
       padding: 10px 20px;
       font-size: 16px;
+      font-weight: bold;
+      color: #fff;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      border: none;
+      border-radius: 50px;
       cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    button:active {
+      transform: translateY(0);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
   </style>
 </head>
 <body>
-  <!-- SVG Puppet -->
-  <svg id="puppet" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
-    <!-- Body -->
-    <rect x="90" y="50" width="20" height="100" fill="#8B4513" />
-    <!-- Head -->
-    <circle cx="100" cy="30" r="20" fill="#FFD700" />
-    <!-- Left Arm -->
-    <line id="left-arm" x1="90" y1="70" x2="50" y2="100" stroke="#8B4513" stroke-width="10" />
-    <!-- Right Arm -->
-    <line id="right-arm" x1="110" y1="70" x2="150" y2="100" stroke="#8B4513" stroke-width="10" />
-    <!-- Left Leg -->
-    <line id="left-leg" x1="90" y1="150" x2="70" y2="200" stroke="#8B4513" stroke-width="10" />
-    <!-- Right Leg -->
-    <line id="right-leg" x1="110" y1="150" x2="130" y2="200" stroke="#8B4513" stroke-width="10" />
-  </svg>
+  <!-- Puppet Container -->
+  <div class="puppet-container">
+    <!-- SVG Puppet -->
+    <svg id="puppet" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
+      <!-- Body -->
+      <rect x="90" y="50" width="20" height="100" fill="#8B4513" rx="5" />
+      <!-- Head -->
+      <circle cx="100" cy="30" r="20" fill="#FFD700" />
+      <!-- Left Arm -->
+      <line id="left-arm" x1="90" y1="70" x2="50" y2="100" stroke="#8B4513" stroke-width="10" />
+      <!-- Right Arm -->
+      <line id="right-arm" x1="110" y1="70" x2="150" y2="100" stroke="#8B4513" stroke-width="10" />
+      <!-- Left Leg -->
+      <line id="left-leg" x1="90" y1="150" x2="70" y2="200" stroke="#8B4513" stroke-width="10" />
+      <!-- Right Leg -->
+      <line id="right-leg" x1="110" y1="150" x2="130" y2="200" stroke="#8B4513" stroke-width="10" />
+    </svg>
 
-  <!-- Controls -->
-  <div class="controls">
-    <button onclick="wave()">Wave</button>
-    <button onclick="dance()">Dance</button>
-    <button onclick="reset()">Reset</button>
+    <!-- Controls -->
+    <div class="controls">
+      <button onclick="wave()">Wave</button>
+      <button onclick="dance()">Dance</button>
+      <button onclick="reset()">Reset</button>
+    </div>
   </div>
 
   <script>
