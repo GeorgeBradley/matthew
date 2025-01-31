@@ -5,9 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Project Details</title>
   <style>
-    /* =============== Base Styles & Variables =============== */
+    /* =============== Global Variables & Base Styles =============== */
     :root {
       --primary: #3b82f6;
+      --accent: #2563eb;
       --secondary: #64748b;
       --background: #f8fafc;
       --card-bg: #ffffff;
@@ -16,17 +17,15 @@
       --shadow: rgba(0, 0, 0, 0.08);
     }
     
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    }
-    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
+      font-family: 'Inter', sans-serif;
       background: var(--background);
+      color: var(--text);
       line-height: 1.6;
     }
+    a { text-decoration: none; color: var(--primary); }
+    a:hover { color: var(--accent); }
     
     /* =============== Navbar (Do Not Change) =============== */
     nav {
@@ -37,35 +36,10 @@
       background: var(--card-bg);
       border-bottom: 1px solid var(--border);
     }
-    
-    .logo {
-      max-height: 50px;
-    }
-    
-    .nav-links {
-      display: flex;
-      gap: 1rem;
-      align-items: center;
-    }
-    
-    .nav-links a {
-      text-decoration: none;
-      color: var(--text);
-      padding: 0.5rem 1rem;
-      transition: color 0.3s ease;
-    }
-    
-    .nav-links a:hover {
-      color: var(--primary);
-    }
-    
-    .cta-button {
-      background: var(--primary);
-      color: #fff;
-      border-radius: 4px;
-      padding: 0.5rem 1rem;
-    }
-    
+    .logo { max-height: 50px; }
+    .nav-links { display: flex; gap: 1rem; align-items: center; }
+    .nav-links a { padding: 0.5rem 1rem; transition: color 0.3s ease; }
+    .cta-button { background: var(--primary); color: #fff; border-radius: 4px; padding: 0.5rem 1rem; }
     .hamburger {
       display: none;
       flex-direction: column;
@@ -73,471 +47,256 @@
       background: transparent;
       border: none;
     }
-    
     .hamburger span {
-      display: block;
       width: 25px;
       height: 3px;
       background: var(--text);
     }
     
-    /* =============== Spacing for Content =============== */
+    /* =============== Back Link =============== */
     .back-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
+      display: inline-block;
       margin: 2rem;
       padding: 0.75rem 1.5rem;
       background: var(--primary);
-      color: white;
-      text-decoration: none;
+      color: #fff;
       border-radius: 8px;
-      font-weight: 500;
       transition: background 0.3s ease;
     }
-    
-    .back-link:hover {
-      background: #2563eb;
-    }
+    .back-link:hover { background: var(--accent); }
     
     /* =============== Project Detail Container =============== */
     .project-detail {
-      max-width: 1200px;
+      max-width: 1100px;
       margin: 2rem auto;
       background: var(--card-bg);
       border-radius: 16px;
       box-shadow: 0 8px 30px var(--shadow);
-      padding: 3rem;
+      padding: 2rem;
       border: 1px solid var(--border);
     }
-    
-    .detail-header {
-      text-align: center;
-      margin-bottom: 3rem;
-      padding-bottom: 2rem;
-      border-bottom: 1px solid var(--border);
-    }
-    
+    .detail-header { text-align: center; margin-bottom: 2rem; }
     .project-title {
-      font-size: 2.5rem;
-      color: var(--text);
-      margin-bottom: 1rem;
-      line-height: 1.2;
-      font-weight: 700;
-      letter-spacing: -0.5px;
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
     }
-    
     .project-meta {
-      display: flex;
-      gap: 1.5rem;
-      justify-content: center;
+      font-size: 1rem;
       color: var(--secondary);
-      font-size: 0.95rem;
-      margin-top: 1rem;
+      margin-bottom: 1rem;
     }
-    
     .detail-image {
       width: 100%;
       height: 400px;
       object-fit: cover;
-      border-radius: 8px;
-      margin: 2rem 0;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      border-radius: 12px;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
-    
-    /* =============== Detail Content & Grid =============== */
-    .detail-content {
-      display: flex;
-      flex-direction: column;
-      gap: 3rem;
-    }
-    
     .project-description {
       font-size: 1.1rem;
-      line-height: 1.7;
-      color: var(--secondary);
-      max-width: 75ch;
-      margin: 0 auto;
+      max-width: 800px;
+      margin: 0 auto 2rem;
+      text-align: justify;
     }
     
+    /* =============== Details Grid (Company, Client, Skills) =============== */
     .detail-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      justify-content: center;
-      margin-top: 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
     }
-    
     .detail-item {
-      flex: 1;
-      min-width: 250px;
-      padding: 1.5rem;
       background: var(--background);
+      padding: 1rem;
       border-radius: 8px;
       border: 1px solid var(--border);
+      text-align: center;
     }
-    
     .detail-item h3 {
-      font-size: 1rem;
+      font-size: 1.1rem;
       color: var(--primary);
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.5rem;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
     }
-    
     .skill-list {
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
+      justify-content: center;
     }
-    
     .skill-tag {
       background: var(--primary);
-      color: white;
+      color: #fff;
       padding: 0.35rem 0.75rem;
       border-radius: 20px;
-      font-size: 0.85rem;
-      font-weight: 500;
+      font-size: 0.9rem;
     }
     
-    /* =============== Updated Modern Gallery Styles =============== */
+    /* =============== Gallery Section =============== */
     .gallery-section {
-      margin: 4rem 0;
-      padding: 0 1rem;
+      margin: 2rem 0;
     }
-    
     .gallery-section h2 {
       text-align: center;
-      margin-bottom: 2.5rem;
-      color: var(--text);
-      font-size: 1.75rem;
-      font-weight: 600;
+      font-size: 2rem;
+      margin-bottom: 1rem;
       position: relative;
-      padding-bottom: 0.5rem;
     }
-    
     .gallery-section h2::after {
       content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 60px;
-      height: 2px;
+      width: 80px;
+      height: 3px;
       background: var(--primary);
+      display: block;
+      margin: 0.5rem auto;
+      border-radius: 2px;
     }
-    
-    /* Masonry‑style grid with a gap */
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 20px;
-      max-width: 1200px;
-      margin: 0 auto;
+      gap: 1.5rem;
     }
-    
     .gallery-item {
       position: relative;
       overflow: hidden;
       border-radius: 12px;
-      background: #fff;
       cursor: pointer;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
     }
-    
-    .gallery-item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-    }
-    
+    .gallery-item:hover { transform: translateY(-5px); }
     .gallery-item img {
       width: 100%;
-      height: auto;
       display: block;
       transition: transform 0.3s ease;
     }
-    
-    .gallery-item:hover img {
-      transform: scale(1.1);
-    }
-    
-    /* Caption overlay that fades in */
+    .gallery-item:hover img { transform: scale(1.1); }
     .gallery-caption {
       position: absolute;
       bottom: 0;
-      left: 0;
       width: 100%;
       background: rgba(0, 0, 0, 0.6);
       color: #fff;
-      padding: 10px;
+      padding: 0.8rem;
       text-align: center;
       font-size: 0.9rem;
       opacity: 0;
       transition: opacity 0.3s ease;
     }
+    .gallery-item:hover .gallery-caption { opacity: 1; }
     
-    .gallery-item:hover .gallery-caption {
-      opacity: 1;
+    /* =============== Navigation Buttons =============== */
+    .project-navigation {
+      display: flex;
+      justify-content: space-between;
+      margin: 2rem 0;
+    }
+    .nav-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 2rem;
+      background: var(--background);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      transition: transform 0.3s ease, background 0.3s ease;
+      text-decoration: none;
+    }
+    .nav-button:hover {
+      background: rgba(59, 130, 246, 0.1);
+      transform: translateY(-3px);
     }
     
-    /* =============== Enhanced Lightbox Styles =============== */
+    /* =============== Lightbox Styles =============== */
     .lightbox {
-      display: none;
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       background: rgba(0, 0, 0, 0.95);
+      display: none;
+      justify-content: center;
+      align-items: center;
       z-index: 1000;
-      animation: lightboxFadeIn 0.3s ease;
-      overflow: hidden;
+      padding: 1rem;
     }
-    
     .lightbox-content {
       position: relative;
-      width: 95%;
-      max-width: 1200px;
-      margin: 5vh auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    
-    .lightbox-image-container {
-      position: relative;
+      max-width: 1000px;
       width: 100%;
-      height: 75vh;
       background: #000;
       border-radius: 12px;
       overflow: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
     }
-    
+    .lightbox-image-container {
+      width: 100%;
+      height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #000;
+    }
     .lightbox-image {
       max-width: 100%;
       max-height: 100%;
-      object-fit: contain;
       transition: opacity 0.3s ease;
     }
-    
     .lightbox-description {
-      background: rgba(0, 0, 0, 0.9);
-      color: white;
-      text-align: center;
+      background: rgba(0, 0, 0, 0.8);
+      color: #fff;
       padding: 1rem;
+      text-align: center;
       font-size: 1rem;
-      width: 100%;
-      border-radius: 0 0 12px 12px;
-      margin-top: 1rem;
     }
-    
-    /* Lightbox Navigation & Close Button */
-    .close-btn {
-      position: fixed;
-      top: 25px;
-      right: 25px;
-      width: 44px;
-      height: 44px;
+    .close-btn,
+    .nav-btn {
+      position: absolute;
       background: rgba(255, 255, 255, 0.15);
       border: none;
       border-radius: 50%;
+      width: 44px;
+      height: 44px;
       cursor: pointer;
-      transition: background 0.3s ease, transform 0.3s ease;
       display: flex;
       align-items: center;
       justify-content: center;
-      backdrop-filter: blur(4px);
+      transition: background 0.3s ease, transform 0.3s ease;
     }
-    
-    .close-btn:hover {
-      background: rgba(255, 255, 255, 0.25);
-      transform: scale(1.1);
-    }
-    
+    .close-btn { top: 20px; right: 20px; }
+    .close-btn:hover { background: rgba(255, 255, 255, 0.25); transform: scale(1.1); }
     .close-btn::before,
     .close-btn::after {
       content: '';
       position: absolute;
       width: 22px;
       height: 2px;
-      background: white;
+      background: #fff;
     }
-    
     .close-btn::before { transform: rotate(45deg); }
     .close-btn::after { transform: rotate(-45deg); }
-    
-    .nav-btn {
-      position: fixed;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 56px;
-      height: 56px;
-      background: rgba(255, 255, 255, 0.15);
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      transition: background 0.3s ease, transform 0.3s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      backdrop-filter: blur(4px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    
-    .nav-btn:hover {
-      background: rgba(255, 255, 255, 0.25);
-      transform: translateY(-50%) scale(1.1);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    }
-    
-    .prev-btn {
-      left: 25px;
-    }
-    
-    .next-btn {
-      right: 25px;
-    }
-    
-    /* Loading Spinner for Lightbox */
+    .nav-btn { top: 50%; transform: translateY(-50%); }
+    .prev-btn { left: 20px; }
+    .next-btn { right: 20px; }
+    .nav-btn:hover { background: rgba(255, 255, 255, 0.25); transform: translateY(-50%) scale(1.1); }
     .loading-spinner {
-      position: absolute;
       width: 40px;
       height: 40px;
       border: 3px solid rgba(255, 255, 255, 0.3);
       border-radius: 50%;
-      border-top-color: white;
+      border-top-color: #fff;
       animation: spin 1s ease-in-out infinite;
     }
+    @keyframes spin { to { transform: rotate(360deg); } }
     
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-    
-    @keyframes lightboxFadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    
-    /* =============== Project Navigation =============== */
-    .project-navigation {
-      display: flex;
-      justify-content: space-between;
-      margin: 4rem 0;
-      padding: 0 1rem;
-      max-width: 1200px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    
-    .nav-button {
-      display: flex;
-      align-items: center;
-      padding: 1.25rem 2rem;
-      background: var(--background);
-      border-radius: 8px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-      text-decoration: none;
-      color: var(--text);
-      gap: 1rem;
-      max-width: 45%;
-      border: 1px solid var(--border);
-    }
-    
-    .nav-button:hover {
-      background: rgba(59, 130, 246, 0.05);
-      transform: translateY(-3px);
-      box-shadow: 0 5px 15px rgba(59, 130, 246, 0.1);
-      border-color: var(--primary);
-    }
-    
-    /* =============== Responsive Design =============== */
-    @media (max-width: 1024px) {
-      .project-detail {
-        padding: 2rem;
-        margin: 1rem;
-      }
-      
-      .project-title {
-        font-size: 2rem;
-      }
-    }
-    
+    /* =============== Responsive Adjustments =============== */
     @media (max-width: 768px) {
-      body {
-        padding: 1rem;
-      }
-      
-      .project-detail {
-        padding: 1.5rem;
-      }
-      
-      .project-title {
-        font-size: 1.75rem;
-      }
-      
-      .detail-image {
-        height: 250px;
-      }
-      
-      .project-description {
-        font-size: 1rem;
-      }
-      
-      .detail-item {
-        flex: 1 1 100%;
-      }
-      
-      .gallery-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
-      
-      .project-navigation {
-        flex-direction: column;
-        gap: 1rem;
-        padding: 0 1rem;
-      }
-      
-      .nav-button, .nav-spacer {
-        width: 100%;
-        max-width: none;
-      }
-      
-      .nav-btn {
-        bottom: 15px;
-        top: auto;
-        transform: none;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      .project-meta {
-        flex-direction: column;
-        align-items: center;
-        gap: 0.5rem;
-      }
-      
-      .detail-image {
-        height: 200px;
-      }
-      
-      .nav-btn {
-        width: 40px;
-        height: 40px;
-      }
-      
-      .lightbox-image-container {
-        height: 65vh;
-      }
-      
-      .close-btn {
-        top: 15px;
-        right: 15px;
-      }
+      .project-title { font-size: 2rem; }
+      .detail-image { height: 250px; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .lightbox-image-container { height: 50vh; }
     }
   </style>
 </head>
@@ -558,13 +317,9 @@
     </button>
   </nav>
   <br /><br /><br /><br /><br />
-  
-  <a href="index.html" class="back-link">
-    ← Back to Projects
-  </a>
+  <a href="index.html" class="back-link">← Back to Projects</a>
   <div id="project-detail-container"></div>
   
-  <!-- =============== JavaScript =============== -->
   <script>
     const API_URL = 'https://GeorgeBradley.github.io/matthew/feature-project.json';
     const detailsContainer = document.getElementById('project-detail-container');
@@ -574,18 +329,14 @@
     
     async function fetchProjectDetails() {
       if (!projectId) redirectToIndex();
-    
       try {
         const response = await fetch(API_URL);
         if (!response.ok) throw new Error('Network response failed');
         allProjects = await response.json();
-    
         const project = allProjects.find(p => p.id === Number(projectId));
         if (!project) throw new Error('Project not found');
-        
         renderProjectDetails(project, allProjects);
         initLightbox(project["feature-project-gallery"] || []);
-    
       } catch (error) {
         console.error('Error:', error);
         showDetailError();
@@ -596,91 +347,44 @@
       const currentIndex = projects.findIndex(p => p.id === project.id);
       const prevProject = projects[currentIndex - 1];
       const nextProject = projects[currentIndex + 1];
-      
-      const sortedGallery = project["feature-project-gallery"] 
-          ? [...project["feature-project-gallery"]].sort((a, b) => a.order - b.order) 
-          : [];
+      const sortedGallery = project["feature-project-gallery"]
+        ? [...project["feature-project-gallery"]].sort((a, b) => a.order - b.order)
+        : [];
     
       detailsContainer.innerHTML = `
         <article class="project-detail">
-          <div class="detail-header">
+          <header class="detail-header">
             <h1 class="project-title">${project["feature-project-name"]}</h1>
-            ${project["feature-project-start-year"] ? `
-            <div class="project-meta">
-              <span class="date-range">
-                ${project["feature-project-start-year"]}${project["feature-project-end-year"] ? ` - ${project["feature-project-end-year"]}` : ''}
-              </span>
-            </div>` : ''}
-          </div>
-    
-          <img src="${project["feature-project-thumbnail"]}" 
-               alt="${project["feature-project-name"]}" 
-               class="detail-image">
-    
-          <div class="detail-content">
-            <p class="project-description">${project["feature-project-description"]}</p>
-    
-            ${sortedGallery.length ? `
-            <div class="gallery-section">
+            ${project["feature-project-start-year"] ? `<div class="project-meta">${project["feature-project-start-year"]}${project["feature-project-end-year"] ? ' - ' + project["feature-project-end-year"] : ''}</div>` : ''}
+          </header>
+          <img src="${project["feature-project-thumbnail"]}" alt="${project["feature-project-name"]}" class="detail-image" />
+          <section class="project-description">${project["feature-project-description"]}</section>
+          ${sortedGallery.length ? `
+            <section class="gallery-section">
               <h2>Gallery</h2>
               <div class="gallery-grid">
                 ${sortedGallery.map((image, index) => `
                   <div class="gallery-item">
-                    <img src="${image.image}" 
-                         alt="${image['alt-text']}" 
-                         class="gallery-thumbnail" 
-                         data-index="${index}">
+                    <img src="${image.image}" alt="${image['alt-text']}" class="gallery-thumbnail" data-index="${index}" />
                     <div class="gallery-caption">${image.description}</div>
                   </div>
                 `).join('')}
               </div>
-            </div>` : ''}
-    
-            <div class="detail-grid">
-              ${project["feature-project-company-name"] ? `
-              <div class="detail-item">
-                <h3>Company</h3>
-                <p>${project["feature-project-company-name"]}</p>
-              </div>` : ''}
-              
-              ${project["feature-project-client"] ? `
-              <div class="detail-item">
-                <h3>Client</h3>
-                <p>${project["feature-project-client"]}</p>
-              </div>` : ''}
-              
-              ${project["feature-project-skills"]?.length ? `
-              <div class="detail-item">
-                <h3>Skills Used</h3>
-                <div class="skill-list">
-                  ${project["feature-project-skills"].map(skill => `
-                    <span class="skill-tag">${skill}</span>
-                  `).join('')}
-                </div>
-              </div>` : ''}
-            </div>
-          </div>
-    
-          <div class="project-navigation">
-            ${prevProject ? `
-              <a href="details.html?id=${prevProject.id}" class="nav-button prev-project">
-                ← Previous Project
-                <span>${prevProject["feature-project-name"]}</span>
-              </a>
-            ` : '<div class="nav-spacer"></div>'}
-            
-            ${nextProject ? `
-              <a href="details.html?id=${nextProject.id}" class="nav-button next-project">
-                Next Project →
-                <span>${nextProject["feature-project-name"]}</span>
-              </a>
-            ` : '<div class="nav-spacer"></div>'}
-          </div>
-    
+            </section>
+          ` : ''}
+          <section class="detail-grid">
+            ${project["feature-project-company-name"] ? `<div class="detail-item"><h3>Company</h3><p>${project["feature-project-company-name"]}</p></div>` : ''}
+            ${project["feature-project-client"] ? `<div class="detail-item"><h3>Client</h3><p>${project["feature-project-client"]}</p></div>` : ''}
+            ${project["feature-project-skills"]?.length ? `<div class="detail-item"><h3>Skills Used</h3><div class="skill-list">${project["feature-project-skills"].map(skill => `<span class="skill-tag">${skill}</span>`).join('')}</div></div>` : ''}
+          </section>
+          <nav class="project-navigation">
+            ${prevProject ? `<a href="details.html?id=${prevProject.id}" class="nav-button prev-project">← Previous Project<span>${prevProject["feature-project-name"]}</span></a>` : '<div></div>'}
+            ${nextProject ? `<a href="details.html?id=${nextProject.id}" class="nav-button next-project"><span>${nextProject["feature-project-name"]}</span> Next Project →</a>` : '<div></div>'}
+          </nav>
           <div class="lightbox" id="galleryLightbox">
             <div class="lightbox-content">
               <div class="lightbox-image-container">
-                <img class="lightbox-image" src="" alt="">
+                <img class="lightbox-image" src="" alt="" />
               </div>
               <div class="lightbox-description"></div>
             </div>
@@ -701,19 +405,16 @@
       const prevBtn = lightbox.querySelector('.prev-btn');
       const nextBtn = lightbox.querySelector('.next-btn');
       const galleryItems = document.querySelectorAll('.gallery-thumbnail');
-      
       let currentImageIndex = 0;
       let touchStartX = 0;
     
       function updateLightbox(index) {
         currentImageIndex = (index + galleryImages.length) % galleryImages.length;
         const image = galleryImages[currentImageIndex];
-        
         lightboxImage.style.opacity = '0';
         const spinner = document.createElement('div');
         spinner.className = 'loading-spinner';
         lightboxImageContainer.appendChild(spinner);
-        
         const img = new Image();
         img.src = image.image;
         img.onload = () => {
@@ -730,15 +431,9 @@
         if (direction === 'right') prevImage();
       }
     
-      function nextImage() {
-        updateLightbox(currentImageIndex + 1);
-      }
+      function nextImage() { updateLightbox(currentImageIndex + 1); }
+      function prevImage() { updateLightbox(currentImageIndex - 1); }
     
-      function prevImage() {
-        updateLightbox(currentImageIndex - 1);
-      }
-    
-      // Event Listeners for Gallery Thumbnails
       galleryItems.forEach((item, index) => {
         item.addEventListener('click', () => {
           currentImageIndex = index;
@@ -756,7 +451,6 @@
       prevBtn.addEventListener('click', prevImage);
       nextBtn.addEventListener('click', nextImage);
     
-      // Keyboard Navigation
       document.addEventListener('keydown', (e) => {
         if (lightbox.style.display === 'flex') {
           if (e.key === 'ArrowLeft') prevImage();
@@ -765,30 +459,20 @@
         }
       });
     
-      // Touch Handling
-      lightbox.addEventListener('touchstart', (e) => {
-        touchStartX = e.touches[0].clientX;
-      });
-    
+      lightbox.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; });
       lightbox.addEventListener('touchend', (e) => {
         const touchEndX = e.changedTouches[0].clientX;
         const deltaX = touchEndX - touchStartX;
-        
-        if (Math.abs(deltaX) > 50) {
-          handleSwipe(deltaX > 0 ? 'right' : 'left');
-        }
+        if (Math.abs(deltaX) > 50) { handleSwipe(deltaX > 0 ? 'right' : 'left'); }
       });
-    
-      lightbox.addEventListener('touchmove', (e) => {
-        e.preventDefault();
-      }, { passive: false });
+      lightbox.addEventListener('touchmove', (e) => { e.preventDefault(); }, { passive: false });
     }
     
     function showDetailError() {
       detailsContainer.innerHTML = `
         <div class="error-state">
           <p>⚠️ Project not found</p>
-          <a href="index.html" class="back-button">Return to Projects</a>
+          <a href="index.html" class="back-link">Return to Projects</a>
         </div>
       `;
     }
@@ -797,7 +481,6 @@
       window.location.href = 'index.html';
     }
     
-    // Initial load
     if (projectId) {
       fetchProjectDetails();
     } else {
