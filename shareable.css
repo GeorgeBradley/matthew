@@ -1,13 +1,11 @@
-
-
-/* CSS */
 :root {
     --header-height: 100px;
     --transition-duration: 0.4s;
     --easing: cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-nav {
+/* Navigation styles */
+.main-navigation-nav {
     background: rgba(255, 255, 255, 0.98);
     padding: 1rem 5%;
     position: fixed;
@@ -21,8 +19,13 @@ nav {
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
 }
 
+.main-navigation-logo {
+    height: 40px;
+    transition: opacity 0.3s ease;
+}
+
 /* Hamburger/X with mathematical precision */
-.hamburger {
+.main-navigation-hamburger {
     display: none;
     cursor: pointer;
     background: none;
@@ -33,7 +36,7 @@ nav {
     z-index: 1001;
 }
 
-.hamburger span {
+.main-navigation-hamburger span {
     position: absolute;
     width: 24px;
     height: 2px;
@@ -43,50 +46,41 @@ nav {
     transform-origin: center;
 }
 
-.hamburger span:nth-child(1) {
+.main-navigation-hamburger span:nth-child(1) {
     top: 10px;
 }
 
-.hamburger span:nth-child(2) {
+.main-navigation-hamburger span:nth-child(2) {
     top: 50%;
     transform: translateY(-50%);
 }
 
-.hamburger span:nth-child(3) {
+.main-navigation-hamburger span:nth-child(3) {
     bottom: 10px;
 }
 
 /* Perfect X Transformation */
-.hamburger.active span:nth-child(1) {
-    transform: 
-        rotate(45deg)
-        translate(4.95px, 4.95px); /* 24px * 0.2071 (tan(22.5°)) */
+.main-navigation-hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(4.95px, 4.95px); /* 24px * 0.2071 */
 }
 
-.hamburger.active span:nth-child(2) {
+.main-navigation-hamburger.active span:nth-child(2) {
     opacity: 0;
     transform: translateX(-100%);
 }
 
-.hamburger.active span:nth-child(3) {
-    transform: 
-        rotate(-45deg)
-        translate(4.95px, -4.95px); /* 24px * 0.2071 */
+.main-navigation-hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(4.95px, -4.95px); /* 24px * 0.2071 */
 }
 
-/* Rest of the navigation styles */
-.logo {
-    height: 40px;
-    transition: opacity 0.3s ease;
-}
-
-.nav-links {
+/* Navigation links */
+.main-navigation-nav-links {
     display: flex;
     gap: 2rem;
     align-items: center;
 }
 
-.nav-links a {
+.main-navigation-nav-links a {
     text-decoration: none;
     color: #222;
     font-weight: 500;
@@ -94,7 +88,7 @@ nav {
     font-size: 1rem;
 }
 
-.cta-button {
+.main-navigation-cta-button {
     background: #2a2a2a;
     color: white !important;
     padding: 0.8rem 1.8rem;
@@ -103,11 +97,11 @@ nav {
 }
 
 @media (max-width: 768px) {
-    .hamburger {
+    .main-navigation-hamburger {
         display: block;
     }
 
-    .nav-links {
+    .main-navigation-nav-links {
         position: fixed;
         top: 70px;
         right: -100%;
@@ -120,7 +114,8 @@ nav {
         backdrop-filter: blur(10px);
     }
 
-    .nav-links.active {
+    .main-navigation-nav-links.active {
         right: 0;
     }
 }
+
