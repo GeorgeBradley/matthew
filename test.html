@@ -39,18 +39,21 @@
         button:hover {
             background-color: #45a049;
         }
+        #successMessage {
+            color: green;
+            text-align: center;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
 
 <h2>Contact Us</h2>
 
-<form action="https://formsubmit.co/georgeaustinbradley@outlook.com" method="POST">
-    <!-- Honey Pot for spam prevention -->
+<form id="contactForm" action="https://formsubmit.co/mgbradley.uk@gmail.com" method="POST">
     <input type="text" name="_honey" style="display:none">
-    
-    <!-- Disable Captcha -->
     <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_next" value="?success=true"> <!-- This will append ?success=true to the URL -->
 
     <label for="email">Your Email:</label>
     <input type="email" id="email" name="email" required>
@@ -60,6 +63,28 @@
 
     <button type="submit">Send</button>
 </form>
+
+<!-- Placeholder for the success message -->
+<div id="successMessage"></div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Check if the URL has the success parameter
+        if (window.location.search.includes('success=true')) {
+            document.getElementById('successMessage').textContent = "Email successfully submitted";
+            // Remove the success parameter from URL to avoid showing the message on refresh
+            history.replaceState({}, '', window.location.pathname);
+        }
+    });
+
+    // Prevent form submission if JavaScript is disabled
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+        if (!navigator.sendBeacon) {
+            event.preventDefault();
+            alert('Please enable JavaScript to use this form.');
+        }
+    });
+</script>
 
 </body>
 </html>
