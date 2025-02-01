@@ -1,804 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Project Details – Stand Out Design</title>
-  <!-- Using Google Fonts for a modern look -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="shareable.css" media="all">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact Me</title>
   <style>
-    /* ================= Variables ================= */
-    :root {
-      --primary: #3b82f6;
-      --secondary: #64748b;
-      --background: #f8fafc;
-      --card-bg: #ffffff;
-      --text: #1e293b;
-      --border: #e2e8f0;
-      --accent: linear-gradient(135deg, #e0f2fe, #f0f9ff);
-      --header-gradient: linear-gradient(135deg, #3b82f6, #06b6d4);
-      --lightbox-bg: rgba(0, 0, 0, 0.9);
-    }
-
-    /* ================= Global ================= */
-    *, *::before, *::after {
+    /* Basic Reset */
+    * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
+    
     body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: var(--background);
-      color: var(--text);
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background: #f4f4f4;
       line-height: 1.6;
+      padding: 20px;
     }
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    /* ================= Back Link ================= */
-    .back-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin: 1.5rem;
-      padding: 0.75rem 1.5rem;
-      background: var(--primary);
-      color: #fff;
-      border-radius: 8px;
-      font-weight: 600;
-      transition: background 0.3s ease;
-    }
-    .back-link:hover {
-      background: #2563eb;
-    }
-
-    /* ================= Project Detail Container ================= */
-    .project-detail {
-      max-width: 1200px;
-      margin: 2rem auto;
-      background: var(--card-bg);
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      animation: fadeIn 0.8s ease-out;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .detail-header {
-      background: var(--header-gradient);
-      padding: 3rem 1.5rem;
-      text-align: center;
-      color: #fff;
-      position: relative;
-    }
-    .detail-header::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 20px;
-      background: var(--accent);
-      border-top-left-radius: 50%;
-      border-top-right-radius: 50%;
-    }
-    .project-title {
-      font-size: 3rem;
-      margin: 0;
-      font-weight: 700;
-    }
-    .project-meta {
-      margin-top: 0.75rem;
-      color: #e2e8f0;
-      font-size: 1.1rem;
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-    }
-
-    /* ================= Project Image ================= */
-    .detail-image {
-      width: 100%;
-      height: 500px;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.5s ease;
-    }
-    .detail-image:hover {
-      transform: scale(1.02);
-    }
-
-    /* ================= Content Sections ================= */
-    .detail-content {
-      padding: 2.5rem 2rem;
-    }
-    .project-description {
-      max-width: 900px;
-      margin: 0 auto 2.5rem;
-      font-size: 1.25rem;
-      color: var(--secondary);
-      text-align: justify;
-    }
-
-    /* ================= Gallery Section ================= */
-    .gallery-section {
-      margin: 2.5rem 0;
-      padding: 0 2rem;
-    }
-    .gallery-section h2 {
-      text-align: center;
-      font-size: 2.25rem;
-      margin-bottom: 1rem;
-      color: var(--text);
-      position: relative;
-      padding-bottom: 0.5rem;
-    }
-    .gallery-section h2::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100px;
-      height: 4px;
-      background: var(--primary);
-      border-radius: 2px;
-    }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .gallery-item {
-      position: relative;
-      border-radius: 16px;
-      border: 1px solid var(--border);
-      overflow: hidden;
-      cursor: pointer;
-      background: var(--card-bg);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .gallery-item:hover {
-      transform: translateY(-6px) scale(1.01);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-    }
-    .gallery-thumbnail {
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      object-fit: cover;
-      display: block;
-    }
-    .gallery-overlay {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: rgba(59, 130, 246, 0.9);
-      color: #fff;
-      padding: 0.75rem;
-      font-size: 1rem;
-      text-align: center;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-    .gallery-item:hover .gallery-overlay {
-      opacity: 1;
-    }
-
-    /* ================= Pagination Controls ================= */
-    .pagination-controls {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-    .pagination-button {
-      background: var(--primary);
-      color: #fff;
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 4px;
-      cursor: pointer;
-      font-weight: 600;
-      transition: background 0.3s ease;
-    }
-    .pagination-button:hover {
-      background: #2563eb;
-    }
-    .pagination-info {
-      font-size: 1rem;
-      color: var(--secondary);
-    }
-
-    /* ================= Detail Grid ================= */
-    .detail-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      margin: 2.5rem 0;
-      padding: 0 2rem;
-    }
-    .detail-item {
-      background: var(--background);
-      padding: 1.75rem;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .detail-item:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-    }
-    .detail-item h3 {
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      color: var(--primary);
-    }
-    .skill-list {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.75rem;
-      margin-top: 0.75rem;
-    }
-    .skill-tag {
-      background: var(--primary);
-      color: #fff;
-      padding: 0.5rem 1rem;
-      border-radius: 25px;
-      font-size: 0.95rem;
-      font-weight: 600;
-    }
-
-    /* ================= Other Project Navigation ================= */
-    .other-project-nav-container {
-      display: flex;
-      justify-content: space-between;
-      padding: 2rem;
-      background: var(--accent);
-      border-top: 1px solid var(--border);
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-    .other-project-nav-button {
-      flex: 1;
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      padding: 1.25rem 2rem;
-      border-radius: 12px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.75rem;
-      transition: background 0.3s ease, transform 0.3s ease;
-      color: var(--text);
-      font-weight: 600;
-      text-decoration: none;
-    }
-    .other-project-nav-button:hover {
-      background: #f1f5f9;
-      transform: translateY(-3px) scale(1.02);
-      border-color: var(--primary);
-    }
-    .other-project-nav-button span {
-      font-size: 1rem;
-      color: var(--secondary);
-    }
-    .other-project-nav-spacer {
-      flex: 1;
-    }
-
-    /* ================= Lightbox Styles (Untouched) ================= */
-    .lightbox {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: var(--lightbox-bg);
-      z-index: 1000;
-      align-items: center;
-      justify-content: center;
-      padding: 1rem;
-    }
-    .lightbox.active {
-      display: flex;
-    }
-    .lightbox-content {
-      position: relative;
-      background: #000;
-      border-radius: 16px;
-      overflow: hidden;
-      max-width: 90%;
-      max-height: 90%;
-      display: flex;
-      flex-direction: column;
-    }
-    .lightbox-image-container {
-      position: relative;
-      width: 100%;
-      text-align: center;
-      background: #000;
-    }
-    .lightbox-image {
-      max-width: 100%;
-      max-height: 80vh;
-      object-fit: contain;
-      display: block;
-      margin: 0 auto;
-      transition: opacity 0.3s ease;
-    }
-    .lightbox-caption {
-      background: var(--primary);
-      color: #fff;
-      padding: 1rem 1.5rem;
-      font-size: 1rem;
-      text-align: center;
-    }
-    .nav-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(255, 255, 255, 0.15);
-      border: none;
-      border-radius: 50%;
-      width: 44px;
-      height: 44px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      backdrop-filter: blur(4px);
-      transition: transform 0.3s ease, background 0.3s ease;
-    }
-    .nav-btn:hover {
-      transform: translateY(-50%) scale(1.1);
-      background: rgba(255, 255, 255, 0.25);
-    }
-    .prev-btn { left: 10px; }
-    .next-btn { right: 10px; }
-    .nav-btn::before {
-      content: '';
-      border: solid #fff;
-      border-width: 0 3px 3px 0;
-      display: inline-block;
-      padding: 8px;
-    }
-    .prev-btn::before { transform: rotate(135deg); }
-    .next-btn::before { transform: rotate(-45deg); }
-    .close-btn {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: rgba(255, 255, 255, 0.15);
-      border: none;
-      border-radius: 50%;
-      width: 36px;
-      height: 36px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      backdrop-filter: blur(4px);
-      transition: transform 0.3s ease, background 0.3s ease;
-      z-index: 10;
-    }
-    .close-btn:hover {
-      transform: scale(1.1);
-      background: rgba(255, 255, 255, 0.25);
-    }
-    .close-btn::before,
-    .close-btn::after {
-      content: '';
-      position: absolute;
-      width: 18px;
-      height: 2px;
+    
+    .contact-section {
       background: #fff;
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 30px 40px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
-    .close-btn::before { transform: rotate(45deg); }
-    .close-btn::after { transform: rotate(-45deg); }
-    .loading-spinner {
-      position: absolute;
-      width: 40px;
-      height: 40px;
-      border: 3px solid rgba(255, 255, 255, 0.3);
-      border-radius: 50%;
-      border-top-color: #fff;
-      animation: spin 1s ease-in-out infinite;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      display: none;
+    
+    .contact-section h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+      font-size: 2em;
     }
-    @keyframes spin { to { transform: rotate(360deg); } }
-
-    /* ================= Responsive ================= */
-    @media (max-width: 1024px) {
-      .project-title {
-        font-size: 2.5rem;
-      }
-      .detail-image {
-        height: 400px;
-      }
+    
+    .contact-section form {
+      display: flex;
+      flex-direction: column;
     }
-    @media (max-width: 768px) {
-      .detail-header {
-        padding: 2rem 1rem;
-      }
-      .detail-content {
-        padding: 1.75rem 1rem;
-      }
-      .project-description {
-        font-size: 1.125rem;
-      }
-      .gallery-section h2 {
-        font-size: 2rem;
-      }
-      .other-project-nav-button {
-        padding: 1rem 1.5rem;
-      }
+    
+    .contact-section label {
+      margin-bottom: 5px;
+      color: #555;
+      font-weight: bold;
     }
-    @media (max-width: 480px) {
-      .project-meta {
-        flex-direction: column;
-        gap: 0.5rem;
-      }
-      .detail-image {
-        height: 300px;
-      }
-      .nav-btn {
-        width: 40px;
-        height: 40px;
-      }
-      .nav-btn::before {
-        padding: 6px;
-      }
-      .close-btn {
-        top: 5px;
-        right: 5px;
-        width: 32px;
-        height: 32px;
+    
+    .contact-section input,
+    .contact-section textarea {
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1em;
+      transition: border-color 0.3s ease;
+    }
+    
+    .contact-section input:focus,
+    .contact-section textarea:focus {
+      border-color: #7a9cff;
+      outline: none;
+    }
+    
+    .contact-section button {
+      background-color: #7a9cff;
+      color: #fff;
+      padding: 12px;
+      border: none;
+      border-radius: 4px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    .contact-section button:hover {
+      background-color: #6482e3;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 600px) {
+      .contact-section {
+        padding: 20px;
       }
     }
   </style>
 </head>
 <body>
-  <nav class="main-navigation-nav">
-    <img src="Header.png" alt="Logo" class="main-navigation-logo">
-    <div class="main-navigation-nav-links">
-      <a href="#home">Home</a>
-      <a href="#portfolio">Portfolio &amp; CV</a>
-      <a href="#contact">Contact</a>
-      <a href="#contact" class="main-navigation-cta-button">Get in Touch</a>
-    </div>
-    <button class="main-navigation-hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-  </nav>
-  <a href="index.html" class="back-link">← Back to Projects</a>
-  <main id="project-detail-container"></main>
-
-  <script>
-    // ================= Global Variables =================
-    const API_URL = 'https://GeorgeBradley.github.io/matthew/feature-project.json';
-    const detailsContainer = document.getElementById('project-detail-container');
-    const urlParams = new URLSearchParams(window.location.search);
-    const projectId = urlParams.get('id');
-    let allProjects = [];
-    let galleryImagesGlobal = [];
-    // Change the number of images per page here (now set to 5)
-    const imagesPerPage = 5;
-    let currentGalleryPage = 1;
-
-    // Lightbox globals
-    let currentImageIndex = 0;
-    let lightboxInitialized = false;
-
-    // ================= Fetch & Render Project =================
-    async function fetchProjectDetails() {
-      if (!projectId) {
-        redirectToIndex();
-        return;
-      }
-      try {
-        const response = await fetch(API_URL);
-        if (!response.ok) throw new Error('Network response failed');
-        allProjects = await response.json();
-        const project = allProjects.find(p => p.id === Number(projectId));
-        if (!project) throw new Error('Project not found');
-
-        // Sort gallery images (if any)
-        galleryImagesGlobal = project["feature-project-gallery"]
-          ? [...project["feature-project-gallery"]].sort((a, b) => a.order - b.order)
-          : [];
-
-        renderProjectDetails(project, allProjects);
-        // Initialize lightbox controls once (the thumbnail click listeners will be attached after pagination rendering)
-        initLightbox();
-      } catch (error) {
-        console.error('Error:', error);
-        showDetailError();
-      }
-    }
-
-    function renderProjectDetails(project, projects) {
-      const currentIndex = projects.findIndex(p => p.id === project.id);
-      const prevProject = projects[currentIndex - 1];
-      const nextProject = projects[currentIndex + 1];
+  <section class="contact-section">
+    <h2>Contact Me</h2>
+    <!-- Replace the form action URL if you set up a custom Formspree endpoint -->
+    <form action="https://formspree.io/mgbradley.uk@gmail.com" method="POST">
+      <!-- Optional: Customize the subject line -->
+      <input type="hidden" name="_subject" value="New submission from your website">
       
-      detailsContainer.innerHTML = `
-        <article class="project-detail">
-          <header class="detail-header">
-            <h1 class="project-title">${project["feature-project-name"]}</h1>
-            ${project["feature-project-start-year"] ? `
-              <div class="project-meta">
-                <span>${project["feature-project-start-year"]}${project["feature-project-end-year"] ? ` - ${project["feature-project-end-year"]}` : ''}</span>
-              </div>
-            ` : ''}
-          </header>
-
-          <img src="${project["feature-project-thumbnail"]}" 
-               alt="${project["feature-project-name"]}" 
-               class="detail-image"
-               loading="lazy">
-
-          <section class="detail-content">
-            <p class="project-description">${project["feature-project-description"]}</p>
-
-            ${galleryImagesGlobal.length ? `
-              <div id="gallery-section-container"></div>
-            ` : ''}
-
-            <div class="detail-grid">
-              ${project["feature-project-company-name"] ? `
-                <div class="detail-item">
-                  <h3>Company</h3>
-                  <p>${project["feature-project-company-name"]}</p>
-                </div>
-              ` : ''}
-              ${project["feature-project-client"] ? `
-                <div class="detail-item">
-                  <h3>Client</h3>
-                  <p>${project["feature-project-client"]}</p>
-                </div>
-              ` : ''}
-              ${project["feature-project-skills"]?.length ? `
-                <div class="detail-item">
-                  <h3>Skills Used</h3>
-                  <div class="skill-list">
-                    ${project["feature-project-skills"].map(skill => `
-                      <span class="skill-tag">${skill}</span>
-                    `).join('')}
-                  </div>
-                </div>
-              ` : ''}
-            </div>
-          </section>
-
-          <nav class="other-project-nav-container">
-            ${prevProject ? `
-              <a href="details.html?id=${prevProject.id}" class="other-project-nav-button">
-                <span>← Previous Project</span>
-              </a>
-            ` : '<div class="other-project-nav-spacer"></div>'}
-            ${nextProject ? `
-              <a href="details.html?id=${nextProject.id}" class="other-project-nav-button">
-                <span>Next Project →</span>
-              </a>
-            ` : '<div class="other-project-nav-spacer"></div>'}
-          </nav>
-
-          <!-- Lightbox (Untouched) -->
-          <div class="lightbox" id="galleryLightbox">
-            <div class="lightbox-content">
-              <button class="close-btn" aria-label="Close lightbox"></button>
-              <div class="lightbox-image-container">
-                <img class="lightbox-image" src="" alt="">
-                <div class="loading-spinner"></div>
-                <button class="nav-btn prev-btn" aria-label="Previous image"></button>
-                <button class="nav-btn next-btn" aria-label="Next image"></button>
-              </div>
-              <div class="lightbox-caption"></div>
-            </div>
-          </div>
-        </article>
-      `;
-
-      // If there is a gallery, render the paginated gallery section.
-      if (galleryImagesGlobal.length) {
-        renderGallerySection(galleryImagesGlobal);
-      }
-    }
-
-    // ================= Paginated Gallery Functions =================
-    function renderGallerySection(galleryImages) {
-      const container = document.getElementById('gallery-section-container');
-      container.innerHTML = `
-        <div class="gallery-section">
-          <h2>Gallery</h2>
-          <div id="galleryGrid" class="gallery-grid"></div>
-          <div id="paginationControls" class="pagination-controls"></div>
-        </div>
-      `;
-      currentGalleryPage = 1;
-      renderGalleryPage();
-    }
-
-    function renderGalleryPage() {
-      const galleryGrid = document.getElementById('galleryGrid');
-      const paginationControls = document.getElementById('paginationControls');
-      // Calculate pagination values
-      const totalImages = galleryImagesGlobal.length;
-      const totalPages = Math.ceil(totalImages / imagesPerPage);
-      const startIndex = (currentGalleryPage - 1) * imagesPerPage;
-      const endIndex = Math.min(startIndex + imagesPerPage, totalImages);
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Your name" required>
       
-      // Render the gallery items (using global index in data-index)
-      galleryGrid.innerHTML = galleryImagesGlobal
-        .slice(startIndex, endIndex)
-        .map((image, i) => {
-          const globalIndex = startIndex + i;
-          return `
-            <div class="gallery-item">
-              <img src="${image.image}" 
-                   alt="${image['alt-text']}" 
-                   class="gallery-thumbnail" 
-                   data-index="${globalIndex}"
-                   loading="lazy">
-              <div class="gallery-overlay">${image.description}</div>
-            </div>
-          `;
-        }).join('');
-
-      // Render pagination controls if needed
-      if (totalPages > 1) {
-        let controlsHTML = '';
-        if (currentGalleryPage > 1) {
-          controlsHTML += `<button class="pagination-button" id="prevPage">Previous</button>`;
-        }
-        controlsHTML += `<span class="pagination-info">Page ${currentGalleryPage} of ${totalPages}</span>`;
-        if (currentGalleryPage < totalPages) {
-          controlsHTML += `<button class="pagination-button" id="nextPage">Next</button>`;
-        }
-        paginationControls.innerHTML = controlsHTML;
-        
-        // Attach event listeners for pagination buttons
-        const prevBtn = document.getElementById('prevPage');
-        if (prevBtn) {
-          prevBtn.addEventListener('click', () => {
-            currentGalleryPage--;
-            renderGalleryPage();
-          });
-        }
-        const nextBtn = document.getElementById('nextPage');
-        if (nextBtn) {
-          nextBtn.addEventListener('click', () => {
-            currentGalleryPage++;
-            renderGalleryPage();
-          });
-        }
-      } else {
-        paginationControls.innerHTML = '';
-      }
-
-      // Attach lightbox click listeners to the current thumbnails.
-      attachGalleryThumbnails();
-    }
-
-    function attachGalleryThumbnails() {
-      const lightbox = document.getElementById('galleryLightbox');
-      const galleryItems = document.querySelectorAll('#galleryGrid .gallery-thumbnail');
-      galleryItems.forEach(item => {
-        item.addEventListener('click', () => {
-          currentImageIndex = Number(item.getAttribute('data-index'));
-          updateLightbox(currentImageIndex);
-          lightbox.classList.add('active');
-          document.body.style.overflow = 'hidden';
-        });
-      });
-    }
-
-    // ================= Lightbox Functionality =================
-    // Move functions to global scope so they can be called from thumbnail click events.
-    function updateLightbox(index) {
-      const lightbox = document.getElementById('galleryLightbox');
-      const lightboxImage = lightbox.querySelector('.lightbox-image');
-      const lightboxCaption = lightbox.querySelector('.lightbox-caption');
-      const spinner = lightbox.querySelector('.loading-spinner');
-      currentImageIndex = (index + galleryImagesGlobal.length) % galleryImagesGlobal.length;
-      const image = galleryImagesGlobal[currentImageIndex];
-      lightboxImage.style.opacity = '0';
-      spinner.style.display = 'block';
-
-      const img = new Image();
-      img.src = image.image;
-      img.onload = () => {
-        spinner.style.display = 'none';
-        lightboxImage.src = image.image;
-        lightboxImage.alt = image['alt-text'];
-        lightboxCaption.textContent = image.description;
-        lightboxImage.style.opacity = '1';
-      };
-    }
-    function nextImage() {
-      updateLightbox(currentImageIndex + 1);
-    }
-    function prevImage() {
-      updateLightbox(currentImageIndex - 1);
-    }
-    function initLightbox() {
-      if (lightboxInitialized) return;
-      const lightbox = document.getElementById('galleryLightbox');
-      const closeBtn = lightbox.querySelector('.close-btn');
-      const prevBtn = lightbox.querySelector('.prev-btn');
-      const nextBtn = lightbox.querySelector('.next-btn');
-      let touchStartX = 0;
+      <label for="email">Email</label>
+      <input type="email" id="email" name="_replyto" placeholder="Your email" required>
       
-      closeBtn.addEventListener('click', () => {
-        lightbox.classList.remove('active');
-        document.body.style.overflow = '';
-      });
-      prevBtn.addEventListener('click', prevImage);
-      nextBtn.addEventListener('click', nextImage);
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="6" placeholder="Your message" required></textarea>
       
-      document.addEventListener('keydown', (e) => {
-        if (lightbox.classList.contains('active')) {
-          if (e.key === 'ArrowLeft') prevImage();
-          if (e.key === 'ArrowRight') nextImage();
-          if (e.key === 'Escape') closeBtn.click();
-        }
-      });
-      
-      lightbox.addEventListener('touchstart', (e) => {
-        touchStartX = e.touches[0].clientX;
-      });
-      lightbox.addEventListener('touchend', (e) => {
-        const touchEndX = e.changedTouches[0].clientX;
-        const deltaX = touchEndX - touchStartX;
-        if (Math.abs(deltaX) > 50) {
-          if (deltaX > 0) prevImage();
-          else nextImage();
-        }
-      });
-      
-      lightboxInitialized = true;
-    }
-
-    // ================= Error & Redirect =================
-    function showDetailError() {
-      detailsContainer.innerHTML = `
-        <div class="error-state" style="text-align:center; padding:2rem;">
-          <p style="font-size:1.2rem;">⚠️ Project not found</p>
-          <a href="index.html" class="back-link" style="margin-top:1rem;">Return to Projects</a>
-        </div>
-      `;
-    }
-    function redirectToIndex() {
-      window.location.href = 'index.html';
-    }
-
-    // ================= Initial Load =================
-    if (projectId) {
-      fetchProjectDetails();
-    } else {
-      redirectToIndex();
-    }
-  </script>
- <script src="sharable-scripts.js" defer></script>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
 </body>
 </html>
