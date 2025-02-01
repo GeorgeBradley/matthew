@@ -137,6 +137,30 @@
     </div>
 </section>
 
+<div class="contactContainer">
+    <!-- This div will display the success message if available -->
+    <div id="contactSuccessMessage" class="contactAlert contactAlertSuccess"></div>
+    
+    <h1 id="contactTitle">Contact Us</h1>
+    <form target="_blank" action="https://formsubmit.co/georgeaustinbradley@outlook.com" method="POST">
+      <!-- Hidden input to redirect back to this page with a custom success message -->
+      <input type="hidden" name="_next" value="https://georgebradley.github.io/matthew/test.html?message=successfully%20sent,%20Matthew%20will%20get%20back%20to%20you%20as%20soon%20as%20possible">
+      
+      <div class="contactFormGroup">
+        <label for="contactName">Full Name</label>
+        <input type="text" id="contactName" name="contactName" class="contactFormControl" placeholder="Your full name" required>
+      </div>
+      <div class="contactFormGroup">
+        <label for="contactEmail">Email Address</label>
+        <input type="email" id="contactEmail" name="contactEmail" class="contactFormControl" placeholder="Your email address" required>
+      </div>
+      <div class="contactFormGroup">
+        <label for="contactMessage">Your Message</label>
+        <textarea id="contactMessage" name="contactMessage" class="contactFormControl" rows="5" placeholder="Type your message here..." required></textarea>
+      </div>
+      <button type="submit">Submit Form</button>
+    </form>
+  </div>
 
    
 <footer class="footer">
