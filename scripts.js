@@ -435,3 +435,33 @@ document.getElementById('current-year').textContent = new Date().getFullYear();
 
         // Initialize slider
         new HeroSlider();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Function to get a query parameter by name
+function getQueryParam(param) {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(param);
+}
+
+// Check if there's a 'message' query parameter and display it
+const contactSuccessMessage = getQueryParam('message');
+if (contactSuccessMessage) {
+  const messageContainer = document.getElementById('contactSuccessMessage');
+  messageContainer.textContent = contactSuccessMessage;
+  messageContainer.style.display = 'block';
+
+  // Optionally, remove the query string from the URL after showing the message
+  window.history.replaceState({}, document.title, window.location.pathname);
+}
