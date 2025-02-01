@@ -1077,3 +1077,110 @@ h1, h2, h3 {
 @keyframes spin {
     to { transform: rotate(360deg); }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+/* Global Styles */
+.contactContainer {
+  width: 100%;
+  max-width: 600px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 24px; /* Reduced font size for better fit on mobile */
+}
+.contactAlert {
+  display: none;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 16px;
+  animation: contactFadeIn 0.5s ease-in-out;
+}
+@keyframes contactFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.contactAlertSuccess {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+.contactFormGroup {
+  margin-bottom: 15px; /* Reduced margin for smaller screens */
+}
+label {
+  display: block;
+  margin-bottom: 5px; /* Reduced margin for smaller screens */
+  font-weight: bold;
+  color: #555;
+  font-size: 14px; /* Smaller font size for labels */
+}
+.contactFormControl {
+  width: 100%;
+  padding: 10px; /* Reduced padding for smaller screens */
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box; /* Ensures padding doesn't affect the width */
+}
+.contactFormControl:focus {
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  outline: 0;
+}
+button[type="submit"] {
+  width: 100%;
+  padding: 12px; /* Reduced padding for smaller screens */
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+button[type="submit"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+}
+@media (max-width: 600px) {
+  .contactContainer {
+    margin: 10px; /* Increased margin for better spacing on small screens */
+    padding: 15px;
+  }
+  h1 {
+    font-size: 20px; /* Even smaller for very small screens */
+  }
+  .contactFormGroup {
+    margin-bottom: 10px; /* Further reduced for mobile */
+  }
+  label {
+    font-size: 13px; /* Smaller for mobile */
+  }
+  .contactFormControl, button[type="submit"] {
+    font-size: 14px; /* Smaller for mobile */
+  }
+}
