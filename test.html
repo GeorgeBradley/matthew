@@ -16,7 +16,7 @@
       align-items: center;
       min-height: 100vh;
     }
-    .container {
+    .contactContainer {
       width: 100%;
       max-width: 600px;
       background: #fff;
@@ -30,7 +30,7 @@
       color: #333;
       font-size: 24px; /* Reduced font size for better fit on mobile */
     }
-    .alert {
+    .contactAlert {
       display: none;
       padding: 15px;
       margin-bottom: 20px;
@@ -38,18 +38,18 @@
       border-radius: 4px;
       text-align: center;
       font-size: 16px;
-      animation: fadeIn 0.5s ease-in-out;
+      animation: contactFadeIn 0.5s ease-in-out;
     }
-    @keyframes fadeIn {
+    @keyframes contactFadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
     }
-    .alert-success {
+    .contactAlertSuccess {
       color: #155724;
       background-color: #d4edda;
       border-color: #c3e6cb;
     }
-    .form-group {
+    .contactFormGroup {
       margin-bottom: 15px; /* Reduced margin for smaller screens */
     }
     label {
@@ -59,7 +59,7 @@
       color: #555;
       font-size: 14px; /* Smaller font size for labels */
     }
-    .form-control {
+    .contactFormControl {
       width: 100%;
       padding: 10px; /* Reduced padding for smaller screens */
       border: 1px solid #ced4da;
@@ -68,7 +68,7 @@
       transition: border-color 0.3s ease, box-shadow 0.3s ease;
       box-sizing: border-box; /* Ensures padding doesn't affect the width */
     }
-    .form-control:focus {
+    .contactFormControl:focus {
       border-color: #80bdff;
       box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
       outline: 0;
@@ -93,46 +93,46 @@
       box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
     }
     @media (max-width: 600px) {
-      .container {
+      .contactContainer {
         margin: 10px; /* Increased margin for better spacing on small screens */
         padding: 15px;
       }
       h1 {
         font-size: 20px; /* Even smaller for very small screens */
       }
-      .form-group {
+      .contactFormGroup {
         margin-bottom: 10px; /* Further reduced for mobile */
       }
       label {
         font-size: 13px; /* Smaller for mobile */
       }
-      .form-control, button[type="submit"] {
+      .contactFormControl, button[type="submit"] {
         font-size: 14px; /* Smaller for mobile */
       }
     }
   </style>
 </head>
 <body>
-  <div class="container">
+  <div class="contactContainer">
     <!-- This div will display the success message if available -->
-    <div id="successMessage" class="alert alert-success"></div>
+    <div id="contactSuccessMessage" class="contactAlert contactAlertSuccess"></div>
     
-    <h1>Contact Us</h1>
+    <h1 id="contactTitle">Contact Us</h1>
     <form target="_blank" action="https://formsubmit.co/georgeaustinbradley@outlook.com" method="POST">
       <!-- Hidden input to redirect back to this page with a custom success message -->
       <input type="hidden" name="_next" value="https://georgebradley.github.io/matthew/test.html?message=successfully%20sent,%20Matthew%20will%20get%20back%20to%20you%20as%20soon%20as%20possible">
       
-      <div class="form-group">
-        <label for="name">Full Name</label>
-        <input type="text" id="name" name="name" class="form-control" placeholder="Your full name" required>
+      <div class="contactFormGroup">
+        <label for="contactName">Full Name</label>
+        <input type="text" id="contactName" name="contactName" class="contactFormControl" placeholder="Your full name" required>
       </div>
-      <div class="form-group">
-        <label for="email">Email Address</label>
-        <input type="email" id="email" name="email" class="form-control" placeholder="Your email address" required>
+      <div class="contactFormGroup">
+        <label for="contactEmail">Email Address</label>
+        <input type="email" id="contactEmail" name="contactEmail" class="contactFormControl" placeholder="Your email address" required>
       </div>
-      <div class="form-group">
-        <label for="message">Your Message</label>
-        <textarea id="message" name="message" class="form-control" rows="5" placeholder="Type your message here..." required></textarea>
+      <div class="contactFormGroup">
+        <label for="contactMessage">Your Message</label>
+        <textarea id="contactMessage" name="contactMessage" class="contactFormControl" rows="5" placeholder="Type your message here..." required></textarea>
       </div>
       <button type="submit">Submit Form</button>
     </form>
@@ -146,10 +146,10 @@
     }
 
     // Check if there's a 'message' query parameter and display it
-    const successMessage = getQueryParam('message');
-    if (successMessage) {
-      const messageContainer = document.getElementById('successMessage');
-      messageContainer.textContent = successMessage;
+    const contactSuccessMessage = getQueryParam('message');
+    if (contactSuccessMessage) {
+      const messageContainer = document.getElementById('contactSuccessMessage');
+      messageContainer.textContent = contactSuccessMessage;
       messageContainer.style.display = 'block';
 
       // Optionally, remove the query string from the URL after showing the message
