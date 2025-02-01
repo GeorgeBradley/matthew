@@ -20,15 +20,15 @@
       width: 100%;
       max-width: 600px;
       background: #fff;
-      padding: 30px;
+      padding: 20px;
       border-radius: 8px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     }
     h1 {
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
       color: #333;
-      font-size: 28px;
+      font-size: 24px; /* Reduced font size for better fit on mobile */
     }
     .alert {
       display: none;
@@ -50,21 +50,23 @@
       border-color: #c3e6cb;
     }
     .form-group {
-      margin-bottom: 20px;
+      margin-bottom: 15px; /* Reduced margin for smaller screens */
     }
     label {
       display: block;
-      margin-bottom: 8px;
+      margin-bottom: 5px; /* Reduced margin for smaller screens */
       font-weight: bold;
       color: #555;
+      font-size: 14px; /* Smaller font size for labels */
     }
     .form-control {
       width: 100%;
-      padding: 12px;
+      padding: 10px; /* Reduced padding for smaller screens */
       border: 1px solid #ced4da;
       border-radius: 4px;
       font-size: 16px;
       transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      box-sizing: border-box; /* Ensures padding doesn't affect the width */
     }
     .form-control:focus {
       border-color: #80bdff;
@@ -73,11 +75,11 @@
     }
     button[type="submit"] {
       width: 100%;
-      padding: 15px;
+      padding: 12px; /* Reduced padding for smaller screens */
       background-color: #007BFF;
       color: white;
       border: none;
-      font-size: 18px;
+      font-size: 16px;
       font-weight: bold;
       border-radius: 4px;
       cursor: pointer;
@@ -92,8 +94,20 @@
     }
     @media (max-width: 600px) {
       .container {
-        margin: 20px;
-        padding: 20px;
+        margin: 10px; /* Increased margin for better spacing on small screens */
+        padding: 15px;
+      }
+      h1 {
+        font-size: 20px; /* Even smaller for very small screens */
+      }
+      .form-group {
+        margin-bottom: 10px; /* Further reduced for mobile */
+      }
+      label {
+        font-size: 13px; /* Smaller for mobile */
+      }
+      .form-control, button[type="submit"] {
+        font-size: 14px; /* Smaller for mobile */
       }
     }
   </style>
@@ -118,7 +132,7 @@
       </div>
       <div class="form-group">
         <label for="message">Your Message</label>
-        <textarea id="message" name="message" class="form-control" rows="8" placeholder="Type your message here..." required></textarea>
+        <textarea id="message" name="message" class="form-control" rows="5" placeholder="Type your message here..." required></textarea>
       </div>
       <button type="submit">Submit Form</button>
     </form>
