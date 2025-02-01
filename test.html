@@ -43,6 +43,13 @@
             color: green;
             text-align: center;
             margin-top: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+        #successMessage.show {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
@@ -50,10 +57,10 @@
 
 <h2>Contact Us</h2>
 
-<form id="contactForm" action="https://formsubmit.co/mgbradley.uk@gmail.com" method="POST">
+<form id="contactForm" action="https://formsubmit.co/georgeaustinbradley@outlook.com" method="POST">
     <input type="text" name="_honey" style="display:none">
     <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_next" value="?success=true"> <!-- This will append ?success=true to the URL -->
+    <input type="hidden" name="_next" value="?success=true">
 
     <label for="email">Your Email:</label>
     <input type="email" id="email" name="email" required>
@@ -71,7 +78,9 @@
     document.addEventListener('DOMContentLoaded', function() {
         // Check if the URL has the success parameter
         if (window.location.search.includes('success=true')) {
-            document.getElementById('successMessage').textContent = "Email successfully submitted";
+            const successMessage = document.getElementById('successMessage');
+            successMessage.textContent = "Email successfully submitted";
+            successMessage.classList.add('show'); // Trigger the animation
             // Remove the success parameter from URL to avoid showing the message on refresh
             history.replaceState({}, '', window.location.pathname);
         }
