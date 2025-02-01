@@ -192,6 +192,32 @@
       opacity: 1;
     }
 
+    /* ================= Pagination Controls ================= */
+    .pagination-controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .pagination-button {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+    .pagination-button:hover {
+      background: #2563eb;
+    }
+    .pagination-info {
+      font-size: 1rem;
+      color: var(--secondary);
+    }
+
     /* ================= Detail Grid ================= */
     .detail-grid {
       display: grid;
@@ -458,6 +484,13 @@
     const urlParams = new URLSearchParams(window.location.search);
     const projectId = urlParams.get('id');
     let allProjects = [];
+    let galleryImagesGlobal = [];
+    const imagesPerPage = 10;
+    let currentGalleryPage = 1;
+
+    // Lightbox globals
+    let currentImageIndex = 0;
+    let lightboxInitialized = false;
 
     // ================= Fetch & Render Project =================
     async function fetchProjectDetails() {
@@ -472,8 +505,14 @@
         const project = allProjects.find(p => p.id === Number(projectId));
         if (!project) throw new Error('Project not found');
 
+        // Sort gallery images (if any)
+        galleryImagesGlobal = project["feature-project-gallery"]
+          ? [...project["feature-project-gallery"]].sort((a, b) => a.order - b.order)
+          : [];
+
         renderProjectDetails(project, allProjects);
-        initLightbox(project["feature-project-gallery"] || []);
+        // Initialize lightbox controls once (the thumbnail click listeners will be attached after pagination rendering)
+        initLightbox();
       } catch (error) {
         console.error('Error:', error);
         showDetailError();
@@ -484,10 +523,7 @@
       const currentIndex = projects.findIndex(p => p.id === project.id);
       const prevProject = projects[currentIndex - 1];
       const nextProject = projects[currentIndex + 1];
-      const sortedGallery = project["feature-project-gallery"]
-        ? [...project["feature-project-gallery"]].sort((a, b) => a.order - b.order)
-        : [];
-
+      
       detailsContainer.innerHTML = `
         <article class="project-detail">
           <header class="detail-header">
@@ -507,22 +543,8 @@
           <section class="detail-content">
             <p class="project-description">${project["feature-project-description"]}</p>
 
-            ${sortedGallery.length ? `
-              <div class="gallery-section">
-                <h2>Gallery</h2>
-                <div class="gallery-grid">
-                  ${sortedGallery.map((image, index) => `
-                    <div class="gallery-item">
-                      <img src="${image.image}" 
-                           alt="${image['alt-text']}" 
-                           class="gallery-thumbnail" 
-                           data-index="${index}"
-                           loading="lazy">
-                      <div class="gallery-overlay">${image.description}</div>
-                    </div>
-                  `).join('')}
-                </div>
-              </div>
+            ${galleryImagesGlobal.length ? `
+              <div id="gallery-section-container"></div>
             ` : ''}
 
             <div class="detail-grid">
@@ -581,66 +603,145 @@
           </div>
         </article>
       `;
+
+      // If there is a gallery, render the paginated gallery section.
+      if (galleryImagesGlobal.length) {
+        renderGallerySection(galleryImagesGlobal);
+      }
     }
 
-    // ================= Lightbox Functionality (Do Not Change) =================
-    function initLightbox(galleryImages) {
+    // ================= Paginated Gallery Functions =================
+    function renderGallerySection(galleryImages) {
+      const container = document.getElementById('gallery-section-container');
+      container.innerHTML = `
+        <div class="gallery-section">
+          <h2>Gallery</h2>
+          <div id="galleryGrid" class="gallery-grid"></div>
+          <div id="paginationControls" class="pagination-controls"></div>
+        </div>
+      `;
+      currentGalleryPage = 1;
+      renderGalleryPage();
+    }
+
+    function renderGalleryPage() {
+      const galleryGrid = document.getElementById('galleryGrid');
+      const paginationControls = document.getElementById('paginationControls');
+      // Calculate pagination values
+      const totalImages = galleryImagesGlobal.length;
+      const totalPages = Math.ceil(totalImages / imagesPerPage);
+      const startIndex = (currentGalleryPage - 1) * imagesPerPage;
+      const endIndex = Math.min(startIndex + imagesPerPage, totalImages);
+      
+      // Render the gallery items (using global index in data-index)
+      galleryGrid.innerHTML = galleryImagesGlobal
+        .slice(startIndex, endIndex)
+        .map((image, i) => {
+          const globalIndex = startIndex + i;
+          return `
+            <div class="gallery-item">
+              <img src="${image.image}" 
+                   alt="${image['alt-text']}" 
+                   class="gallery-thumbnail" 
+                   data-index="${globalIndex}"
+                   loading="lazy">
+              <div class="gallery-overlay">${image.description}</div>
+            </div>
+          `;
+        }).join('');
+
+      // Render pagination controls if needed
+      if (totalPages > 1) {
+        let controlsHTML = '';
+        if (currentGalleryPage > 1) {
+          controlsHTML += `<button class="pagination-button" id="prevPage">Previous</button>`;
+        }
+        controlsHTML += `<span class="pagination-info">Page ${currentGalleryPage} of ${totalPages}</span>`;
+        if (currentGalleryPage < totalPages) {
+          controlsHTML += `<button class="pagination-button" id="nextPage">Next</button>`;
+        }
+        paginationControls.innerHTML = controlsHTML;
+        
+        // Attach event listeners for pagination buttons
+        const prevBtn = document.getElementById('prevPage');
+        if (prevBtn) {
+          prevBtn.addEventListener('click', () => {
+            currentGalleryPage--;
+            renderGalleryPage();
+          });
+        }
+        const nextBtn = document.getElementById('nextPage');
+        if (nextBtn) {
+          nextBtn.addEventListener('click', () => {
+            currentGalleryPage++;
+            renderGalleryPage();
+          });
+        }
+      } else {
+        paginationControls.innerHTML = '';
+      }
+
+      // Attach lightbox click listeners to the current thumbnails.
+      attachGalleryThumbnails();
+    }
+
+    function attachGalleryThumbnails() {
       const lightbox = document.getElementById('galleryLightbox');
-      const lightboxImage = lightbox.querySelector('.lightbox-image');
-      const lightboxCaption = lightbox.querySelector('.lightbox-caption');
-      const closeBtn = lightbox.querySelector('.close-btn');
-      const prevBtn = lightbox.querySelector('.prev-btn');
-      const nextBtn = lightbox.querySelector('.next-btn');
-      const spinner = lightbox.querySelector('.loading-spinner');
-      const galleryItems = document.querySelectorAll('.gallery-thumbnail');
-
-      let currentImageIndex = 0;
-      let touchStartX = 0;
-
-      function updateLightbox(index) {
-        currentImageIndex = (index + galleryImages.length) % galleryImages.length;
-        const image = galleryImages[currentImageIndex];
-        lightboxImage.style.opacity = '0';
-        spinner.style.display = 'block';
-
-        const img = new Image();
-        img.src = image.image;
-        img.onload = () => {
-          spinner.style.display = 'none';
-          lightboxImage.src = image.image;
-          lightboxImage.alt = image['alt-text'];
-          lightboxCaption.textContent = image.description;
-          lightboxImage.style.opacity = '1';
-        };
-      }
-
-      function nextImage() {
-        updateLightbox(currentImageIndex + 1);
-      }
-      function prevImage() {
-        updateLightbox(currentImageIndex - 1);
-      }
-      function handleSwipe(direction) {
-        if (direction === 'left') nextImage();
-        if (direction === 'right') prevImage();
-      }
-
-      galleryItems.forEach((item, index) => {
+      const galleryItems = document.querySelectorAll('#galleryGrid .gallery-thumbnail');
+      galleryItems.forEach(item => {
         item.addEventListener('click', () => {
-          currentImageIndex = index;
+          currentImageIndex = Number(item.getAttribute('data-index'));
           updateLightbox(currentImageIndex);
           lightbox.classList.add('active');
           document.body.style.overflow = 'hidden';
         });
       });
+    }
 
+    // ================= Lightbox Functionality =================
+    // Move functions to global scope so they can be called from thumbnail click events.
+    function updateLightbox(index) {
+      const lightbox = document.getElementById('galleryLightbox');
+      const lightboxImage = lightbox.querySelector('.lightbox-image');
+      const lightboxCaption = lightbox.querySelector('.lightbox-caption');
+      const spinner = lightbox.querySelector('.loading-spinner');
+      currentImageIndex = (index + galleryImagesGlobal.length) % galleryImagesGlobal.length;
+      const image = galleryImagesGlobal[currentImageIndex];
+      lightboxImage.style.opacity = '0';
+      spinner.style.display = 'block';
+
+      const img = new Image();
+      img.src = image.image;
+      img.onload = () => {
+        spinner.style.display = 'none';
+        lightboxImage.src = image.image;
+        lightboxImage.alt = image['alt-text'];
+        lightboxCaption.textContent = image.description;
+        lightboxImage.style.opacity = '1';
+      };
+    }
+    function nextImage() {
+      updateLightbox(currentImageIndex + 1);
+    }
+    function prevImage() {
+      updateLightbox(currentImageIndex - 1);
+    }
+    function initLightbox() {
+      if (lightboxInitialized) return;
+      const lightbox = document.getElementById('galleryLightbox');
+      const closeBtn = lightbox.querySelector('.close-btn');
+      const prevBtn = lightbox.querySelector('.prev-btn');
+      const nextBtn = lightbox.querySelector('.next-btn');
+      const spinner = lightbox.querySelector('.loading-spinner');
+      let touchStartX = 0;
+      
       closeBtn.addEventListener('click', () => {
         lightbox.classList.remove('active');
         document.body.style.overflow = '';
       });
       prevBtn.addEventListener('click', prevImage);
       nextBtn.addEventListener('click', nextImage);
-
+      
       document.addEventListener('keydown', (e) => {
         if (lightbox.classList.contains('active')) {
           if (e.key === 'ArrowLeft') prevImage();
@@ -648,6 +749,7 @@
           if (e.key === 'Escape') closeBtn.click();
         }
       });
+      
       lightbox.addEventListener('touchstart', (e) => {
         touchStartX = e.touches[0].clientX;
       });
@@ -655,9 +757,12 @@
         const touchEndX = e.changedTouches[0].clientX;
         const deltaX = touchEndX - touchStartX;
         if (Math.abs(deltaX) > 50) {
-          handleSwipe(deltaX > 0 ? 'right' : 'left');
+          if (deltaX > 0) prevImage();
+          else nextImage();
         }
       });
+      
+      lightboxInitialized = true;
     }
 
     // ================= Error & Redirect =================
