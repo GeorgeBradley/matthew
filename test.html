@@ -1,99 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Form</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        form {
-            background: #f4f4f4;
-            padding: 20px;
-            border-radius: 8px;
-        }
-        label {
-            display: block;
-            margin-top: 10px;
-        }
-        input, textarea {
-            width: 100%;
-            padding: 8px;
-            margin-top: 5px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-        button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-top: 15px;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
-        #successMessage {
-            color: green;
-            text-align: center;
-            margin-top: 20px;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.5s ease;
-        }
-        #successMessage.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Form</title>
+  <style>
+    /* Global Styles */
+    body {
+      background-color: #f4f4f4;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #333;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #555;
+    }
+    .form-control {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+      transition: border-color 0.3s ease;
+    }
+    .form-control:focus {
+      border-color: #007BFF;
+      outline: none;
+    }
+    button[type="submit"] {
+      width: 100%;
+      padding: 15px;
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+    /* Responsive adjustments */
+    @media (max-width: 600px) {
+      .container {
+        margin: 20px;
+        padding: 20px;
+      }
+    }
+  </style>
 </head>
 <body>
-
-<h2>Contact Us</h2>
-
-<form id="contactForm" action="https://formsubmit.co/georgeaustinbradley@outlook.com" method="POST">
-    <input type="text" name="_honey" style="display:none">
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_next" value="?success=true">
-
-    <label for="email">Your Email:</label>
-    <input type="email" id="email" name="email" required>
-
-    <label for="message">Your Message:</label>
-    <textarea id="message" name="message" rows="5" required></textarea>
-
-    <button type="submit">Send</button>
-</form>
-
-<!-- Placeholder for the success message -->
-<div id="successMessage"></div>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Check if the URL has the success parameter
-        if (window.location.search.includes('success=true')) {
-            const successMessage = document.getElementById('successMessage');
-            successMessage.textContent = "Email successfully submitted";
-            successMessage.classList.add('show'); // Trigger the animation
-            // Remove the success parameter from URL to avoid showing the message on refresh
-            history.replaceState({}, '', window.location.pathname);
-        }
-    });
-
-    // Prevent form submission if JavaScript is disabled
-    document.getElementById('contactForm').addEventListener('submit', function(event) {
-        if (!navigator.sendBeacon) {
-            event.preventDefault();
-            alert('Please enable JavaScript to use this form.');
-        }
-    });
-</script>
-
+  <div class="container">
+    <h1>Contact Us</h1>
+    <form target="_blank" action="https://formsubmit.co/georgeaustinbradley@outlook.com" method="POST">
+      <!-- Hidden input to redirect back to the contact form with a custom success message -->
+      <input type="hidden" name="_next" value="https://georgebradley.github.io/matthew/test.html?message=successfully%20sent%2C%20Matthew%20will%20get%20back%20to%20you%20as%20soon%20as%20possible">
+      
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" class="form-control" placeholder="Your full name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" class="form-control" placeholder="Your email address" required>
+      </div>
+      <div class="form-group">
+        <label for="message">Your Message</label>
+        <textarea id="message" name="message" class="form-control" rows="8" placeholder="Type your message here..." required></textarea>
+      </div>
+      <button type="submit">Submit Form</button>
+    </form>
+  </div>
 </body>
 </html>
