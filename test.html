@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact Form</title>
+  <title>Contact Us</title>
   <style>
     /* Global Styles */
     body {
@@ -24,6 +24,20 @@
       text-align: center;
       margin-bottom: 30px;
       color: #333;
+    }
+    .alert {
+      display: none; /* Initially hidden */
+      padding: 15px;
+      margin-bottom: 20px;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      text-align: center;
+      font-size: 16px;
+    }
+    .alert-success {
+      color: #155724;
+      background-color: #d4edda;
+      border-color: #c3e6cb;
     }
     .form-group {
       margin-bottom: 20px;
@@ -61,7 +75,6 @@
     button[type="submit"]:hover {
       background-color: #0056b3;
     }
-    /* Responsive adjustments */
     @media (max-width: 600px) {
       .container {
         margin: 20px;
@@ -72,10 +85,13 @@
 </head>
 <body>
   <div class="container">
+    <!-- This div will display the success message if available -->
+    <div id="successMessage" class="alert alert-success"></div>
+    
     <h1>Contact Us</h1>
     <form target="_blank" action="https://formsubmit.co/georgeaustinbradley@outlook.com" method="POST">
-      <!-- Hidden input to redirect back to the contact form with a custom success message -->
-      <input type="hidden" name="_next" value="https://georgebradley.github.io/matthew/test.html?message=successfully%20sent%2C%20Matthew%20will%20get%20back%20to%20you%20as%20soon%20as%20possible">
+      <!-- Hidden input to redirect back to this page with a custom success message -->
+      <input type="hidden" name="_next" value="https://georgebradley.github.io/matthew/test.html?message=successfully%20sent,%20Matthew%20will%20get%20back%20to%20you%20as%20soon%20as%20possible">
       
       <div class="form-group">
         <label for="name">Full Name</label>
@@ -92,5 +108,24 @@
       <button type="submit">Submit Form</button>
     </form>
   </div>
+
+  <script>
+    // Function to get a query parameter by name
+    function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
+
+    // Check if there's a 'message' query parameter and display it
+    const successMessage = getQueryParam('message');
+    if (successMessage) {
+      const messageContainer = document.getElementById('successMessage');
+      messageContainer.textContent = successMessage;
+      messageContainer.style.display = 'block';
+
+      // Optionally, remove the query string from the URL after showing the message
+      window.history.replaceState({}, document.title, window.location.pathname);
+    }
+  </script>
 </body>
 </html>
