@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="shareable.css" media="all">
+  <link rel="stylesheet" href="shareable.css" media="all">
   <style>
     /* ================= Variables ================= */
     :root {
@@ -262,8 +262,8 @@
       font-weight: 600;
     }
 
-    /* ================= Project Navigation ================= */
-    .project-navigation {
+    /* ================= Other Project Navigation ================= */
+    .other-project-nav-container {
       display: flex;
       justify-content: space-between;
       padding: 2rem;
@@ -272,7 +272,7 @@
       flex-wrap: wrap;
       gap: 1rem;
     }
-    .nav-button {
+    .other-project-nav-button {
       flex: 1;
       background: var(--card-bg);
       border: 1px solid var(--border);
@@ -285,17 +285,18 @@
       transition: background 0.3s ease, transform 0.3s ease;
       color: var(--text);
       font-weight: 600;
+      text-decoration: none;
     }
-    .nav-button:hover {
+    .other-project-nav-button:hover {
       background: #f1f5f9;
       transform: translateY(-3px) scale(1.02);
       border-color: var(--primary);
     }
-    .nav-button span {
+    .other-project-nav-button span {
       font-size: 1rem;
       color: var(--secondary);
     }
-    .nav-spacer {
+    .other-project-nav-spacer {
       flex: 1;
     }
 
@@ -446,7 +447,7 @@
       .gallery-section h2 {
         font-size: 2rem;
       }
-      .nav-button {
+      .other-project-nav-button {
         padding: 1rem 1.5rem;
       }
     }
@@ -475,29 +476,29 @@
   </style>
 </head>
 <body>
-<nav>
+  <nav>
     <img src="Header.png" alt="Logo" class="logo">
     <div class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#portfolio">Portfolio & CV</a>
-        <a href="#contact">Contact</a>
-        <a href="#contact" class="cta-button">Get in Touch</a>
+      <a href="#home">Home</a>
+      <a href="#portfolio">Portfolio &amp; CV</a>
+      <a href="#contact">Contact</a>
+      <a href="#contact" class="cta-button">Get in Touch</a>
     </div>
     <button class="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
     </button>
-</nav>
+  </nav>
 
   <div class="hero-container">
-        <div class="hero-slides"></div>
-        <div class="hero-dots"></div>
-        <div class="loading">
-            <div class="loading-spinner"></div>
-            Loading Projects...
-        </div>
+    <div class="hero-slides"></div>
+    <div class="hero-dots"></div>
+    <div class="loading">
+      <div class="loading-spinner"></div>
+      Loading Projects...
     </div>
+  </div>
 
   <a href="index.html" class="back-link">← Back to Projects</a>
   <main id="project-detail-container"></main>
@@ -599,19 +600,17 @@
             </div>
           </section>
 
-          <nav class="project-navigation">
+          <nav class="other-project-nav-container">
             ${prevProject ? `
-              <a href="details.html?id=${prevProject.id}" class="nav-button prev-project">
-                ← Previous Project
-                <span>${prevProject["feature-project-name"]}</span>
+              <a href="details.html?id=${prevProject.id}" class="other-project-nav-button">
+                <span>← Previous Project</span>
               </a>
-            ` : '<div class="nav-spacer"></div>'}
+            ` : '<div class="other-project-nav-spacer"></div>'}
             ${nextProject ? `
-              <a href="details.html?id=${nextProject.id}" class="nav-button next-project">
-                Next Project →
-                <span>${nextProject["feature-project-name"]}</span>
+              <a href="details.html?id=${nextProject.id}" class="other-project-nav-button">
+                <span>Next Project →</span>
               </a>
-            ` : '<div class="nav-spacer"></div>'}
+            ` : '<div class="other-project-nav-spacer"></div>'}
           </nav>
 
           <!-- Lightbox (Untouched) -->
@@ -758,7 +757,6 @@
       const closeBtn = lightbox.querySelector('.close-btn');
       const prevBtn = lightbox.querySelector('.prev-btn');
       const nextBtn = lightbox.querySelector('.next-btn');
-      const spinner = lightbox.querySelector('.loading-spinner');
       let touchStartX = 0;
       
       closeBtn.addEventListener('click', () => {
