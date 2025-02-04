@@ -1,12 +1,13 @@
 /* ================ CSS Variables ================ */
 :root {
-    --primary-color: #359494;
---secondary-color: white;   /* Warm Cream */
---tertiary-color: #070707;    /* Rich Coffee Brown */
---accent-color-1: #C75233;    /* Terracotta Red */
---accent-color-2: #3A7068;    /* Muted Teal */
---text-dark: #2A2A2A;         /* Dark Gray for text */
---text-light: #FFFFFF;        /* White for text */
+    /* Professional, Neutral–Blue Palette */
+    --primary-color: #003366;    /* Deep Navy Blue */
+    --secondary-color: #FFFFFF;  /* Clean White */
+    --tertiary-color: #222222;   /* Dark Charcoal */
+    --accent-color-1: #006699;    /* Medium Blue Accent */
+    --accent-color-2: #66B2FF;    /* Light Blue Accent */
+    --text-dark: #222222;         /* Dark for text */
+    --text-light: #FFFFFF;        /* Light for text */
     
     --transition-base: 0.2s ease-in-out;
     --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
@@ -239,7 +240,7 @@ h1, h2, h3 {
     justify-content: center;
     font-size: 4rem;
     border: 4px solid var(--primary-color);
-    box-shadow: 0 15px 30px rgba(94, 70, 48, 0.15);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
     transition: transform 0.3s ease;
 }
 
@@ -253,7 +254,7 @@ h1, h2, h3 {
     border-radius: 50%;
     object-fit: cover;
     border: 4px solid var(--primary-color);
-    box-shadow: 0 15px 30px rgba(94, 70, 48, 0.15);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
 
 .about-content {
@@ -1078,22 +1079,11 @@ h1, h2, h3 {
     to { transform: rotate(360deg); }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-/* Global Styles */
+/* Global Styles for Contact Form */
 .contactContainer {
   width: 100%;
   max-width: 600px;
-  background: #fff;
+  background: var(--secondary-color);
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -1101,7 +1091,7 @@ h1, h2, h3 {
 h1 {
   text-align: center;
   margin-bottom: 20px;
-  color: #333;
+  color: var(--tertiary-color);
   font-size: 24px; /* Reduced font size for better fit on mobile */
 }
 .contactAlert {
@@ -1150,8 +1140,8 @@ label {
 button[type="submit"] {
   width: 100%;
   padding: 12px; /* Reduced padding for smaller screens */
-  background-color: #007BFF;
-  color: white;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
   border: none;
   font-size: 16px;
   font-weight: bold;
