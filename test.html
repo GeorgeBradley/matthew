@@ -16,7 +16,6 @@
         .immediate-showcase-slider {
           display: flex;
           transition: transform 0.5s ease-in-out;
-          /* No longer need a fixed width */
           will-change: transform; /* Optimize for transform changes */
         }
 
@@ -65,23 +64,11 @@
         }
 
 
-        /* Show buttons on larger screens (optional) */
+        /* Show buttons on larger screens */
         @media (min-width: 768px) {
            .immediate-showcase-prev, .immediate-showcase-next {
               display: block;
            }
-        }
-        /* Touch-friendly navigation (optional, but highly recommended) */
-        .immediate-showcase-slider-container.touch-enabled .immediate-showcase-prev,
-        .immediate-showcase-slider-container.touch-enabled .immediate-showcase-next {
-            display: block; /* Show buttons on touch devices */
-            opacity: 0;     /* Initially hidden */
-            transition: opacity 0.3s ease;
-        }
-
-        .immediate-showcase-slider-container.touch-enabled:hover .immediate-showcase-prev,
-        .immediate-showcase-slider-container.touch-enabled:hover .immediate-showcase-next {
-            opacity: 1;  /* Show on hover/touch */
         }
 
     </style>
@@ -141,7 +128,6 @@
             function handleTouchStart(e) {
                 touchStartX = e.touches[0].clientX;
                 isDragging = true;
-                $container.addClass('touch-enabled'); // Add class for touch-friendly styles
                 $slider.css('transition', 'none'); // Disable transition during drag
             }
 
