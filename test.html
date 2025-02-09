@@ -28,7 +28,7 @@
           width: 100%;
           height: auto;
           display: block;
-          -webkit-user-drag: none; /* Prevent image dragging on mobile */
+          -webkit-user-drag: none; /* Prevent image dragging */
           -khtml-user-drag: none;
           -moz-user-drag: none;
           -o-user-drag: none;
@@ -99,6 +99,7 @@
             let touchStartX = 0;
             let touchEndX = 0;
             let isDragging = false;
+            let slideWidth; // Declare slideWidth here
 
             // Function to calculate and set slider width and slide widths
             function updateSliderLayout() {
@@ -107,22 +108,28 @@
                 visibleSlides = Math.max(1, visibleSlides);
                 visibleSlides = Math.min(visibleSlides, slideCount);
 
-                const slideWidth = containerWidth / visibleSlides;
+                slideWidth = containerWidth / visibleSlides; // Assign to the outer-scope variable
                 $slides.width(slideWidth);
                 $slider.width(slideWidth * slideCount);
+
+                // **CRITICAL FIX:**  Force a move *even* if all slides are initially visible.
+                moveToSlide(currentIdx); // This ensures correct initial positioning
             }
 
 
-            function moveToSlide(index) {
-              if (index < 0 || index > slideCount - visibleSlides) {
-                    return;
+           function moveToSlide(index) {
+                // Adjust index to wrap around
+                if (index < 0) {
+                    index = slideCount - visibleSlides; // Wrap to the end
+                } else if (index > slideCount - visibleSlides) {
+                    index = 0; // Wrap to the beginning
                 }
 
                 currentIdx = index;
-                const slideWidth = $slides.outerWidth(true);
                 const translateX = -currentIdx * slideWidth;
                 $slider.css('transform', `translateX(${translateX}px)`);
             }
+
 
              // --- Touch event handlers ---
             function handleTouchStart(e) {
@@ -135,8 +142,7 @@
                 if (!isDragging) return;
                 touchEndX = e.touches[0].clientX;
                 const diffX = touchEndX - touchStartX;
-                const slideWidth = $slides.outerWidth(true);
-                 const translateX = -currentIdx * slideWidth + diffX; //Current position + the drag distance
+                const translateX = -currentIdx * slideWidth + diffX; //Current position + the drag distance
                 $slider.css('transform', `translateX(${translateX}px)`);
 
             }
@@ -146,20 +152,17 @@
                 isDragging = false;
                 $slider.css('transition', ''); // Re-enable transition
                 const diffX = touchEndX - touchStartX;
-                const slideWidth = $slides.outerWidth(true);
 
                 // Determine swipe direction and threshold (e.g., 20% of slide width)
                 if (Math.abs(diffX) > slideWidth * 0.2) {
-                    if (diffX > 0 && currentIdx > 0) {
-                        moveToSlide(currentIdx - 1); // Swipe right (previous)
-                    } else if (diffX < 0 && currentIdx < slideCount - visibleSlides) {
-                        moveToSlide(currentIdx + 1); // Swipe left (next)
+                    if (diffX > 0) {
+                         moveToSlide(currentIdx - 1); // Swipe right (previous)
                     } else {
-                        moveToSlide(currentIdx);  // Snap back if not enough swipe
+                        moveToSlide(currentIdx + 1); // Swipe left (next)
                     }
                 }
                 else{
-                  moveToSlide(currentIdx);
+                  moveToSlide(currentIdx); //Snap back
                 }
 
                 touchStartX = 0;  //Reset values.
@@ -173,24 +176,15 @@
 
 
             $('.immediate-showcase-next').click(function() {
-                if (currentIdx < slideCount - visibleSlides) {
-                    moveToSlide(currentIdx + 1);
-                } else {
-                    moveToSlide(0);
-                }
+               moveToSlide(currentIdx + 1);
             });
 
             $('.immediate-showcase-prev').click(function() {
-                if (currentIdx > 0) {
-                    moveToSlide(currentIdx - 1);
-                } else {
-                    moveToSlide(slideCount - visibleSlides);
-                }
+                moveToSlide(currentIdx - 1);
             });
 
             $(window).on('resize load', function() {
                 updateSliderLayout();
-                moveToSlide(0);
             });
         });
     </script>
