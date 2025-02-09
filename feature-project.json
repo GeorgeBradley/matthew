@@ -156,53 +156,7 @@
     "feature-project-job-category": "Marionette Artist",
     "feature-project-client": "European Cultural Heritage Foundation"
   },
-  {
-    "id": 3,
-    "feature-project-name": "Eco-Friendly Hand Puppets",
-    "feature-project-description": "Sustainable recycled material puppets for children's education",
-    "feature-project-thumbnail": "feature-img/feature-3.jpg",
-    "feature-project-gallery": [
-      {
-        "image": "feature-img/feature-3-1.jpg",
-        "description": "Cutting recycled materials for puppet construction.",
-        "alt-text": "Hands cutting fabric from repurposed clothing for puppets.",
-        "order": 1
-      },
-      {
-        "image": "feature-img/feature-3-2.jpg",
-        "description": "Finished hand puppets designed for educational use.",
-        "alt-text": "A set of colourful hand puppets made from recycled materials.",
-        "order": 2
-      },
-      {
-        "image": "feature-img/feature-3-3.jpg",
-        "description": "Children interacting with the eco-friendly puppets.",
-        "alt-text": "A group of children using puppets in an educational setting.",
-        "order": 3
-      },
-          
-      {
-        "image": "feature-img/feature-3-4.jpg",
-        "description": "Children interacting with the eco-friendly puppets.",
-        "alt-text": "A group of children using puppets in an educational setting.",
-        "order": 4
-      },
-
-       {
-        "image": "feature-img/feature-3-5.jpg",
-        "description": "Children interacting with the eco-friendly puppets.",
-        "alt-text": "A group of children using puppets in an educational setting.",
-        "order": 5
-      }
-    ],
-    "feature-project-link": "https://greenpuppets.org/eco-series",
-    "feature-project-start-year": 2021,
-    "feature-project-end-year": null,
-    "feature-project-company-name": "EcoPuppet Workshop",
-    "feature-project-skills": ["recycled material construction", "educational scripting", "child safety standards"],
-    "feature-project-job-category": "Educational Puppeteer",
-    "feature-project-client": "UNICEF Learning Initiative"
-  },
+ 
   {
     "id": 4,
     "feature-project-name": "Animatronic Puppet Prototype",
@@ -338,5 +292,52 @@
     "feature-project-skills": ["structural engineering", "lightweight materials", "team manipulation techniques"],
     "feature-project-job-category": "Public Performance Specialist",
     "feature-project-client": "Rio Carnival Committee"
+  },
+   {
+    "id": 3,
+    "feature-project-name": "Eco-Friendly Hand Puppets",
+    "feature-project-description": "Sustainable recycled material puppets for children's education",
+    "feature-project-thumbnail": "feature-img/feature-3.jpg",
+    "feature-project-gallery": [
+      {
+        "image": "feature-img/feature-3-1.jpg",
+        "description": "Cutting recycled materials for puppet construction.",
+        "alt-text": "Hands cutting fabric from repurposed clothing for puppets.",
+        "order": 1
+      },
+      {
+        "image": "feature-img/feature-3-2.jpg",
+        "description": "Finished hand puppets designed for educational use.",
+        "alt-text": "A set of colourful hand puppets made from recycled materials.",
+        "order": 2
+      },
+      {
+        "image": "feature-img/feature-3-3.jpg",
+        "description": "Children interacting with the eco-friendly puppets.",
+        "alt-text": "A group of children using puppets in an educational setting.",
+        "order": 3
+      },
+          
+      {
+        "image": "feature-img/feature-3-4.jpg",
+        "description": "Children interacting with the eco-friendly puppets.",
+        "alt-text": "A group of children using puppets in an educational setting.",
+        "order": 4
+      },
+
+       {
+        "image": "feature-img/feature-3-5.jpg",
+        "description": "Children interacting with the eco-friendly puppets.",
+        "alt-text": "A group of children using puppets in an educational setting.",
+        "order": 5
+      }
+    ],
+    "feature-project-link": "https://greenpuppets.org/eco-series",
+    "feature-project-start-year": 2021,
+    "feature-project-end-year": null,
+    "feature-project-company-name": "EcoPuppet Workshop",
+    "feature-project-skills": ["recycled material construction", "educational scripting", "child safety standards"],
+    "feature-project-job-category": "Educational Puppeteer",
+    "feature-project-client": "UNICEF Learning Initiative"
   }
 ]
