@@ -10,26 +10,31 @@
           width: 100%;
           overflow: hidden;
           position: relative;
+          -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
         }
 
         .immediate-showcase-slider {
           display: flex;
           transition: transform 0.5s ease-in-out;
-          /* No longer need a fixed width, we'll calculate in JS */
+          /* No longer need a fixed width */
+          will-change: transform; /* Optimize for transform changes */
         }
 
         .immediate-showcase-slide {
-          /* flex: 0 0 20%;  Removed fixed width, calculate dynamically */
           box-sizing: border-box;
           padding: 5px;
-          flex-shrink: 0; /* Prevent slides from shrinking */
+          flex-shrink: 0;
         }
         .immediate-showcase-slide img {
           width: 100%;
           height: auto;
           display: block;
+          -webkit-user-drag: none; /* Prevent image dragging on mobile */
+          -khtml-user-drag: none;
+          -moz-user-drag: none;
+          -o-user-drag: none;
+          user-drag: none;
         }
-
 
         .immediate-showcase-prev, .immediate-showcase-next {
           position: absolute;
@@ -43,6 +48,8 @@
           z-index: 2;
           font-size: 1.5rem;
           transition: background-color 0.3s ease;
+          /* Hide by default, show on larger screens */
+          display: none;
         }
 
         .immediate-showcase-prev:hover, .immediate-showcase-next:hover {
@@ -57,22 +64,32 @@
           right: 0;
         }
 
-        @media (max-width: 768px) {
-          .immediate-showcase-prev, .immediate-showcase-next {
-            display: none;
-          }
+
+        /* Show buttons on larger screens (optional) */
+        @media (min-width: 768px) {
+           .immediate-showcase-prev, .immediate-showcase-next {
+              display: block;
+           }
         }
+        /* Touch-friendly navigation (optional, but highly recommended) */
+        .immediate-showcase-slider-container.touch-enabled .immediate-showcase-prev,
+        .immediate-showcase-slider-container.touch-enabled .immediate-showcase-next {
+            display: block; /* Show buttons on touch devices */
+            opacity: 0;     /* Initially hidden */
+            transition: opacity 0.3s ease;
+        }
+
+        .immediate-showcase-slider-container.touch-enabled:hover .immediate-showcase-prev,
+        .immediate-showcase-slider-container.touch-enabled:hover .immediate-showcase-next {
+            opacity: 1;  /* Show on hover/touch */
+        }
+
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
     <div class="immediate-showcase-slider-container">
         <div class="immediate-showcase-slider">
-            <div class="immediate-showcase-slide"><img src="feature-img/feature-1.jpg" alt="Image 1"></div>
-            <div class="immediate-showcase-slide"><img src="feature-img/feature-2.jpg" alt="Image 2"></div>
-            <div class="immediate-showcase-slide"><img src="feature-img/feature-3.jpg" alt="Image 3"></div>
-            <div class="immediate-showcase-slide"><img src="feature-img/feature-4.jpg" alt="Image 4"></div>
-            <div class="immediate-showcase-slide"><img src="feature-img/feature-5.jpg" alt="Image 5"></div>
             <div class="immediate-showcase-slide"><img src="feature-img/feature-1.jpg" alt="Image 1"></div>
             <div class="immediate-showcase-slide"><img src="feature-img/feature-2.jpg" alt="Image 2"></div>
             <div class="immediate-showcase-slide"><img src="feature-img/feature-3.jpg" alt="Image 3"></div>
@@ -88,20 +105,24 @@
         $(document).ready(function() {
             const $slider = $('.immediate-showcase-slider');
             const $slides = $('.immediate-showcase-slide');
+            const $container = $('.immediate-showcase-slider-container');
             const slideCount = $slides.length;
             let currentIdx = 0;
-            let visibleSlides; // Declare visibleSlides here
+            let visibleSlides;
+            let touchStartX = 0;
+            let touchEndX = 0;
+            let isDragging = false;
 
             // Function to calculate and set slider width and slide widths
             function updateSliderLayout() {
-                const containerWidth = $('.immediate-showcase-slider-container').width();
+                const containerWidth = $container.width();
                 visibleSlides = Math.floor(containerWidth / 200); // Assuming a minimum slide width of 200px
-                visibleSlides = Math.max(1, visibleSlides);  // Ensure at least 1 slide is visible
-                visibleSlides = Math.min(visibleSlides, slideCount); // Ensure we don't show more than available
+                visibleSlides = Math.max(1, visibleSlides);
+                visibleSlides = Math.min(visibleSlides, slideCount);
 
                 const slideWidth = containerWidth / visibleSlides;
-                $slides.width(slideWidth); // Set the width of EACH slide
-                $slider.width(slideWidth * slideCount); // Total width of the slider
+                $slides.width(slideWidth);
+                $slider.width(slideWidth * slideCount);
             }
 
 
@@ -111,10 +132,59 @@
                 }
 
                 currentIdx = index;
-                const slideWidth = $slides.outerWidth(true); // Get *current* slide width
+                const slideWidth = $slides.outerWidth(true);
                 const translateX = -currentIdx * slideWidth;
                 $slider.css('transform', `translateX(${translateX}px)`);
             }
+
+             // --- Touch event handlers ---
+            function handleTouchStart(e) {
+                touchStartX = e.touches[0].clientX;
+                isDragging = true;
+                $container.addClass('touch-enabled'); // Add class for touch-friendly styles
+                $slider.css('transition', 'none'); // Disable transition during drag
+            }
+
+            function handleTouchMove(e) {
+                if (!isDragging) return;
+                touchEndX = e.touches[0].clientX;
+                const diffX = touchEndX - touchStartX;
+                const slideWidth = $slides.outerWidth(true);
+                 const translateX = -currentIdx * slideWidth + diffX; //Current position + the drag distance
+                $slider.css('transform', `translateX(${translateX}px)`);
+
+            }
+
+            function handleTouchEnd() {
+              if (!isDragging) return;
+                isDragging = false;
+                $slider.css('transition', ''); // Re-enable transition
+                const diffX = touchEndX - touchStartX;
+                const slideWidth = $slides.outerWidth(true);
+
+                // Determine swipe direction and threshold (e.g., 20% of slide width)
+                if (Math.abs(diffX) > slideWidth * 0.2) {
+                    if (diffX > 0 && currentIdx > 0) {
+                        moveToSlide(currentIdx - 1); // Swipe right (previous)
+                    } else if (diffX < 0 && currentIdx < slideCount - visibleSlides) {
+                        moveToSlide(currentIdx + 1); // Swipe left (next)
+                    } else {
+                        moveToSlide(currentIdx);  // Snap back if not enough swipe
+                    }
+                }
+                else{
+                  moveToSlide(currentIdx);
+                }
+
+                touchStartX = 0;  //Reset values.
+                touchEndX = 0;
+            }
+
+            // --- Add touch event listeners ---
+            $slider.on('touchstart', handleTouchStart);
+            $slider.on('touchmove', handleTouchMove);
+            $slider.on('touchend', handleTouchEnd);
+
 
             $('.immediate-showcase-next').click(function() {
                 if (currentIdx < slideCount - visibleSlides) {
@@ -132,10 +202,9 @@
                 }
             });
 
-            // Initial setup AND resize handling
-            $(window).on('resize load', function() { // Use 'load' for initial setup
+            $(window).on('resize load', function() {
                 updateSliderLayout();
-                moveToSlide(0); // Reset to the beginning on resize/load
+                moveToSlide(0);
             });
         });
     </script>
