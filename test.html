@@ -1,160 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact Us</title>
-  <style>
-    /* Global Styles */
-    body {
-      background-color: #f4f4f4;
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
-    .contactContainer {
-      width: 100%;
-      max-width: 600px;
-      background: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    }
-    h1 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #333;
-      font-size: 24px; /* Reduced font size for better fit on mobile */
-    }
-    .contactAlert {
-      display: none;
-      padding: 15px;
-      margin-bottom: 20px;
-      border: 1px solid transparent;
-      border-radius: 4px;
-      text-align: center;
-      font-size: 16px;
-      animation: contactFadeIn 0.5s ease-in-out;
-    }
-    @keyframes contactFadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    .contactAlertSuccess {
-      color: #155724;
-      background-color: #d4edda;
-      border-color: #c3e6cb;
-    }
-    .contactFormGroup {
-      margin-bottom: 15px; /* Reduced margin for smaller screens */
-    }
-    label {
-      display: block;
-      margin-bottom: 5px; /* Reduced margin for smaller screens */
-      font-weight: bold;
-      color: #555;
-      font-size: 14px; /* Smaller font size for labels */
-    }
-    .contactFormControl {
-      width: 100%;
-      padding: 10px; /* Reduced padding for smaller screens */
-      border: 1px solid #ced4da;
-      border-radius: 4px;
-      font-size: 16px;
-      transition: border-color 0.3s ease, box-shadow 0.3s ease;
-      box-sizing: border-box; /* Ensures padding doesn't affect the width */
-    }
-    .contactFormControl:focus {
-      border-color: #80bdff;
-      box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-      outline: 0;
-    }
-    button[type="submit"] {
-      width: 100%;
-      padding: 12px; /* Reduced padding for smaller screens */
-      background-color: #007BFF;
-      color: white;
-      border: none;
-      font-size: 16px;
-      font-weight: bold;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    button[type="submit"]:hover {
-      background-color: #0056b3;
-    }
-    button[type="submit"]:focus {
-      outline: none;
-      box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
-    }
-    @media (max-width: 600px) {
-      .contactContainer {
-        margin: 10px; /* Increased margin for better spacing on small screens */
-        padding: 15px;
-      }
-      h1 {
-        font-size: 20px; /* Even smaller for very small screens */
-      }
-      .contactFormGroup {
-        margin-bottom: 10px; /* Further reduced for mobile */
-      }
-      label {
-        font-size: 13px; /* Smaller for mobile */
-      }
-      .contactFormControl, button[type="submit"] {
-        font-size: 14px; /* Smaller for mobile */
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <style>
+        /* CSS */
+        .immediate-showcase-slider-container {
+          width: 100%;
+          overflow: hidden;
+          position: relative;
+        }
+
+        .immediate-showcase-slider {
+          display: flex;
+          transition: transform 0.5s ease-in-out;
+          width: 200%; /* Initially, set to a large width.*/
+        }
+
+        .immediate-showcase-slide {
+          flex: 0 0 20%;
+          box-sizing: border-box;
+          padding: 5px;
+        }
+        .immediate-showcase-slide img {
+          width: 100%;
+          height: auto;
+          display: block;
+        }
+
+
+        .immediate-showcase-prev, .immediate-showcase-next {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          background-color: rgba(0, 0, 0, 0.5);
+          color: white;
+          border: none;
+          padding: 10px 15px;
+          cursor: pointer;
+          z-index: 2;
+          font-size: 1.5rem;
+          transition: background-color 0.3s ease;
+        }
+
+        .immediate-showcase-prev:hover, .immediate-showcase-next:hover {
+          background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .immediate-showcase-prev {
+          left: 0;
+        }
+
+        .immediate-showcase-next {
+          right: 0;
+        }
+
+        @media (max-width: 768px) {
+          .immediate-showcase-prev, .immediate-showcase-next {
+            display: none;
+          }
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
-  <div class="contactContainer">
-    <!-- This div will display the success message if available -->
-    <div id="contactSuccessMessage" class="contactAlert contactAlertSuccess"></div>
-    
-    <h1 id="contactTitle">Contact Us</h1>
-    <form target="_blank" action="https://formsubmit.co/georgeaustinbradley@outlook.com" method="POST">
-      <!-- Hidden input to redirect back to this page with a custom success message -->
-      <input type="hidden" name="_next" value="https://georgebradley.github.io/matthew/test.html?message=successfully%20sent,%20Matthew%20will%20get%20back%20to%20you%20as%20soon%20as%20possible">
-      
-      <div class="contactFormGroup">
-        <label for="contactName">Full Name</label>
-        <input type="text" id="contactName" name="contactName" class="contactFormControl" placeholder="Your full name" required>
-      </div>
-      <div class="contactFormGroup">
-        <label for="contactEmail">Email Address</label>
-        <input type="email" id="contactEmail" name="contactEmail" class="contactFormControl" placeholder="Your email address" required>
-      </div>
-      <div class="contactFormGroup">
-        <label for="contactMessage">Your Message</label>
-        <textarea id="contactMessage" name="contactMessage" class="contactFormControl" rows="5" placeholder="Type your message here..." required></textarea>
-      </div>
-      <button type="submit">Submit Form</button>
-    </form>
-  </div>
+    <div class="immediate-showcase-slider-container">
+        <div class="immediate-showcase-slider">
+            <div class="immediate-showcase-slide"><img src="img-1.jpg" alt="Image 1"></div>
+            <div class="immediate-showcase-slide"><img src="img-2.jpg" alt="Image 2"></div>
+            <div class="immediate-showcase-slide"><img src="img-3.jpg" alt="Image 3"></div>
+            <div class="immediate-showcase-slide"><img src="img-4.jpg" alt="Image 4"></div>
+           
+        </div>
+        <button class="immediate-showcase-prev">&#10094;</button>
+        <button class="immediate-showcase-next">&#10095;</button>
+    </div>
 
-  <script>
-    // Function to get a query parameter by name
-    function getQueryParam(param) {
-      const urlParams = new URLSearchParams(window.location.search);
-      return urlParams.get(param);
-    }
+    <script>
+        // JavaScript
+        $(document).ready(function() {
+            const $slider = $('.immediate-showcase-slider');
+            const $slides = $('.immediate-showcase-slide');
+            const slideCount = $slides.length;
+            const slideWidth = $slides.outerWidth(true);
+            let currentIdx = 0;
+            const visibleSlides = 5;
 
-    // Check if there's a 'message' query parameter and display it
-    const contactSuccessMessage = getQueryParam('message');
-    if (contactSuccessMessage) {
-      const messageContainer = document.getElementById('contactSuccessMessage');
-      messageContainer.textContent = contactSuccessMessage;
-      messageContainer.style.display = 'block';
+            $slider.width(slideWidth * slideCount);
 
-      // Optionally, remove the query string from the URL after showing the message
-      window.history.replaceState({}, document.title, window.location.pathname);
-    }
-  </script>
+            function moveToSlide(index) {
+              if (index < 0 || index > slideCount - visibleSlides) {
+                    return;
+                }
+
+                currentIdx = index;
+                const translateX = -currentIdx * slideWidth;
+                $slider.css('transform', `translateX(${translateX}px)`);
+            }
+
+            $('.immediate-showcase-next').click(function() {
+                if (currentIdx < slideCount - visibleSlides) {
+                    moveToSlide(currentIdx + 1);
+                } else {
+                    moveToSlide(0);
+                }
+            });
+
+            $('.immediate-showcase-prev').click(function() {
+                if (currentIdx > 0) {
+                    moveToSlide(currentIdx - 1);
+                } else {
+                    moveToSlide(slideCount - visibleSlides);
+                }
+            });
+
+             moveToSlide(0);
+
+            $(window).resize(function() {
+                const newSlideWidth = $('.immediate-showcase-slide').outerWidth(true);
+                $slider.width(newSlideWidth * slideCount);
+                moveToSlide(currentIdx);
+            });
+        });
+    </script>
 </body>
 </html>
