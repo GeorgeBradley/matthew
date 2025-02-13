@@ -3,33 +3,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Project Details – Creative Showcase</title>
-  <!-- Using Google Fonts for a fresh modern look -->
+  <title>Project Details – Professional Showcase</title>
+  <!-- Using Google Fonts for a refined look -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Switching to Montserrat for a contemporary style -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- We continue to use Poppins for consistency -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Navigation & other shared styles are in shareable.css -->
+  <link rel="stylesheet" href="shareable.css" media="all">
   <style>
-    /* ================= New Color Variables ================= */
+    /* New Details Page Styles – Navigation CSS intentionally omitted */
     :root {
-      --primary: #ff6f61;
-      --secondary: #6b705c;
-      --background: #f4f1de;
-      --card-bg: #ffffff;
-      --text: #2d2d2d;
-      --border: #ddd;
-      --accent: linear-gradient(135deg, #ffe8d6, #f9dcc4);
-      --header-gradient: linear-gradient(135deg, #ff6f61, #ff9a8d);
+      --primary: #005f73;
+      --secondary: #333;
+      --background: #f7f7f7;
+      --card-bg: #fff;
+      --text: #333;
+      --border: #e0e0e0;
+      --accent: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+      --header-gradient: linear-gradient(135deg, #005f73, #0a9396);
       --lightbox-bg: rgba(0, 0, 0, 0.8);
     }
-
-    /* ================= Global Styles ================= */
+    
     *, *::before, *::after {
       box-sizing: border-box;
     }
     body {
       margin: 0;
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'Poppins', sans-serif;
       background: var(--background);
       color: var(--text);
       line-height: 1.6;
@@ -38,150 +39,88 @@
       text-decoration: none;
       color: inherit;
     }
-
-    /* ================= Navigation ================= */
-    .main-navigation-nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem 2rem;
-      background: var(--card-bg);
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    .main-navigation-logo {
-      max-height: 50px;
-    }
-    .main-navigation-nav-links {
-      display: flex;
-      gap: 1.5rem;
-      align-items: center;
-    }
-    .main-navigation-nav-links a {
-      color: var(--text);
-      font-weight: 600;
-      transition: color 0.3s ease;
-    }
-    .main-navigation-nav-links a:hover {
-      color: var(--primary);
-    }
-    .main-navigation-cta-button {
-      background: var(--primary);
-      color: #fff;
-      padding: 0.5rem 1rem;
-      border-radius: 4px;
-    }
-    .main-navigation-hamburger {
-      display: none;
-    }
-    @media (max-width: 768px) {
-      .main-navigation-nav-links {
-        display: none;
-      }
-      .main-navigation-hamburger {
-        display: block;
-        background: none;
-        border: none;
-        cursor: pointer;
-      }
-      .main-navigation-hamburger span {
-        display: block;
-        width: 25px;
-        height: 3px;
-        background: var(--text);
-        margin: 5px 0;
-      }
-    }
-
-    /* ================= Back Link ================= */
-    .back-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin: 1.5rem;
-      padding: 0.75rem 1.5rem;
-      background: var(--primary);
-      color: #fff;
-      border-radius: 8px;
-      font-weight: 600;
-      transition: background 0.3s ease;
-    }
-    .back-link:hover {
-      background: #e55b55;
-    }
-
-    /* ================= Project Detail Container ================= */
+    
+    /* -------------------- Project Detail Container -------------------- */
     .project-detail {
-      max-width: 1200px;
-      margin: 2rem auto;
+      max-width: 1100px;
+      margin: 3rem auto;
       background: var(--card-bg);
-      border-radius: 16px;
+      border-radius: 12px;
       overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       border: 1px solid var(--border);
-      animation: fadeIn 0.8s ease-out;
+      animation: fadeIn 0.5s ease-out;
     }
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
+    
+    /* -------------------- Header Section -------------------- */
     .detail-header {
       background: var(--header-gradient);
-      padding: 3rem 1.5rem;
+      padding: 2.5rem 1.5rem;
       text-align: center;
       color: #fff;
       position: relative;
-      border-bottom: 4px solid var(--accent);
+    }
+    .detail-header::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 2px;
     }
     .project-title {
-      font-size: 3rem;
-      margin: 0;
+      font-size: 2.8rem;
+      margin: 0.5rem 0;
       font-weight: 700;
     }
     .project-meta {
-      margin-top: 0.75rem;
-      color: #ffe;
-      font-size: 1.1rem;
+      margin-top: 0.5rem;
+      font-size: 1rem;
+      opacity: 0.9;
       display: flex;
       justify-content: center;
-      gap: 1.5rem;
+      gap: 1rem;
     }
-
-    /* ================= Project Image ================= */
+    
+    /* -------------------- Main Image -------------------- */
     .detail-image {
       width: 100%;
-      height: 500px;
+      height: 450px;
       object-fit: cover;
-      display: block;
-      transition: transform 0.5s ease;
+      transition: transform 0.4s ease;
     }
     .detail-image:hover {
-      transform: scale(1.02);
+      transform: scale(1.03);
     }
-
-    /* ================= Content Sections ================= */
+    
+    /* -------------------- Content Section -------------------- */
     .detail-content {
-      padding: 2.5rem 2rem;
+      padding: 2rem;
     }
     .project-description {
       max-width: 900px;
-      margin: 0 auto 2.5rem;
-      font-size: 1.25rem;
-      color: var(--secondary);
+      margin: 0 auto 2rem;
+      font-size: 1.15rem;
       text-align: justify;
+      color: var(--secondary);
     }
-
-    /* ================= Gallery Section ================= */
+    
+    /* -------------------- Gallery Section -------------------- */
     .gallery-section {
-      margin: 2.5rem 0;
+      margin: 2rem 0;
       padding: 0 2rem;
     }
     .gallery-section h2 {
       text-align: center;
-      font-size: 2.25rem;
-      margin-bottom: 1rem;
-      color: var(--text);
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
       position: relative;
       padding-bottom: 0.5rem;
     }
@@ -191,30 +130,30 @@
       bottom: 0;
       left: 50%;
       transform: translateX(-50%);
-      width: 100px;
-      height: 4px;
+      width: 60px;
+      height: 3px;
       background: var(--primary);
       border-radius: 2px;
     }
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2rem;
-      max-width: 1200px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      max-width: 1100px;
       margin: 0 auto;
     }
     .gallery-item {
       position: relative;
-      border-radius: 16px;
       border: 1px solid var(--border);
+      border-radius: 8px;
       overflow: hidden;
       cursor: pointer;
       background: var(--card-bg);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .gallery-item:hover {
-      transform: translateY(-6px) scale(1.01);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
     }
     .gallery-thumbnail {
       width: 100%;
@@ -227,10 +166,10 @@
       bottom: 0;
       left: 0;
       right: 0;
-      background: rgba(255, 111, 97, 0.9);
+      background: rgba(0, 95, 115, 0.85);
       color: #fff;
-      padding: 0.75rem;
-      font-size: 1rem;
+      padding: 0.5rem;
+      font-size: 0.95rem;
       text-align: center;
       opacity: 0;
       transition: opacity 0.3s ease;
@@ -238,14 +177,19 @@
     .gallery-item:hover .gallery-overlay {
       opacity: 1;
     }
-
-    /* ================= Pagination Controls ================= */
+    
+    /* -------------------- Pagination Controls (Mobile Only) -------------------- */
     .pagination-controls {
-      display: flex;
+      display: none;
       justify-content: center;
       align-items: center;
       gap: 1rem;
       margin-top: 1rem;
+    }
+    @media (max-width: 1023px) {
+      .pagination-controls {
+        display: flex;
+      }
     }
     .pagination-button {
       background: var(--primary);
@@ -258,35 +202,35 @@
       transition: background 0.3s ease;
     }
     .pagination-button:hover {
-      background: #e55b55;
+      background: #004c59;
     }
     .pagination-info {
-      font-size: 1rem;
+      font-size: 0.95rem;
       color: var(--secondary);
     }
-
-    /* ================= Detail Grid ================= */
+    
+    /* -------------------- Detail Grid (Company, Client, Skills) -------------------- */
     .detail-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      margin: 2.5rem 0;
+      gap: 1.5rem;
+      margin: 2rem 0;
       padding: 0 2rem;
     }
     .detail-item {
       background: var(--background);
-      padding: 1.75rem;
+      padding: 1.5rem;
       border: 1px solid var(--border);
-      border-radius: 16px;
+      border-radius: 8px;
       text-align: center;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .detail-item:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
     }
     .detail-item h3 {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       margin-bottom: 0.5rem;
       text-transform: uppercase;
       letter-spacing: 0.5px;
@@ -296,23 +240,23 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 0.75rem;
+      gap: 0.5rem;
       margin-top: 0.75rem;
     }
     .skill-tag {
       background: var(--primary);
       color: #fff;
-      padding: 0.5rem 1rem;
-      border-radius: 25px;
-      font-size: 0.95rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
       font-weight: 600;
     }
-
-    /* ================= Other Project Navigation ================= */
+    
+    /* -------------------- Other Project Navigation -------------------- */
     .other-project-nav-container {
       display: flex;
       justify-content: space-between;
-      padding: 2rem;
+      padding: 1.5rem 2rem;
       background: var(--accent);
       border-top: 1px solid var(--border);
       flex-wrap: wrap;
@@ -322,30 +266,22 @@
       flex: 1;
       background: var(--card-bg);
       border: 1px solid var(--border);
-      padding: 1.25rem 2rem;
-      border-radius: 12px;
+      padding: 1rem;
+      border-radius: 6px;
       display: flex;
-      flex-direction: column;
       align-items: center;
-      gap: 0.75rem;
+      justify-content: center;
+      font-weight: 600;
       transition: background 0.3s ease, transform 0.3s ease;
       color: var(--text);
-      font-weight: 600;
     }
     .other-project-nav-button:hover {
-      background: #f1f5f9;
-      transform: translateY(-3px) scale(1.02);
+      background: #f0f4f8;
+      transform: translateY(-2px);
       border-color: var(--primary);
     }
-    .other-project-nav-button span {
-      font-size: 1rem;
-      color: var(--secondary);
-    }
-    .other-project-nav-spacer {
-      flex: 1;
-    }
-
-    /* ================= Lightbox Styles ================= */
+    
+    /* -------------------- Lightbox Styles -------------------- */
     .lightbox {
       display: none;
       position: fixed;
@@ -365,7 +301,7 @@
     .lightbox-content {
       position: relative;
       background: #000;
-      border-radius: 16px;
+      border-radius: 8px;
       overflow: hidden;
       max-width: 90%;
       max-height: 90%;
@@ -389,7 +325,7 @@
     .lightbox-caption {
       background: var(--primary);
       color: #fff;
-      padding: 1rem 1.5rem;
+      padding: 1rem;
       font-size: 1rem;
       text-align: center;
     }
@@ -397,7 +333,7 @@
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background: rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.2);
       border: none;
       border-radius: 50%;
       width: 44px;
@@ -406,12 +342,11 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      backdrop-filter: blur(4px);
       transition: transform 0.3s ease, background 0.3s ease;
     }
     .nav-btn:hover {
       transform: translateY(-50%) scale(1.1);
-      background: rgba(255, 255, 255, 0.25);
+      background: rgba(255, 255, 255, 0.3);
     }
     .prev-btn { left: 10px; }
     .next-btn { right: 10px; }
@@ -428,7 +363,7 @@
       position: absolute;
       top: 10px;
       right: 10px;
-      background: rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.2);
       border: none;
       border-radius: 50%;
       width: 36px;
@@ -437,13 +372,12 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      backdrop-filter: blur(4px);
-      transition: transform 0.3s ease, background 0.3s ease;
       z-index: 10;
+      transition: transform 0.3s ease, background 0.3s ease;
     }
     .close-btn:hover {
       transform: scale(1.1);
-      background: rgba(255, 255, 255, 0.25);
+      background: rgba(255, 255, 255, 0.3);
     }
     .close-btn::before,
     .close-btn::after {
@@ -469,60 +403,30 @@
       display: none;
     }
     @keyframes spin { to { transform: rotate(360deg); } }
-
-    /* ================= Responsive ================= */
+    
+    /* -------------------- Responsive Adjustments -------------------- */
     @media (max-width: 1024px) {
-      .project-title {
-        font-size: 2.5rem;
-      }
-      .detail-image {
-        height: 400px;
-      }
+      .project-title { font-size: 2.5rem; }
+      .detail-image { height: 380px; }
     }
     @media (max-width: 768px) {
-      .detail-header {
-        padding: 2rem 1rem;
-      }
-      .detail-content {
-        padding: 1.75rem 1rem;
-      }
-      .project-description {
-        font-size: 1.125rem;
-      }
-      .gallery-section h2 {
-        font-size: 2rem;
-      }
-      .other-project-nav-button {
-        padding: 1rem 1.5rem;
-      }
+      .detail-content { padding: 1.5rem; }
+      .project-description { font-size: 1.05rem; }
+      .gallery-section h2 { font-size: 1.8rem; }
+      .detail-grid { padding: 0 1rem; }
+      .other-project-nav-container { padding: 1rem; }
     }
     @media (max-width: 480px) {
-      .project-meta {
-        flex-direction: column;
-        gap: 0.5rem;
-      }
-      .detail-image {
-        height: 300px;
-      }
-      .nav-btn {
-        width: 40px;
-        height: 40px;
-      }
-      .nav-btn::before {
-        padding: 6px;
-      }
-      .close-btn {
-        top: 5px;
-        right: 5px;
-        width: 32px;
-        height: 32px;
-      }
+      .project-meta { flex-direction: column; gap: 0.5rem; }
+      .detail-image { height: 300px; }
+      .nav-btn { width: 36px; height: 36px; }
+      .nav-btn::before { padding: 6px; }
+      .close-btn { width: 32px; height: 32px; top: 5px; right: 5px; }
     }
   </style>
 </head>
 <body>
-
-  <!-- Navigation -->
+  <!-- Navigation (left intact – styling is in shareable.css) -->
   <nav class="main-navigation-nav">
     <img src="Header.png" alt="Logo" class="main-navigation-logo">
     <div class="main-navigation-nav-links">
@@ -537,13 +441,13 @@
       <span></span>
     </button>
   </nav>
-
-  <!-- Some spacing for the fixed header -->
   <br><br><br><br>
-
-  <a href="index.html" class="back-link">← Back to Projects</a>
+  
+  <!-- Back link (you can adjust inline if needed) -->
+  <a href="index.html" class="back-link" style="margin-left:2rem; display:inline-block; background:var(--primary); color:#fff; padding:0.75rem 1.5rem; border-radius:8px; font-weight:600; transition:background 0.3s ease;">← Back to Projects</a>
+  
   <main id="project-detail-container"></main>
-
+  
   <script>
     // ================= Global Variables =================
     const API_URL = 'https://GeorgeBradley.github.io/matthew/feature-project.json';
@@ -552,14 +456,14 @@
     const projectId = urlParams.get('id');
     let allProjects = [];
     let galleryImagesGlobal = [];
-    // Number of images per page for mobile/tablet view
+    // Number of images per page for mobile view
     const imagesPerPage = 5;
     let currentGalleryPage = 1;
-
+    
     // Lightbox globals
     let currentImageIndex = 0;
     let lightboxInitialized = false;
-
+    
     // ================= Fetch & Render Project =================
     async function fetchProjectDetails() {
       if (!projectId) {
@@ -572,21 +476,21 @@
         allProjects = await response.json();
         const project = allProjects.find(p => p.id === Number(projectId));
         if (!project) throw new Error('Project not found');
-
+    
         // Sort gallery images (if any)
         galleryImagesGlobal = project["feature-project-gallery"]
           ? [...project["feature-project-gallery"]].sort((a, b) => a.order - b.order)
           : [];
-
+    
         renderProjectDetails(project, allProjects);
-        // Initialize lightbox controls once (listeners will be attached after gallery rendering)
+        // Initialize lightbox controls (listeners will be attached after gallery rendering)
         initLightbox();
       } catch (error) {
         console.error('Error:', error);
         showDetailError();
       }
     }
-
+    
     function renderProjectDetails(project, projects) {
       const currentIndex = projects.findIndex(p => p.id === project.id);
       const prevProject = projects[currentIndex - 1];
@@ -602,19 +506,19 @@
               </div>
             ` : ''}
           </header>
-
+    
           <img src="${project["feature-project-thumbnail"]}" 
                alt="${project["feature-project-name"]}" 
                class="detail-image"
                loading="lazy">
-
+    
           <section class="detail-content">
             <p class="project-description">${project["feature-project-description"]}</p>
-
+    
             ${galleryImagesGlobal.length ? `
               <div id="gallery-section-container"></div>
             ` : ''}
-
+    
             <div class="detail-grid">
               ${project["feature-project-company-name"] ? `
                 <div class="detail-item">
@@ -640,7 +544,7 @@
               ` : ''}
             </div>
           </section>
-
+    
           <nav class="other-project-nav-container">
             ${prevProject ? `
               <a href="details.html?id=${prevProject.id}" class="other-project-nav-button">
@@ -653,7 +557,7 @@
               </a>
             ` : '<div class="other-project-nav-spacer"></div>'}
           </nav>
-
+    
           <!-- Lightbox Markup -->
           <div class="lightbox" id="galleryLightbox">
             <div class="lightbox-content">
@@ -669,13 +573,13 @@
           </div>
         </article>
       `;
-
+    
       // If there is a gallery, render the gallery section.
       if (galleryImagesGlobal.length) {
         renderGallerySection(galleryImagesGlobal);
       }
     }
-
+    
     // ================= Paginated Gallery Functions =================
     function renderGallerySection(galleryImages) {
       const container = document.getElementById('gallery-section-container');
@@ -686,15 +590,15 @@
           <div id="paginationControls" class="pagination-controls"></div>
         </div>
       `;
-      // Reset pagination (for mobile/tablet)
+      // Reset pagination for mobile view
       currentGalleryPage = 1;
       renderGalleryPage();
     }
-
+    
     function renderGalleryPage() {
       const galleryGrid = document.getElementById('galleryGrid');
       const paginationControls = document.getElementById('paginationControls');
-
+    
       let startIndex, endIndex;
       // On desktop (1024px and above) show all images without pagination.
       if (window.innerWidth >= 1024) {
@@ -736,7 +640,7 @@
           paginationControls.innerHTML = '';
         }
       }
-
+    
       galleryGrid.innerHTML = galleryImagesGlobal
         .slice(startIndex, endIndex)
         .map((image, i) => {
@@ -752,11 +656,11 @@
             </div>
           `;
         }).join('');
-
+    
       // Attach lightbox click listeners to thumbnails.
       attachGalleryThumbnails();
     }
-
+    
     function attachGalleryThumbnails() {
       const lightbox = document.getElementById('galleryLightbox');
       const galleryItems = document.querySelectorAll('#galleryGrid .gallery-thumbnail');
@@ -769,19 +673,18 @@
         });
       });
     }
-
+    
     // ================= Lightbox Functionality =================
     function updateLightbox(index) {
       const lightbox = document.getElementById('galleryLightbox');
       const lightboxImage = lightbox.querySelector('.lightbox-image');
       const lightboxCaption = lightbox.querySelector('.lightbox-caption');
       const spinner = lightbox.querySelector('.loading-spinner');
-      // Wrap index around using modulo
       currentImageIndex = (index + galleryImagesGlobal.length) % galleryImagesGlobal.length;
       const image = galleryImagesGlobal[currentImageIndex];
       lightboxImage.style.opacity = '0';
       spinner.style.display = 'block';
-
+    
       const img = new Image();
       img.src = image.image;
       img.onload = () => {
@@ -835,7 +738,7 @@
       
       lightboxInitialized = true;
     }
-
+    
     // ================= Error & Redirect =================
     function showDetailError() {
       detailsContainer.innerHTML = `
@@ -848,7 +751,7 @@
     function redirectToIndex() {
       window.location.href = 'index.html';
     }
-
+    
     // ================= Initial Load =================
     if (projectId) {
       fetchProjectDetails();
