@@ -1006,3 +1006,63 @@ button[type="submit"]:focus {
 @keyframes spin {
   to { transform: rotate(360deg); }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* First Impressions Image Slider Styles */
+#first-impressions-slider .first-impressions-slider-container {
+  overflow: hidden;
+  position: relative;
+}
+
+#first-impressions-slider .first-impressions-slider-track {
+  display: flex;
+  /* Desktop auto-scroll animation */
+  animation: first-impressions-scroll 30s linear infinite;
+}
+
+#first-impressions-slider .first-impressions-slide {
+  flex: 0 0 auto;
+  height: 150px; /* Adjust height as needed */
+}
+
+#first-impressions-slider .first-impressions-slide img {
+  height: 100%;
+  width: auto;
+  object-fit: cover;
+  display: block;
+}
+
+/* Keyframes for continuous scrolling.
+   With duplicated images, moving -50% scrolls exactly one set of images */
+@keyframes first-impressions-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Mobile Adjustments: disable auto-scroll, enable horizontal swipe */
+@media (max-width: 1023px) {
+  #first-impressions-slider .first-impressions-slider-container {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  #first-impressions-slider .first-impressions-slider-track {
+    animation: none;
+    width: auto;
+  }
+  #first-impressions-slider .first-impressions-slide {
+    scroll-snap-align: start;
+    height: 120px; /* Slightly shorter banner on mobile */
+  }
+}
