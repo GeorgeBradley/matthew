@@ -3,33 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Project Details – Stand Out Design</title>
-  <!-- Using Google Fonts for a modern look -->
+  <title>Project Details – Creative Showcase</title>
+  <!-- Using Google Fonts for a fresh modern look -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="shareable.css" media="all">
+  <!-- Switching to Montserrat for a contemporary style -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    /* ================= Variables ================= */
+    /* ================= New Color Variables ================= */
     :root {
-      --primary: #3b82f6;
-      --secondary: #64748b;
-      --background: #f8fafc;
+      --primary: #ff6f61;
+      --secondary: #6b705c;
+      --background: #f4f1de;
       --card-bg: #ffffff;
-      --text: #1e293b;
-      --border: #e2e8f0;
-      --accent: linear-gradient(135deg, #e0f2fe, #f0f9ff);
-      --header-gradient: linear-gradient(135deg, #3b82f6, #06b6d4);
-      --lightbox-bg: rgba(0, 0, 0, 0.9);
+      --text: #2d2d2d;
+      --border: #ddd;
+      --accent: linear-gradient(135deg, #ffe8d6, #f9dcc4);
+      --header-gradient: linear-gradient(135deg, #ff6f61, #ff9a8d);
+      --lightbox-bg: rgba(0, 0, 0, 0.8);
     }
 
-    /* ================= Global ================= */
+    /* ================= Global Styles ================= */
     *, *::before, *::after {
       box-sizing: border-box;
     }
     body {
       margin: 0;
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Montserrat', sans-serif;
       background: var(--background);
       color: var(--text);
       line-height: 1.6;
@@ -37,6 +37,62 @@
     a {
       text-decoration: none;
       color: inherit;
+    }
+
+    /* ================= Navigation ================= */
+    .main-navigation-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      background: var(--card-bg);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .main-navigation-logo {
+      max-height: 50px;
+    }
+    .main-navigation-nav-links {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+    .main-navigation-nav-links a {
+      color: var(--text);
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    .main-navigation-nav-links a:hover {
+      color: var(--primary);
+    }
+    .main-navigation-cta-button {
+      background: var(--primary);
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+    }
+    .main-navigation-hamburger {
+      display: none;
+    }
+    @media (max-width: 768px) {
+      .main-navigation-nav-links {
+        display: none;
+      }
+      .main-navigation-hamburger {
+        display: block;
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+      .main-navigation-hamburger span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background: var(--text);
+        margin: 5px 0;
+      }
     }
 
     /* ================= Back Link ================= */
@@ -53,7 +109,7 @@
       transition: background 0.3s ease;
     }
     .back-link:hover {
-      background: #2563eb;
+      background: #e55b55;
     }
 
     /* ================= Project Detail Container ================= */
@@ -76,17 +132,7 @@
       text-align: center;
       color: #fff;
       position: relative;
-    }
-    .detail-header::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 20px;
-      background: var(--accent);
-      border-top-left-radius: 50%;
-      border-top-right-radius: 50%;
+      border-bottom: 4px solid var(--accent);
     }
     .project-title {
       font-size: 3rem;
@@ -95,7 +141,7 @@
     }
     .project-meta {
       margin-top: 0.75rem;
-      color: #e2e8f0;
+      color: #ffe;
       font-size: 1.1rem;
       display: flex;
       justify-content: center;
@@ -181,7 +227,7 @@
       bottom: 0;
       left: 0;
       right: 0;
-      background: rgba(59, 130, 246, 0.9);
+      background: rgba(255, 111, 97, 0.9);
       color: #fff;
       padding: 0.75rem;
       font-size: 1rem;
@@ -212,7 +258,7 @@
       transition: background 0.3s ease;
     }
     .pagination-button:hover {
-      background: #2563eb;
+      background: #e55b55;
     }
     .pagination-info {
       font-size: 1rem;
@@ -285,7 +331,6 @@
       transition: background 0.3s ease, transform 0.3s ease;
       color: var(--text);
       font-weight: 600;
-      text-decoration: none;
     }
     .other-project-nav-button:hover {
       background: #f1f5f9;
@@ -300,7 +345,7 @@
       flex: 1;
     }
 
-    /* ================= Lightbox Styles (Untouched) ================= */
+    /* ================= Lightbox Styles ================= */
     .lightbox {
       display: none;
       position: fixed;
@@ -477,6 +522,7 @@
 </head>
 <body>
 
+  <!-- Navigation -->
   <nav class="main-navigation-nav">
     <img src="Header.png" alt="Logo" class="main-navigation-logo">
     <div class="main-navigation-nav-links">
@@ -491,10 +537,10 @@
       <span></span>
     </button>
   </nav>
-</br>
-</br>
-</br>
-</br>
+
+  <!-- Some spacing for the fixed header -->
+  <br><br><br><br>
+
   <a href="index.html" class="back-link">← Back to Projects</a>
   <main id="project-detail-container"></main>
 
@@ -506,7 +552,7 @@
     const projectId = urlParams.get('id');
     let allProjects = [];
     let galleryImagesGlobal = [];
-    // Change the number of images per page here (now set to 5)
+    // Number of images per page for mobile/tablet view
     const imagesPerPage = 5;
     let currentGalleryPage = 1;
 
@@ -533,7 +579,7 @@
           : [];
 
         renderProjectDetails(project, allProjects);
-        // Initialize lightbox controls once (the thumbnail click listeners will be attached after pagination rendering)
+        // Initialize lightbox controls once (listeners will be attached after gallery rendering)
         initLightbox();
       } catch (error) {
         console.error('Error:', error);
@@ -608,7 +654,7 @@
             ` : '<div class="other-project-nav-spacer"></div>'}
           </nav>
 
-          <!-- Lightbox (Untouched) -->
+          <!-- Lightbox Markup -->
           <div class="lightbox" id="galleryLightbox">
             <div class="lightbox-content">
               <button class="close-btn" aria-label="Close lightbox"></button>
@@ -624,7 +670,7 @@
         </article>
       `;
 
-      // If there is a gallery, render the paginated gallery section.
+      // If there is a gallery, render the gallery section.
       if (galleryImagesGlobal.length) {
         renderGallerySection(galleryImagesGlobal);
       }
@@ -640,6 +686,7 @@
           <div id="paginationControls" class="pagination-controls"></div>
         </div>
       `;
+      // Reset pagination (for mobile/tablet)
       currentGalleryPage = 1;
       renderGalleryPage();
     }
@@ -647,13 +694,49 @@
     function renderGalleryPage() {
       const galleryGrid = document.getElementById('galleryGrid');
       const paginationControls = document.getElementById('paginationControls');
-      // Calculate pagination values
-      const totalImages = galleryImagesGlobal.length;
-      const totalPages = Math.ceil(totalImages / imagesPerPage);
-      const startIndex = (currentGalleryPage - 1) * imagesPerPage;
-      const endIndex = Math.min(startIndex + imagesPerPage, totalImages);
-      
-      // Render the gallery items (using global index in data-index)
+
+      let startIndex, endIndex;
+      // On desktop (1024px and above) show all images without pagination.
+      if (window.innerWidth >= 1024) {
+        startIndex = 0;
+        endIndex = galleryImagesGlobal.length;
+        paginationControls.innerHTML = '';
+      } else {
+        const totalImages = galleryImagesGlobal.length;
+        const totalPages = Math.ceil(totalImages / imagesPerPage);
+        startIndex = (currentGalleryPage - 1) * imagesPerPage;
+        endIndex = Math.min(startIndex + imagesPerPage, totalImages);
+        
+        if (totalPages > 1) {
+          let controlsHTML = '';
+          if (currentGalleryPage > 1) {
+            controlsHTML += `<button class="pagination-button" id="prevPage">Previous</button>`;
+          }
+          controlsHTML += `<span class="pagination-info">Page ${currentGalleryPage} of ${totalPages}</span>`;
+          if (currentGalleryPage < totalPages) {
+            controlsHTML += `<button class="pagination-button" id="nextPage">Next</button>`;
+          }
+          paginationControls.innerHTML = controlsHTML;
+          
+          const prevBtn = document.getElementById('prevPage');
+          if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+              currentGalleryPage--;
+              renderGalleryPage();
+            });
+          }
+          const nextBtn = document.getElementById('nextPage');
+          if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+              currentGalleryPage++;
+              renderGalleryPage();
+            });
+          }
+        } else {
+          paginationControls.innerHTML = '';
+        }
+      }
+
       galleryGrid.innerHTML = galleryImagesGlobal
         .slice(startIndex, endIndex)
         .map((image, i) => {
@@ -670,38 +753,7 @@
           `;
         }).join('');
 
-      // Render pagination controls if needed
-      if (totalPages > 1) {
-        let controlsHTML = '';
-        if (currentGalleryPage > 1) {
-          controlsHTML += `<button class="pagination-button" id="prevPage">Previous</button>`;
-        }
-        controlsHTML += `<span class="pagination-info">Page ${currentGalleryPage} of ${totalPages}</span>`;
-        if (currentGalleryPage < totalPages) {
-          controlsHTML += `<button class="pagination-button" id="nextPage">Next</button>`;
-        }
-        paginationControls.innerHTML = controlsHTML;
-        
-        // Attach event listeners for pagination buttons
-        const prevBtn = document.getElementById('prevPage');
-        if (prevBtn) {
-          prevBtn.addEventListener('click', () => {
-            currentGalleryPage--;
-            renderGalleryPage();
-          });
-        }
-        const nextBtn = document.getElementById('nextPage');
-        if (nextBtn) {
-          nextBtn.addEventListener('click', () => {
-            currentGalleryPage++;
-            renderGalleryPage();
-          });
-        }
-      } else {
-        paginationControls.innerHTML = '';
-      }
-
-      // Attach lightbox click listeners to the current thumbnails.
+      // Attach lightbox click listeners to thumbnails.
       attachGalleryThumbnails();
     }
 
@@ -719,12 +771,12 @@
     }
 
     // ================= Lightbox Functionality =================
-    // Move functions to global scope so they can be called from thumbnail click events.
     function updateLightbox(index) {
       const lightbox = document.getElementById('galleryLightbox');
       const lightboxImage = lightbox.querySelector('.lightbox-image');
       const lightboxCaption = lightbox.querySelector('.lightbox-caption');
       const spinner = lightbox.querySelector('.loading-spinner');
+      // Wrap index around using modulo
       currentImageIndex = (index + galleryImagesGlobal.length) % galleryImagesGlobal.length;
       const image = galleryImagesGlobal[currentImageIndex];
       lightboxImage.style.opacity = '0';
@@ -804,6 +856,6 @@
       redirectToIndex();
     }
   </script>
- <script src="sharable-scripts.js" defer></script>
+  <script src="sharable-scripts.js" defer></script>
 </body>
 </html>
