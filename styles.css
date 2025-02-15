@@ -281,10 +281,14 @@ background: linear-gradient(45deg, var(--secondary-color), var(--secondary-color
 }
 
 .about-text {
-  color: var(--tertiary-color);
-  line-height: 1.7;
-  font-size: 1.1rem;
-  max-width: 600px;
+   color: var(--tertiary-color);
+   line-height: 1.7;
+   font-size: 1.1rem;
+   max-width: 600px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
 }
 
 .highlight { color: var(--primary-color); font-weight: 600; }
@@ -294,6 +298,8 @@ background: linear-gradient(45deg, var(--secondary-color), var(--secondary-color
   margin: 1.5rem 0;
   padding-left: 1rem;
   border-left: 3px solid var(--primary-color);
+  max-width: fit-content;
+  padding-left: 1rem;
 }
 .cta-button {
   display: inline-block;
