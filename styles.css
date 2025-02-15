@@ -1159,23 +1159,7 @@ margin: 0;
 
 
 
-button {
-  background-color: var(--primary-color);
-  color: var(--text-light);
-  border: none;
-  padding: 12px 24px;
-  font-size: 16px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color var(--cv-transition-duration) ease;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
 
-button:hover {
-  background-color: var(--accent-color-2);
-}
 
 /* Modal overlay styling */
 .modal-overlay {
