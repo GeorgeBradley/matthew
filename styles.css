@@ -1100,3 +1100,19 @@ button[type="submit"]:focus {
     height: 120px; /* Slightly shorter banner on mobile */
   }
 }
+
+
+
+
+
+
+#first-impressions-slider .first-impressions-caption {
+  position: absolute;
+  bottom: -25px; /* adjust as needed */
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 0.9em;
+  color: #333;
+  margin: 0;
+}
