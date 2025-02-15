@@ -315,8 +315,7 @@ background: linear-gradient(45deg, var(--secondary-color), var(--secondary-color
     font-weight: 600;
     transition: all 0.3sease;
     border: 2px solid transparent;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+ cursor: pointer;
 }
 .cta-button:hover {
   background: var(--secondary-color);
