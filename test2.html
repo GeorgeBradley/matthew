@@ -118,8 +118,8 @@
       font-weight: 500;
     }
     .section p {
-    padding: 1rem;
-    margin:0;
+      padding: 1rem;
+      margin: 0;
     }
     .section p, .section li {
       line-height: 1.6;
@@ -142,17 +142,15 @@
       border-radius: 4px;
     }
     #modalTitle {
-    text-align: center;
-
+      text-align: center;
     }
-
     #cvHeader {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin:0;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 0;
     }
     /* Responsive adjustments */
     @media (max-width: 600px) {
@@ -174,15 +172,35 @@
   <div class="modal-overlay" id="cvModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-content">
       <span class="modal-close" id="closeModalBtn" aria-label="Close Modal"><i class="fa-solid fa-xmark"></i></span>
-              <h1 id="modalTitle">MATTHEW BRADLEY</h1>
+      <h1 id="modalTitle">MATTHEW BRADLEY</h1>
 
       <!-- Header Section -->
       <div class="section" id="cvHeader">
         <p><i class="fa-solid fa-user icon"></i> Sculpting Models &amp; Props</p>
-        <p><i class="fa-solid fa-envelope icon"></i> mgbradley.uk@gmail.com</p>
-        <p><i class="fa-solid fa-phone icon"></i> 07428464118</p>
-        <p><i class="fa-solid fa-globe icon"></i> <a href="https://mgbradley.uk" target="_blank" style="color: var(--text-color); text-decoration: none;">mgbradley.uk</a></p>
-        <p><i class="fa-brands fa-instagram icon"></i> @m.gb_artwork</p>
+        <p>
+          <i class="fa-solid fa-envelope icon"></i>
+          <a href="mailto:mgbradley.uk@gmail.com" style="color: var(--text-color); text-decoration: none;">
+            mgbradley.uk@gmail.com
+          </a>
+        </p>
+        <p>
+          <i class="fa-solid fa-phone icon"></i>
+          <a href="tel:07428464118" style="color: var(--text-color); text-decoration: none;">
+            07428464118
+          </a>
+        </p>
+        <p>
+          <i class="fa-solid fa-globe icon"></i>
+          <a href="https://mgbradley.uk" target="_blank" style="color: var(--text-color); text-decoration: none;">
+            mgbradley.uk
+          </a>
+        </p>
+        <p>
+          <i class="fa-brands fa-instagram icon"></i>
+          <a href="https://www.instagram.com/m.g.b_artwork/" target="_blank" style="color: var(--text-color); text-decoration: none;">
+            @m.gb_artwork
+          </a>
+        </p>
       </div>
       
       <!-- About Section -->
