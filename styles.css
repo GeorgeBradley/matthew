@@ -54,7 +54,7 @@ body {
   color: var(--tertiary-color);
   display: flex;
   flex-direction: column;
-  padding-top: 5.2rem;
+  padding-top: 7.2rem;
 }
 
 /* Accessibility: Reduce Motion */
