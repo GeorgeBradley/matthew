@@ -502,12 +502,16 @@ background: linear-gradient(45deg, var(--secondary-color), var(--secondary-color
 
 /* Global Form Styles */
 .contactContainer {
-  width: 100%;
-  max-width: 600px;
-  background: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 700px;
+
+    background: #fff;
+
+    align-items: center;
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 0 auto;
+    /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); */
 }
 .contactContainer h1 {
   text-align: center;
@@ -583,6 +587,13 @@ button[type="submit"]:focus {
   label { font-size: 13px; }
   .contactFormControl,
   button[type="submit"] { font-size: 14px; }
+}
+
+
+
+.main-contact-form {
+    display: flex;
+    flex-direction: column;
 }
 
 /* ==========================================================================
