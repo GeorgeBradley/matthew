@@ -1105,9 +1105,14 @@ button[type="submit"]:focus {
 
 
 
+/* Caption Styling */
 .first-impressions-caption {
   text-align: center;
   font-size: 14px;
   color: #333;
   margin-top: 5px;
+  max-width: 90%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
