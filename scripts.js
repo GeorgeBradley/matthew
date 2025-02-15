@@ -486,19 +486,19 @@ document.addEventListener("DOMContentLoaded", function() {
   fetch(jsonUrl)
     .then(response => response.json())
     .then(data => {
-      // Optional: sort data by first-impression-order
+      // Ensure data is sorted correctly
       data.sort((a, b) => a["first-impression-order"] - b["first-impression-order"]);
 
       let imagesHTML = "";
       data.forEach(item => {
         imagesHTML += `
-          <div class="first-impressions-slide" style="position: relative;">
+          <div class="first-impressions-slide">
             <img src="${item["first-impression-image"]}" alt="${item["first-impression-caption"]}">
-            <p class="first-impressions-caption">${item["first-impression-caption"]}</p>
+            <div class="first-impressions-caption">${item["first-impression-caption"]}</div>
           </div>`;
       });
 
-      // Duplicate images for desktop for seamless auto-scroll
+      // Duplicate images for seamless scrolling on desktop
       if (window.innerWidth >= 1024) {
         sliderTrack.innerHTML = imagesHTML + imagesHTML;
       } else {
