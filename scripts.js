@@ -493,7 +493,7 @@ document.addEventListener("DOMContentLoaded", function() {
         imagesHTML += `
           <div class="first-impressions-slide">
             <img src="${item["first-impression-image"]}" alt="${item["first-impression-caption"]}">
-            <div class="first-impressions-caption">${item["first-impression-caption"]}</div>
+            <label class="first-impressions-label">${item["first-impression-caption"]}</label>
           </div>`;
       });
 
@@ -503,11 +503,8 @@ document.addEventListener("DOMContentLoaded", function() {
       } else {
         sliderTrack.innerHTML = imagesHTML;
       }
-
-      alert("Captions have been successfully added to the slider!"); // Message Box
     })
     .catch(error => {
-      alert("Error loading banner captions. Please check your internet connection or JSON file.");
       console.error("Error fetching banner JSON:", error);
     });
 });
