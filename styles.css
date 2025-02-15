@@ -214,9 +214,8 @@ h1, h2, h3 {
    About Section
    ========================================================================== */
 .about-section {
-  padding: 4rem 2rem;
-  background: linear-gradient(45deg, var(--secondary-color), var(--secondary-color));
-  font-family: 'Helvetica Neue', sans-serif;
+background: linear-gradient(45deg, var(--secondary-color), var(--secondary-color));
+   font-family: 'Helvetica Neue', sans-serif;
 }
 .about-container {
   max-width: 1200px;
@@ -248,12 +247,22 @@ h1, h2, h3 {
 .profile-icon:hover { transform: rotate(5deg) scale(1.05); }
 .profile-photo { object-fit: cover; }
 
-.about-content { flex: 1; }
+.about-content { 
+   flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
 .about-title {
   font-family: 'Playfair Display', serif;
-  font-size: 2.8rem;
-  color: var(--tertiary-color);
-  margin-bottom: 1.5rem;
+    font-size: 2.8rem;
+    color: var(--tertiary-color);
+    margin-bottom: 1.5rem;
+    margin: 0;
+    margin: 1rem;
 }
 
 .name-highlight {
@@ -288,14 +297,16 @@ h1, h2, h3 {
 }
 .cta-button {
   display: inline-block;
-  padding: 1rem 2rem;
-  background: var(--primary-color);
-  color: var(--secondary-color);
-  text-decoration: none;
-  border-radius: 30px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  border: 2px solid transparent;
+    padding: 1rem 2rem;
+    background: var(--primary-color);
+    color: var(--secondary-color);
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: all 0.3sease;
+    border: 2px solid transparent;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 .cta-button:hover {
   background: var(--secondary-color);
