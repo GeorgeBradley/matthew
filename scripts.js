@@ -508,3 +508,51 @@ document.addEventListener("DOMContentLoaded", function() {
       console.error("Error fetching banner JSON:", error);
     });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const openModalBtn = document.getElementById('openModalBtn');
+const closeModalBtn = document.getElementById('closeModalBtn');
+const cvModal = document.getElementById('cvModal');
+
+// Open the modal
+openModalBtn.addEventListener('click', () => {
+  cvModal.classList.add('active');
+});
+
+// Close the modal when clicking the close button
+closeModalBtn.addEventListener('click', () => {
+  cvModal.classList.remove('active');
+});
+
+// Close the modal when clicking outside the modal content
+cvModal.addEventListener('click', (e) => {
+  if (e.target === cvModal) {
+    cvModal.classList.remove('active');
+  }
+});
+
+// Allow closing modal with the Escape key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && cvModal.classList.contains('active')) {
+    cvModal.classList.remove('active');
+  }
+});
