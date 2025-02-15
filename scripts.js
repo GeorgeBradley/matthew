@@ -481,20 +481,31 @@ if (contactSuccessMessage) {
 
 document.addEventListener("DOMContentLoaded", function() {
   const sliderTrack = document.querySelector('#first-impressions-slider .first-impressions-slider-track');
-  const imageCount = 6;
-  let imagesHTML = "";
-  
-  // Create markup for each image (from feature-img/feature-1.jpg to feature-17.jpg)
-  for (let i = 1; i <= imageCount; i++) {
-    imagesHTML += `<div class="first-impressions-slide">
-                     <img src="feature-img/banner-image-${i}.jpg" alt="Banner Image ${i}">
-                   </div>`;
-  }
-  
-  // On desktop, duplicate the images for seamless scrolling; on mobile, use a single set.
-  if (window.innerWidth >= 1024) {
-    sliderTrack.innerHTML = imagesHTML + imagesHTML;
-  } else {
-    sliderTrack.innerHTML = imagesHTML;
-  }
+  const jsonUrl = "https://georgebradley.github.io/matthew/first-impression-banner.json";
+
+  fetch(jsonUrl)
+    .then(response => response.json())
+    .then(data => {
+      // Optional: sort data by first-impression-order
+      data.sort((a, b) => a["first-impression-order"] - b["first-impression-order"]);
+
+      let imagesHTML = "";
+      data.forEach(item => {
+        imagesHTML += `
+          <div class="first-impressions-slide" style="position: relative;">
+            <img src="${item["first-impression-image"]}" alt="${item["first-impression-caption"]}">
+            <p class="first-impressions-caption">${item["first-impression-caption"]}</p>
+          </div>`;
+      });
+
+      // Duplicate images for desktop for seamless auto-scroll
+      if (window.innerWidth >= 1024) {
+        sliderTrack.innerHTML = imagesHTML + imagesHTML;
+      } else {
+        sliderTrack.innerHTML = imagesHTML;
+      }
+    })
+    .catch(error => {
+      console.error("Error fetching banner JSON:", error);
+    });
 });
