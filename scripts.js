@@ -486,7 +486,6 @@ document.addEventListener("DOMContentLoaded", function() {
   fetch(jsonUrl)
     .then(response => response.json())
     .then(data => {
-      // Ensure data is sorted correctly
       data.sort((a, b) => a["first-impression-order"] - b["first-impression-order"]);
 
       let imagesHTML = "";
@@ -504,8 +503,11 @@ document.addEventListener("DOMContentLoaded", function() {
       } else {
         sliderTrack.innerHTML = imagesHTML;
       }
+
+      alert("Captions have been successfully added to the slider!"); // Message Box
     })
     .catch(error => {
+      alert("Error loading banner captions. Please check your internet connection or JSON file.");
       console.error("Error fetching banner JSON:", error);
     });
 });
