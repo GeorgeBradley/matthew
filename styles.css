@@ -1118,4 +1118,5 @@ button[type="submit"]:focus {
   background: rgba(255, 255, 255, 0.7); /* Light background for contrast */
   padding: 5px;
   position: relative;
+  z-index: 899999; 
 }
