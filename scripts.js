@@ -481,13 +481,13 @@ if (contactSuccessMessage) {
 
 document.addEventListener("DOMContentLoaded", function() {
   const sliderTrack = document.querySelector('#first-impressions-slider .first-impressions-slider-track');
-  const imageCount = 17;
+  const imageCount = 6;
   let imagesHTML = "";
   
   // Create markup for each image (from feature-img/feature-1.jpg to feature-17.jpg)
   for (let i = 1; i <= imageCount; i++) {
     imagesHTML += `<div class="first-impressions-slide">
-                     <img src="feature-img/feature-${i}.jpg" alt="Feature Image ${i}">
+                     <img src="feature-img/banner-image-${i}.jpg" alt="Banner Image ${i}">
                    </div>`;
   }
   
