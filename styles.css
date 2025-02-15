@@ -1110,11 +1110,12 @@ button[type="submit"]:focus {
   font-size: 14px;
   color: #333;
   margin-top: 5px;
-  max-width: 100%;
+  width: 100%;
   white-space: normal;
   overflow: hidden;
   text-overflow: ellipsis;
-  display: block !important; /* Force visibility */
+  display: block; /* Ensure visibility */
   background: rgba(255, 255, 255, 0.7); /* Light background for contrast */
-  padding: 3px 5px;
+  padding: 5px;
+  position: relative;
 }
