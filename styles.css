@@ -1105,18 +1105,20 @@ button[type="submit"]:focus {
 
 
 
-.first-impressions-caption {
-  text-align: center;
-  font-size: 14px;
-  color: #333;
-  margin-top: 5px;
-  width: 100%;
-  white-space: normal;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: block; /* Ensure visibility */
-  background: rgba(255, 255, 255, 0.7); /* Light background for contrast */
-  padding: 5px;
+/* Small Label for Caption */
+.first-impressions-label {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+  color: white;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 3px;
+  font-weight: bold;
+}
+
+/* Ensure Slide is Positioned Relative for Label Placement */
+.first-impressions-slide {
   position: relative;
-  z-index: 899999; 
 }
