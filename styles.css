@@ -1105,17 +1105,18 @@ button[type="submit"]:focus {
 
 
 
-/* Small Label for Caption */
+/* Small Label for Caption - Bottom Right */
 .first-impressions-label {
   position: absolute;
-  bottom: 10px;
-  left: 10px;
+  bottom: 0;
+  right: 0;
   background: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
   color: white;
   font-size: 12px;
   padding: 4px 8px;
-  border-radius: 3px;
+  border-radius: 0; /* Removes rounded corners */
   font-weight: bold;
+  white-space: nowrap; /* Prevents text from wrapping */
 }
 
 /* Ensure Slide is Positioned Relative for Label Placement */
