@@ -1105,14 +1105,9 @@ button[type="submit"]:focus {
 
 
 
-
-#first-impressions-slider .first-impressions-caption {
-  position: absolute;
-  bottom: -25px; /* adjust as needed */
-  left: 0;
-  width: 100%;
+.first-impressions-caption {
   text-align: center;
-  font-size: 0.9em;
+  font-size: 14px;
   color: #333;
-  margin: 0;
+  margin-top: 5px;
 }
