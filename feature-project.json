@@ -288,24 +288,19 @@
         "alt-text": "A procession of giant puppets moving through a crowded festival street.",
         "order": 3
       },
-       {
+       
+      {
         "image": "feature-img/feature-5-4.png",
         "description": "Giant puppets in action during a street festival.",
         "alt-text": "A procession of giant puppets moving through a crowded festival street.",
-        "order": 4,
-       },
-         {
-        "image": "feature-img/feature-5-5.png",
-        "description": "Giant puppets in action during a street festival.",
-        "alt-text": "A procession of giant puppets moving through a crowded festival street.",
-        "order": 5
-      },
-      {
-        "image": "feature-img/feature-5-6.png",
-        "description": "Giant puppets in action during a street festival.",
-        "alt-text": "A procession of giant puppets moving through a crowded festival street.",
-        "order": 6
-      }
+        "order": 4
+},
+{
+  "image": "feature-img/feature-5-5.png",
+  "description": "Giant puppets in action during a street festival.",
+  "alt-text": "A procession of giant puppets moving through a crowded festival street.",
+  "order": 5
+}
     ],
     "feature-project-link": "https://bigpuppets.co/parade-series",
     "feature-project-start-year": 2023,
