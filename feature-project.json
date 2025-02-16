@@ -271,22 +271,40 @@
     "feature-project-thumbnail": "feature-img/feature-5.jpg",
     "feature-project-gallery": [
       {
-        "image": "feature-img/feature-5-1.jpg",
+        "image": "feature-img/feature-5-1.png",
         "description": "Building the lightweight frame for a giant puppet.",
         "alt-text": "Artists constructing the inner frame of a large parade puppet.",
         "order": 1
       },
       {
-        "image": "feature-img/feature-5-2.jpg",
+        "image": "feature-img/feature-5-2.png",
         "description": "A finished giant puppet displayed before a parade.",
         "alt-text": "A brightly coloured, large-scale puppet standing in a workshop.",
         "order": 2
       },
       {
-        "image": "feature-img/feature-5-3.jpg",
+        "image": "feature-img/feature-5-3.png",
         "description": "Giant puppets in action during a street festival.",
         "alt-text": "A procession of giant puppets moving through a crowded festival street.",
         "order": 3
+      },
+       {
+        "image": "feature-img/feature-5-4.png",
+        "description": "Giant puppets in action during a street festival.",
+        "alt-text": "A procession of giant puppets moving through a crowded festival street.",
+        "order": 4
+      ,
+         {
+        "image": "feature-img/feature-5-5.png",
+        "description": "Giant puppets in action during a street festival.",
+        "alt-text": "A procession of giant puppets moving through a crowded festival street.",
+        "order": 5
+      },
+      {
+        "image": "feature-img/feature-5-6.png",
+        "description": "Giant puppets in action during a street festival.",
+        "alt-text": "A procession of giant puppets moving through a crowded festival street.",
+        "order": 6
       }
     ],
     "feature-project-link": "https://bigpuppets.co/parade-series",
