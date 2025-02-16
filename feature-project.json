@@ -556,7 +556,48 @@
     "feature-project-skills": ["recycled material construction", "educational scripting", "child safety standards"],
     "feature-project-job-category": "Model maker and set dresser at Yamination Studios.",
     "feature-project-client": "Television ad for BBC 2022 Commonwealth Games"
+},
+  {
+    "id": 10,
+    "feature-project-name": "1:6 Scale Windsor Chair",
+    "feature-project-description": "A 1:6 scale model of a Windsor chair, originally created by green woodworker Jason Mosseri, made using a variety of techniques, created out of oak and epoxy putty.",
+    "feature-project-long-description": "A 1:6 scale model of a Windsor chair, originally created by green woodworker Jason Mosseri, made using a variety of techniques, created out of oak and epoxy putty.",
+    "feature-project-thumbnail": "feature-img/feature-10.png",
+    "feature-project-gallery": [
+      {
+        "image": "feature-img/feature-10-1.png",
+        "description": "Cutting recycled materials for puppet construction.",
+        "alt-text": "Hands cutting fabric from repurposed clothing for puppets.",
+        "order": 1
+      },
+      {
+        "image": "feature-img/feature-10-2.png",
+        "description": "Finished hand puppets designed for educational use.",
+        "alt-text": "A set of colourful hand puppets made from recycled materials.",
+        "order": 2
+      },
+      {
+        "image": "feature-img/feature-10-3.png",
+        "description": "Children interacting with the eco-friendly puppets.",
+        "alt-text": "A group of children using puppets in an educational setting.",
+        "order": 3
+      },
+      {
+        "image": "feature-img/feature-10-4.png",
+        "description": "Children interacting with the eco-friendly puppets.",
+        "alt-text": "A group of children using puppets in an educational setting.",
+        "order": 4
+      }
+    ],
+    "feature-project-link": "https://greenpuppets.org/eco-series",
+    "feature-project-start-year": 2022,
+    "feature-project-end-year": null,
+    "feature-project-company-name": null,
+    "feature-project-skills": ["recycled material construction", "educational scripting", "child safety standards"],
+    "feature-project-job-category": "Model maker and set dresser at Yamination Studios.",
+    "feature-project-client": "Television ad for BBC 2022 Commonwealth Games"
 }
+
 
 
 
