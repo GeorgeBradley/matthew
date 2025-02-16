@@ -504,7 +504,60 @@
     "feature-project-skills": ["recycled material construction", "educational scripting", "child safety standards"],
     "feature-project-job-category": "Model maker and set dresser at Yamination Studios.",
     "feature-project-client": "Television ad for BBC 2022 Commonwealth Games"
+},
+  {
+    "id": 9,
+    "feature-project-name": "Mr Stealy (puppet)",
+    "feature-project-description": "I created a 3D functioning puppet of Stealy from Rick and Morty, mastering new skills like foam work and pattern making.",
+    "feature-project-long-description": "Stealy is a puppet I made during university based on the character from the animated series Rick and Morty. Part of the challenge  was converting a 2D design into a three- dimensional functioning puppet.  This project featured my greatest learning of new disciplines so far, I developed new skills in foam work, pattern making, different varieties of stitching and creating a working hand mechanism. All of this, while adapting Stealy’s eccentric characteristics and movements into puppet form.",
+    "feature-project-thumbnail": "feature-img/feature-9.png",
+    "feature-project-gallery": [
+      {
+        "image": "feature-img/feature-9-1.png",
+        "description": "Cutting recycled materials for puppet construction.",
+        "alt-text": "Hands cutting fabric from repurposed clothing for puppets.",
+        "order": 1
+      },
+      {
+        "image": "feature-img/feature-9-2.png",
+        "description": "Finished hand puppets designed for educational use.",
+        "alt-text": "A set of colourful hand puppets made from recycled materials.",
+        "order": 2
+      },
+      {
+        "image": "feature-img/feature-9-3.png",
+        "description": "Children interacting with the eco-friendly puppets.",
+        "alt-text": "A group of children using puppets in an educational setting.",
+        "order": 3
+      },
+      {
+        "image": "feature-img/feature-9-4.png",
+        "description": "Children interacting with the eco-friendly puppets.",
+        "alt-text": "A group of children using puppets in an educational setting.",
+        "order": 4
+      },
+      {
+        "image": "feature-img/feature-9-5.png",
+        "description": "Children interacting with the eco-friendly puppets.",
+        "alt-text": "A group of children using puppets in an educational setting.",
+        "order": 5
+      },
+      {
+        "image": "feature-img/feature-9-6.png",
+        "description": "Children interacting with the eco-friendly puppets.",
+        "alt-text": "A group of children using puppets in an educational setting.",
+        "order": 5
+      }
+    ],
+    "feature-project-link": "https://greenpuppets.org/eco-series",
+    "feature-project-start-year": 2022,
+    "feature-project-end-year": null,
+    "feature-project-company-name": null,
+    "feature-project-skills": ["recycled material construction", "educational scripting", "child safety standards"],
+    "feature-project-job-category": "Model maker and set dresser at Yamination Studios.",
+    "feature-project-client": "Television ad for BBC 2022 Commonwealth Games"
 }
+
 
 
 ]
