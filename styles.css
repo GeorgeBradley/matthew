@@ -59,30 +59,7 @@ body {
   padding-top: 7.2rem;
   
 }
-a {
-    transition: color 0.3s ease, background-color 0.3s ease;
-    -webkit-tap-highlight-color: var(--primary-color, rgba(200, 200, 200, 0.5)); /* Default fallback color */
-}
 
-a:hover {
-    color: var(--primary-color);
-    background-color: #f0f0f0;
-}
-
-a:focus {
-    outline: 2px solid var(--primary-color);
-}
-button:hover {
-    background-color: darken(var(--primary-color), 10%); /* Slightly darker shade on hover */
-    transform: scale(1.05); /* Slightly enlarges button on hover */
-}
-
-button:focus {
-    outline: 2px solid var(--primary-color);
-/* Accessibility: Reduce Motion */
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-}
 
 /* Skip Link for Accessibility */
 .skip-link {
