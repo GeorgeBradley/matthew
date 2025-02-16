@@ -691,7 +691,62 @@
     "feature-project-skills": ["recycled material construction", "educational scripting", "child safety standards"],
     "feature-project-job-category": "Model maker and set dresser at Yamination Studios.",
     "feature-project-client": "Television ad for BBC 2022 Commonwealth Games"
+},
+
+{
+    "id": 12,
+    "feature-project-name": "Alien - Xenomorph",
+    "feature-project-description": "This 1:6 scale model of an antique Edwards and Roberts ladies' writing desk features hand-carved details and functioning dovetail joints.",
+    "feature-project-long-description": "A client project, a comic bookstore in Horsham, where I, alongside a small team of people, all worked to create a life-size ceiling installation of a Xenomorph from the original 1979 Alien. During the project, I was needed to sculpt, both additively and reductively, alongside fibreglassing and finishing effects that included learning to airbrush. I fabricated this hand from carving Celotex, overlaying it with fibreglass and finishing it using epoxy putty. Other areas I was able to contribute to were in the paint finishes, I applied a subtle mottling effect with an airbrush to certain areas.",
+    "feature-project-thumbnail": "feature-img/feature-12.png",
+    "feature-project-gallery": [
+      {
+        "image": "feature-img/feature-12-1.png",
+        "description": "Cutting recycled materials for puppet construction.",
+        "alt-text": "Hands cutting fabric from repurposed clothing for puppets.",
+        "order": 1
+      },
+      {
+        "image": "feature-img/feature-12-2.png",
+        "description": "Finished hand puppets designed for educational use.",
+        "alt-text": "A set of colourful hand puppets made from recycled materials.",
+        "order": 2
+      },
+      {
+        "image": "feature-img/feature-12-3.png",
+        "description": "Children interacting with the eco-friendly puppets.",
+        "alt-text": "A group of children using puppets in an educational setting.",
+        "order": 3
+      },
+      {
+        "image": "feature-img/feature-12-4.png",
+        "description": "Children interacting with the eco-friendly puppets.",
+        "alt-text": "A group of children using puppets in an educational setting.",
+        "order": 4
+      },
+      {
+        "image": "feature-img/feature-12-5.png",
+        "description": "Children interacting with the eco-friendly puppets.",
+        "alt-text": "A group of children using puppets in an educational setting.",
+        "order": 5
+      },
+      {
+        "image": "feature-img/feature-12-6.png",
+        "description": "Children interacting with the eco-friendly puppets.",
+        "alt-text": "A group of children using puppets in an educational setting.",
+        "order": 5
+      }
+    ],
+    "feature-project-link": "https://greenpuppets.org/eco-series",
+    "feature-project-start-year": 2022,
+    "feature-project-end-year": null,
+    "feature-project-company-name": null,
+    "feature-project-skills": ["recycled material construction", "educational scripting", "child safety standards"],
+    "feature-project-job-category": "Model maker and set dresser at Yamination Studios.",
+    "feature-project-client": "Television ad for BBC 2022 Commonwealth Games"
 }
+
+
 
 
 
