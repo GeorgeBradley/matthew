@@ -57,7 +57,7 @@ body {
   display: flex;
   flex-direction: column;
   padding-top: 7.2rem;
-   -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
+  -webkit-tap-highlight-color:  var(--primary-color)
 }
 
 /* Accessibility: Reduce Motion */
