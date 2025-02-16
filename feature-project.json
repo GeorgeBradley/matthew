@@ -299,9 +299,11 @@
   },
    {
     "id": 3,
-    "feature-project-name": "Eco-Friendly Hand Puppets",
-    "feature-project-description": "Sustainable recycled material puppets for children's education",
-    "feature-project-thumbnail": "feature-img/feature-3.jpg",
+    "feature-project-name": "BBC 2022 Commonwealth Games",
+    "feature-project-description": "I built and painted the scale model of Alexander Stadium for the final shot of the advert, and also assisted with set dressing during the shoot.",
+    "feature-project-long-description": "I built and painted the scale model of Alexander Stadium for the final shot of the advert, and also assisted with set dressing during the shoot.",
+
+     "feature-project-thumbnail": "feature-img/feature-3.jpg",
     "feature-project-gallery": [
       {
         "image": "feature-img/feature-3-1.jpg",
@@ -337,11 +339,11 @@
       }
     ],
     "feature-project-link": "https://greenpuppets.org/eco-series",
-    "feature-project-start-year": 2021,
+    "feature-project-start-year": 2022,
     "feature-project-end-year": null,
-    "feature-project-company-name": "EcoPuppet Workshop",
+    "feature-project-company-name": null,
     "feature-project-skills": ["recycled material construction", "educational scripting", "child safety standards"],
-    "feature-project-job-category": "Educational Puppeteer",
-    "feature-project-client": "UNICEF Learning Initiative"
+    "feature-project-job-category": "Model maker and set dresser at Yamination Studios.",
+    "feature-project-client": "Television ad for BBC 2022 Commonwealth Games"
   }
 ]
