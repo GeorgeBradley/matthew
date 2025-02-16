@@ -51,7 +51,7 @@ function renderProjectDetails(project, projects) {
                  class="detail-image">
 
             <div class="detail-content">
-                <p class="project-description">${project["feature-project-description"]}</p>
+                <p class="project-description">${project["feature-project-long-description"]}</p>
 
                 ${sortedGallery.length ? `
                 <div class="gallery-section">
