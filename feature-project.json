@@ -78,8 +78,8 @@
   {
     "id": 2,
     "feature-project-name": "Marionette Revival Series",
-    "feature-project-description": "18th-century style string puppets for historical reenactments",
-    "feature-project-long-description": "my responsibilities included fabricating two character heads, each with adjustable eyes and alternative expressions.  This involved making replacement eyes, lids, and brows to allow for a range of expressions. I also sculpted the hands and feet for the puppets.  Once sculpted, I oversaw the process of moulding these pieces and then casting them in both resin and silicone.  Additionally, I was responsible for overseeing the building of the wire armatures that formed the internal structure of the puppets.  Finally, I also assisted with set dressing during the shoot itself.",
+    "feature-project-description": "Expressive puppet heads with interchangeable features, sculpted body parts, and managed the molding, casting, and armature construction, also contributing to set dressing.",
+    "feature-project-long-description": "My responsibilities included fabricating two character heads, each with adjustable eyes and alternative expressions.  This involved making replacement eyes, lids, and brows to allow for a range of expressions. I also sculpted the hands and feet for the puppets.  Once sculpted, I oversaw the process of moulding these pieces and then casting them in both resin and silicone.  Additionally, I was responsible for overseeing the building of the wire armatures that formed the internal structure of the puppets.  Finally, I also assisted with set dressing during the shoot itself.",
     "feature-project-thumbnail": "feature-img/feature-2.jpg",
     "feature-project-gallery": [
       {
@@ -151,9 +151,9 @@
       }
     ],
     "feature-project-link": "https://stringtheorycreations.com/marionette-revival",
-    "feature-project-start-year": 2020,
+    "feature-project-start-year": 2022,
     "feature-project-end-year": 2022,
-    "feature-project-company-name": "StringTheory Creations",
+    "feature-project-company-name": null,
     "feature-project-skills": ["wood carving", "costume design", "string mechanics", "period research"],
     "feature-project-job-category": "Sculptor and model maker at Yamination Studios",
     "feature-project-client": "Television ad campaign for Olbas Oil - ‘The power to breathe’."
