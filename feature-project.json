@@ -452,6 +452,59 @@
     "feature-project-skills": ["leather carving", "dye painting", "articulation engineering", "storyboarding"],
     "feature-project-job-category": "Lead creature fabricator.",
     "feature-project-client": "Workshed Animation’s feature film ‘The Iron Leech’."
+},
+  {
+    "id": 8,
+    "feature-project-name": "The Uruk-Hai",
+    "feature-project-description": "A character sculpted from hard oil clay, over a metal armature, silicone moulded and cast in polyurethane resin. This Uruk-Hai was inspired by Peter Jacksons Lord of the Rings film trilogy.",
+    "feature-project-long-description": "A character sculpted from hard oil clay, over a metal armature, silicone moulded and cast in polyurethane resin. This Uruk-Hai was inspired by Peter Jacksons Lord of the Rings film trilogy.",
+    "feature-project-thumbnail": "feature-img/feature-8.png",
+    "feature-project-gallery": [
+      {
+        "image": "feature-img/feature-8-1.png",
+        "description": "Cutting recycled materials for puppet construction.",
+        "alt-text": "Hands cutting fabric from repurposed clothing for puppets.",
+        "order": 1
+      },
+      {
+        "image": "feature-img/feature-8-2.png",
+        "description": "Finished hand puppets designed for educational use.",
+        "alt-text": "A set of colourful hand puppets made from recycled materials.",
+        "order": 2
+      },
+      {
+        "image": "feature-img/feature-8-3.png",
+        "description": "Children interacting with the eco-friendly puppets.",
+        "alt-text": "A group of children using puppets in an educational setting.",
+        "order": 3
+      },
+      {
+        "image": "feature-img/feature-8-4.png",
+        "description": "Children interacting with the eco-friendly puppets.",
+        "alt-text": "A group of children using puppets in an educational setting.",
+        "order": 4
+      },
+      {
+        "image": "feature-img/feature-8-5.png",
+        "description": "Children interacting with the eco-friendly puppets.",
+        "alt-text": "A group of children using puppets in an educational setting.",
+        "order": 5
+      },
+      {
+        "image": "feature-img/feature-8-6.png",
+        "description": "Children interacting with the eco-friendly puppets.",
+        "alt-text": "A group of children using puppets in an educational setting.",
+        "order": 5
+      }
+    ],
+    "feature-project-link": "https://greenpuppets.org/eco-series",
+    "feature-project-start-year": 2022,
+    "feature-project-end-year": null,
+    "feature-project-company-name": null,
+    "feature-project-skills": ["recycled material construction", "educational scripting", "child safety standards"],
+    "feature-project-job-category": "Model maker and set dresser at Yamination Studios.",
+    "feature-project-client": "Television ad for BBC 2022 Commonwealth Games"
 }
+
 
 ]
