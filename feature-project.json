@@ -67,12 +67,12 @@
       
     ],
     "feature-project-link": "https://puppetcraft.com/shadow-odyssey",
-    "feature-project-start-year": 2018,
-    "feature-project-end-year": 2019,
-    "feature-project-company-name": "PuppetCraft Studios",
+    "feature-project-start-year": 2021,
+    "feature-project-end-year": 2021,
+    "feature-project-company-name": null,
     "feature-project-skills": ["leather carving", "dye painting", "articulation engineering", "storyboarding"],
-    "feature-project-job-category": "Traditional Puppeteer",
-    "feature-project-client": "National Folklore Theater"
+    "feature-project-job-category": "Lead creature fabricator.",
+    "feature-project-client": "Workshed Animation’s feature film ‘The Iron Leech’."
   },
   {
     "id": 2,
