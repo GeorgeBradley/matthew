@@ -615,7 +615,84 @@
     "feature-project-skills": ["recycled material construction", "educational scripting", "child safety standards"],
     "feature-project-job-category": "Model maker and set dresser at Yamination Studios.",
     "feature-project-client": "Television ad for BBC 2022 Commonwealth Games"
+},
+  {
+    "id": 11,
+    "feature-project-name": "Lothlórien (1:30 scale model)",
+    "feature-project-description": "I recreated Lothlórien from 'The Lord of the Rings' in my student accommodation during lockdown, starting with a 3D model and building every component from scratch.",
+    "feature-project-long-description": "My recreation of Peter Jackson’s Lothlórien as depicted in the 2001 film ‘Lord of the Rings: The Fellowship of the Ring’ home of Galadriel and the elves. All made from my small student accommodation room during the second lockdown.Began as a 3D Sketch-Up model, every component was worked out and built from scratch. The trees poly-carved, the stairway arches carved from chemi-wood and cast 40+ times, and the stair treads laser cut, amongst other processes",
+    "feature-project-thumbnail": "feature-img/feature-11.png",
+    "feature-project-gallery": [
+      {
+        "image": "feature-img/feature-11-1.png",
+        "description": "Cutting recycled materials for puppet construction.",
+        "alt-text": "Hands cutting fabric from repurposed clothing for puppets.",
+        "order": 1
+      },
+      {
+        "image": "feature-img/feature-11-2.png",
+        "description": "Finished hand puppets designed for educational use.",
+        "alt-text": "A set of colourful hand puppets made from recycled materials.",
+        "order": 2
+      },
+      {
+        "image": "feature-img/feature-11-3.png",
+        "description": "Children interacting with the eco-friendly puppets.",
+        "alt-text": "A group of children using puppets in an educational setting.",
+        "order": 3
+      },
+      {
+        "image": "feature-img/feature-11-4.png",
+        "description": "Children interacting with the eco-friendly puppets.",
+        "alt-text": "A group of children using puppets in an educational setting.",
+        "order": 4
+      },
+      {
+        "image": "feature-img/feature-11-5.png",
+        "description": "Children interacting with the eco-friendly puppets.",
+        "alt-text": "A group of children using puppets in an educational setting.",
+        "order": 5
+      },
+      {
+        "image": "feature-img/feature-11-6.png",
+        "description": "Children interacting with the eco-friendly puppets.",
+        "alt-text": "A group of children using puppets in an educational setting.",
+        "order": 6
+      },
+      {
+        "image": "feature-img/feature-11-7.png",
+        "description": "Children interacting with the eco-friendly puppets.",
+        "alt-text": "A group of children using puppets in an educational setting.",
+        "order": 7
+      },
+      {
+        "image": "feature-img/feature-11-8.png",
+        "description": "Children interacting with the eco-friendly puppets.",
+        "alt-text": "A group of children using puppets in an educational setting.",
+        "order": 8
+      },
+      {
+        "image": "feature-img/feature-11-9.png",
+        "description": "Children interacting with the eco-friendly puppets.",
+        "alt-text": "A group of children using puppets in an educational setting.",
+        "order": 9
+      },
+      {
+        "image": "feature-img/feature-11-10.png",
+        "description": "Children interacting with the eco-friendly puppets.",
+        "alt-text": "A group of children using puppets in an educational setting.",
+        "order": 10
+      }
+    ],
+    "feature-project-link": "https://greenpuppets.org/eco-series",
+    "feature-project-start-year": 2022,
+    "feature-project-end-year": null,
+    "feature-project-company-name": null,
+    "feature-project-skills": ["recycled material construction", "educational scripting", "child safety standards"],
+    "feature-project-job-category": "Model maker and set dresser at Yamination Studios.",
+    "feature-project-client": "Television ad for BBC 2022 Commonwealth Games"
 }
+
 
 
 
