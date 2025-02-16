@@ -265,8 +265,9 @@
   },
   {
     "id": 5,
-    "feature-project-name": "Giant Parade Puppets",
-    "feature-project-description": "Large-scale fabric puppets for street festivals and parades",
+    "feature-project-name": "BBC - The Famous Five: The Curse of Kirrin Island",
+    "feature-project-description": "Fabricated, cast, and painted sword grips and other soft prop duplicates",
+    "feature-project-long-description": "My role involved fabricating a sword grip for the master prop, mould making and casting of the sword to create a lightweight duplicate and replicating the weathered and rusty finish with paint. The work also extended to creating, casting and finishing other soft prop duplicates.",
     "feature-project-thumbnail": "feature-img/feature-5.jpg",
     "feature-project-gallery": [
       {
@@ -289,12 +290,12 @@
       }
     ],
     "feature-project-link": "https://bigpuppets.co/parade-series",
-    "feature-project-start-year": 2019,
-    "feature-project-end-year": 2020,
-    "feature-project-company-name": "Spectacle Puppet Co.",
+    "feature-project-start-year": 2023,
+    "feature-project-end-year": 2023,
+    "feature-project-company-name": null,
     "feature-project-skills": ["structural engineering", "lightweight materials", "team manipulation techniques"],
-    "feature-project-job-category": "Public Performance Specialist",
-    "feature-project-client": "Rio Carnival Committee"
+    "feature-project-job-category": "Prop and model maker and painter at Mangostone Ltd.",
+    "feature-project-client": "BBC"
   },
    {
     "id": 3,
