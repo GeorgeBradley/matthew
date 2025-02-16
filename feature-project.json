@@ -161,9 +161,10 @@
  
   {
     "id": 4,
-    "feature-project-name": "Animatronic Puppet Prototype",
-    "feature-project-description": "Hybrid mechanical-digital puppet for film industry use",
+    "feature-project-name": "Duetsche Telekom Magenta",
+    "feature-project-description": "At Yamination Studios. Role: Sculptor, Model maker, Armature Construction, on-shoot puppet maintenance",
     "feature-project-thumbnail": "feature-img/feature-4.jpg",
+"feature-project-long-description": "I sculpted a clay maquette based on a 2D design of ‘The Dude’ and adapted a doll to create the cyclist character. I constructed ball-and-socket armatures, sculpted the hands and feet, then moulded and cast them in silicone before painting. Additionally, I created scale roof tiles for the falling shot and provided puppet maintenance throughout the shoot.",
     "feature-project-gallery": [
       {
         "image": "feature-img/feature-4-1.jpg",
@@ -256,11 +257,14 @@
     ],
     "feature-project-link": "https://futurepuppet.tech/animatronic-x1",
     "feature-project-start-year": 2022,
-    "feature-project-end-year": 2023,
-    "feature-project-company-name": "NextGen Puppetronics",
+    "feature-project-end-year": 2022,
+    "feature-project-company-name": null,
     "feature-project-skills": ["3D modeling", "servo motor programming", "silicone molding", "FX integration"],
-    "feature-project-job-category": "Animatronic Engineer",
-    "feature-project-client": "Paramount Pictures"
+    "feature-project-job-category": "Sculptor, model maker, armature 
+construction, and shoot puppet 
+maintenance at Yamination 
+Studios.",
+    "feature-project-client": "Deutsche Telekom Magenta."
   },
   {
     "id": 5,
