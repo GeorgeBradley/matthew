@@ -27,6 +27,8 @@
   --text-padding: clamp(1rem, 3vw, 3rem);
   --title-size: clamp(1.5rem, 4vw, 3.5rem);
   --description-size: clamp(0.9rem, 2vw, 1.2rem);
+
+   
 }
 
 /* ==========================================================================
@@ -55,6 +57,7 @@ body {
   display: flex;
   flex-direction: column;
   padding-top: 7.2rem;
+   -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
 }
 
 /* Accessibility: Reduce Motion */
