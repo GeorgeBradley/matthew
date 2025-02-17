@@ -945,7 +945,149 @@
     "feature-project-skills": ["recycled material construction", "educational scripting", "child safety standards"],
     "feature-project-job-category": "Model maker and set dresser at Yamination Studios.",
     "feature-project-client": "Television ad for BBC 2022 Commonwealth Games"
+},
+  {
+    "id": 18,
+    "feature-project-name": "Other work (miscellaneous)",
+    "feature-project-description": "Click to see a few of my 'honourable' mentions.",
+    "feature-project-long-description": "Here are a few 'honourable' mentions.",
+    "feature-project-thumbnail": "feature-img/feature-18.png",
+    "feature-project-gallery": [
+      {
+        "image": "feature-img/feature-18-1.png",
+        "description": "",
+        "alt-text": "",
+        "order": 1
+      },
+      {
+        "image": "feature-img/feature-18-2.png",
+        "description": "",
+        "alt-text": "",
+        "order": 2
+      },
+      {
+        "image": "feature-img/feature-18-3.png",
+        "description": "",
+        "alt-text": "",
+        "order": 3
+      },
+      {
+        "image": "feature-img/feature-18-4.png",
+        "description": "",
+        "alt-text": "",
+        "order": 4
+      },
+      {
+        "image": "feature-img/feature-18-5.png",
+        "description": "",
+        "alt-text": "",
+        "order": 5
+      },
+      {
+        "image": "feature-img/feature-18-6.png",
+        "description": "",
+        "alt-text": "",
+        "order": 6
+      },
+      {
+        "image": "feature-img/feature-18-7.png",
+        "description": "",
+        "alt-text": "",
+        "order": 7
+      },
+      {
+        "image": "feature-img/feature-18-8.png",
+        "description": "",
+        "alt-text": "",
+        "order": 8
+      },
+      {
+        "image": "feature-img/feature-18-9.png",
+        "description": "",
+        "alt-text": "",
+        "order": 9
+      }
+    ],
+    "feature-project-link": "https://greenpuppets.org/eco-series",
+    "feature-project-start-year": 2022,
+    "feature-project-end-year": null,
+    "feature-project-company-name": null,
+    "feature-project-skills": ["recycled material construction", "educational scripting", "child safety standards"],
+    "feature-project-job-category": "Model maker and set dresser at Yamination Studios.",
+    "feature-project-client": "Television ad for BBC 2022 Commonwealth Games"
+},
+  {
+    "id": 19,
+    "feature-project-name": "Other Work",
+    "feature-project-description": "This 1:6 scale model of an antique Edwards and Roberts ladies' writing desk features hand-carved details and functioning dovetail joints.",
+    "feature-project-long-description": "",
+    "feature-project-thumbnail": "feature-img/mis-8.png",
+    "feature-project-gallery": [
+      {
+        "image": "feature-img/mis-1.png",
+        "description": "Grey Alien",
+        "alt-text": "Grey Alien",
+        "order": 1
+      },
+      {
+        "image": "feature-img/mis-2.png",
+        "description": "Icing Cake Topper",
+        "alt-text": "Icing Cake Topper",
+        "order": 2
+      },
+      {
+        "image": "feature-img/mis-3.png",
+        "description": "A Shell-less Snail",
+        "alt-text": "A Shell-less Snail",
+        "order": 3
+      },
+      {
+        "image": "feature-img/mis-4.png",
+        "description": "3:1 Scale Ear",
+        "alt-text": "3:1 Scale Ear",
+        "order": 4
+      },
+      {
+        "image": "feature-img/mis-5.png",
+        "description": "Female Form",
+        "alt-text": "Female Form",
+        "order": 5
+      },
+      {
+        "image": "feature-img/mis-6.png",
+        "description": "Female Form",
+        "alt-text": "Female Form",
+        "order": 6
+      },
+      {
+        "image": "feature-img/mis-7.png",
+        "description": "A Poly-Carved Gargoyle",
+        "alt-text": "A Poly-Carved Gargoyle",
+        "order": 7
+      },
+      {
+        "image": "feature-img/mis-8.png",
+        "description": "Stomach",
+        "alt-text": "Stomach",
+        "order": 8
+      },
+      {
+        "image": "feature-img/mis-9.png",
+        "description": "Frog",
+        "alt-text": "Frog",
+        "order": 9
+      }
+    ],
+    "feature-project-link": "https://greenpuppets.org/eco-series",
+    "feature-project-start-year": 2022,
+    "feature-project-end-year": null,
+    "feature-project-company-name": null,
+    "feature-project-skills": ["recycled material construction", "educational scripting", "child safety standards"],
+    "feature-project-job-category": "Model maker and set dresser at Yamination Studios.",
+    "feature-project-client": "Television ad for BBC 2022 Commonwealth Games"
 }
+
+
 
 
 
