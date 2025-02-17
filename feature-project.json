@@ -948,64 +948,34 @@
 },
   {
     "id": 18,
-    "feature-project-name": "Other work (miscellaneous)",
+    "feature-project-name": "CAD Design",
     "feature-project-description": "Click to see a few of my 'honourable' mentions.",
     "feature-project-long-description": "Here are a few 'honourable' mentions.",
     "feature-project-thumbnail": "feature-img/feature-18.png",
     "feature-project-gallery": [
       {
-        "image": "feature-img/feature-18-1.png",
-        "description": "",
-        "alt-text": "",
+        "image": "feature-img/feature-18.png",
+        "description": "Lothlórien (a 1:30 scale model section mock-up of the elven city lothlórien)",
+        "alt-text": "Lothlórien (a 1:30 scale model section mock-up of the elven city lothlórien)",
         "order": 1
       },
       {
-        "image": "feature-img/feature-18-2.png",
-        "description": "",
-        "alt-text": "",
+        "image": "feature-img/feature-18-1.png",
+        "description": "Tomb Design (plaguepits designed and later built for peter thorndike’s upcoming horror movie, ‘plaguepits’).",
+        "alt-text": "Tomb Design (plaguepits designed and later built for peter thorndike’s upcoming horror movie, ‘plaguepits’).",
         "order": 2
       },
       {
-        "image": "feature-img/feature-18-3.png",
-        "description": "",
-        "alt-text": "",
+        "image": "feature-img/feature-18-2.png",
+        "description": "Rent the Musical (modelled and built components for the in-house university production.)",
+        "alt-text": "Rent the Musical (modelled and built components for the in-house university production.)",
         "order": 3
       },
       {
-        "image": "feature-img/feature-18-4.png",
-        "description": "",
-        "alt-text": "",
+        "image": "feature-img/feature-18-3.png",
+        "description": "20mm BALL& SOCKET JOINT",
+        "alt-text": "20mm BALL& SOCKET JOINT",
         "order": 4
-      },
-      {
-        "image": "feature-img/feature-18-5.png",
-        "description": "",
-        "alt-text": "",
-        "order": 5
-      },
-      {
-        "image": "feature-img/feature-18-6.png",
-        "description": "",
-        "alt-text": "",
-        "order": 6
-      },
-      {
-        "image": "feature-img/feature-18-7.png",
-        "description": "",
-        "alt-text": "",
-        "order": 7
-      },
-      {
-        "image": "feature-img/feature-18-8.png",
-        "description": "",
-        "alt-text": "",
-        "order": 8
-      },
-      {
-        "image": "feature-img/feature-18-9.png",
-        "description": "",
-        "alt-text": "",
-        "order": 9
       }
     ],
     "feature-project-link": "https://greenpuppets.org/eco-series",
@@ -1019,8 +989,8 @@
   {
     "id": 19,
     "feature-project-name": "Other Work",
-    "feature-project-description": "This 1:6 scale model of an antique Edwards and Roberts ladies' writing desk features hand-carved details and functioning dovetail joints.",
-    "feature-project-long-description": "",
+    "feature-project-description": "Click here to see a few 'honourable' mentions.",
+    "feature-project-long-description": "Here are a few 'honourable' mentions.",
     "feature-project-thumbnail": "feature-img/mis-8.png",
     "feature-project-gallery": [
       {
