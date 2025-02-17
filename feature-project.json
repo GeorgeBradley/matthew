@@ -862,14 +862,14 @@
     "feature-project-gallery": [
       {
         "image": "feature-img/feature-15-1.png",
-        "description": "Cutting recycled materials for puppet construction.",
-        "alt-text": "Hands cutting fabric from repurposed clothing for puppets.",
+        "description": "'Mr. PoopyButthole” from the TV series ‘Rick and Morty’.",
+        "alt-text": "“Mr. PoopyButthole” from the TV series ‘Rick and Morty’.",
         "order": 1
       },
       {
         "image": "feature-img/feature-15-2.png",
-        "description": "Finished hand puppets designed for educational use.",
-        "alt-text": "A set of colourful hand puppets made from recycled materials.",
+        "description": "‘Lumpy Space Princess’ from the series ‘Adventure Time’.",
+        "alt-text": "‘Lumpy Space Princess’ from the series ‘Adventure Time’.",
         "order": 2
       },
       {
