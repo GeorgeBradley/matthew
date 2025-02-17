@@ -876,7 +876,42 @@
     "feature-project-skills": ["recycled material construction", "educational scripting", "child safety standards"],
     "feature-project-job-category": "Model maker and set dresser at Yamination Studios.",
     "feature-project-client": "Television ad for BBC 2022 Commonwealth Games"
+},
+  {
+    "id": 16,
+    "feature-project-name": "Rent the Musical",
+    "feature-project-description": "A collaborative team-based project for the in-house University production.  I was tasked to interpret and convert the scaled modelled designs and construct them out of timber and ply. As well as building a structural frame for the flying flats. ",
+    "feature-project-long-description": "A collaborative team-based project for the in-house University production.  I was tasked to interpret and convert the scaled modelled designs and construct them out of timber and ply.  As well as building a structural frame for the flying flats. ",
+    "feature-project-thumbnail": "feature-img/feature-16.png",
+    "feature-project-gallery": [
+      {
+        "image": "feature-img/feature-16-1.png",
+        "description": "Cutting recycled materials for puppet construction.",
+        "alt-text": "Hands cutting fabric from repurposed clothing for puppets.",
+        "order": 1
+      },
+      {
+        "image": "feature-img/feature-16-2.png",
+        "description": "Finished hand puppets designed for educational use.",
+        "alt-text": "A set of colourful hand puppets made from recycled materials.",
+        "order": 2
+      },
+      {
+        "image": "feature-img/feature-16-3.png",
+        "description": "Children interacting with the eco-friendly puppets.",
+        "alt-text": "A group of children using puppets in an educational setting.",
+        "order": 3
+      }
+    ],
+    "feature-project-link": "https://greenpuppets.org/eco-series",
+    "feature-project-start-year": 2022,
+    "feature-project-end-year": null,
+    "feature-project-company-name": null,
+    "feature-project-skills": ["recycled material construction", "educational scripting", "child safety standards"],
+    "feature-project-job-category": "Model maker and set dresser at Yamination Studios.",
+    "feature-project-client": "Television ad for BBC 2022 Commonwealth Games"
 }
+
 
 
 
