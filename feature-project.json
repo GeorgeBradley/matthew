@@ -920,15 +920,21 @@
     "feature-project-thumbnail": "feature-img/feature-17.png",
     "feature-project-gallery": [
       {
-        "image": "feature-img/feature-17-1.png",
+        "image": "feature-img/feature-17.png",
         "description": "Dovetailed Blanket Chest",
         "alt-text": "Dovetailed Blanket Chest",
         "order": 1
       },
       {
-        "image": "feature-img/feature-17-2.png",
+        "image": "feature-img/feature-17-1.png",
         "description": "Chess Board",
         "alt-text": "Chess Board",
+        "order": 2
+      },
+       {
+        "image": "feature-img/feature-17-2.png",
+        "description": "Tree Carving",
+        "alt-text": "Tree Carving",
         "order": 2
       }
     ],
