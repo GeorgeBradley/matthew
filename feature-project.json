@@ -830,7 +830,77 @@
     "feature-project-skills": ["recycled material construction", "educational scripting", "child safety standards"],
     "feature-project-job-category": "Model maker and set dresser at Yamination Studios.",
     "feature-project-client": "Television ad for BBC 2022 Commonwealth Games"
+},
+  {
+    "id": 14,
+    "feature-project-name": "1:6 Scale Edwards & Roberts Ladies Writing Desk",
+    "feature-project-description": "This 1:6 scale model of an antique Edwards and Roberts ladies' writing desk features hand-carved details and functioning dovetail joints.",
+    "feature-project-long-description": "This is a 1:6 scale model based directly off an antique Edwards and Roberts ladies' writing desk. The legs have been lathed and the barley twists hand-carved into them. The lion head carvings were individually sculpted in clay and cast in resin and the same process for the green man drawer fronts. The edge leaf patterns were carefully hand-carved into the wood itself, as well as tiny handmade functioning dovetail joints in the drawer!",
+    "feature-project-thumbnail": "feature-img/feature-14.png",
+    "feature-project-gallery": [
+      {
+        "image": "feature-img/feature-14-1.png",
+        "description": "Cutting recycled materials for puppet construction.",
+        "alt-text": "Hands cutting fabric from repurposed clothing for puppets.",
+        "order": 1
+      }
+    ],
+    "feature-project-link": "https://greenpuppets.org/eco-series",
+    "feature-project-start-year": 2022,
+    "feature-project-end-year": null,
+    "feature-project-company-name": null,
+    "feature-project-skills": ["recycled material construction", "educational scripting", "child safety standards"],
+    "feature-project-job-category": "Model maker and set dresser at Yamination Studios.",
+    "feature-project-client": "Television ad for BBC 2022 Commonwealth Games"
+},
+  {
+    "id": 15,
+    "feature-project-name": "Plasticine",
+    "feature-project-description": "A selection of characters created from plasticine, a more fun and lighthearted approach to model making!  Some my own and some inspired by TV and films I enjoy.",
+    "feature-project-long-description": "A selection of characters created from plasticine, a more fun and lighthearted approach to model making!  Some my own and some inspired by TV and films I enjoy. ",
+    "feature-project-thumbnail": "feature-img/feature-15.png",
+    "feature-project-gallery": [
+      {
+        "image": "feature-img/feature-15-1.png",
+        "description": "Cutting recycled materials for puppet construction.",
+        "alt-text": "Hands cutting fabric from repurposed clothing for puppets.",
+        "order": 1
+      },
+      {
+        "image": "feature-img/feature-15-2.png",
+        "description": "Finished hand puppets designed for educational use.",
+        "alt-text": "A set of colourful hand puppets made from recycled materials.",
+        "order": 2
+      },
+      {
+        "image": "feature-img/feature-15-3.png",
+        "description": "Children interacting with the eco-friendly puppets.",
+        "alt-text": "A group of children using puppets in an educational setting.",
+        "order": 3
+      },
+      {
+        "image": "feature-img/feature-15-4.png",
+        "description": "Children interacting with the eco-friendly puppets.",
+        "alt-text": "A group of children using puppets in an educational setting.",
+        "order": 4
+      },
+      {
+        "image": "feature-img/feature-15-5.png",
+        "description": "Children interacting with the eco-friendly puppets.",
+        "alt-text": "A group of children using puppets in an educational setting.",
+        "order": 5
+      }
+    ],
+    "feature-project-link": "https://greenpuppets.org/eco-series",
+    "feature-project-start-year": 2022,
+    "feature-project-end-year": null,
+    "feature-project-company-name": null,
+    "feature-project-skills": ["recycled material construction", "educational scripting", "child safety standards"],
+    "feature-project-job-category": "Model maker and set dresser at Yamination Studios.",
+    "feature-project-client": "Television ad for BBC 2022 Commonwealth Games"
 }
+
+
 
 
 ]
