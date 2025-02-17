@@ -43,13 +43,13 @@
     /* -------------------- Project Detail Container -------------------- */
     .project-detail {
       max-width: 1100px;
-      margin: 3rem auto;
       background: var(--card-bg);
       border-radius: 12px;
       overflow: hidden;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       border: 1px solid var(--border);
       animation: fadeIn 0.5s ease-out;
+      margin: 0 auto;
     }
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
@@ -59,10 +59,10 @@
     /* -------------------- Header Section -------------------- */
     .detail-header {
     background: var(--header-gradient);
-    padding: .5rem;
     text-align: center;
     color: #fff;
     display: flex;
+    padding-bottom: 1rem;
     flex-direction: column;
     position: relative;
     }
@@ -94,10 +94,9 @@
     
     /* -------------------- Main Image -------------------- */
     .detail-image {
-      width: 100%; 
+      max-width: 100%; 
     display: block;
-    width: 500px;
-    padding: 1rem;
+    width: 600px;
     margin: 0 auto;
     /* height: 450px; */
     object-fit: cover;
