@@ -808,6 +808,29 @@
     "feature-project-skills": ["recycled material construction", "educational scripting", "child safety standards"],
     "feature-project-job-category": "Model maker and set dresser at Yamination Studios.",
     "feature-project-client": "Television ad for BBC 2022 Commonwealth Games"
-  }
+  },
+  {
+    "id": 14,
+    "feature-project-name": "Tyrannosaurus-rex (oil based clay sculpture)",
+    "feature-project-description": "My first major venture into sculpting and what re-launched my passion for this craft, a real labour of love! Made out of a medium hardness oil-based clay over a metal armature, the teeth, nails and eyes were created using polymer clay.",
+    "feature-project-long-description": "My first major venture into sculpting and what re-launched my passion for this craft, a real labour of love! Made out of a medium hardness oil-based clay over a metal armature, the teeth, nails and eyes were created using polymer clay.",
+    "feature-project-thumbnail": "feature-img/feature-14.png",
+    "feature-project-gallery": [
+      {
+        "image": "feature-img/feature-14.png",
+        "description": "Cutting recycled materials for puppet construction.",
+        "alt-text": "Hands cutting fabric from repurposed clothing for puppets.",
+        "order": 1
+      }
+    ],
+    "feature-project-link": "https://greenpuppets.org/eco-series",
+    "feature-project-start-year": 2022,
+    "feature-project-end-year": null,
+    "feature-project-company-name": null,
+    "feature-project-skills": ["recycled material construction", "educational scripting", "child safety standards"],
+    "feature-project-job-category": "Model maker and set dresser at Yamination Studios.",
+    "feature-project-client": "Television ad for BBC 2022 Commonwealth Games"
+}
+
 
 ]
