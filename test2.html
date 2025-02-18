@@ -35,10 +35,14 @@
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         overflow: hidden;
       }
-
       .category-slider:hover {
         transform: translateY(-3px);
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      /* Slider wrapper: container for link (clickable area) and arrow buttons */
+      .slider-wrapper {
+        position: relative;
       }
 
       /* Clickable area styling */
@@ -66,18 +70,15 @@
 
       /* Slider Container & Track */
       .un-highlighted-features-slider-container {
-        position: relative;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;
         margin-top: 10px;
         padding-bottom: 10px;
       }
-
       .un-highlighted-features-slider-track {
         display: flex;
       }
-
       .un-highlighted-features-slide {
         flex: 0 0 auto;
         scroll-snap-align: start;
@@ -88,11 +89,9 @@
         overflow: hidden;
         transition: transform 0.3s ease;
       }
-
       .un-highlighted-features-slide:hover {
         transform: scale(1.03);
       }
-
       .un-highlighted-features-slide img {
         height: 100%;
         width: auto;
@@ -169,7 +168,7 @@
       }
 
       function initUnHighlightedFeatures() {
-        const section = document.getElementById('un-highlighted-features');
+        const section = document.getElementById("un-highlighted-features");
         if (!section) return;
 
         // URLs for categories and projects JSON.
@@ -206,7 +205,11 @@
                 const card = document.createElement("div");
                 card.className = "category-slider";
 
-                // Create a clickable link that wraps the header and slider.
+                // Create slider wrapper (for fixed arrows).
+                const sliderWrapper = document.createElement("div");
+                sliderWrapper.className = "slider-wrapper";
+
+                // Create a clickable link that wraps header and slider container.
                 const link = document.createElement("a");
                 link.href =
                   "nextpage.html?category=" +
@@ -216,11 +219,9 @@
                 // Create category header (title and description)
                 const headerDiv = document.createElement("div");
                 headerDiv.className = "category-header";
-
                 const categoryTitle = document.createElement("h2");
                 categoryTitle.textContent = category.categoryName;
                 headerDiv.appendChild(categoryTitle);
-
                 const categoryDesc = document.createElement("p");
                 categoryDesc.className = "category-description";
                 categoryDesc.textContent = category.description;
@@ -233,35 +234,6 @@
                 const sliderContainer = document.createElement("div");
                 sliderContainer.className =
                   "un-highlighted-features-slider-container";
-
-                // Create navigation arrows.
-                const leftArrow = document.createElement("div");
-                leftArrow.className = "slider-arrow left";
-                leftArrow.innerHTML = "&#9664;";
-                leftArrow.addEventListener("click", function (e) {
-                  e.stopPropagation();
-                  e.preventDefault();
-                  sliderContainer.scrollBy({
-                    left: -sliderContainer.clientWidth,
-                    behavior: "smooth",
-                  });
-                });
-
-                const rightArrow = document.createElement("div");
-                rightArrow.className = "slider-arrow right";
-                rightArrow.innerHTML = "&#9654;";
-                rightArrow.addEventListener("click", function (e) {
-                  e.stopPropagation();
-                  e.preventDefault();
-                  sliderContainer.scrollBy({
-                    left: sliderContainer.clientWidth,
-                    behavior: "smooth",
-                  });
-                });
-
-                // Append arrows to the slider container.
-                sliderContainer.appendChild(leftArrow);
-                sliderContainer.appendChild(rightArrow);
 
                 // Create slider track.
                 const sliderTrack = document.createElement("div");
@@ -277,14 +249,12 @@
                     for (let i = 0; i < 2; i++) {
                       const slide = document.createElement("div");
                       slide.className = "un-highlighted-features-slide";
-
                       const img = document.createElement("img");
                       img.src = gallery[i].image;
                       img.alt =
                         gallery[i]["alt-text"] ||
                         project["feature-project-name"];
                       slide.appendChild(img);
-
                       // Label removed per request.
                       slidesForProject.push(slide);
                     }
@@ -317,14 +287,46 @@
                   sliderTrack.appendChild(slide)
                 );
 
-                // Append the track to the slider container.
+                // Append the slider track to the slider container.
                 sliderContainer.appendChild(sliderTrack);
 
                 // Append the slider container to the clickable link.
                 link.appendChild(sliderContainer);
 
-                // Append the clickable link into the card.
-                card.appendChild(link);
+                // Append the clickable link to the slider wrapper.
+                sliderWrapper.appendChild(link);
+
+                // Create navigation arrows (placed outside the clickable link).
+                const leftArrow = document.createElement("div");
+                leftArrow.className = "slider-arrow left";
+                leftArrow.innerHTML = "&#9664;";
+                leftArrow.addEventListener("click", function (e) {
+                  e.stopPropagation();
+                  e.preventDefault();
+                  sliderContainer.scrollBy({
+                    left: -sliderContainer.clientWidth,
+                    behavior: "smooth",
+                  });
+                });
+
+                const rightArrow = document.createElement("div");
+                rightArrow.className = "slider-arrow right";
+                rightArrow.innerHTML = "&#9654;";
+                rightArrow.addEventListener("click", function (e) {
+                  e.stopPropagation();
+                  e.preventDefault();
+                  sliderContainer.scrollBy({
+                    left: sliderContainer.clientWidth,
+                    behavior: "smooth",
+                  });
+                });
+
+                // Append arrow buttons to the slider wrapper.
+                sliderWrapper.appendChild(leftArrow);
+                sliderWrapper.appendChild(rightArrow);
+
+                // Append the slider wrapper to the card.
+                card.appendChild(sliderWrapper);
 
                 // Append the card to the main section.
                 section.appendChild(card);
