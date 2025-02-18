@@ -24,6 +24,7 @@
         "feature-project-job-category": "Lead creature fabricator.",
         "feature-project-client": "Workshed Animation’s feature film ‘The Iron Leech’",
         "feature-project-type": "highlighted",
+        "project-feature-main-category-id": 1,
         "feature-project-order": 1
     },
     {
@@ -52,8 +53,8 @@
         "feature-project-job-category": "Sculptor, model maker, and set dresser",
         "feature-project-client": "Television ad campaign for Olbas Oil - ‘The power to breathe’",
         "feature-project-type": "highlighted",
+        "project-feature-main-category-id": 1,
         "feature-project-order": 2
-
     },
     {
         "id": 4,
@@ -85,8 +86,8 @@
         "feature-project-job-category": "Sculptor, model maker, armature constructor, and on-set puppet maintenance",
         "feature-project-client": "Deutsche Telekom Magenta.",
         "feature-project-type": "highlighted",
+        "project-feature-main-category-id": 1,
         "feature-project-order": 3
-
     },
     {
         "id": 5,
@@ -110,8 +111,8 @@
         "feature-project-job-category": "Prop fabricator and model maker",
         "feature-project-client": "BBC",
         "feature-project-type": "highlighted",
+        "project-feature-main-category-id": 3,
         "feature-project-order": 4
-
     },
     {
         "id": 3,
@@ -134,8 +135,8 @@
         "feature-project-job-category": "Model maker, painter, and set dresser",
         "feature-project-client": "Television ad for BBC 2022 Commonwealth Games",
         "feature-project-type": "highlighted",
+        "project-feature-main-category-id": 3,
         "feature-project-order": 5
-
     },
     {
         "id": 6,
@@ -159,8 +160,8 @@
         "feature-project-job-category": "Scale model fabricator and woodworker",
         "feature-project-client": null,
         "feature-project-type": "un-highlighted",
+        "project-feature-main-category-id": 4,
         "feature-project-order": null
-
     },
     {
         "id": 7,
@@ -184,7 +185,8 @@
         "feature-project-job-category": "Lead creature fabricator.",
         "feature-project-client": "Workshed Animation’s feature film ‘The Iron Leech’",
         "feature-project-type": "un-highlighted",
-         "feature-project-order": null
+        "project-feature-main-category-id": 1,
+        "feature-project-order": null
     },
     {
         "id": 8,
@@ -208,8 +210,8 @@
         "feature-project-job-category": "Sculptor and model maker",
         "feature-project-client": null,
         "feature-project-type": "un-highlighted",
+        "project-feature-main-category-id": 2,
         "feature-project-order": null
-        
     },
     {
         "id": 9,
@@ -233,7 +235,8 @@
         "feature-project-job-category": "Student puppet fabrication project",
         "feature-project-client": null,
         "feature-project-type": "un-highlighted",
-         "feature-project-order": null
+        "project-feature-main-category-id": 1,
+        "feature-project-order": null
     },
     {
         "id": 10,
@@ -255,7 +258,8 @@
         "feature-project-job-category": "Scale model fabricator and woodworker",
         "feature-project-client": null,
         "feature-project-type": "un-highlighted",
-         "feature-project-order": null
+        "project-feature-main-category-id": 4,
+        "feature-project-order": null
     },
     {
         "id": 11,
@@ -283,7 +287,8 @@
         "feature-project-job-category": "Scale model fabricator and model maker",
         "feature-project-client": null,
         "feature-project-type": "un-highlighted",
-         "feature-project-order": null
+        "project-feature-main-category-id": 3,
+        "feature-project-order": null
     },
     {
         "id": 12,
@@ -307,7 +312,8 @@
         "feature-project-job-category": "Sculptor and installation fabricator",
         "feature-project-client": "Comic Bookstore in Horsham",
         "feature-project-type": "un-highlighted",
-         "feature-project-order": null
+        "project-feature-main-category-id": 2,
+        "feature-project-order": null
     },
     {
         "id": 13,
@@ -333,7 +339,8 @@
         "feature-project-job-category": "Project leader and fabrication specialist",
         "feature-project-client": "Independent film 'Plaguepits'",
         "feature-project-type": "highlighted",
-         "feature-project-order": 6
+        "project-feature-main-category-id": 3,
+        "feature-project-order": 6
     },
     {
         "id": 14,
@@ -350,7 +357,8 @@
         "feature-project-job-category": "Sculptor and model maker",
         "feature-project-client": null,
         "feature-project-type": "un-highlighted",
-         "feature-project-order": null
+        "project-feature-main-category-id": 2,
+        "feature-project-order": null
     },
     {
         "id": 15,
@@ -373,7 +381,8 @@
         "feature-project-job-category": "Plasticine model maker",
         "feature-project-client": null,
         "feature-project-type": "un-highlighted",
-         "feature-project-order": null
+        "project-feature-main-category-id": 2,
+        "feature-project-order": null
     },
     {
         "id": 16,
@@ -394,7 +403,8 @@
         "feature-project-job-category": "Set construction and model fabrication",
         "feature-project-client": "University production",
         "feature-project-type": "un-highlighted",
-         "feature-project-order": null
+        "project-feature-main-category-id": 3,
+        "feature-project-order": null
     },
     {
         "id": 17,
@@ -415,7 +425,8 @@
         "feature-project-job-category": "Independent carpentry projects",
         "feature-project-client": null,
         "feature-project-type": "un-highlighted",
-         "feature-project-order": null
+        "project-feature-main-category-id": 4,
+        "feature-project-order": null
     },
     {
         "id": 18,
@@ -452,7 +463,8 @@
         "feature-project-job-category": "CAD Designer and 3D modeler",
         "feature-project-client": null,
         "feature-project-type": "un-highlighted",
-         "feature-project-order": null
+        "project-feature-main-category-id": 3,
+        "feature-project-order": null
     },
     {
         "id": 19,
@@ -479,6 +491,7 @@
         "feature-project-job-category": "Miscellaneous creative projects",
         "feature-project-client": null,
         "feature-project-type": "un-highlighted",
-         "feature-project-order": null
+        "project-feature-main-category-id": 2,
+        "feature-project-order": null
     }
 ]
