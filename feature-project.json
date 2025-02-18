@@ -569,7 +569,7 @@
         "feature-project-thumbnail": "feature-img/mis-8.png",
         "feature-project-gallery": [
             { "image": "feature-img/test/test-7.jpg", "description": "Grey Alien", "alt-text": "Grey Alien", "order": 1 },
-            { "image": "feature-img/test/test-8.jpg", "description": "Icing Cake Topper", "alt-text": "Icing Cake Topper", "order": 2 }
+            { "image": "feature-img/test/test-8.jpg", "description": "Icing Cake Topper", "alt-text": "Icing Cake Topper", "order": 2 },
             { "image": "feature-img/test/test-4.jpg", "description": "Grey Alien", "alt-text": "Grey Alien", "order": 1 },
             { "image": "feature-img/test/test-2.jpg", "description": "Icing Cake Topper", "alt-text": "Icing Cake Topper", "order": 2 },
             { "image": "feature-img/test/test-1.jpg", "description": "Icing Cake Topper", "alt-text": "Icing Cake Topper", "order": 2 }
