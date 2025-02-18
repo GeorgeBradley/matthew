@@ -25,7 +25,7 @@
       }
 
       /* Card Container for each category slider */
-      .category-slider {
+      .un-highlighted-category-slider {
         background: var(--secondary-color);
         margin: 20px auto;
         padding: 15px;
@@ -35,13 +35,13 @@
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         overflow: hidden;
       }
-      .category-slider:hover {
+      .un-highlighted-category-slider:hover {
         transform: translateY(-3px);
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
       }
 
-      /* Slider wrapper: container for link (clickable area) and arrow buttons */
-      .slider-wrapper {
+      /* Slider wrapper: container for the clickable link */
+      .un-highlighted-slider-wrapper {
         position: relative;
       }
 
@@ -53,16 +53,16 @@
       }
 
       /* Category header styling */
-      .category-header {
+      .un-highlighted-category-header {
         padding: 0 10px;
         margin-bottom: 10px;
       }
-      .category-header h2 {
+      .un-highlighted-category-header h2 {
         margin: 0 0 5px;
         font-size: 1.8em;
         color: var(--tertiary-color);
       }
-      .category-description {
+      .un-highlighted-category-description {
         margin: 0;
         color: var(--text-dark);
         font-size: 1em;
@@ -97,35 +97,6 @@
         width: auto;
         object-fit: cover;
         display: block;
-      }
-
-      /* Navigation Arrows */
-      .slider-arrow {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background-color: var(--primary-color);
-        color: var(--secondary-color);
-        width: 40px;
-        height: 40px;
-        line-height: 40px;
-        text-align: center;
-        border-radius: 50%;
-        cursor: pointer;
-        z-index: 2;
-        opacity: 0.8;
-        transition: opacity 0.3s ease, transform 0.3s ease;
-        user-select: none;
-      }
-      .slider-arrow:hover {
-        opacity: 1;
-        transform: translateY(-50%) scale(1.1);
-      }
-      .slider-arrow.left {
-        left: 10px;
-      }
-      .slider-arrow.right {
-        right: 10px;
       }
 
       /* Custom Scrollbar for WebKit */
@@ -203,11 +174,11 @@
               if (grouped[catId] && grouped[catId].length > 0) {
                 // Create a card container for the category slider.
                 const card = document.createElement("div");
-                card.className = "category-slider";
+                card.className = "un-highlighted-category-slider";
 
-                // Create slider wrapper (for fixed arrows).
+                // Create slider wrapper.
                 const sliderWrapper = document.createElement("div");
-                sliderWrapper.className = "slider-wrapper";
+                sliderWrapper.className = "un-highlighted-slider-wrapper";
 
                 // Create a clickable link that wraps header and slider container.
                 const link = document.createElement("a");
@@ -218,12 +189,12 @@
 
                 // Create category header (title and description)
                 const headerDiv = document.createElement("div");
-                headerDiv.className = "category-header";
+                headerDiv.className = "un-highlighted-category-header";
                 const categoryTitle = document.createElement("h2");
                 categoryTitle.textContent = category.categoryName;
                 headerDiv.appendChild(categoryTitle);
                 const categoryDesc = document.createElement("p");
-                categoryDesc.className = "category-description";
+                categoryDesc.className = "un-highlighted-category-description";
                 categoryDesc.textContent = category.description;
                 headerDiv.appendChild(categoryDesc);
 
@@ -237,7 +208,8 @@
 
                 // Create slider track.
                 const sliderTrack = document.createElement("div");
-                sliderTrack.className = "un-highlighted-features-slider-track";
+                sliderTrack.className =
+                  "un-highlighted-features-slider-track";
 
                 // Group slides by project so that we can interleave them.
                 // Each project that has at least two images contributes an array of two slides.
@@ -295,35 +267,6 @@
 
                 // Append the clickable link to the slider wrapper.
                 sliderWrapper.appendChild(link);
-
-                // Create navigation arrows (placed outside the clickable link).
-                const leftArrow = document.createElement("div");
-                leftArrow.className = "slider-arrow left";
-                leftArrow.innerHTML = "&#9664;";
-                leftArrow.addEventListener("click", function (e) {
-                  e.stopPropagation();
-                  e.preventDefault();
-                  sliderContainer.scrollBy({
-                    left: -sliderContainer.clientWidth,
-                    behavior: "smooth",
-                  });
-                });
-
-                const rightArrow = document.createElement("div");
-                rightArrow.className = "slider-arrow right";
-                rightArrow.innerHTML = "&#9654;";
-                rightArrow.addEventListener("click", function (e) {
-                  e.stopPropagation();
-                  e.preventDefault();
-                  sliderContainer.scrollBy({
-                    left: sliderContainer.clientWidth,
-                    behavior: "smooth",
-                  });
-                });
-
-                // Append arrow buttons to the slider wrapper.
-                sliderWrapper.appendChild(leftArrow);
-                sliderWrapper.appendChild(rightArrow);
 
                 // Append the slider wrapper to the card.
                 card.appendChild(sliderWrapper);
