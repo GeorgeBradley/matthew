@@ -1,301 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CV Modal - Matthew Bradley</title>
-  <!-- Font Awesome from jsDelivr CDN -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --primary-color: #007BFF;
-      --text-color: #333;
-      --bg-color: #f5f5f5;
-      --modal-bg: #fff;
-      --border-color: #ddd;
-      --transition-duration: 0.3s;
-    }
-    * {
-      box-sizing: border-box;
-    }
-    body {
-      margin: 0;
-      padding: 20px;
-      font-family: 'Roboto', sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-    }
-    button {
-      background-color: var(--primary-color);
-      color: #fff;
-      border: none;
-      padding: 12px 24px;
-      font-size: 16px;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: background-color var(--transition-duration) ease;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    button:hover {
-      background-color: #005bb5;
-    }
-    /* Modal overlay styling */
-    .modal-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.6);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity var(--transition-duration) ease;
-      z-index: 1000;
-    }
-    .modal-overlay.active {
-      opacity: 1;
-      pointer-events: auto;
-      animation: fadeIn var(--transition-duration) ease;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    /* Modal content styling */
-    .modal-content {
-      background: var(--modal-bg);
-      width: 90%;
-      max-width: 800px;
-      max-height: 90vh;
-      overflow-y: auto;
-      border-radius: 8px;
-      padding: 30px 40px;
-      position: relative;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-      transform: translateY(50px);
-      transition: transform var(--transition-duration) ease;
-    }
-    .modal-overlay.active .modal-content {
-      transform: translateY(0);
-    }
-    .modal-close {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 24px;
-      color: var(--text-color);
-      cursor: pointer;
-      transition: color 0.2s ease;
-    }
-    .modal-close:hover {
-      color: var(--primary-color);
-    }
-    .section {
-      margin-bottom: 30px;
-    }
-    .section h1 {
-      margin: 0 0 10px;
-      font-size: 28px;
-      font-weight: 700;
-    }
-    .section h2 {
-      border-bottom: 2px solid var(--border-color);
-      padding-bottom: 5px;
-      margin-bottom: 15px;
-      font-size: 22px;
-      font-weight: 500;
-    }
-    .section h3 {
-      margin: 20px 0 10px;
-      font-size: 18px;
-      font-weight: 500;
-    }
-    .section p {
-      padding: 1rem;
-      margin: 0;
-    }
-    .section p, .section li {
-      line-height: 1.6;
-      font-size: 16px;
-    }
-    .section ul {
-      list-style: disc inside;
-      margin-left: 20px;
-    }
-    .icon {
-      margin-right: 8px;
-      color: var(--primary-color);
-    }
-    /* Custom scrollbar for modal content */
-    .modal-content::-webkit-scrollbar {
-      width: 8px;
-    }
-    .modal-content::-webkit-scrollbar-thumb {
-      background-color: #ccc;
-      border-radius: 4px;
-    }
-    #modalTitle {
-      text-align: center;
-    }
-    #cvHeader {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin: 0;
-    }
-    /* Responsive adjustments */
-    @media (max-width: 600px) {
-      .modal-content {
-        padding: 20px;
+  <head>
+    <meta charset="UTF-8" />
+    <title>Un-Highlighted Features Slider</title>
+    <style>
+      /* Un-Highlighted Features Slider Styles */
+      #un-highlighted-features .un-highlighted-features-slider-container {
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        position: relative;
+        margin-bottom: 20px;
       }
-      button {
-        font-size: 14px;
-        padding: 10px 20px;
+
+      #un-highlighted-features .un-highlighted-features-slider-track {
+        display: flex;
+        width: auto;
       }
-    }
-  </style>
-</head>
-<body>
-  <!-- Trigger button -->
-  <button id="openModalBtn"><i class="fa-solid fa-eye"></i> View CV</button>
-  
-  <!-- Modal Overlay -->
-  <div class="modal-overlay" id="cvModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <div class="modal-content">
-      <span class="modal-close" id="closeModalBtn" aria-label="Close Modal"><i class="fa-solid fa-xmark"></i></span>
-      <h1 id="modalTitle">MATTHEW BRADLEY</h1>
 
-      <!-- Header Section -->
-      <div class="section" id="cvHeader">
-        <p><i class="fa-solid fa-user icon"></i> Sculpting Models &amp; Props</p>
-        <p>
-          <i class="fa-solid fa-envelope icon"></i>
-          <a href="mailto:mgbradley.uk@gmail.com" style="color: var(--text-color); text-decoration: none;">
-            mgbradley.uk@gmail.com
-          </a>
-        </p>
-        <p>
-          <i class="fa-solid fa-phone icon"></i>
-          <a href="tel:07428464118" style="color: var(--text-color); text-decoration: none;">
-            07428464118
-          </a>
-        </p>
-        <p>
-          <i class="fa-solid fa-globe icon"></i>
-          <a href="https://mgbradley.uk" target="_blank" style="color: var(--text-color); text-decoration: none;">
-            mgbradley.uk
-          </a>
-        </p>
-        <p>
-          <i class="fa-brands fa-instagram icon"></i>
-          <a href="https://www.instagram.com/m.g.b_artwork/" target="_blank" style="color: var(--text-color); text-decoration: none;">
-            @m.gb_artwork
-          </a>
-        </p>
-      </div>
-      
-      <!-- About Section -->
-      <div class="section" id="about">
-        <h2><i class="fa-solid fa-info-circle icon"></i> About</h2>
-        <p>I'm a model and prop maker with a keen affinity for sculpting from North Somerset, with a life-long love of stop-motion animation and its associated artistry, alongside interests in history, and an enchantment with Tolkienesque fantasy and English folklore. These passions cumulate in my creations where possible.</p>
-        <p>I've completed multiple commissions for a film studio in the USA, acting as lead stop-motion puppet creature fabricator. Most recently I've been working with Yamina-tion studio developing a stop motion children's television series, as well as various commercials.</p>
-        <p>I'm able to confidently use my strong skills in sculpture, model making, moulding, casting, and armature fabrication to produce robust stop motion puppets and any props.</p>
-        <p>I'm easy going and enthusiastic, I work well in a team as well as independently. I'm reliable, dedicated, always keen to help, can manage my time and resources effectively, will take direction well, and have a keen eye for detail!</p>
-        <p>My ideal life is that of a forest dwelling Hobbit wood carver!</p>
-      </div>
-      
-      <!-- Experience Section -->
-      <div class="section" id="experience">
-        <h2><i class="fa-solid fa-briefcase icon"></i> Experience</h2>
-        
-        <h3>Mangostone - Model Maker and Sculptor <span style="font-weight: normal; font-size: 15px;">(June - July 2023)</span></h3>
-        <ul>
-          <li>Worked on projects involving mould making, casting, fabrication, and painting of various props and models.</li>
-        </ul>
-        
-        <h3>Yamination Studios - Sculptor and Model Maker <span style="font-weight: normal; font-size: 15px;">(January - November 2022)</span></h3>
-        <ul>
-          <li>Worked on a stop motion television series and a range of commercials. Responsible for puppet making, including armature building, moulding, casting, maquette sculpture, developing characters from a 2D sketch into a fully realised 3D model, and collaborating with directors to bring puppets to life.</li>
-        </ul>
-        
-        <h3>Workshed Animation - Stop Motion Puppet Fabricator <span style="font-weight: normal; font-size: 15px;">(2020 - 2021)</span></h3>
-        <ul>
-          <li>Handled multiple commissions from a USA-based film studio; designed, built, and finished every aspect of detailed puppets per client briefs.</li>
-        </ul>
-        
-        <h3>Prop Making &amp; SFX - Client Projects <span style="font-weight: normal; font-size: 15px;">(2019 - 2020)</span></h3>
-        <ul>
-          <li>Led a collaborative project to create a large, “ancient” tomb for Peter Thorndike's debut movie, 'PlaguePits'.</li>
-        </ul>
-        
-        <h3>Other Employment - ASDA <span style="font-weight: normal; font-size: 15px;">(2015 - 2017)</span></h3>
-      </div>
-      
-      <!-- Education Section -->
-      <div class="section" id="education">
-        <h2><i class="fa-solid fa-graduation-cap icon"></i> Education</h2>
-        <p><strong>Greater Brighton Metropolitan College</strong></p>
-        <ul>
-          <li>2021: 1st CLASS - BA (Hons) Prop Making &amp; Special Effects</li>
-          <li>2020: DISTINCTION - FdA Theatre Arts: Prop Making &amp; Special Effects</li>
-        </ul>
-        <p><strong>Weston College</strong></p>
-        <ul>
-          <li>2015: LEVEL 2 DIPLOMA - Woodwork &amp; Joinery</li>
-        </ul>
-      </div>
-      
-      <!-- Leading Skills Section -->
-      <div class="section" id="skills">
-        <h2><i class="fa-solid fa-cogs icon"></i> Leading Skills</h2>
-        <ul>
-          <li><strong>Woodwork &amp; Construction</strong> | <strong>Urethane Casting</strong> | <strong>Silver Soldering</strong></li>
-          <li><strong>Sculpting</strong> (clay, reductive poly-carving) | <strong>Basic Foam Construction</strong> | <strong>Model Making</strong></li>
-          <li><strong>Fibreglassing</strong> | <strong>Basic MIG Welding</strong> | <strong>Platinum Silicone</strong> (casting, patching, painting)</li>
-          <li><strong>Moulding</strong> (glicone, fibreglass, piaster) | <strong>Painting &amp; Finishing</strong> | <strong>Basic CAD Skills</strong></li>
-          <li><strong>Full Drivers Licence</strong> | <strong>Reliable - Dedicated - Organised</strong></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  
-  <script>
-    const openModalBtn = document.getElementById('openModalBtn');
-    const closeModalBtn = document.getElementById('closeModalBtn');
-    const cvModal = document.getElementById('cvModal');
-
-    // Open the modal
-    openModalBtn.addEventListener('click', () => {
-      cvModal.classList.add('active');
-    });
-
-    // Close the modal when clicking the close button
-    closeModalBtn.addEventListener('click', () => {
-      cvModal.classList.remove('active');
-    });
-
-    // Close the modal when clicking outside the modal content
-    cvModal.addEventListener('click', (e) => {
-      if (e.target === cvModal) {
-        cvModal.classList.remove('active');
+      #un-highlighted-features .un-highlighted-features-slide {
+        flex: 0 0 auto;
+        scroll-snap-align: start;
+        height: 200px; /* Adjust as needed */
+        position: relative;
+        margin-right: 10px;
       }
-    });
-    
-    // Allow closing modal with the Escape key
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && cvModal.classList.contains('active')) {
-        cvModal.classList.remove('active');
+
+      #un-highlighted-features .un-highlighted-features-slide img {
+        height: 100%;
+        width: auto;
+        object-fit: cover;
+        display: block;
       }
-    });
-  </script>
-</body>
+
+      .un-highlighted-features-label {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.6);
+        color: #fff;
+        font-size: 12px;
+        padding: 2px 4px;
+        font-weight: bold;
+        margin: 0;
+        white-space: nowrap;
+      }
+
+      /* Category title styling */
+      #un-highlighted-features h2 {
+        margin: 20px 0 10px;
+        font-size: 1.2em;
+      }
+    </style>
+  </head>
+  <body>
+    <section id="un-highlighted-features">
+      <!-- Sliders will be dynamically inserted here -->
+    </section>
+
+    <script>
+      function initUnHighlightedFeatures() {
+        const section = document.getElementById('un-highlighted-features');
+        if (!section) return;
+
+        // URLs for categories and projects JSON.
+        const categoriesUrl =
+          'https://georgebradley.github.io/matthew/feature-project-category.json';
+        const projectsUrl =
+          'https://georgebradley.github.io/matthew/feature-project.json'; // Adjust if needed
+
+        Promise.all([
+          fetch(categoriesUrl).then((res) => res.json()),
+          fetch(projectsUrl).then((res) => res.json())
+        ])
+          .then(([categories, projects]) => {
+            // Filter projects that are un-highlighted.
+            const unhighlightedProjects = projects.filter(
+              (p) => p['feature-project-type'] === 'un-highlighted'
+            );
+
+            // Group projects by their main category id.
+            const grouped = {};
+            unhighlightedProjects.forEach((project) => {
+              const catId = project['project-feature-main-category-id'];
+              if (!grouped[catId]) {
+                grouped[catId] = [];
+              }
+              grouped[catId].push(project);
+            });
+
+            // For each category, create a slider if there are projects.
+            categories.forEach((category) => {
+              const catId = category.id;
+              if (grouped[catId] && grouped[catId].length > 0) {
+                // Add a heading for the category.
+                const categoryTitle = document.createElement('h2');
+                categoryTitle.textContent = category.categoryName;
+                section.appendChild(categoryTitle);
+
+                // Create a link that wraps the slider.
+                const link = document.createElement('a');
+                link.href =
+                  'nextpage.html?category=' +
+                  encodeURIComponent(category.categoryName);
+                link.className = 'un-highlighted-features-slider-link';
+
+                // Create slider container and track.
+                const sliderContainer = document.createElement('div');
+                sliderContainer.className =
+                  'un-highlighted-features-slider-container';
+                const sliderTrack = document.createElement('div');
+                sliderTrack.className =
+                  'un-highlighted-features-slider-track';
+
+                // For each project in this category, add two slides (from its gallery images).
+                grouped[catId].forEach((project) => {
+                  const gallery = project['feature-project-gallery'];
+                  if (gallery && gallery.length >= 2) {
+                    // Use the first two images.
+                    for (let i = 0; i < 2; i++) {
+                      const slide = document.createElement('div');
+                      slide.className = 'un-highlighted-features-slide';
+
+                      const img = document.createElement('img');
+                      img.src = gallery[i].image;
+                      img.alt =
+                        gallery[i]['alt-text'] || project['feature-project-name'];
+                      slide.appendChild(img);
+
+                      // Add a label with the project name.
+                      const label = document.createElement('label');
+                      label.className = 'un-highlighted-features-label';
+                      label.textContent = project['feature-project-name'];
+                      slide.appendChild(label);
+
+                      sliderTrack.appendChild(slide);
+                    }
+                  }
+                });
+
+                sliderContainer.appendChild(sliderTrack);
+                link.appendChild(sliderContainer);
+                section.appendChild(link);
+              }
+            });
+          })
+          .catch((error) => {
+            console.error('Error fetching un-highlighted features:', error);
+          });
+      }
+
+      document.addEventListener('DOMContentLoaded', initUnHighlightedFeatures);
+    </script>
+  </body>
 </html>
