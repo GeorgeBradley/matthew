@@ -33,19 +33,6 @@
         display: block;
       }
 
-      .un-highlighted-features-label {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        background: rgba(0, 0, 0, 0.6);
-        color: #fff;
-        font-size: 12px;
-        padding: 2px 4px;
-        font-weight: bold;
-        margin: 0;
-        white-space: nowrap;
-      }
-
       /* Category title styling */
       #un-highlighted-features h2 {
         margin: 20px 0 10px;
@@ -59,6 +46,14 @@
     </section>
 
     <script>
+      // Fisher-Yates shuffle function to randomize array order
+      function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+        }
+      }
+
       function initUnHighlightedFeatures() {
         const section = document.getElementById('un-highlighted-features');
         if (!section) return;
@@ -113,6 +108,9 @@
                 sliderTrack.className =
                   'un-highlighted-features-slider-track';
 
+                // Collect slide elements into an array for shuffling.
+                const slides = [];
+
                 // For each project in this category, add two slides (from its gallery images).
                 grouped[catId].forEach((project) => {
                   const gallery = project['feature-project-gallery'];
@@ -128,16 +126,16 @@
                         gallery[i]['alt-text'] || project['feature-project-name'];
                       slide.appendChild(img);
 
-                      // Add a label with the project name.
-                      const label = document.createElement('label');
-                      label.className = 'un-highlighted-features-label';
-                      label.textContent = project['feature-project-name'];
-                      slide.appendChild(label);
+                      // Label removed as per request.
 
-                      sliderTrack.appendChild(slide);
+                      slides.push(slide);
                     }
                   }
                 });
+
+                // Randomize the slides before appending them.
+                shuffleArray(slides);
+                slides.forEach((slide) => sliderTrack.appendChild(slide));
 
                 sliderContainer.appendChild(sliderTrack);
                 link.appendChild(sliderContainer);
