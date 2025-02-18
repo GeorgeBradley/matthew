@@ -53,6 +53,30 @@
         "feature-project-type": "highlighted",
         "project-feature-main-category-id": 1,
         "feature-project-order": 2
+    }, 
+    {
+        "id": 3,
+        "feature-project-name": "BBC 2022 Commonwealth Games",
+        "feature-project-description": "I built and painted the scale model of Alexander Stadium for the final shot of the advert, and also assisted with set dressing during the shoot.",
+        "feature-project-long-description": "I built and painted the scale model of Alexander Stadium for the final shot of the advert, and also assisted with set dressing during the shoot.",
+        "feature-project-thumbnail": "feature-img/feature-3.jpg",
+        "feature-project-gallery": [
+            { "image": "feature-img/feature-3-1.jpg", "description": "Cutting recycled materials for puppet construction.", "alt-text": "Hands cutting fabric from repurposed clothing for puppets.", "order": 1 },
+            { "image": "feature-img/feature-3-2.jpg", "description": "Finished hand puppets designed for educational use.", "alt-text": "A set of colourful hand puppets made from recycled materials.", "order": 2 },
+            { "image": "feature-img/feature-3-3.jpg", "description": "Children interacting with the eco-friendly puppets.", "alt-text": "A group of children using puppets in an educational setting.", "order": 3 },
+            { "image": "feature-img/feature-3-4.jpg", "description": "Children interacting with the eco-friendly puppets.", "alt-text": "A group of children using puppets in an educational setting.", "order": 4 },
+            { "image": "feature-img/feature-3-5.jpg", "description": "Children interacting with the eco-friendly puppets.", "alt-text": "A group of children using puppets in an educational setting.", "order": 5 }
+        ],
+        "feature-project-link": "https://greenpuppets.org/eco-series",
+        "feature-project-start-year": 2022,
+        "feature-project-end-year": null,
+        "feature-project-company-name": null,
+        "feature-project-skills": ["scale model construction", "painting", "set dressing"],
+        "feature-project-job-category": "Model maker, painter, and set dresser",
+        "feature-project-client": "Television ad for BBC 2022 Commonwealth Games",
+        "feature-project-type": "highlighted",
+        "project-feature-main-category-id": 3,
+        "feature-project-order": 5
     },
     {
         "id": 4,
@@ -112,30 +136,7 @@
         "project-feature-main-category-id": 3,
         "feature-project-order": 4
     },
-    {
-        "id": 3,
-        "feature-project-name": "BBC 2022 Commonwealth Games",
-        "feature-project-description": "I built and painted the scale model of Alexander Stadium for the final shot of the advert, and also assisted with set dressing during the shoot.",
-        "feature-project-long-description": "I built and painted the scale model of Alexander Stadium for the final shot of the advert, and also assisted with set dressing during the shoot.",
-        "feature-project-thumbnail": "feature-img/feature-3.jpg",
-        "feature-project-gallery": [
-            { "image": "feature-img/feature-3-1.jpg", "description": "Cutting recycled materials for puppet construction.", "alt-text": "Hands cutting fabric from repurposed clothing for puppets.", "order": 1 },
-            { "image": "feature-img/feature-3-2.jpg", "description": "Finished hand puppets designed for educational use.", "alt-text": "A set of colourful hand puppets made from recycled materials.", "order": 2 },
-            { "image": "feature-img/feature-3-3.jpg", "description": "Children interacting with the eco-friendly puppets.", "alt-text": "A group of children using puppets in an educational setting.", "order": 3 },
-            { "image": "feature-img/feature-3-4.jpg", "description": "Children interacting with the eco-friendly puppets.", "alt-text": "A group of children using puppets in an educational setting.", "order": 4 },
-            { "image": "feature-img/feature-3-5.jpg", "description": "Children interacting with the eco-friendly puppets.", "alt-text": "A group of children using puppets in an educational setting.", "order": 5 }
-        ],
-        "feature-project-link": "https://greenpuppets.org/eco-series",
-        "feature-project-start-year": 2022,
-        "feature-project-end-year": null,
-        "feature-project-company-name": null,
-        "feature-project-skills": ["scale model construction", "painting", "set dressing"],
-        "feature-project-job-category": "Model maker, painter, and set dresser",
-        "feature-project-client": "Television ad for BBC 2022 Commonwealth Games",
-        "feature-project-type": "highlighted",
-        "project-feature-main-category-id": 3,
-        "feature-project-order": 5
-    },
+   
     {
         "id": 6,
         "feature-project-name": "1:6 Scale Edwards & Roberts Ladies Writing Desk",
