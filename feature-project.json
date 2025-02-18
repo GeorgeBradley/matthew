@@ -578,7 +578,7 @@
         "feature-project-skills": ["sculpting", "model making", "mixed media"],
         "feature-project-job-category": "Miscellaneous creative projects",
         "feature-project-client": null,
-        "feature-project-type": "un-highlighted",
+        "feature-project-type": "highlighted",
         "project-feature-main-category-id": 5,
         "feature-project-order": null
     }
