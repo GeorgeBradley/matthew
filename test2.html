@@ -33,10 +33,20 @@
         display: block;
       }
 
-      /* Category title styling */
-      #un-highlighted-features h2 {
+      /* Category header styling */
+      .category-header {
         margin: 20px 0 10px;
-        font-size: 1.2em;
+        padding: 0 10px;
+      }
+      .category-header h2 {
+        margin: 0 0 5px;
+        font-size: 1.5em;
+        color: #333;
+      }
+      .category-description {
+        margin: 0;
+        color: #666;
+        font-size: 1em;
       }
     </style>
   </head>
@@ -99,10 +109,20 @@
             categories.forEach((category) => {
               const catId = category.id;
               if (grouped[catId] && grouped[catId].length > 0) {
-                // Add a heading for the category.
+                // Create category header (title and description)
+                const headerDiv = document.createElement('div');
+                headerDiv.className = 'category-header';
+
                 const categoryTitle = document.createElement('h2');
                 categoryTitle.textContent = category.categoryName;
-                section.appendChild(categoryTitle);
+                headerDiv.appendChild(categoryTitle);
+
+                const categoryDesc = document.createElement('p');
+                categoryDesc.className = 'category-description';
+                categoryDesc.textContent = category.description;
+                headerDiv.appendChild(categoryDesc);
+
+                section.appendChild(headerDiv);
 
                 // Create a link that wraps the slider.
                 const link = document.createElement('a');
@@ -136,7 +156,7 @@
                         gallery[i]['alt-text'] || project['feature-project-name'];
                       slide.appendChild(img);
 
-                      // Label removed per request.
+                      // Label removed as per request.
                       slidesForProject.push(slide);
                     }
                     projectSlides.push(slidesForProject);
