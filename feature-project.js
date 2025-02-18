@@ -85,12 +85,21 @@ async function loadProjects() {
     const projects = await fetchProjects();
     
     if (projects && projects.length) {
+        // Filter projects with "feature-project-type" equal to "highlighted"
+        const filteredProjects = projects.filter(project => project['feature-project-type'] === 'highlighted');
+        
+        // Sort filtered projects based on "feature-project-order", defaulting to 0 if null
+        filteredProjects.sort((a, b) => {
+            const orderA = a['feature-project-order'] != null ? a['feature-project-order'] : 0;
+            const orderB = b['feature-project-order'] != null ? b['feature-project-order'] : 0;
+            return orderA - orderB;
+        });
+        
         projectsContainer.innerHTML = '';
-        projects.forEach((project, index) => {
+        filteredProjects.forEach((project, index) => {
             const card = createProjectCard(project);
             card.style.animationDelay = `${index * 0.1}s`;
             projectsContainer.appendChild(card);
-            // Observe each card after appending it
             observer.observe(card);
         });
     }
@@ -101,7 +110,6 @@ const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.style.opacity = 1;
-            // Optionally unobserve once the element is visible
             observer.unobserve(entry.target);
         }
     });
