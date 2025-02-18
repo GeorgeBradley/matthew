@@ -22,7 +22,8 @@
         "feature-project-company-name": null,
         "feature-project-skills": ["stop-motion fabrication", "silicone molding", "armature construction", "painting"],
         "feature-project-job-category": "Lead creature fabricator.",
-        "feature-project-client": "Workshed Animation’s feature film ‘The Iron Leech’"
+        "feature-project-client": "Workshed Animation’s feature film ‘The Iron Leech’",
+        "feature-project-type": "highlighted"
     },
     {
         "id": 2,
@@ -48,7 +49,8 @@
         "feature-project-company-name": null,
         "feature-project-skills": ["sculpting", "molding", "casting", "armature construction", "set dressing"],
         "feature-project-job-category": "Sculptor, model maker, and set dresser",
-        "feature-project-client": "Television ad campaign for Olbas Oil - ‘The power to breathe’"
+        "feature-project-client": "Television ad campaign for Olbas Oil - ‘The power to breathe’",
+        "feature-project-type": "highlighted"
     },
     {
         "id": 4,
@@ -78,7 +80,8 @@
         "feature-project-company-name": null,
         "feature-project-skills": ["sculpting", "armature construction", "molding", "casting", "painting", "puppet maintenance"],
         "feature-project-job-category": "Sculptor, model maker, armature constructor, and on-set puppet maintenance",
-        "feature-project-client": "Deutsche Telekom Magenta."
+        "feature-project-client": "Deutsche Telekom Magenta.",
+        "feature-project-type": "highlighted"
     },
     {
         "id": 5,
@@ -100,7 +103,8 @@
         "feature-project-company-name": null,
         "feature-project-skills": ["prop fabrication", "molding", "casting", "painting"],
         "feature-project-job-category": "Prop fabricator and model maker",
-        "feature-project-client": "BBC"
+        "feature-project-client": "BBC",
+        "feature-project-type": "highlighted"
     },
     {
         "id": 3,
@@ -121,7 +125,8 @@
         "feature-project-company-name": null,
         "feature-project-skills": ["scale model construction", "painting", "set dressing"],
         "feature-project-job-category": "Model maker, painter, and set dresser",
-        "feature-project-client": "Television ad for BBC 2022 Commonwealth Games"
+        "feature-project-client": "Television ad for BBC 2022 Commonwealth Games",
+        "feature-project-type": "highlighted"
     },
     {
         "id": 6,
@@ -143,7 +148,8 @@
         "feature-project-company-name": null,
         "feature-project-skills": ["scale modeling", "woodworking", "carving", "resin casting", "joinery"],
         "feature-project-job-category": "Scale model fabricator and woodworker",
-        "feature-project-client": null
+        "feature-project-client": null,
+        "feature-project-type": "un-highlighted"
     },
     {
         "id": 7,
@@ -165,7 +171,8 @@
         "feature-project-company-name": null,
         "feature-project-skills": ["stop-motion fabrication", "silicone molding", "armature construction", "painting"],
         "feature-project-job-category": "Lead creature fabricator.",
-        "feature-project-client": "Workshed Animation’s feature film ‘The Iron Leech’"
+        "feature-project-client": "Workshed Animation’s feature film ‘The Iron Leech’",
+        "feature-project-type": "un-highlighted"
     },
     {
         "id": 8,
@@ -187,7 +194,8 @@
         "feature-project-company-name": null,
         "feature-project-skills": ["sculpting", "armature construction", "silicone molding", "polyurethane casting", "painting"],
         "feature-project-job-category": "Sculptor and model maker",
-        "feature-project-client": null
+        "feature-project-client": null,
+        "feature-project-type": "un-highlighted"
     },
     {
         "id": 9,
@@ -209,7 +217,8 @@
         "feature-project-company-name": null,
         "feature-project-skills": ["puppet fabrication", "foam work", "pattern making", "stitching", "mechanism design"],
         "feature-project-job-category": "Student puppet fabrication project",
-        "feature-project-client": null
+        "feature-project-client": null,
+        "feature-project-type": "un-highlighted"
     },
     {
         "id": 10,
@@ -229,7 +238,8 @@
         "feature-project-company-name": null,
         "feature-project-skills": ["scale modeling", "woodworking", "epoxy finishing"],
         "feature-project-job-category": "Scale model fabricator and woodworker",
-        "feature-project-client": null
+        "feature-project-client": null,
+        "feature-project-type": "un-highlighted"
     },
     {
         "id": 11,
@@ -255,7 +265,8 @@
         "feature-project-company-name": null,
         "feature-project-skills": ["scale modeling", "3D modeling", "wood carving", "laser cutting", "molding", "casting"],
         "feature-project-job-category": "Scale model fabricator and model maker",
-        "feature-project-client": null
+        "feature-project-client": null,
+        "feature-project-type": "un-highlighted"
     },
     {
         "id": 12,
@@ -277,7 +288,8 @@
         "feature-project-company-name": null,
         "feature-project-skills": ["sculpting", "fiberglassing", "airbrushing", "carving", "epoxy finishing"],
         "feature-project-job-category": "Sculptor and installation fabricator",
-        "feature-project-client": "Comic Bookstore in Horsham"
+        "feature-project-client": "Comic Bookstore in Horsham",
+        "feature-project-type": "un-highlighted"
     },
     {
         "id": 13,
@@ -301,7 +313,8 @@
         "feature-project-company-name": null,
         "feature-project-skills": ["project leadership", "design", "welding", "carving", "painting"],
         "feature-project-job-category": "Project leader and fabrication specialist",
-        "feature-project-client": "Independent film 'Plaguepits'"
+        "feature-project-client": "Independent film 'Plaguepits'",
+        "feature-project-type": "highlighted"
     },
     {
         "id": 14,
@@ -316,7 +329,8 @@
         "feature-project-company-name": null,
         "feature-project-skills": ["sculpting", "clay sculpting", "armature construction", "polymer clay work"],
         "feature-project-job-category": "Sculptor and model maker",
-        "feature-project-client": null
+        "feature-project-client": null,
+        "feature-project-type": "un-highlighted"
     },
     {
         "id": 15,
@@ -337,7 +351,8 @@
         "feature-project-company-name": null,
         "feature-project-skills": ["plasticine modeling", "character design", "model making"],
         "feature-project-job-category": "Plasticine model maker",
-        "feature-project-client": null
+        "feature-project-client": null,
+        "feature-project-type": "un-highlighted"
     },
     {
         "id": 16,
@@ -356,7 +371,8 @@
         "feature-project-company-name": null,
         "feature-project-skills": ["woodworking", "set construction", "structural framing", "collaborative design"],
         "feature-project-job-category": "Set construction and model fabrication",
-        "feature-project-client": "University production"
+        "feature-project-client": "University production",
+        "feature-project-type": "un-highlighted"
     },
     {
         "id": 17,
@@ -375,7 +391,8 @@
         "feature-project-company-name": null,
         "feature-project-skills": ["carpentry", "woodworking", "joinery"],
         "feature-project-job-category": "Independent carpentry projects",
-        "feature-project-client": null
+        "feature-project-client": null,
+        "feature-project-type": "un-highlighted"
     },
     {
         "id": 18,
@@ -410,7 +427,8 @@
         "feature-project-company-name": null,
         "feature-project-skills": ["CAD design", "3D modeling", "technical drafting"],
         "feature-project-job-category": "CAD Designer and 3D modeler",
-        "feature-project-client": null
+        "feature-project-client": null,
+        "feature-project-type": "un-highlighted"
     },
     {
         "id": 19,
@@ -435,6 +453,7 @@
         "feature-project-company-name": null,
         "feature-project-skills": ["sculpting", "model making", "mixed media"],
         "feature-project-job-category": "Miscellaneous creative projects",
-        "feature-project-client": null
+        "feature-project-client": null,
+        "feature-project-type": "un-highlighted"
     }
 ]
