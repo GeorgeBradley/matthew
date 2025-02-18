@@ -1320,3 +1320,139 @@ margin: 0 auto;
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+/* Card Container for each category slider */
+.un-highlighted-category-slider {
+  background: var(--secondary-color);
+  margin: 20px auto;
+  padding: 15px;
+  max-width: 900px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+.un-highlighted-category-slider:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Slider wrapper: container for clickable link and arrow buttons */
+.un-highlighted-slider-wrapper {
+  position: relative;
+}
+
+/* Clickable area styling */
+.un-highlighted-features-slider-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Category header styling */
+.un-highlighted-category-header {
+  padding: 0 10px;
+  margin-bottom: 10px;
+}
+.un-highlighted-category-header h2 {
+  margin: 0 0 5px;
+  font-size: 1.8em;
+  color: var(--tertiary-color);
+}
+.un-highlighted-category-description {
+  margin: 0;
+  color: var(--text-dark);
+  font-size: 1em;
+}
+
+/* Slider Container & Track */
+.un-highlighted-features-slider-container {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  margin-top: 10px;
+  padding-bottom: 10px;
+}
+.un-highlighted-features-slider-track {
+  display: flex;
+}
+.un-highlighted-features-slide {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  height: 200px; /* Adjust as needed */
+  position: relative;
+  margin-right: 10px;
+  border-radius: 4px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+.un-highlighted-features-slide:hover {
+  transform: scale(1.03);
+}
+.un-highlighted-features-slide img {
+  height: 100%;
+  width: auto;
+  object-fit: cover;
+  display: block;
+}
+
+/* Navigation Arrows */
+.un-highlighted-slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 2;
+  opacity: 0.8;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  user-select: none;
+}
+.un-highlighted-slider-arrow:hover {
+  opacity: 1;
+  transform: translateY(-50%) scale(1.1);
+}
+.un-highlighted-slider-arrow.left {
+  left: 10px;
+}
+.un-highlighted-slider-arrow.right {
+  right: 10px;
+}
+
+/* Custom Scrollbar for WebKit */
+.un-highlighted-features-slider-container::-webkit-scrollbar {
+  height: 8px;
+}
+.un-highlighted-features-slider-container::-webkit-scrollbar-track {
+  background: var(--secondary-color);
+  border-radius: 4px;
+}
+.un-highlighted-features-slider-container::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 4px;
+}
+
+
+
+
+
+
+
+
