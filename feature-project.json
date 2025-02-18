@@ -110,7 +110,7 @@
         "feature-project-job-category": "Prop fabricator and model maker",
         "feature-project-client": "BBC",
         "feature-project-type": "highlighted",
-        "feature-project-order": 4;
+        "feature-project-order": 4
 
     },
     {
@@ -183,7 +183,7 @@
         "feature-project-skills": ["stop-motion fabrication", "silicone molding", "armature construction", "painting"],
         "feature-project-job-category": "Lead creature fabricator.",
         "feature-project-client": "Workshed Animation’s feature film ‘The Iron Leech’",
-        "feature-project-type": "un-highlighted"
+        "feature-project-type": "un-highlighted",
          "feature-project-order": null
     },
     {
@@ -393,7 +393,8 @@
         "feature-project-skills": ["woodworking", "set construction", "structural framing", "collaborative design"],
         "feature-project-job-category": "Set construction and model fabrication",
         "feature-project-client": "University production",
-        "feature-project-type": "un-highlighted"
+        "feature-project-type": "un-highlighted",
+         "feature-project-order": null
     },
     {
         "id": 17,
