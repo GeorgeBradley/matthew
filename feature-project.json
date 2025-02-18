@@ -471,17 +471,17 @@
     "feature-project-name": "Other Work",
     "feature-project-description": "Click here to see a few 'honourable' mentions.",
     "feature-project-long-description": "Here are a few 'honourable' mentions.",
-    "feature-project-thumbnail": "feature-img-beta/mis-8.jpg",
+    "feature-project-thumbnail": "feature-img-beta/feature-19-2.jpg",
     "feature-project-gallery": [
-      { "image": "feature-img-beta/mis-1.jpg", "description": "Grey Alien", "alt-text": "Grey Alien", "order": 1 },
-      { "image": "feature-img-beta/mis-2.jpg", "description": "Icing Cake Topper", "alt-text": "Icing Cake Topper", "order": 2 },
-      { "image": "feature-img-beta/mis-3.jpg", "description": "A Shell-less Snail", "alt-text": "A Shell-less Snail", "order": 3 },
-      { "image": "feature-img-beta/mis-4.jpg", "description": "3:1 Scale Ear", "alt-text": "3:1 Scale Ear", "order": 4 },
-      { "image": "feature-img-beta/mis-5.jpg", "description": "Female Form", "alt-text": "Female Form", "order": 5 },
-      { "image": "feature-img-beta/mis-6.jpg", "description": "Female Form", "alt-text": "Female Form", "order": 6 },
-      { "image": "feature-img-beta/mis-7.jpg", "description": "A Poly-Carved Gargoyle", "alt-text": "A Poly-Carved Gargoyle", "order": 7 },
-      { "image": "feature-img-beta/mis-8.jpg", "description": "Stomach", "alt-text": "Stomach", "order": 8 },
-      { "image": "feature-img-beta/mis-9.jpg", "description": "Frog", "alt-text": "Frog", "order": 9 }
+      { "image": "feature-img-beta/feature-19.jpg", "description": "Grey Alien", "alt-text": "Grey Alien", "order": 1 },
+      { "image": "feature-img-beta/feature-19-1.jpg", "description": "Icing Cake Topper", "alt-text": "Icing Cake Topper", "order": 2 },
+      { "image": "feature-img-beta/feature-19-2.jpg", "description": "A Shell-less Snail", "alt-text": "A Shell-less Snail", "order": 3 },
+      { "image": "feature-img-beta/feature-19-3.jpg", "description": "3:1 Scale Ear", "alt-text": "3:1 Scale Ear", "order": 4 },
+      { "image": "feature-img-beta/feature-19-4.jpg", "description": "Female Form", "alt-text": "Female Form", "order": 5 },
+      { "image": "feature-img-beta/feature-19-5.jpg", "description": "Female Form", "alt-text": "Female Form", "order": 6 },
+      { "image": "feature-img-beta/feature-19-6.jpg", "description": "A Poly-Carved Gargoyle", "alt-text": "A Poly-Carved Gargoyle", "order": 7 },
+      { "image": "feature-img-beta/feature-19-7.jpg", "description": "Stomach", "alt-text": "Stomach", "order": 8 },
+      { "image": "feature-img-beta/feature-19-8.jpg", "description": "Frog", "alt-text": "Frog", "order": 9 }
     ],
     "feature-project-link": "https://greenpuppets.org/eco-series",
     "feature-project-start-year": 2022,
@@ -493,92 +493,8 @@
     "feature-project-type": "un-highlighted",
     "project-feature-main-category-id": 2,
     "feature-project-order": null
-  },
-  {
-    "id": 20,
-    "feature-project-name": "Test 1",
-    "feature-project-description": "Click here to see a few 'honourable' mentions.",
-    "feature-project-long-description": "Here are a few 'honourable' mentions.",
-    "feature-project-thumbnail": "feature-img-beta/mis-8.jpg",
-    "feature-project-gallery": [
-      { "image": "feature-img/test/test-1.jpg", "description": "Grey Alien", "alt-text": "Grey Alien", "order": 1 },
-      { "image": "feature-img/test/test-2.jpg", "description": "Icing Cake Topper", "alt-text": "Icing Cake Topper", "order": 2 }
-    ],
-    "feature-project-link": "https://greenpuppets.org/eco-series",
-    "feature-project-start-year": 2022,
-    "feature-project-end-year": null,
-    "feature-project-company-name": null,
-    "feature-project-skills": ["sculpting", "model making", "mixed media"],
-    "feature-project-job-category": "Miscellaneous creative projects",
-    "feature-project-client": null,
-    "feature-project-type": "un-highlighted",
-    "project-feature-main-category-id": 5,
-    "feature-project-order": null
-  },
-  {
-    "id": 21,
-    "feature-project-name": "Test 2",
-    "feature-project-description": "Click here to see a few 'honourable' mentions.",
-    "feature-project-long-description": "Here are a few 'honourable' mentions.",
-    "feature-project-thumbnail": "feature-img-beta/mis-8.jpg",
-    "feature-project-gallery": [
-      { "image": "feature-img/test/test-3.jpg", "description": "Grey Alien", "alt-text": "Grey Alien", "order": 1 },
-      { "image": "feature-img/test/test-4.jpg", "description": "Icing Cake Topper", "alt-text": "Icing Cake Topper", "order": 2 }
-    ],
-    "feature-project-link": "https://greenpuppets.org/eco-series",
-    "feature-project-start-year": 2022,
-    "feature-project-end-year": null,
-    "feature-project-company-name": null,
-    "feature-project-skills": ["sculpting", "model making", "mixed media"],
-    "feature-project-job-category": "Miscellaneous creative projects",
-    "feature-project-client": null,
-    "feature-project-type": "un-highlighted",
-    "project-feature-main-category-id": 5,
-    "feature-project-order": null
-  },
-  {
-    "id": 22,
-    "feature-project-name": "Test 3",
-    "feature-project-description": "Click here to see a few 'honourable' mentions.",
-    "feature-project-long-description": "Here are a few 'honourable' mentions.",
-    "feature-project-thumbnail": "feature-img-beta/mis-8.jpg",
-    "feature-project-gallery": [
-      { "image": "feature-img/test/test-5.jpg", "description": "Grey Alien", "alt-text": "Grey Alien", "order": 1 },
-      { "image": "feature-img/test/test-6.jpg", "description": "Icing Cake Topper", "alt-text": "Icing Cake Topper", "order": 2 }
-    ],
-    "feature-project-link": "https://greenpuppets.org/eco-series",
-    "feature-project-start-year": 2022,
-    "feature-project-end-year": null,
-    "feature-project-company-name": null,
-    "feature-project-skills": ["sculpting", "model making", "mixed media"],
-    "feature-project-job-category": "Miscellaneous creative projects",
-    "feature-project-client": null,
-    "feature-project-type": "un-highlighted",
-    "project-feature-main-category-id": 5,
-    "feature-project-order": null
-  },
-  {
-    "id": 23,
-    "feature-project-name": "Test 4",
-    "feature-project-description": "Click here to see a few 'honourable' mentions.",
-    "feature-project-long-description": "Here are a few 'honourable' mentions.",
-    "feature-project-thumbnail": "feature-img-beta/mis-8.jpg",
-    "feature-project-gallery": [
-      { "image": "feature-img/test/test-7.jpg", "description": "Grey Alien", "alt-text": "Grey Alien", "order": 1 },
-      { "image": "feature-img/test/test-8.jpg", "description": "Icing Cake Topper", "alt-text": "Icing Cake Topper", "order": 2 },
-      { "image": "feature-img/test/test-4.jpg", "description": "Grey Alien", "alt-text": "Grey Alien", "order": 1 },
-      { "image": "feature-img/test/test-2.jpg", "description": "Icing Cake Topper", "alt-text": "Icing Cake Topper", "order": 2 },
-      { "image": "feature-img/test/test-1.jpg", "description": "Icing Cake Topper", "alt-text": "Icing Cake Topper", "order": 2 }
-    ],
-    "feature-project-link": "https://greenpuppets.org/eco-series",
-    "feature-project-start-year": 2022,
-    "feature-project-end-year": null,
-    "feature-project-company-name": null,
-    "feature-project-skills": ["sculpting", "model making", "mixed media"],
-    "feature-project-job-category": "Miscellaneous creative projects",
-    "feature-project-client": null,
-    "feature-project-type": "highlighted",
-    "project-feature-main-category-id": 5,
-    "feature-project-order": null
   }
+ 
+
+  
 ]
