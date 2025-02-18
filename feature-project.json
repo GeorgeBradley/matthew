@@ -52,7 +52,7 @@
     "feature-project-client": "Television ad campaign for Olbas Oil - ‘The power to breathe’",
     "feature-project-type": "highlighted",
     "project-feature-main-category-id": 1,
-    "feature-project-order": 2
+    "feature-project-order": 3
   },
   {
     "id": 3,
@@ -109,7 +109,7 @@
     "feature-project-client": "Deutsche Telekom Magenta.",
     "feature-project-type": "highlighted",
     "project-feature-main-category-id": 1,
-    "feature-project-order": 3
+    "feature-project-order": 2
   },
   {
     "id": 5,
@@ -447,13 +447,7 @@
         "alt-text": "Tomb Design (plaguepits designed and later built for peter thorndike’s upcoming horror movie, ‘plaguepits’).",
         "order": 2
       },
-      {
-        "image": "feature-img-beta/feature-18-2.jpg",
-        "description": "Rent the Musical (modelled and built components for the in-house university production.)",
-        "alt-text": "Rent the Musical (modelled and built components for the in-house university production.)",
-        "order": 3
-      },
-      { "image": "feature-img-beta/feature-18-3.jpg", "description": "20mm BALL& SOCKET JOINT", "alt-text": "20mm BALL& SOCKET JOINT", "order": 4 }
+      { "image": "feature-img-beta/feature-18-2.jpg", "description": "20mm BALL& SOCKET JOINT", "alt-text": "20mm BALL& SOCKET JOINT", "order": 4 }
     ],
     "feature-project-link": "https://greenpuppets.org/eco-series",
     "feature-project-start-year": 2022,
