@@ -309,27 +309,28 @@
     }
     .lightbox-content {
       position: relative;
-      background: #000;
-      border-radius: 8px;
-      overflow: hidden;
-      max-width: 90%;
-      max-height: 90%;
+    background: #000;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 900px;
       display: flex;
-      flex-direction: column;
+    flex-direction: column;
     }
     .lightbox-image-container {
-      position: relative;
-      width: 100%;
-      text-align: center;
-      background: #000;
+           position: relative;
+    width: 100%;
+    text-align: center;
+    background: #000;
+      
     }
     .lightbox-image {
-      max-width: 100%;
-      max-height: 80vh;
-      object-fit: contain;
-      display: block;
-      margin: 0 auto;
-      transition: opacity 0.3s ease;
+       max-width: 100%;
+    /* max-height: 80vh; */
+    height: 500px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+    transition: opacity 0.3s ease;
     }
     .lightbox-caption {
       background: var(--primary);
