@@ -48,6 +48,13 @@
         color: #666;
         font-size: 1em;
       }
+
+      /* Ensure the entire link area is clickable and looks neat */
+      .un-highlighted-features-slider-link {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+      }
     </style>
   </head>
   <body>
@@ -109,6 +116,13 @@
             categories.forEach((category) => {
               const catId = category.id;
               if (grouped[catId] && grouped[catId].length > 0) {
+                // Create a link that wraps both the header and the slider.
+                const link = document.createElement('a');
+                link.href =
+                  'nextpage.html?category=' +
+                  encodeURIComponent(category.categoryName);
+                link.className = 'un-highlighted-features-slider-link';
+
                 // Create category header (title and description)
                 const headerDiv = document.createElement('div');
                 headerDiv.className = 'category-header';
@@ -122,14 +136,8 @@
                 categoryDesc.textContent = category.description;
                 headerDiv.appendChild(categoryDesc);
 
-                section.appendChild(headerDiv);
-
-                // Create a link that wraps the slider.
-                const link = document.createElement('a');
-                link.href =
-                  'nextpage.html?category=' +
-                  encodeURIComponent(category.categoryName);
-                link.className = 'un-highlighted-features-slider-link';
+                // Append the header to the link.
+                link.appendChild(headerDiv);
 
                 // Create slider container and track.
                 const sliderContainer = document.createElement('div');
@@ -153,10 +161,11 @@
                       const img = document.createElement('img');
                       img.src = gallery[i].image;
                       img.alt =
-                        gallery[i]['alt-text'] || project['feature-project-name'];
+                        gallery[i]['alt-text'] ||
+                        project['feature-project-name'];
                       slide.appendChild(img);
 
-                      // Label removed as per request.
+                      // Label removed per request.
                       slidesForProject.push(slide);
                     }
                     projectSlides.push(slidesForProject);
@@ -187,7 +196,10 @@
                 finalSlides.forEach((slide) => sliderTrack.appendChild(slide));
 
                 sliderContainer.appendChild(sliderTrack);
+                // Append the slider container to the link.
                 link.appendChild(sliderContainer);
+
+                // Append the link to the section.
                 section.appendChild(link);
               }
             });
