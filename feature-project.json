@@ -509,7 +509,9 @@
     { "image": "feature-img-beta/feature-20-11.jpg", "description": "", "alt-text": "", "order": 10 },
     { "image": "feature-img-beta/feature-20-12.jpg", "description": "", "alt-text": "", "order": 10 },
     { "image": "feature-img-beta/feature-20-13.jpg", "description": "", "alt-text": "", "order": 10 },
-    { "image": "feature-img-beta/feature-20-14.jpg", "description": "", "alt-text": "", "order": 10 }
+    { "image": "feature-img-beta/feature-20-14.jpg", "description": "", "alt-text": "", "order": 10 },
+        { "image": "feature-img-beta/feature-20-15.jpg", "description": "", "alt-text": "", "order": 10 }
+
   ],
   "feature-project-link": "https://greenpuppets.org/eco-series",
   "feature-project-start-year": 2022,
