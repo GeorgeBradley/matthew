@@ -537,11 +537,14 @@
       try {
         await fetchData();
         if (categoryParam) {
-          // If a category parameter is provided, render the category view.
+          // If a category parameter is provided, filter for projects that are:
+          // 1. In the chosen category, AND
+          // 2. Have a "feature-project-type" of "un-highlighted"
           const category = allCategories.find(c => c.id === Number(categoryParam));
           if (category) {
             const filteredProjects = allProjects.filter(
-              p => p["project-feature-main-category-id"] === Number(categoryParam)
+              p => p["project-feature-main-category-id"] === Number(categoryParam) &&
+                   p["feature-project-type"] === "un-highlighted"
             );
             renderCategoryDetails(category, filteredProjects);
             initLightbox();
