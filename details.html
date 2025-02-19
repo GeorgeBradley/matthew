@@ -12,7 +12,7 @@
   <!-- Navigation & other shared styles are in shareable.css -->
   <link rel="stylesheet" href="shareable.css" media="all">
   <style>
-    /* New Details Page Styles – Navigation CSS intentionally omitted */
+    /* -------------------- Root Variables -------------------- */
     :root {
       --primary: #005f73;
       --secondary: #333;
@@ -28,6 +28,7 @@
     *, *::before, *::after {
       box-sizing: border-box;
     }
+    
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
@@ -35,6 +36,7 @@
       color: var(--text);
       line-height: 1.6;
     }
+    
     a {
       text-decoration: none;
       color: inherit;
@@ -48,8 +50,9 @@
       overflow: hidden;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       animation: fadeIn 0.5s ease-out;
-      margin: 0 auto;
+      margin: 0 auto 2rem auto;
     }
+    
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
@@ -57,14 +60,15 @@
     
     /* -------------------- Header Section -------------------- */
     .detail-header {
-    background: var(--header-gradient);
-    text-align: center;
-    color: #fff;
-    display: flex;
-    padding-bottom: 1rem;
-    flex-direction: column;
-    position: relative;
+      background: var(--header-gradient);
+      text-align: center;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 1rem;
+      position: relative;
     }
+    
     .detail-header::after {
       content: '';
       position: absolute;
@@ -76,35 +80,33 @@
       background: var(--accent);
       border-radius: 2px;
     }
+    
     .project-title {
-          margin: .5rem;
-
-    font-size: 1.5rem;
-   
-    font-weight: 700;
-    margin: .5rem;
+      margin: 0.5rem;
+      font-size: 1.5rem;
+      font-weight: 700;
     }
+    
     .project-meta {
       font-size: 1rem;
       opacity: 0.9;
       display: flex;
       justify-content: center;
       gap: 1rem;
-          padding: .3rem;
+      padding: 0.3rem;
     }
     
     /* -------------------- Main Image -------------------- */
     .detail-image {
       max-width: 100%; 
-    display: block;
-    width: 600px;
-    margin: 0 auto;
-    /* height: 450px; */
-    /*object-fit: cover;*/
-          height: 250px;
-    object-fit: contain;
-    transition: transform 0.4s ease;
+      display: block;
+      width: 600px;
+      margin: 1rem auto;
+      height: 250px;
+      object-fit: contain;
+      transition: transform 0.4s ease;
     }
+    
     .detail-image:hover {
       transform: scale(1.03);
     }
@@ -113,9 +115,10 @@
     .detail-content {
       padding: 2rem;
     }
+    
     .project-description {
       max-width: 900px;
-      margin: 0 auto 2rem;
+      margin: 0 auto 2rem auto;
       font-size: 1.15rem;
       text-align: justify;
       color: var(--secondary);
@@ -126,6 +129,7 @@
       margin: 2rem 0;
       padding: 0 2rem;
     }
+    
     .gallery-section h2 {
       text-align: center;
       font-size: 2rem;
@@ -133,6 +137,7 @@
       position: relative;
       padding-bottom: 0.5rem;
     }
+    
     .gallery-section h2::after {
       content: '';
       position: absolute;
@@ -144,6 +149,7 @@
       background: var(--primary);
       border-radius: 2px;
     }
+    
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -151,6 +157,7 @@
       max-width: 1100px;
       margin: 0 auto;
     }
+    
     .gallery-item {
       position: relative;
       border: 1px solid var(--border);
@@ -160,16 +167,19 @@
       background: var(--card-bg);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
+    
     .gallery-item:hover {
       transform: translateY(-4px);
       box-shadow: 0 8px 20px rgba(0,0,0,0.1);
     }
+    
     .gallery-thumbnail {
       width: 100%;
       aspect-ratio: 16 / 9;
       object-fit: cover;
       display: block;
     }
+    
     .gallery-overlay {
       position: absolute;
       bottom: 0;
@@ -183,6 +193,7 @@
       opacity: 0;
       transition: opacity 0.3s ease;
     }
+    
     .gallery-item:hover .gallery-overlay {
       opacity: 1;
     }
@@ -195,11 +206,13 @@
       gap: 1rem;
       margin-top: 1rem;
     }
+    
     @media (max-width: 1023px) {
       .pagination-controls {
         display: flex;
       }
     }
+    
     .pagination-button {
       background: var(--primary);
       color: #fff;
@@ -210,9 +223,11 @@
       font-weight: 600;
       transition: background 0.3s ease;
     }
+    
     .pagination-button:hover {
       background: #004c59;
     }
+    
     .pagination-info {
       font-size: 0.95rem;
       color: var(--secondary);
@@ -226,6 +241,7 @@
       margin: 2rem 0;
       padding: 0 2rem;
     }
+    
     .detail-item {
       background: var(--background);
       padding: 1.5rem;
@@ -234,10 +250,12 @@
       text-align: center;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
+    
     .detail-item:hover {
       transform: translateY(-3px);
       box-shadow: 0 6px 18px rgba(0,0,0,0.08);
     }
+    
     .detail-item h3 {
       font-size: 1.1rem;
       margin-bottom: 0.5rem;
@@ -245,6 +263,7 @@
       letter-spacing: 0.5px;
       color: var(--primary);
     }
+    
     .skill-list {
       display: flex;
       flex-wrap: wrap;
@@ -252,6 +271,7 @@
       gap: 0.5rem;
       margin-top: 0.75rem;
     }
+    
     .skill-tag {
       background: var(--primary);
       color: #fff;
@@ -271,6 +291,7 @@
       flex-wrap: wrap;
       gap: 1rem;
     }
+    
     .other-project-nav-button {
       flex: 1;
       background: var(--card-bg);
@@ -284,6 +305,7 @@
       transition: background 0.3s ease, transform 0.3s ease;
       color: var(--text);
     }
+    
     .other-project-nav-button:hover {
       background: #f0f4f8;
       transform: translateY(-2px);
@@ -304,34 +326,37 @@
       justify-content: center;
       padding: 1rem;
     }
+    
     .lightbox.active {
       display: flex;
     }
+    
     .lightbox-content {
       position: relative;
-    background: #000;
-    border-radius: 8px;
-    overflow: hidden;
-    width: 900px;
+      background: #000;
+      border-radius: 8px;
+      overflow: hidden;
+      width: 900px;
       display: flex;
-    flex-direction: column;
+      flex-direction: column;
     }
+    
     .lightbox-image-container {
-           position: relative;
-    width: 100%;
-    text-align: center;
-    background: #000;
-      
+      position: relative;
+      width: 100%;
+      text-align: center;
+      background: #000;
     }
+    
     .lightbox-image {
-       max-width: 100%;
-    /* max-height: 80vh; */
-    height: 500px;
-    object-fit: contain;
-    display: block;
-    margin: 0 auto;
-    transition: opacity 0.3s ease;
+      max-width: 100%;
+      height: 500px;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto;
+      transition: opacity 0.3s ease;
     }
+    
     .lightbox-caption {
       background: var(--primary);
       color: #fff;
@@ -339,6 +364,7 @@
       font-size: 1rem;
       text-align: center;
     }
+    
     .nav-btn {
       position: absolute;
       top: 50%;
@@ -354,12 +380,15 @@
       justify-content: center;
       transition: transform 0.3s ease, background 0.3s ease;
     }
+    
     .nav-btn:hover {
       transform: translateY(-50%) scale(1.1);
       background: rgba(255, 255, 255, 0.3);
     }
+    
     .prev-btn { left: 10px; }
     .next-btn { right: 10px; }
+    
     .nav-btn::before {
       content: '';
       border: solid #fff;
@@ -367,8 +396,10 @@
       display: inline-block;
       padding: 8px;
     }
+    
     .prev-btn::before { transform: rotate(135deg); }
     .next-btn::before { transform: rotate(-45deg); }
+    
     .close-btn {
       position: absolute;
       top: 10px;
@@ -385,10 +416,12 @@
       z-index: 10;
       transition: transform 0.3s ease, background 0.3s ease;
     }
+    
     .close-btn:hover {
       transform: scale(1.1);
       background: rgba(255, 255, 255, 0.3);
     }
+    
     .close-btn::before,
     .close-btn::after {
       content: '';
@@ -397,8 +430,10 @@
       height: 2px;
       background: #fff;
     }
+    
     .close-btn::before { transform: rotate(45deg); }
     .close-btn::after { transform: rotate(-45deg); }
+    
     .loading-spinner {
       position: absolute;
       width: 40px;
@@ -412,13 +447,14 @@
       transform: translate(-50%, -50%);
       display: none;
     }
+    
     @keyframes spin { to { transform: rotate(360deg); } }
     
     /* -------------------- Responsive Adjustments -------------------- */
     @media (max-width: 1024px) {
-
       .detail-image { }
     }
+    
     @media (max-width: 768px) {
       .detail-content { padding: 1.5rem; }
       .project-description { font-size: 1.05rem; }
@@ -426,6 +462,7 @@
       .detail-grid { padding: 0 1rem; }
       .other-project-nav-container { padding: 1rem; }
     }
+    
     @media (max-width: 480px) {
       .project-meta { flex-direction: column; gap: 0.5rem; }
       .detail-image { height: 300px; }
@@ -436,7 +473,7 @@
   </style>
 </head>
 <body>
-  <!-- Navigation (left intact – styling is in shareable.css) -->
+  <!-- Navigation (shared markup; styling in shareable.css) -->
   <nav class="main-navigation-nav">
     <img src="Header.png" alt="Logo" class="main-navigation-logo">
     <div class="main-navigation-nav-links">
@@ -451,21 +488,25 @@
       <span></span>
     </button>
   </nav>
+  
   <br><br><br><br>
   
-  <!-- Back link (you can adjust inline if needed) -->
-  
+  <!-- Main container where project or category details will be injected -->
   <main id="project-detail-container"></main>
   
   <script>
-    // ================= Global Variables =================
-    const API_URL = 'https://GeorgeBradley.github.io/matthew/feature-project.json';
+    /***********************
+     * Global Variables
+     ***********************/
+    const PROJECTS_URL = 'https://GeorgeBradley.github.io/matthew/feature-project.json';
+    const CATEGORIES_URL = 'https://GeorgeBradley.github.io/matthew/feature-project-category.json';
     const detailsContainer = document.getElementById('project-detail-container');
     const urlParams = new URLSearchParams(window.location.search);
-    const projectId = urlParams.get('id');
+    const idParam = urlParams.get('id');
+    
     let allProjects = [];
+    let allCategories = [];
     let galleryImagesGlobal = [];
-    // Number of images per page for mobile view
     const imagesPerPage = 5;
     let currentGalleryPage = 1;
     
@@ -473,33 +514,54 @@
     let currentImageIndex = 0;
     let lightboxInitialized = false;
     
-    // ================= Fetch & Render Project =================
-    async function fetchProjectDetails() {
-      if (!projectId) {
-        redirectToIndex();
-        return;
-      }
+    /***********************
+     * Data Fetching
+     ***********************/
+    async function fetchData() {
+      const [projectsRes, categoriesRes] = await Promise.all([
+        fetch(PROJECTS_URL),
+        fetch(CATEGORIES_URL)
+      ]);
+      if (!projectsRes.ok) throw new Error('Failed to fetch projects');
+      if (!categoriesRes.ok) throw new Error('Failed to fetch categories');
+      allProjects = await projectsRes.json();
+      allCategories = await categoriesRes.json();
+    }
+    
+    /***********************
+     * Initialization
+     ***********************/
+    async function initPage() {
       try {
-        const response = await fetch(API_URL);
-        if (!response.ok) throw new Error('Network response failed');
-        allProjects = await response.json();
-        const project = allProjects.find(p => p.id === Number(projectId));
-        if (!project) throw new Error('Project not found');
-    
-        // Sort gallery images (if any)
-        galleryImagesGlobal = project["feature-project-gallery"]
-          ? [...project["feature-project-gallery"]].sort((a, b) => a.order - b.order)
-          : [];
-    
-        renderProjectDetails(project, allProjects);
-        // Initialize lightbox controls (listeners will be attached after gallery rendering)
-        initLightbox();
+        await fetchData();
+        // Check if the idParam corresponds to a project:
+        const project = allProjects.find(p => p.id === Number(idParam));
+        if (project) {
+          // Single project view
+          renderProjectDetails(project, allProjects);
+          initLightbox();
+        } else {
+          // Otherwise, check if it matches a category id:
+          const category = allCategories.find(c => c.id === Number(idParam));
+          if (category) {
+            const filteredProjects = allProjects.filter(
+              p => p["project-feature-main-category-id"] === Number(idParam)
+            );
+            renderCategoryDetails(category, filteredProjects);
+            initLightbox();
+          } else {
+            showDetailError();
+          }
+        }
       } catch (error) {
-        console.error('Error:', error);
+        console.error('Error loading data:', error);
         showDetailError();
       }
     }
     
+    /***********************
+     * Single Project View
+     ***********************/
     function renderProjectDetails(project, projects) {
       const currentIndex = projects.findIndex(p => p.id === project.id);
       const prevProject = projects[currentIndex - 1];
@@ -509,7 +571,6 @@
         <article class="project-detail">
           <header class="detail-header">
             <a href="index.html#projects-container" class="back-link" style="display:inline-block; background:var(--primary); color:#fff; padding:0.75rem 1.5rem; border-radius:8px; font-weight:600; transition:background 0.3s ease;">← Back to Projects</a>
-
             <h1 class="project-title">${project["feature-project-name"]}</h1>
             ${project["feature-project-start-year"] ? `
               <div class="project-meta">
@@ -526,7 +587,7 @@
           <section class="detail-content">
             <p class="project-description">${project["feature-project-long-description"]}</p>
     
-            ${galleryImagesGlobal.length ? `
+            ${project["feature-project-gallery"] && project["feature-project-gallery"].length ? `
               <div id="gallery-section-container"></div>
             ` : ''}
     
@@ -543,13 +604,11 @@
                   <p>${project["feature-project-client"]}</p>
                 </div>
               ` : ''}
-              ${project["feature-project-skills"]?.length ? `
+              ${project["feature-project-skills"] && project["feature-project-skills"].length ? `
                 <div class="detail-item">
                   <h3>Skills Used</h3>
                   <div class="skill-list">
-                    ${project["feature-project-skills"].map(skill => `
-                      <span class="skill-tag">${skill}</span>
-                    `).join('')}
+                    ${project["feature-project-skills"].map(skill => `<span class="skill-tag">${skill}</span>`).join('')}
                   </div>
                 </div>
               ` : ''}
@@ -569,29 +628,16 @@
             ` : '<div class="other-project-nav-spacer"></div>'}
           </nav>
     
-          <!-- Lightbox Markup -->
-          <div class="lightbox" id="galleryLightbox">
-            <div class="lightbox-content">
-              <button class="close-btn" aria-label="Close lightbox"></button>
-              <div class="lightbox-image-container">
-                <img class="lightbox-image" src="" alt="">
-                <div class="loading-spinner"></div>
-                <button class="nav-btn prev-btn" aria-label="Previous image"></button>
-                <button class="nav-btn next-btn" aria-label="Next image"></button>
-              </div>
-              <div class="lightbox-caption"></div>
-            </div>
-          </div>
+          ${getLightboxMarkup()}
         </article>
       `;
     
-      // If there is a gallery, render the gallery section.
-      if (galleryImagesGlobal.length) {
+      if (project["feature-project-gallery"] && project["feature-project-gallery"].length) {
+        galleryImagesGlobal = project["feature-project-gallery"].sort((a, b) => a.order - b.order);
         renderGallerySection(galleryImagesGlobal);
       }
     }
     
-    // ================= Paginated Gallery Functions =================
     function renderGallerySection(galleryImages) {
       const container = document.getElementById('gallery-section-container');
       container.innerHTML = `
@@ -601,7 +647,6 @@
           <div id="paginationControls" class="pagination-controls"></div>
         </div>
       `;
-      // Reset pagination for mobile view
       currentGalleryPage = 1;
       renderGalleryPage();
     }
@@ -609,9 +654,7 @@
     function renderGalleryPage() {
       const galleryGrid = document.getElementById('galleryGrid');
       const paginationControls = document.getElementById('paginationControls');
-    
       let startIndex, endIndex;
-      // On desktop (1024px and above) show all images without pagination.
       if (window.innerWidth >= 1024) {
         startIndex = 0;
         endIndex = galleryImagesGlobal.length;
@@ -621,7 +664,6 @@
         const totalPages = Math.ceil(totalImages / imagesPerPage);
         startIndex = (currentGalleryPage - 1) * imagesPerPage;
         endIndex = Math.min(startIndex + imagesPerPage, totalImages);
-        
         if (totalPages > 1) {
           let controlsHTML = '';
           if (currentGalleryPage > 1) {
@@ -632,7 +674,7 @@
             controlsHTML += `<button class="pagination-button" id="nextPage">Next</button>`;
           }
           paginationControls.innerHTML = controlsHTML;
-          
+    
           const prevBtn = document.getElementById('prevPage');
           if (prevBtn) {
             prevBtn.addEventListener('click', () => {
@@ -668,7 +710,6 @@
           `;
         }).join('');
     
-      // Attach lightbox click listeners to thumbnails.
       attachGalleryThumbnails();
     }
     
@@ -685,7 +726,104 @@
       });
     }
     
-    // ================= Lightbox Functionality =================
+    /***********************
+     * Category View
+     ***********************/
+    function renderCategoryDetails(category, projects) {
+      let html = `
+        <section class="category-header" style="text-align: center; padding: 2rem;">
+          <h1>${category.categoryName}</h1>
+          <p>${category.description}</p>
+        </section>
+      `;
+      
+      projects.forEach(project => {
+        html += `
+          <article class="project-detail" style="margin-bottom: 2rem;">
+            <header class="detail-header">
+              <h2 class="project-title">${project["feature-project-name"]}</h2>
+              ${project["feature-project-start-year"] ? `
+                <div class="project-meta">
+                  <span>${project["feature-project-start-year"]}${project["feature-project-end-year"] ? ` - ${project["feature-project-end-year"]}` : ''}</span>
+                </div>
+              ` : ''}
+            </header>
+    
+            <img src="${project["feature-project-thumbnail"]}" 
+                 alt="${project["feature-project-name"]}" 
+                 class="detail-image"
+                 loading="lazy">
+    
+            <section class="detail-content">
+              <p class="project-description">${project["feature-project-long-description"]}</p>
+    
+              ${project["feature-project-gallery"] && project["feature-project-gallery"].length ? `
+                <div class="gallery-section" data-project-id="${project.id}">
+                  <h2>Gallery</h2>
+                  <div class="gallery-grid">
+                    ${project["feature-project-gallery"]
+                      .sort((a, b) => a.order - b.order)
+                      .map((image, i) => `
+                        <div class="gallery-item">
+                          <img src="${image.image}" 
+                               alt="${image['alt-text']}" 
+                               class="gallery-thumbnail"
+                               data-index="${i}"
+                               loading="lazy">
+                          <div class="gallery-overlay">${image.description}</div>
+                        </div>
+                      `).join('')}
+                  </div>
+                </div>
+              ` : ''}
+            </section>
+          </article>
+        `;
+      });
+      
+      detailsContainer.innerHTML = html + getLightboxMarkup();
+      attachCategoryGalleryListeners(projects);
+    }
+    
+    function getLightboxMarkup() {
+      return `
+        <div class="lightbox" id="galleryLightbox">
+          <div class="lightbox-content">
+            <button class="close-btn" aria-label="Close lightbox"></button>
+            <div class="lightbox-image-container">
+              <img class="lightbox-image" src="" alt="">
+              <div class="loading-spinner"></div>
+              <button class="nav-btn prev-btn" aria-label="Previous image"></button>
+              <button class="nav-btn next-btn" aria-label="Next image"></button>
+            </div>
+            <div class="lightbox-caption"></div>
+          </div>
+        </div>
+      `;
+    }
+    
+    function attachCategoryGalleryListeners(projects) {
+      const galleryThumbnails = document.querySelectorAll('.gallery-thumbnail');
+      galleryThumbnails.forEach(thumbnail => {
+        thumbnail.addEventListener('click', (e) => {
+          const gallerySection = e.target.closest('.gallery-section');
+          const projectId = gallerySection.getAttribute('data-project-id');
+          const project = projects.find(p => p.id === Number(projectId));
+          if (!project) return;
+          
+          galleryImagesGlobal = (project["feature-project-gallery"] || [])
+                                .sort((a, b) => a.order - b.order);
+          currentImageIndex = Number(e.target.getAttribute('data-index'));
+          updateLightbox(currentImageIndex);
+          document.getElementById('galleryLightbox').classList.add('active');
+          document.body.style.overflow = 'hidden';
+        });
+      });
+    }
+    
+    /***********************
+     * Lightbox Functionality
+     ***********************/
     function updateLightbox(index) {
       const lightbox = document.getElementById('galleryLightbox');
       const lightboxImage = lightbox.querySelector('.lightbox-image');
@@ -695,7 +833,7 @@
       const image = galleryImagesGlobal[currentImageIndex];
       lightboxImage.style.opacity = '0';
       spinner.style.display = 'block';
-    
+      
       const img = new Image();
       img.src = image.image;
       img.onload = () => {
@@ -706,12 +844,15 @@
         lightboxImage.style.opacity = '1';
       };
     }
+    
     function nextImage() {
       updateLightbox(currentImageIndex + 1);
     }
+    
     function prevImage() {
       updateLightbox(currentImageIndex - 1);
     }
+    
     function initLightbox() {
       if (lightboxInitialized) return;
       const lightbox = document.getElementById('galleryLightbox');
@@ -738,6 +879,7 @@
       lightbox.addEventListener('touchstart', (e) => {
         touchStartX = e.touches[0].clientX;
       });
+      
       lightbox.addEventListener('touchend', (e) => {
         const touchEndX = e.changedTouches[0].clientX;
         const deltaX = touchEndX - touchStartX;
@@ -750,26 +892,25 @@
       lightboxInitialized = true;
     }
     
-    // ================= Error & Redirect =================
+    /***********************
+     * Error / Redirect
+     ***********************/
     function showDetailError() {
       detailsContainer.innerHTML = `
         <div class="error-state" style="text-align:center; padding:2rem;">
-          <p style="font-size:1.2rem;">⚠️ Project not found</p>
+          <p style="font-size:1.2rem;">⚠️ Project or Category not found</p>
           <a href="index.html" class="back-link" style="margin-top:1rem;">Return to Projects</a>
         </div>
       `;
     }
-    function redirectToIndex() {
+    
+    if (idParam) {
+      initPage();
+    } else {
       window.location.href = 'index.html';
     }
-    
-    // ================= Initial Load =================
-    if (projectId) {
-      fetchProjectDetails();
-    } else {
-      redirectToIndex();
-    }
   </script>
+  
   <script src="sharable-scripts.js" defer></script>
 </body>
 </html>
