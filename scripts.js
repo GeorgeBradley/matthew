@@ -157,18 +157,17 @@ function initFeatureSlider() {
 // 5. Hero Slider (Projects)
 class HeroSlider {
   constructor() {
-    this.API_URL = 'https://GeorgeBradley.github.io/matthew/feature-project.json';
+    this.API_URL = 'feature-project.json'; // Local file
     this.currentIndex = 0;
     this.intervalTime = 5000;
     this.intervalId = null;
     this.touchStartX = 0;
     this.touchEndX = 0;
-    this.init();
   }
 
   async init() {
     try {
-      await this.loadData();
+      this.projects = await this.getCachedData();
       this.createSlides();
       this.createDots();
       this.startAutoPlay();
@@ -180,10 +179,18 @@ class HeroSlider {
     }
   }
 
-  async loadData() {
-    const response = await fetch(this.API_URL);
-    if (!response.ok) throw new Error('Network response was not ok');
-    this.projects = await response.json();
+  async getCachedData() {
+    const key = "heroProjects";
+    let data = localStorage.getItem(key);
+    if (data) {
+      return JSON.parse(data);
+    } else {
+      const response = await fetch(this.API_URL);
+      if (!response.ok) throw new Error('Network response was not ok');
+      data = await response.json();
+      localStorage.setItem(key, JSON.stringify(data));
+      return data;
+    }
   }
 
   createSlides() {
@@ -207,7 +214,7 @@ class HeroSlider {
       const text = document.createElement('div');
       text.className = 'hero-text';
       
-      const title = document.createElement('h1');
+      const title = document.createElement('h2');
       title.className = 'hero-title';
       title.textContent = project['feature-project-name'];
       
@@ -318,7 +325,8 @@ class HeroSlider {
 function initHeroSlider() {
   // Only initialize if the hero slider container exists
   if (document.querySelector('.hero-slides')) {
-    new HeroSlider();
+    const slider = new HeroSlider();
+    slider.init();
   }
 }
 
@@ -340,10 +348,32 @@ function initContactSuccessMessage() {
 function initFirstImpressionsSlider() {
   const sliderTrack = document.querySelector('#first-impressions-slider .first-impressions-slider-track');
   if (!sliderTrack) return;
-  const jsonUrl = "https://georgebradley.github.io/matthew/first-impression-banner.json";
 
-  fetch(jsonUrl)
-    .then(response => response.json())
+  function getFirstImpressionsData() {
+    const key = "firstImpressionsData";
+    return new Promise((resolve, reject) => {
+      let data = localStorage.getItem(key);
+      if (data) {
+        resolve(JSON.parse(data));
+      } else {
+        fetch("first-impression-banner.json")
+          .then(response => {
+            if (!response.ok) {
+              reject(new Error('Network response was not ok'));
+            } else {
+              return response.json();
+            }
+          })
+          .then(data => {
+            localStorage.setItem(key, JSON.stringify(data));
+            resolve(data);
+          })
+          .catch(reject);
+      }
+    });
+  }
+
+  getFirstImpressionsData()
     .then(data => {
       data.sort((a, b) => a["first-impression-order"] - b["first-impression-order"]);
       let imagesHTML = "";
@@ -400,82 +430,67 @@ window.onerror = function(message, source, lineno, colno, error) {
   return true;
 };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Seeded pseudo-random number generator using the mulberry32 algorithm.
-function mulberry32(a) {
-  return function () {
-    var t = (a += 0x6d2b79f5);
-    t = Math.imul(t ^ (t >>> 15), t | 1);
-    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-  };
-}
-
-// Function to perform a seeded shuffle using the provided seed.
-function seededShuffleArray(array, seed) {
-  const random = mulberry32(seed);
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-}
-
+// 11. Unhighlighted Features
 function initUnHighlightedFeatures() {
   const section = document.getElementById("un-highlighted-features");
   if (!section) return;
 
-  // URLs for categories and projects JSON.
-  const categoriesUrl =
-    "https://georgebradley.github.io/matthew/feature-project-category.json";
-  const projectsUrl =
-    "https://georgebradley.github.io/matthew/feature-project.json";
+  function getCategoriesData() {
+    const key = "categoriesData";
+    return new Promise((resolve, reject) => {
+      let data = localStorage.getItem(key);
+      if (data) {
+        resolve(JSON.parse(data));
+      } else {
+        fetch("feature-project-category.json")
+          .then(response => {
+            if (!response.ok) {
+              reject(new Error('Network response was not ok'));
+            } else {
+              return response.json();
+            }
+          })
+          .then(data => {
+            localStorage.setItem(key, JSON.stringify(data));
+            resolve(data);
+          })
+          .catch(reject);
+      }
+    });
+  }
 
-  Promise.all([
-    fetch(categoriesUrl).then((res) => res.json()),
-    fetch(projectsUrl).then((res) => res.json()),
-  ])
+  function getProjectsData() {
+    const key = "projectsData";
+    return new Promise((resolve, reject) => {
+      let data = localStorage.getItem(key);
+      if (data) {
+        resolve(JSON.parse(data));
+      } else {
+        fetch("feature-project.json")
+          .then(response => {
+            if (!response.ok) {
+              reject(new Error('Network response was not ok'));
+            } else {
+              return response.json();
+            }
+          })
+          .then(data => {
+            localStorage.setItem(key, JSON.stringify(data));
+            resolve(data);
+          })
+          .catch(reject);
+      }
+    });
+  }
+
+  Promise.all([getCategoriesData(), getProjectsData()])
     .then(([categories, projects]) => {
-      // Filter projects that are un-highlighted.
+      // Filter projects that are un-highlighted
       const unhighlightedProjects = projects.filter(
         (p) => p["feature-project-type"] === "un-highlighted"
       );
 
-      // Group projects by their main category id.
+      // Group projects by their main category id
       const grouped = {};
       unhighlightedProjects.forEach((project) => {
         const catId = project["project-feature-main-category-id"];
@@ -485,20 +500,19 @@ function initUnHighlightedFeatures() {
         grouped[catId].push(project);
       });
 
-      // For each category, create a slider if there are projects.
+      // For each category, create a slider if there are projects
       categories.forEach((category) => {
         const catId = category.id;
         if (grouped[catId] && grouped[catId].length > 0) {
-          // Create a card container for the category slider.
+          // Create a card container for the category slider
           const card = document.createElement("div");
           card.className = "un-highlighted-category-slider";
 
-          // Create slider wrapper.
+          // Create slider wrapper
           const sliderWrapper = document.createElement("div");
           sliderWrapper.className = "un-highlighted-slider-wrapper";
 
-          // Create a clickable link that wraps header and slider container.
-          // UPDATED: Pass the numeric category id using the 'cat' URL parameter.
+          // Create a clickable link that wraps header and slider container
           const link = document.createElement("a");
           link.href = "details.html?cat=" + encodeURIComponent(category.id);
           link.className = "un-highlighted-features-slider-link";
@@ -514,21 +528,18 @@ function initUnHighlightedFeatures() {
           categoryDesc.textContent = category.description;
           headerDiv.appendChild(categoryDesc);
 
-          // Append the header to the clickable link.
+          // Append the header to the clickable link
           link.appendChild(headerDiv);
 
-          // Create slider container.
+          // Create slider container
           const sliderContainer = document.createElement("div");
-          sliderContainer.className =
-            "un-highlighted-features-slider-container";
+          sliderContainer.className = "un-highlighted-features-slider-container";
 
-          // Create slider track.
+          // Create slider track
           const sliderTrack = document.createElement("div");
-          sliderTrack.className =
-            "un-highlighted-features-slider-track";
+          sliderTrack.className = "un-highlighted-features-slider-track";
 
-          // Group slides by project so that we can interleave them.
-          // Each project that has at least two images contributes an array of two slides.
+          // Group slides by project
           const projectSlides = [];
           grouped[catId].forEach((project) => {
             const gallery = project["feature-project-gallery"];
@@ -539,25 +550,19 @@ function initUnHighlightedFeatures() {
                 slide.className = "un-highlighted-features-slide";
                 const img = document.createElement("img");
                 img.src = gallery[i].image;
-                img.alt =
-                  gallery[i]["alt-text"] ||
-                  project["feature-project-name"];
+                img.alt = gallery[i]["alt-text"] || project["feature-project-name"];
                 slide.appendChild(img);
-                // Label removed per request.
                 slidesForProject.push(slide);
               }
               projectSlides.push(slidesForProject);
             }
           });
 
-          // Interleave slides from different projects so that no two from the same gallery are adjacent.
+          // Interleave slides from different projects
           let finalSlides = [];
           if (projectSlides.length > 1) {
-            // Shuffle the projects using a fixed seed.
             seededShuffleArray(projectSlides, 12345);
-            // Interleave slides in a round-robin fashion.
-            // (Since each project contributes exactly 2 slides, we'll have two rounds.)
-            const numberOfSlidesPerProject = projectSlides[0].length; // should be 2
+            const numberOfSlidesPerProject = projectSlides[0].length; // 2
             for (let i = 0; i < numberOfSlidesPerProject; i++) {
               projectSlides.forEach((slidesForProject) => {
                 if (slidesForProject[i]) {
@@ -566,33 +571,52 @@ function initUnHighlightedFeatures() {
               });
             }
           } else if (projectSlides.length === 1) {
-            // Only one project available.
             finalSlides = projectSlides[0];
           }
 
-          // Append final slides to the slider track.
+          // Append final slides to the slider track
           finalSlides.forEach((slide) => sliderTrack.appendChild(slide));
 
-          // Append the slider track to the slider container.
+          // Append the slider track to the slider container
           sliderContainer.appendChild(sliderTrack);
 
-          // Append the slider container to the clickable link.
+          // Append the slider container to the clickable link
           link.appendChild(sliderContainer);
 
-          // Append the clickable link to the slider wrapper.
+          // Append the clickable link to the slider wrapper
           sliderWrapper.appendChild(link);
 
-          // Append the slider wrapper to the card.
+          // Append the slider wrapper to the card
           card.appendChild(sliderWrapper);
 
-          // Append the card to the main section.
+          // Append the card to the main section
           section.appendChild(card);
         }
       });
     })
-    .catch((error) => {
+    .catch(error => {
       console.error("Error fetching un-highlighted features:", error);
     });
 }
 
+// Seeded pseudo-random number generator (mulberry32)
+function mulberry32(a) {
+  return function () {
+    var t = (a += 0x6d2b79f5);
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+// Seeded shuffle function
+function seededShuffleArray(array, seed) {
+  const random = mulberry32(seed);
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+
+// Initialize Unhighlighted Features
 document.addEventListener("DOMContentLoaded", initUnHighlightedFeatures);
