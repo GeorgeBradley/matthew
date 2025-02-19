@@ -502,7 +502,9 @@
     const CATEGORIES_URL = 'https://GeorgeBradley.github.io/matthew/feature-project-category.json';
     const detailsContainer = document.getElementById('project-detail-container');
     const urlParams = new URLSearchParams(window.location.search);
-    const idParam = urlParams.get('id');
+    // Use ?id= for a single project and ?cat= for a category view.
+    const projectParam = urlParams.get('id');
+    const categoryParam = urlParams.get('cat');
     
     let allProjects = [];
     let allCategories = [];
@@ -534,24 +536,30 @@
     async function initPage() {
       try {
         await fetchData();
-        // Check if the idParam corresponds to a project:
-        const project = allProjects.find(p => p.id === Number(idParam));
-        if (project) {
-          // Single project view
-          renderProjectDetails(project, allProjects);
-          initLightbox();
-        } else {
-          // Otherwise, check if it matches a category id:
-          const category = allCategories.find(c => c.id === Number(idParam));
+        if (categoryParam) {
+          // If a category parameter is provided, render the category view.
+          const category = allCategories.find(c => c.id === Number(categoryParam));
           if (category) {
             const filteredProjects = allProjects.filter(
-              p => p["project-feature-main-category-id"] === Number(idParam)
+              p => p["project-feature-main-category-id"] === Number(categoryParam)
             );
             renderCategoryDetails(category, filteredProjects);
             initLightbox();
           } else {
             showDetailError();
           }
+        } else if (projectParam) {
+          // Otherwise, if there's an "id" parameter, assume it's a project.
+          const project = allProjects.find(p => p.id === Number(projectParam));
+          if (project) {
+            renderProjectDetails(project, allProjects);
+            initLightbox();
+          } else {
+            showDetailError();
+          }
+        } else {
+          // No valid parameter provided.
+          showDetailError();
         }
       } catch (error) {
         console.error('Error loading data:', error);
@@ -904,7 +912,8 @@
       `;
     }
     
-    if (idParam) {
+    // Initialize based on the URL parameters.
+    if (projectParam || categoryParam) {
       initPage();
     } else {
       window.location.href = 'index.html';
