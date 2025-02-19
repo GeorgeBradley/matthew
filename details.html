@@ -478,7 +478,7 @@
     <img src="Header.png" alt="Logo" class="main-navigation-logo">
     <div class="main-navigation-nav-links">
       <a href="#home">Home</a>
-      <a href="#portfolio">Portfolio &amp; CV</a>
+      <a href="#portfolio">Portfolio & CV</a>
       <a href="#contact">Contact</a>
       <a href="#contact" class="main-navigation-cta-button">Get in Touch</a>
     </div>
@@ -498,8 +498,8 @@
     /***********************
      * Global Variables
      ***********************/
-    const PROJECTS_URL = 'https://GeorgeBradley.github.io/matthew/feature-project.json';
-    const CATEGORIES_URL = 'https://GeorgeBradley.github.io/matthew/feature-project-category.json';
+    const PROJECTS_URL = 'feature-project.json'; // Updated to local file
+    const CATEGORIES_URL = 'feature-project-category.json'; // Updated to local file
     const detailsContainer = document.getElementById('project-detail-container');
     const urlParams = new URLSearchParams(window.location.search);
     // Use ?id= for a single project and ?cat= for a category view.
@@ -517,17 +517,61 @@
     let lightboxInitialized = false;
     
     /***********************
-     * Data Fetching
+     * Data Fetching with Local Storage
      ***********************/
+    function getProjectsData() {
+      const key = "projectsData";
+      return new Promise((resolve, reject) => {
+        let data = localStorage.getItem(key);
+        if (data) {
+          resolve(JSON.parse(data));
+        } else {
+          fetch(PROJECTS_URL)
+            .then(response => {
+              if (!response.ok) {
+                reject(new Error('Network response was not ok'));
+              }
+              return response.json();
+            })
+            .then(data => {
+              localStorage.setItem(key, JSON.stringify(data));
+              resolve(data);
+            })
+            .catch(reject);
+        }
+      });
+    }
+    
+    function getCategoriesData() {
+      const key = "categoriesData";
+      return new Promise((resolve, reject) => {
+        let data = localStorage.getItem(key);
+        if (data) {
+          resolve(JSON.parse(data));
+        } else {
+          fetch(CATEGORIES_URL)
+            .then(response => {
+              if (!response.ok) {
+                reject(new Error('Network response was not ok'));
+              }
+              return response.json();
+            })
+            .then(data => {
+              localStorage.setItem(key, JSON.stringify(data));
+              resolve(data);
+            })
+            .catch(reject);
+        }
+      });
+    }
+    
     async function fetchData() {
-      const [projectsRes, categoriesRes] = await Promise.all([
-        fetch(PROJECTS_URL),
-        fetch(CATEGORIES_URL)
-      ]);
-      if (!projectsRes.ok) throw new Error('Failed to fetch projects');
-      if (!categoriesRes.ok) throw new Error('Failed to fetch categories');
-      allProjects = await projectsRes.json();
-      allCategories = await categoriesRes.json();
+      try {
+        allProjects = await getProjectsData();
+        allCategories = await getCategoriesData();
+      } catch (error) {
+        throw error;
+      }
     }
     
     /***********************
