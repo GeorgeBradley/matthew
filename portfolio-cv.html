@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en-GB" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Matthew Bradley - Model maker, prop sculptor, and stop-motion artisan blending historical craftsmanship with Tolkienesque fantasy. Creating wonder through tactile storytelling.">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="stylesheet" href="styles.css" media="all">
+    <link rel="stylesheet" href="shareable.css" media="all">
+    <meta name="theme-color" content="#3a5f40">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="icon" href="favicon.ico?v=2">
+
+    <title>Matthew Bradley | CV</title>
+
+    <style>
+        /* Custom styles for this page */
+        .cv-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        .cv-image {
+            max-width: 100%;
+            height: auto;
+            border: 5px solid #3a5f40;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .button-container {
+            margin-bottom: 20px;
+        }
+        .custom-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 16px;
+            text-decoration: none;
+            color: #fff;
+            background-color: #3a5f40;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .custom-button:hover {
+            background-color: #2e4b33;
+        }
+        .custom-button i {
+            margin-right: 8px;
+        }
+        .pdf-icon {
+            margin-right: 8px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="main-navigation-nav">
+        <a href="index.html#home">
+            <img src="Header.png" alt="Logo" class="main-navigation-logo">
+        </a>
+        <div class="main-navigation-nav-links">
+            <a href="index.html#home">Home</a>
+            <a href="index.html#projects-container">Projects</a>
+            <a href="#contact">Contact</a>
+            <button class="cta-button" id="openModalBtn">Portfolio & CV</button>
+        </div>
+        <button class="main-navigation-hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <div class="social-links" id="home">
+        <a href="https://www.instagram.com/m.g.b_artwork/?hl=en" target="_blank" class="social-link instagram" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.youtube.com/channel/UCjNBnhekbjApHw49ZqEiMlw/featured" target="_blank" class="social-link youtube" aria-label="YouTube">
+            <i class="fab fa-youtube"></i>
+        </a>
+        <a href="http://www.linkedin.com/in/matthew-bradley-a59811267" target="_blank" class="social-link linkedin" aria-label="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+        </a>
+    </div>
+
+    <div class="cv-container">
+        <div class="button-container">
+            <a href="index.html" class="custom-button">
+                <i class="fas fa-arrow-left"></i> Go Back
+            </a>
+            <a href="matthew-bradley-2024-portfolio.pdf" target="_blank" class="custom-button">
+                <i class="fas fa-file-pdf pdf-icon"></i> Portfolio - PDF
+            </a>
+        </div>
+        <img src="matthew-bradley-2024-cv" alt="Matthew Bradley's CV" class="cv-image">
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <span class="footer-name">Matthew Bradley</span>
+            <span class="footer-date">© <span id="current-year"></span> All rights reserved</span>
+        </div>
+    </footer>
+
+    <script src="sharable-scripts.js" defer></script>
+
+    <noscript>
+        <style>
+            .no-js-warning {
+                padding: 1em;
+                background: var(--deep-umber);
+                color: white;
+                text-align: center;
+            }
+        </style>
+        <div class="no-js-warning" role="alert">
+            For full functionality of this site, please enable JavaScript.
+        </div>
+    </noscript>
+</body>
+</html>
