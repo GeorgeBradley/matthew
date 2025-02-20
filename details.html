@@ -783,7 +783,7 @@
             prevBtn.addEventListener('click', () => {
               currentGalleryPage--;
               renderGalleryPage();
-              scrollGalleryToTop();
+              scrollToGalleryTitle();
             });
           }
           const nextBtn = document.getElementById('nextPage');
@@ -791,7 +791,7 @@
             nextBtn.addEventListener('click', () => {
               currentGalleryPage++;
               renderGalleryPage();
-              scrollGalleryToTop();
+              scrollToGalleryTitle();
             });
           }
         } else {
@@ -818,10 +818,10 @@
       attachGalleryThumbnails();
     }
 
-    function scrollGalleryToTop() {
-      const gallerySection = document.querySelector('.gallery-section');
-      if (gallerySection) {
-        gallerySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    function scrollToGalleryTitle() {
+      const galleryTitle = document.querySelector('.gallery-section h2');
+      if (galleryTitle) {
+        galleryTitle.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     }
 
