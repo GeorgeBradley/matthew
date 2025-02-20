@@ -489,15 +489,12 @@
       justify-content: center;
       cursor: pointer;
       opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s 0.3s;
+      transition: opacity 0.3s ease, transform 0.3s ease;
       z-index: 100;
     }
 
     .back-to-top.visible {
       opacity: 0.8;
-      visibility: visible;
-      transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s;
     }
 
     .back-to-top:hover {
@@ -721,7 +718,7 @@
             ` : ''}
           </header>
 
-          <img src="${project["feature-project-thumbnail"]}
+          <img src="${project["feature-project-thumbnail"]}" 
                alt="${project["feature-project-name"]}" 
                class="detail-image"
                loading="lazy">
@@ -1090,8 +1087,7 @@
       
       // Toggle visibility based on scroll position
       window.addEventListener('scroll', () => {
-        const scrollPosition = window.scrollY;
-        backToTop.classList.toggle('visible', scrollPosition > 50); // Show when scrolled past 50px
+        backToTop.classList.toggle('visible', window.scrollY > 50); // Show after scrolling 50px
       });
 
       // Scroll to top on click
@@ -1105,4 +1101,11 @@
       initPage().then(() => {
         initBackToTop(); // Initialize after page content loads
       });
+    } else {
+      window.location.href = 'index.html';
     }
+  </script>
+
+  <script src="sharable-scripts.js" defer></script>
+</body>
+</html>
