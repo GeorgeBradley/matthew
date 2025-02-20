@@ -7,10 +7,11 @@
   <!-- Using Google Fonts for a refined look -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- We continue to use Poppins for consistency -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <!-- Navigation & other shared styles are in shareable.css -->
   <link rel="stylesheet" href="shareable.css" media="all">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     /* -------------------- Root Variables -------------------- */
     :root {
@@ -82,9 +83,11 @@
     }
     
     .project-title {
-      margin: 0.5rem;
-      font-size: 1.5rem;
+      margin: 1rem;
+      font-size: 2.5rem;
       font-weight: 700;
+      letter-spacing: 1px;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
     }
     
     .project-meta {
@@ -94,6 +97,22 @@
       justify-content: center;
       gap: 1rem;
       padding: 0.3rem;
+    }
+    
+    /* -------------------- Back Link -------------------- */
+    .back-link {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: background 0.3s ease;
+      margin-bottom: 1rem;
+    }
+    
+    .back-link:hover {
+      background: #004c59;
     }
     
     /* -------------------- Main Image -------------------- */
@@ -498,11 +517,10 @@
     /***********************
      * Global Variables
      ***********************/
-    const PROJECTS_URL = 'feature-project.json'; // Updated to local file
-    const CATEGORIES_URL = 'feature-project-category.json'; // Updated to local file
+    const PROJECTS_URL = 'feature-project.json';
+    const CATEGORIES_URL = 'feature-project-category.json';
     const detailsContainer = document.getElementById('project-detail-container');
     const urlParams = new URLSearchParams(window.location.search);
-    // Use ?id= for a single project and ?cat= for a category view.
     const projectParam = urlParams.get('id');
     const categoryParam = urlParams.get('cat');
     
@@ -581,9 +599,6 @@
       try {
         await fetchData();
         if (categoryParam) {
-          // If a category parameter is provided, filter for projects that are:
-          // 1. In the chosen category, AND
-          // 2. Have a "feature-project-type" of "un-highlighted"
           const category = allCategories.find(c => c.id === Number(categoryParam));
           if (category) {
             const filteredProjects = allProjects.filter(
@@ -596,7 +611,6 @@
             showDetailError();
           }
         } else if (projectParam) {
-          // Otherwise, if there's an "id" parameter, assume it's a project.
           const project = allProjects.find(p => p.id === Number(projectParam));
           if (project) {
             renderProjectDetails(project, allProjects);
@@ -605,7 +619,6 @@
             showDetailError();
           }
         } else {
-          // No valid parameter provided.
           showDetailError();
         }
       } catch (error) {
@@ -625,7 +638,9 @@
       detailsContainer.innerHTML = `
         <article class="project-detail">
           <header class="detail-header">
-            <a href="index.html#projects-container" class="back-link" style="display:inline-block; background:var(--primary); color:#fff; padding:0.75rem 1.5rem; border-radius:8px; font-weight:600; transition:background 0.3s ease;">← Back to Projects</a>
+            <a href="index.html#projects-container" class="back-link">
+              <i class="fas fa-arrow-left"></i> Back to Projects
+            </a>
             <h1 class="project-title">${project["feature-project-name"]}</h1>
             ${project["feature-project-start-year"] ? `
               <div class="project-meta">
@@ -786,6 +801,9 @@
      ***********************/
     function renderCategoryDetails(category, projects) {
       let html = `
+        <a href="index.html#projects-container" class="back-link">
+          <i class="fas fa-arrow-left"></i> Back to Projects
+        </a>
         <section class="category-header" style="text-align: center; padding: 2rem;">
           <h1>${category.categoryName}</h1>
           <p>${category.description}</p>
@@ -954,7 +972,9 @@
       detailsContainer.innerHTML = `
         <div class="error-state" style="text-align:center; padding:2rem;">
           <p style="font-size:1.2rem;">⚠️ Project or Category not found</p>
-          <a href="index.html" class="back-link" style="margin-top:1rem;">Return to Projects</a>
+          <a href="index.html" class="back-link">
+            <i class="fas fa-arrow-left"></i> Return to Projects
+          </a>
         </div>
       `;
     }
