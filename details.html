@@ -960,7 +960,7 @@
     function attachCategoryGalleryListeners(projects) {
       const galleryThumbnails = document.querySelectorAll('.gallery-thumbnail');
       galleryThumbnails.forEach(thumbnail => {
-        thumbnail.addEventListener('click', (e) => {
+        item.addEventListener('click', (e) => {
           const gallerySection = e.target.closest('.gallery-section');
           const projectId = gallerySection.getAttribute('data-project-id');
           const project = projects.find(p => p.id === Number(projectId));
@@ -1087,12 +1087,16 @@
       
       // Toggle visibility based on scroll position
       window.addEventListener('scroll', () => {
-        backToTop.classList.toggle('visible', window.scrollY > 50); // Show after scrolling 50px
+        backToTop.classList.toggle('visible', window.scrollY > 50);
       });
 
-      // Scroll to top on click
+      // Scroll to top on click and hide button after scroll completes
       backToTop.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
+        // Use a timeout to hide the button after the smooth scroll duration
+        setTimeout(() => {
+          backToTop.classList.remove('visible');
+        }, 500); // Adjust timing based on scroll duration (500ms is typical for smooth scroll)
       });
     }
 
