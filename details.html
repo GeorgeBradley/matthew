@@ -783,6 +783,7 @@
             prevBtn.addEventListener('click', () => {
               currentGalleryPage--;
               renderGalleryPage();
+              scrollGalleryToTop();
             });
           }
           const nextBtn = document.getElementById('nextPage');
@@ -790,6 +791,7 @@
             nextBtn.addEventListener('click', () => {
               currentGalleryPage++;
               renderGalleryPage();
+              scrollGalleryToTop();
             });
           }
         } else {
@@ -814,8 +816,9 @@
         }).join('');
 
       attachGalleryThumbnails();
+    }
 
-      // Scroll the gallery section into view after rendering
+    function scrollGalleryToTop() {
       const gallerySection = document.querySelector('.gallery-section');
       if (gallerySection) {
         gallerySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
