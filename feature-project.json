@@ -25,7 +25,7 @@
     "feature-project-client": "Workshed Animation’s feature film ‘The Iron Leech’",
     "feature-project-type": "highlighted",
     "project-feature-main-category-id": 1,
-    "feature-project-order": 1
+    "feature-project-order": 2
   },
   {
     "id": 2,
@@ -522,7 +522,7 @@
   "feature-project-client": null,
   "feature-project-type": "highlighted",
   "project-feature-main-category-id": 2,
-  "feature-project-order": null
+  "feature-project-order": 1
 }
  
 
