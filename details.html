@@ -305,29 +305,47 @@
 
     /* -------------------- Other Project Navigation -------------------- */
     .other-project-nav-container {
-      display: flex;
-      justify-content: space-between;
-      padding: 1.5rem 2rem;
-      background: var(--accent);
-      border-top: 1px solid var(--border);
-      flex-wrap: wrap;
-      gap: 1rem;
+       display: flex;
+    justify-content: space-between;
+    /* padding: 1.5rem 2rem; */
+    background: var(--accent);
+    border-top: 1px solid var(--border);
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 1.2ch;
     }
 
     .other-project-nav-button {
-      flex: 1;
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      padding: 1rem;
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 600;
-      transition: background 0.3s ease, transform 0.3s ease;
-      color: var(--text);
-    }
-
+    flex: 1;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    /* padding: 1rem; */
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    transition: background 0.3sease, transform 0.3sease;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    /* padding: 1rem; */
+    /* gap: 1rem; */
+    padding: .5rem;
+    /* size: 1rem !important; */
+    text-align: center;
+    /* size: 1rem; */
+}
+.other-project-nav-container i {
+    /* background: var(--primary); */
+    width: 100%;
+    /* color: white; */
+    text-align: center;
+    margin: .3rem;
+    padding: .5rem;
+    display: inline-block;
+}
     .other-project-nav-button:hover {
       background: #f0f4f8;
       transform: translateY(-2px);
