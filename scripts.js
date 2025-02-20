@@ -381,7 +381,9 @@ function initFirstImpressionsSlider() {
         imagesHTML += `
           <div class="first-impressions-slide">
             <img src="${item["first-impression-image"]}" alt="${item["first-impression-caption"]}">
-            <label class="first-impressions-label">${item["first-impression-caption"]}</label>
+            <a href="${item["first-impression-project-link"]}" class="first-impressions-label">
+              ${item["first-impression-caption"]}
+            </a>
           </div>`;
       });
       // Duplicate images on desktop for seamless scrolling
