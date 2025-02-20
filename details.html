@@ -473,6 +473,35 @@
 
     @keyframes spin { to { transform: rotate(360deg); } }
 
+    /* -------------------- Back-to-Top Chevron -------------------- */
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--primary);
+      color: #fff;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0.8;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      z-index: 100;
+    }
+
+    .back-to-top:hover {
+      opacity: 1;
+      transform: translateX(-50%) scale(1.1);
+    }
+
+    .back-to-top i {
+      font-size: 1.5rem;
+    }
+
     /* -------------------- Responsive Adjustments -------------------- */
     @media (max-width: 1024px) {
       .detail-image { }
@@ -492,6 +521,8 @@
       .nav-btn { width: 36px; height: 36px; }
       .nav-btn::before { padding: 6px; }
       .close-btn { width: 32px; height: 32px; top: 5px; right: 5px; }
+      .back-to-top { width: 40px; height: 40px; }
+      .back-to-top i { font-size: 1.2rem; }
     }
   </style>
 </head>
@@ -516,6 +547,11 @@
 
   <!-- Main container for project or category details -->
   <main id="project-detail-container"></main>
+
+  <!-- Back-to-Top Chevron Button -->
+  <div class="back-to-top" title="Back to Top">
+    <i class="fas fa-chevron-up"></i>
+  </div>
 
   <script>
     /***********************
@@ -955,7 +991,6 @@
         spinner.style.display = 'none';
         lightboxImage.src = image.image;
         lightboxImage.alt = image['alt-text'];
-        // Add image number and total count to caption
         const imageCount = galleryImagesGlobal.length > 1 ? `Image ${currentImageIndex + 1} of ${galleryImagesGlobal.length} - ` : '';
         lightboxCaption.textContent = `${imageCount}${image.description}`;
         lightboxImage.style.opacity = '1';
@@ -1040,9 +1075,21 @@
       `;
     }
 
+    /***********************
+     * Back-to-Top Functionality
+     ***********************/
+    function initBackToTop() {
+      const backToTop = document.querySelector('.back-to-top');
+      backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+
     // Initialize based on URL parameters
     if (projectParam || categoryParam) {
-      initPage();
+      initPage().then(() => {
+        initBackToTop(); // Initialize after page content loads
+      });
     } else {
       window.location.href = 'index.html';
     }
