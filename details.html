@@ -544,7 +544,9 @@
 
   <!-- Main container for project or category details -->
   <main id="project-detail-container"></main>
-
+  <a href="index.html#projects-container" class="back-link">
+              <i class="fas fa-arrow-left"></i> Back to Projects
+            </a>
   <!-- Back-to-Top Chevron Button -->
   <div class="back-to-top" title="Back to Top">
     <i class="fas fa-chevron-up"></i>
@@ -695,10 +697,7 @@
 
       detailsContainer.innerHTML = `
         <article class="project-detail">
-          <header class="detail-header">
-            <a href="index.html#projects-container" class="back-link">
-              <i class="fas fa-arrow-left"></i> Back to Projects
-            </a>
+          <header class="detail-header">    
             <h1 class="project-title">${project["feature-project-name"]}</h1>
             ${project["feature-project-start-year"] ? `
               <div class="project-meta">
