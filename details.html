@@ -814,6 +814,12 @@
         }).join('');
 
       attachGalleryThumbnails();
+
+      // Scroll the gallery section into view after rendering
+      const gallerySection = document.querySelector('.gallery-section');
+      if (gallerySection) {
+        gallerySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }
 
     function attachGalleryThumbnails() {
