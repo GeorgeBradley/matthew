@@ -696,6 +696,9 @@
       const { prevProject, nextProject } = getNavigationProjects(project, projects);
 
       detailsContainer.innerHTML = `
+        <a href="index.html#projects-container" class="back-link">
+              <i class="fas fa-arrow-left"></i> Back to Projects
+            </a>
         <article class="project-detail">
           <header class="detail-header">    
             <h1 class="project-title">${project["feature-project-name"]}</h1>
