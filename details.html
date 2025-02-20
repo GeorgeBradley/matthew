@@ -402,6 +402,8 @@
       align-items: center;
       justify-content: center;
       transition: transform 0.3s ease, background 0.3s ease;
+      color: #fff;
+      font-size: 1.5rem;
     }
 
     .nav-btn:hover {
@@ -411,17 +413,6 @@
 
     .prev-btn { left: 10px; }
     .next-btn { right: 10px; }
-
-    .nav-btn::before {
-      content: '';
-      border: solid #fff;
-      border-width: 0 3px 3px 0;
-      display: inline-block;
-      padding: 8px;
-    }
-
-    .prev-btn::before { transform: rotate(135deg); }
-    .next-btn::before { transform: rotate(-45deg); }
 
     .close-btn {
       position: absolute;
@@ -522,8 +513,7 @@
     @media (max-width: 480px) {
       .project-meta { flex-direction: column; gap: 0.5rem; }
       .detail-image { height: 300px; }
-      .nav-btn { width: 36px; height: 36px; }
-      .nav-btn::before { padding: 6px; }
+      .nav-btn { width: 36px; height: 36px; font-size: 1.2rem; }
       .close-btn { width: 32px; height: 32px; top: 5px; right: 5px; }
       .back-to-top { width: 40px; height: 40px; }
       .back-to-top i { font-size: 1.2rem; }
@@ -675,23 +665,19 @@
      * Helper Function for Navigation
      ***********************/
     function getNavigationProjects(project, allProjects) {
-      // Only provide navigation for "highlighted" projects
       if (project["feature-project-type"] !== "highlighted") {
         return { prevProject: null, nextProject: null };
       }
 
-      // Filter and sort highlighted projects by feature-project-order
       const highlightedProjects = allProjects
         .filter(p => p["feature-project-type"] === "highlighted")
         .sort((a, b) => a["feature-project-order"] - b["feature-project-order"]);
 
-      // Find the current project's index in the sorted list
       const currentIndex = highlightedProjects.findIndex(p => p.id === project.id);
       if (currentIndex === -1) {
         return { prevProject: null, nextProject: null };
       }
 
-      // Determine previous and next projects
       const prevProject = currentIndex > 0 ? highlightedProjects[currentIndex - 1] : null;
       const nextProject = currentIndex < highlightedProjects.length - 1 ? highlightedProjects[currentIndex + 1] : null;
 
@@ -873,7 +859,7 @@
           currentImageIndex = Number(item.getAttribute('data-index'));
           updateLightbox(currentImageIndex);
           lightbox.classList.add('active');
-          document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+          document.body.style.overflow = 'hidden';
         });
       });
     }
@@ -920,7 +906,7 @@
                       .sort((a, b) => a.order - b.order)
                       .map((image, i) => `
                         <div class="gallery-item">
-                          <img src="${image.image }" 
+                          <img src="${image.image}" 
                                alt="${image['alt-text']}" 
                                class="gallery-thumbnail"
                                data-index="${i}"
@@ -948,8 +934,8 @@
             <div class="lightbox-image-container">
               <img class="lightbox-image" src="" alt="">
               <div class="loading-spinner"></div>
-              <button class="nav-btn prev-btn" aria-label="Previous image"></button>
-              <button class="nav-btn next-btn" aria-label="Next image"></button>
+              <button class="nav-btn prev-btn" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
+              <button class="nav-btn next-btn" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
             </div>
             <div class="lightbox-caption"></div>
           </div>
@@ -971,7 +957,7 @@
           currentImageIndex = Number(e.target.getAttribute('data-index'));
           updateLightbox(currentImageIndex);
           document.getElementById('galleryLightbox').classList.add('active');
-          document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+          document.body.style.overflow = 'hidden';
         });
       });
     }
@@ -1018,21 +1004,16 @@
       const nextBtn = lightbox.querySelector('.next-btn');
       let touchStartX = 0;
 
-      // Close modal when clicking outside the image content
       lightbox.addEventListener('click', (e) => {
         if (e.target === lightbox) {
           closeModal();
         }
       });
 
-      // Close modal when clicking the close button
       closeBtn.addEventListener('click', closeModal);
-
-      // Navigation buttons
       prevBtn.addEventListener('click', prevImage);
       nextBtn.addEventListener('click', nextImage);
 
-      // Keyboard navigation
       document.addEventListener('keydown', (e) => {
         if (lightbox.classList.contains('active')) {
           if (e.key === 'ArrowLeft') prevImage();
@@ -1041,7 +1022,6 @@
         }
       });
 
-      // Touch swipe for navigation
       lightbox.addEventListener('touchstart', (e) => {
         touchStartX = e.touches[0].clientX;
       });
@@ -1058,11 +1038,10 @@
       lightboxInitialized = true;
     }
 
-    // Helper function to close the modal
     function closeModal() {
       const lightbox = document.getElementById('galleryLightbox');
       lightbox.classList.remove('active');
-      document.body.style.overflow = ''; // Reset body overflow
+      document.body.style.overflow = '';
     }
 
     /***********************
@@ -1085,22 +1064,19 @@
     function initBackToTop() {
       const backToTop = document.querySelector('.back-to-top');
       
-      // Toggle visibility based on scroll position during manual scrolling
       window.addEventListener('scroll', () => {
         backToTop.classList.toggle('visible', window.scrollY > 50);
       });
 
-      // Scroll to top on click and hide button immediately
       backToTop.addEventListener('click', () => {
-        backToTop.classList.remove('visible'); // Hide immediately on click
+        backToTop.classList.remove('visible');
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
     }
 
-    // Initialize based on URL parameters
     if (projectParam || categoryParam) {
       initPage().then(() => {
-        initBackToTop(); // Initialize after page content loads
+        initBackToTop();
       });
     } else {
       window.location.href = 'index.html';
