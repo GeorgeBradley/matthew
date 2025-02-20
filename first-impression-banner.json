@@ -6,33 +6,27 @@
   },
   {
     "first-impression-image": "feature-img/banner-image-2.jpg",
-    "first-impression-caption": "Banner Image 2",
+    "first-impression-caption": "1:6 Scale Writing Desk",
     "first-impression-order": 2
   },
   {
     "first-impression-image": "feature-img/banner-image-3.jpg",
-    "first-impression-caption": "Banner Image 3",
+    "first-impression-caption": "Walrus (stop-motion puppet)",
     "first-impression-order": 3
   },
   {
     "first-impression-image": "feature-img/banner-image-4.jpg",
-    "first-impression-caption": "Banner Image 4",
+    "first-impression-caption": "Lothlórien (1:30 scale model)",
     "first-impression-order": 4
   },
   {
     "first-impression-image": "feature-img/banner-image-5.jpg",
-    "first-impression-caption": "Banner Image 5",
+    "first-impression-caption": "Windsor Chair (1:6 Scale)",
     "first-impression-order": 5
   },
   {
     "first-impression-image": "feature-img/banner-image-6.jpg",
-    "first-impression-caption": "Banner Image 6",
+    "first-impression-caption": "Trex (oil based clay sculpture)",
     "first-impression-order": 6
-  },
-
-  {
-    "first-impression-image": "feature-img/banner-image-3.jpg",
-    "first-impression-caption": "Banner Image 3",
-    "first-impression-order": 7
   }
 ]
