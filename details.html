@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Project Details – Professional Showcase</title>
-  <!-- Using Google Fonts for a refined look -->
+  <!-- Google Fonts for typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <!-- Navigation & other shared styles are in shareable.css -->
+  <!-- Shared styles -->
   <link rel="stylesheet" href="shareable.css" media="all">
   <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -25,11 +25,11 @@
       --header-gradient: linear-gradient(135deg, #005f73, #0a9396);
       --lightbox-bg: rgba(0, 0, 0, 0.8);
     }
-    
+
     *, *::before, *::after {
       box-sizing: border-box;
     }
-    
+
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
@@ -37,12 +37,12 @@
       color: var(--text);
       line-height: 1.6;
     }
-    
+
     a {
       text-decoration: none;
       color: inherit;
     }
-    
+
     /* -------------------- Project Detail Container -------------------- */
     .project-detail {
       max-width: 1100px;
@@ -53,12 +53,12 @@
       animation: fadeIn 0.5s ease-out;
       margin: 0 auto 2rem auto;
     }
-    
+
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    
+
     /* -------------------- Header Section -------------------- */
     .detail-header {
       background: var(--header-gradient);
@@ -69,7 +69,7 @@
       padding-bottom: 1rem;
       position: relative;
     }
-    
+
     .detail-header::after {
       content: '';
       position: absolute;
@@ -81,7 +81,7 @@
       background: var(--accent);
       border-radius: 2px;
     }
-    
+
     .project-title {
       margin: 1rem;
       font-size: 2.5rem;
@@ -89,7 +89,7 @@
       letter-spacing: 1px;
       text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
     }
-    
+
     .project-meta {
       font-size: 1rem;
       opacity: 0.9;
@@ -98,7 +98,7 @@
       gap: 1rem;
       padding: 0.3rem;
     }
-    
+
     /* -------------------- Back Link -------------------- */
     .back-link {
       display: inline-block;
@@ -110,14 +110,14 @@
       transition: background 0.3s ease;
       margin-bottom: 1rem;
     }
-    
+
     .back-link:hover {
       background: #004c59;
     }
-    
+
     /* -------------------- Main Image -------------------- */
     .detail-image {
-      max-width: 100%; 
+      max-width: 100%;
       display: block;
       width: 600px;
       margin: 1rem auto;
@@ -125,16 +125,16 @@
       object-fit: contain;
       transition: transform 0.4s ease;
     }
-    
+
     .detail-image:hover {
       transform: scale(1.03);
     }
-    
+
     /* -------------------- Content Section -------------------- */
     .detail-content {
       padding: 2rem;
     }
-    
+
     .project-description {
       max-width: 900px;
       margin: 0 auto 2rem auto;
@@ -142,13 +142,13 @@
       text-align: justify;
       color: var(--secondary);
     }
-    
+
     /* -------------------- Gallery Section -------------------- */
     .gallery-section {
       margin: 2rem 0;
       padding: 0 2rem;
     }
-    
+
     .gallery-section h2 {
       text-align: center;
       font-size: 2rem;
@@ -156,7 +156,7 @@
       position: relative;
       padding-bottom: 0.5rem;
     }
-    
+
     .gallery-section h2::after {
       content: '';
       position: absolute;
@@ -168,7 +168,7 @@
       background: var(--primary);
       border-radius: 2px;
     }
-    
+
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -176,7 +176,7 @@
       max-width: 1100px;
       margin: 0 auto;
     }
-    
+
     .gallery-item {
       position: relative;
       border: 1px solid var(--border);
@@ -186,19 +186,19 @@
       background: var(--card-bg);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    
+
     .gallery-item:hover {
       transform: translateY(-4px);
       box-shadow: 0 8px 20px rgba(0,0,0,0.1);
     }
-    
+
     .gallery-thumbnail {
       width: 100%;
       aspect-ratio: 16 / 9;
       object-fit: contain;
       display: block;
     }
-    
+
     .gallery-overlay {
       position: absolute;
       bottom: 0;
@@ -212,11 +212,11 @@
       opacity: 0;
       transition: opacity 0.3s ease;
     }
-    
+
     .gallery-item:hover .gallery-overlay {
       opacity: 1;
     }
-    
+
     /* -------------------- Pagination Controls (Mobile Only) -------------------- */
     .pagination-controls {
       display: none;
@@ -225,13 +225,13 @@
       gap: 1rem;
       margin-top: 1rem;
     }
-    
+
     @media (max-width: 1023px) {
       .pagination-controls {
         display: flex;
       }
     }
-    
+
     .pagination-button {
       background: var(--primary);
       color: #fff;
@@ -242,17 +242,17 @@
       font-weight: 600;
       transition: background 0.3s ease;
     }
-    
+
     .pagination-button:hover {
       background: #004c59;
     }
-    
+
     .pagination-info {
       font-size: 0.95rem;
       color: var(--secondary);
     }
-    
-    /* -------------------- Detail Grid (Company, Client, Skills) -------------------- */
+
+    /* -------------------- Detail Grid -------------------- */
     .detail-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -260,7 +260,7 @@
       margin: 2rem 0;
       padding: 0 2rem;
     }
-    
+
     .detail-item {
       background: var(--background);
       padding: 1.5rem;
@@ -269,12 +269,12 @@
       text-align: center;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    
+
     .detail-item:hover {
       transform: translateY(-3px);
       box-shadow: 0 6px 18px rgba(0,0,0,0.08);
     }
-    
+
     .detail-item h3 {
       font-size: 1.1rem;
       margin-bottom: 0.5rem;
@@ -282,7 +282,7 @@
       letter-spacing: 0.5px;
       color: var(--primary);
     }
-    
+
     .skill-list {
       display: flex;
       flex-wrap: wrap;
@@ -290,7 +290,7 @@
       gap: 0.5rem;
       margin-top: 0.75rem;
     }
-    
+
     .skill-tag {
       background: var(--primary);
       color: #fff;
@@ -299,7 +299,7 @@
       font-size: 0.9rem;
       font-weight: 600;
     }
-    
+
     /* -------------------- Other Project Navigation -------------------- */
     .other-project-nav-container {
       display: flex;
@@ -310,7 +310,7 @@
       flex-wrap: wrap;
       gap: 1rem;
     }
-    
+
     .other-project-nav-button {
       flex: 1;
       background: var(--card-bg);
@@ -324,13 +324,13 @@
       transition: background 0.3s ease, transform 0.3s ease;
       color: var(--text);
     }
-    
+
     .other-project-nav-button:hover {
       background: #f0f4f8;
       transform: translateY(-2px);
       border-color: var(--primary);
     }
-    
+
     /* -------------------- Lightbox Styles -------------------- */
     .lightbox {
       display: none;
@@ -345,11 +345,11 @@
       justify-content: center;
       padding: 1rem;
     }
-    
+
     .lightbox.active {
       display: flex;
     }
-    
+
     .lightbox-content {
       position: relative;
       background: #000;
@@ -359,14 +359,14 @@
       display: flex;
       flex-direction: column;
     }
-    
+
     .lightbox-image-container {
       position: relative;
       width: 100%;
       text-align: center;
       background: #000;
     }
-    
+
     .lightbox-image {
       max-width: 100%;
       height: 500px;
@@ -375,7 +375,7 @@
       margin: 0 auto;
       transition: opacity 0.3s ease;
     }
-    
+
     .lightbox-caption {
       background: var(--primary);
       color: #fff;
@@ -383,7 +383,7 @@
       font-size: 1rem;
       text-align: center;
     }
-    
+
     .nav-btn {
       position: absolute;
       top: 50%;
@@ -399,15 +399,15 @@
       justify-content: center;
       transition: transform 0.3s ease, background 0.3s ease;
     }
-    
+
     .nav-btn:hover {
       transform: translateY(-50%) scale(1.1);
       background: rgba(255, 255, 255, 0.3);
     }
-    
+
     .prev-btn { left: 10px; }
     .next-btn { right: 10px; }
-    
+
     .nav-btn::before {
       content: '';
       border: solid #fff;
@@ -415,10 +415,10 @@
       display: inline-block;
       padding: 8px;
     }
-    
+
     .prev-btn::before { transform: rotate(135deg); }
     .next-btn::before { transform: rotate(-45deg); }
-    
+
     .close-btn {
       position: absolute;
       top: 10px;
@@ -435,12 +435,12 @@
       z-index: 10;
       transition: transform 0.3s ease, background 0.3s ease;
     }
-    
+
     .close-btn:hover {
       transform: scale(1.1);
       background: rgba(255, 255, 255, 0.3);
     }
-    
+
     .close-btn::before,
     .close-btn::after {
       content: '';
@@ -449,10 +449,10 @@
       height: 2px;
       background: #fff;
     }
-    
+
     .close-btn::before { transform: rotate(45deg); }
     .close-btn::after { transform: rotate(-45deg); }
-    
+
     .loading-spinner {
       position: absolute;
       width: 40px;
@@ -466,14 +466,14 @@
       transform: translate(-50%, -50%);
       display: none;
     }
-    
+
     @keyframes spin { to { transform: rotate(360deg); } }
-    
+
     /* -------------------- Responsive Adjustments -------------------- */
     @media (max-width: 1024px) {
       .detail-image { }
     }
-    
+
     @media (max-width: 768px) {
       .detail-content { padding: 1.5rem; }
       .project-description { font-size: 1.05rem; }
@@ -481,7 +481,7 @@
       .detail-grid { padding: 0 1rem; }
       .other-project-nav-container { padding: 1rem; }
     }
-    
+
     @media (max-width: 480px) {
       .project-meta { flex-direction: column; gap: 0.5rem; }
       .detail-image { height: 300px; }
@@ -507,12 +507,12 @@
       <span></span>
     </button>
   </nav>
-  
+
   <br><br><br><br>
-  
-  <!-- Main container where project or category details will be injected -->
+
+  <!-- Main container for project or category details -->
   <main id="project-detail-container"></main>
-  
+
   <script>
     /***********************
      * Global Variables
@@ -523,17 +523,17 @@
     const urlParams = new URLSearchParams(window.location.search);
     const projectParam = urlParams.get('id');
     const categoryParam = urlParams.get('cat');
-    
+
     let allProjects = [];
     let allCategories = [];
     let galleryImagesGlobal = [];
     const imagesPerPage = 5;
     let currentGalleryPage = 1;
-    
+
     // Lightbox globals
     let currentImageIndex = 0;
     let lightboxInitialized = false;
-    
+
     /***********************
      * Data Fetching with Local Storage
      ***********************/
@@ -559,7 +559,7 @@
         }
       });
     }
-    
+
     function getCategoriesData() {
       const key = "categoriesData";
       return new Promise((resolve, reject) => {
@@ -582,7 +582,7 @@
         }
       });
     }
-    
+
     async function fetchData() {
       try {
         allProjects = await getProjectsData();
@@ -591,7 +591,7 @@
         throw error;
       }
     }
-    
+
     /***********************
      * Initialization
      ***********************/
@@ -626,15 +626,40 @@
         showDetailError();
       }
     }
-    
+
+    /***********************
+     * Helper Function for Navigation
+     ***********************/
+    function getNavigationProjects(project, allProjects) {
+      // Only provide navigation for "highlighted" projects
+      if (project["feature-project-type"] !== "highlighted") {
+        return { prevProject: null, nextProject: null };
+      }
+
+      // Filter and sort highlighted projects by feature-project-order
+      const highlightedProjects = allProjects
+        .filter(p => p["feature-project-type"] === "highlighted")
+        .sort((a, b) => a["feature-project-order"] - b["feature-project-order"]);
+
+      // Find the current project's index in the sorted list
+      const currentIndex = highlightedProjects.findIndex(p => p.id === project.id);
+      if (currentIndex === -1) {
+        return { prevProject: null, nextProject: null };
+      }
+
+      // Determine previous and next projects
+      const prevProject = currentIndex > 0 ? highlightedProjects[currentIndex - 1] : null;
+      const nextProject = currentIndex < highlightedProjects.length - 1 ? highlightedProjects[currentIndex + 1] : null;
+
+      return { prevProject, nextProject };
+    }
+
     /***********************
      * Single Project View
      ***********************/
     function renderProjectDetails(project, projects) {
-      const currentIndex = projects.findIndex(p => p.id === project.id);
-      const prevProject = projects[currentIndex - 1];
-      const nextProject = projects[currentIndex + 1];
-      
+      const { prevProject, nextProject } = getNavigationProjects(project, projects);
+
       detailsContainer.innerHTML = `
         <article class="project-detail">
           <header class="detail-header">
@@ -648,19 +673,19 @@
               </div>
             ` : ''}
           </header>
-    
+
           <img src="${project["feature-project-thumbnail"]}" 
                alt="${project["feature-project-name"]}" 
                class="detail-image"
                loading="lazy">
-    
+
           <section class="detail-content">
             <p class="project-description">${project["feature-project-long-description"]}</p>
-    
+
             ${project["feature-project-gallery"] && project["feature-project-gallery"].length ? `
               <div id="gallery-section-container"></div>
             ` : ''}
-    
+
             <div class="detail-grid">
               ${project["feature-project-company-name"] ? `
                 <div class="detail-item">
@@ -684,30 +709,34 @@
               ` : ''}
             </div>
           </section>
-    
-          <nav class="other-project-nav-container">
-            ${prevProject ? `
-              <a href="details.html?id=${prevProject.id}" class="other-project-nav-button">
-                <span>← Previous Project</span>
-              </a>
-            ` : '<div class="other-project-nav-spacer"></div>'}
-            ${nextProject ? `
-              <a href="details.html?id=${nextProject.id}" class="other-project-nav-button">
-                <span>Next Project →</span>
-              </a>
-            ` : '<div class="other-project-nav-spacer"></div>'}
-          </nav>
-    
+
+          ${prevProject || nextProject ? `
+            <nav class="other-project-nav-container">
+              ${prevProject ? `
+                <a href="details.html?id=${prevProject.id}" class="other-project-nav-button" title="Previous project: ${prevProject["feature-project-name"]}">
+                  <i class="fas fa-arrow-left"></i>
+                  <span>${prevProject["feature-project-name"]}</span>
+                </a>
+              ` : '<div class="other-project-nav-spacer"></div>'}
+              ${nextProject ? `
+                <a href="details.html?id=${nextProject.id}" class="other-project-nav-button" title="Next project: ${nextProject["feature-project-name"]}">
+                  <span>${nextProject["feature-project-name"]}</span>
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              ` : '<div class="other-project-nav-spacer"></div>'}
+            </nav>
+          ` : ''}
+
           ${getLightboxMarkup()}
         </article>
       `;
-    
+
       if (project["feature-project-gallery"] && project["feature-project-gallery"].length) {
         galleryImagesGlobal = project["feature-project-gallery"].sort((a, b) => a.order - b.order);
         renderGallerySection(galleryImagesGlobal);
       }
     }
-    
+
     function renderGallerySection(galleryImages) {
       const container = document.getElementById('gallery-section-container');
       container.innerHTML = `
@@ -720,7 +749,7 @@
       currentGalleryPage = 1;
       renderGalleryPage();
     }
-    
+
     function renderGalleryPage() {
       const galleryGrid = document.getElementById('galleryGrid');
       const paginationControls = document.getElementById('paginationControls');
@@ -744,7 +773,7 @@
             controlsHTML += `<button class="pagination-button" id="nextPage">Next</button>`;
           }
           paginationControls.innerHTML = controlsHTML;
-    
+
           const prevBtn = document.getElementById('prevPage');
           if (prevBtn) {
             prevBtn.addEventListener('click', () => {
@@ -763,7 +792,7 @@
           paginationControls.innerHTML = '';
         }
       }
-    
+
       galleryGrid.innerHTML = galleryImagesGlobal
         .slice(startIndex, endIndex)
         .map((image, i) => {
@@ -779,10 +808,10 @@
             </div>
           `;
         }).join('');
-    
+
       attachGalleryThumbnails();
     }
-    
+
     function attachGalleryThumbnails() {
       const lightbox = document.getElementById('galleryLightbox');
       const galleryItems = document.querySelectorAll('#galleryGrid .gallery-thumbnail');
@@ -795,7 +824,7 @@
         });
       });
     }
-    
+
     /***********************
      * Category View
      ***********************/
@@ -809,7 +838,7 @@
           <p>${category.description}</p>
         </section>
       `;
-      
+
       projects.forEach(project => {
         html += `
           <article class="project-detail" style="margin-bottom: 2rem;">
@@ -821,15 +850,15 @@
                 </div>
               ` : ''}
             </header>
-    
+
             <img src="${project["feature-project-thumbnail"]}" 
                  alt="${project["feature-project-name"]}" 
                  class="detail-image"
                  loading="lazy">
-    
+
             <section class="detail-content">
               <p class="project-description">${project["feature-project-long-description"]}</p>
-    
+
               ${project["feature-project-gallery"] && project["feature-project-gallery"].length ? `
                 <div class="gallery-section" data-project-id="${project.id}">
                   <h2>Gallery</h2>
@@ -853,11 +882,11 @@
           </article>
         `;
       });
-      
+
       detailsContainer.innerHTML = html + getLightboxMarkup();
       attachCategoryGalleryListeners(projects);
     }
-    
+
     function getLightboxMarkup() {
       return `
         <div class="lightbox" id="galleryLightbox">
@@ -874,7 +903,7 @@
         </div>
       `;
     }
-    
+
     function attachCategoryGalleryListeners(projects) {
       const galleryThumbnails = document.querySelectorAll('.gallery-thumbnail');
       galleryThumbnails.forEach(thumbnail => {
@@ -883,7 +912,7 @@
           const projectId = gallerySection.getAttribute('data-project-id');
           const project = projects.find(p => p.id === Number(projectId));
           if (!project) return;
-          
+
           galleryImagesGlobal = (project["feature-project-gallery"] || [])
                                 .sort((a, b) => a.order - b.order);
           currentImageIndex = Number(e.target.getAttribute('data-index'));
@@ -893,7 +922,7 @@
         });
       });
     }
-    
+
     /***********************
      * Lightbox Functionality
      ***********************/
@@ -906,7 +935,7 @@
       const image = galleryImagesGlobal[currentImageIndex];
       lightboxImage.style.opacity = '0';
       spinner.style.display = 'block';
-      
+
       const img = new Image();
       img.src = image.image;
       img.onload = () => {
@@ -917,15 +946,15 @@
         lightboxImage.style.opacity = '1';
       };
     }
-    
+
     function nextImage() {
       updateLightbox(currentImageIndex + 1);
     }
-    
+
     function prevImage() {
       updateLightbox(currentImageIndex - 1);
     }
-    
+
     function initLightbox() {
       if (lightboxInitialized) return;
       const lightbox = document.getElementById('galleryLightbox');
@@ -933,14 +962,14 @@
       const prevBtn = lightbox.querySelector('.prev-btn');
       const nextBtn = lightbox.querySelector('.next-btn');
       let touchStartX = 0;
-      
+
       closeBtn.addEventListener('click', () => {
         lightbox.classList.remove('active');
         document.body.style.overflow = '';
       });
       prevBtn.addEventListener('click', prevImage);
       nextBtn.addEventListener('click', nextImage);
-      
+
       document.addEventListener('keydown', (e) => {
         if (lightbox.classList.contains('active')) {
           if (e.key === 'ArrowLeft') prevImage();
@@ -948,11 +977,11 @@
           if (e.key === 'Escape') closeBtn.click();
         }
       });
-      
+
       lightbox.addEventListener('touchstart', (e) => {
         touchStartX = e.touches[0].clientX;
       });
-      
+
       lightbox.addEventListener('touchend', (e) => {
         const touchEndX = e.changedTouches[0].clientX;
         const deltaX = touchEndX - touchStartX;
@@ -961,10 +990,10 @@
           else nextImage();
         }
       });
-      
+
       lightboxInitialized = true;
     }
-    
+
     /***********************
      * Error / Redirect
      ***********************/
@@ -978,15 +1007,15 @@
         </div>
       `;
     }
-    
-    // Initialize based on the URL parameters.
+
+    // Initialize based on URL parameters
     if (projectParam || categoryParam) {
       initPage();
     } else {
       window.location.href = 'index.html';
     }
   </script>
-  
+
   <script src="sharable-scripts.js" defer></script>
 </body>
 </html>
