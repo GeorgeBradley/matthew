@@ -1090,18 +1090,10 @@
         backToTop.classList.toggle('visible', window.scrollY > 50);
       });
 
-      // Scroll to top on click and hide button when scroll reaches top
+      // Scroll to top on click and hide button immediately
       backToTop.addEventListener('click', () => {
+        backToTop.classList.remove('visible'); // Hide immediately on click
         window.scrollTo({ top: 0, behavior: 'smooth' });
-        // Monitor scroll position until it reaches the top
-        function checkScrollEnd() {
-          if (window.scrollY <= 50) { // Use 50 to match visibility threshold
-            backToTop.classList.remove('visible');
-          } else {
-            requestAnimationFrame(checkScrollEnd);
-          }
-        }
-        requestAnimationFrame(checkScrollEnd);
       });
     }
 
