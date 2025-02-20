@@ -707,6 +707,18 @@
     let lightboxInitialized = false;
 
     /***********************
+     * Back Functionality
+     ***********************/
+    function goBackWithScroll() {
+      const scrollPosition = localStorage.getItem('scrollPosition') || 0;
+      window.history.back();
+      // Wait for navigation to complete, then restore scroll
+      window.addEventListener('pageshow', () => {
+        window.scrollTo(0, parseInt(scrollPosition));
+      }, { once: true });
+    }
+
+    /***********************
      * Data Fetching with Local Storage
      ***********************/
     function getProjectsData() {
@@ -834,7 +846,7 @@
                              project["feature-project-testimonial"][0]["testimonial-quote"] !== null;
 
       detailsContainer.innerHTML = `
-        <a href="index.html#projects-container" class="back-link">
+        <a href="javascript:void(0)" class="back-link" onclick="goBackWithScroll()">
           <i class="fas fa-arrow-left"></i> Back to Projects
         </a>
         <article class="project-detail">
@@ -1046,7 +1058,7 @@
      ***********************/
     function renderCategoryDetails(category, projects) {
       let html = `
-        <a href="index.html#projects-container" class="back-link">
+        <a href="javascript:void(0)" class="back-link" onclick="goBackWithScroll()">
           <i class="fas fa-arrow-left"></i> Back to Projects
         </a>
         <section class="category-header" style="text-align: center; padding: 2rem;">
@@ -1261,7 +1273,6 @@
         });
       });
 
-      // Touch events for mobile swiping
       slider.addEventListener('touchstart', (e) => {
         touchStartX = e.touches[0].clientX;
       });
@@ -1289,7 +1300,7 @@
       detailsContainer.innerHTML = `
         <div class="error-state" style="text-align:center; padding:2rem;">
           <p style="font-size:1.2rem;">⚠️ Project or Category not found</p>
-          <a href="index.html" class="back-link">
+          <a href="javascript:void(0)" class="back-link" onclick="goBackWithScroll()">
             <i class="fas fa-arrow-left"></i> Return to Projects
           </a>
         </div>
