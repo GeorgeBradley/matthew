@@ -955,7 +955,9 @@
         spinner.style.display = 'none';
         lightboxImage.src = image.image;
         lightboxImage.alt = image['alt-text'];
-        lightboxCaption.textContent = image.description;
+        // Add image number and total count to caption
+        const imageCount = galleryImagesGlobal.length > 1 ? `Image ${currentImageIndex + 1} of ${galleryImagesGlobal.length} - ` : '';
+        lightboxCaption.textContent = `${imageCount}${image.description}`;
         lightboxImage.style.opacity = '1';
       };
     }
