@@ -4,14 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Project Details – Professional Showcase</title>
+  
   <!-- Google Fonts for typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  
   <!-- Shared styles -->
   <link rel="stylesheet" href="shareable.css" media="all">
+  
   <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <!-- Swiper CSS for carousel -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
   <style>
     /* -------------------- Root Variables -------------------- */
     :root {
@@ -101,17 +108,14 @@
 
     /* -------------------- Back Link -------------------- */
     .back-link {
-         display: inline-block;
-    background: var(--primary);
-    color: #fff;
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-    /* margin: 0 auto; */
-    font-weight: 600;
-    display: block;
-    width: fit-content;
-    transition: background 0.3sease;
-    margin: 1rem auto;
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      margin: 1rem auto;
+      transition: background 0.3s ease;
     }
 
     .back-link:hover {
@@ -517,6 +521,81 @@
       font-size: 1.5rem;
     }
 
+    /* -------------------- Testimonial Section -------------------- */
+    .testimonial-section {
+      margin: 2rem 0;
+      padding: 0 2rem;
+    }
+
+    .testimonial-section h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+
+    .testimonial-section h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+
+    .testimonial {
+      background: var(--card-bg);
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .quote {
+      font-size: 1.15rem;
+      color: var(--secondary);
+      margin-bottom: 1rem;
+      font-style: italic;
+    }
+
+    .author {
+      font-size: 1rem;
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .swiper-container {
+      padding: 1rem 0;
+    }
+
+    .swiper-pagination {
+      position: relative;
+      margin-top: 1rem;
+    }
+
+    .swiper-pagination-bullet {
+      background: var(--primary);
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+      color: var(--primary);
+      width: 44px;
+      height: 44px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 50%;
+      transition: transform 0.3s ease;
+    }
+
+    .swiper-button-prev:hover,
+    .swiper-button-next:hover {
+      transform: scale(1.1);
+    }
+
     /* -------------------- Responsive Adjustments -------------------- */
     @media (max-width: 1024px) {
       .detail-image { }
@@ -528,6 +607,7 @@
       .gallery-section h2 { font-size: 1.8rem; }
       .detail-grid { padding: 0 1rem; }
       .other-project-nav-container { padding: 1rem; }
+      .testimonial-section h2 { font-size: 1.8rem; }
     }
 
     @media (max-width: 480px) {
@@ -542,18 +622,14 @@
 </head>
 <body>
   <nav class="main-navigation-nav">
-       
     <a href="index.html#home">
-    <img src="Header.png" alt="Logo" class="main-navigation-logo"> </a>
+      <img src="Header.png" alt="Logo" class="main-navigation-logo">
+    </a>
     <div class="main-navigation-nav-links">
       <a href="index.html#home">Home</a>
       <a href="index.html#projects-container">Projects</a>
-    
-      <a href="#contact">Contact</a> 
-      <!--<button class="cta-button" id="openModalBtn">Portfolio &amp; CV</button>-->
+      <a href="#contact">Contact</a>
       <a href="portfolio-cv.html" class="cta-button">CV / Portfolio</a>
-
-     <!-- <a href="#contact" class="main-navigation-cta-button">Get in Touch</a> -->
     </div>
     <button class="main-navigation-hamburger">
       <span></span>
@@ -561,7 +637,6 @@
       <span></span>
     </button>
   </nav>
-
 
   <br><br><br><br>
 
@@ -718,8 +793,8 @@
 
       detailsContainer.innerHTML = `
         <a href="index.html#projects-container" class="back-link">
-              <i class="fas fa-arrow-left"></i> Back to Projects
-            </a>
+          <i class="fas fa-arrow-left"></i> Back to Projects
+        </a>
         <article class="project-detail">
           <header class="detail-header">    
             <h1 class="project-title">${project["feature-project-name"]}</h1>
@@ -740,6 +815,27 @@
 
             ${project["feature-project-gallery"] && project["feature-project-gallery"].length ? `
               <div id="gallery-section-container"></div>
+            ` : ''}
+
+            ${project["feature-project-testimonial"] && project["feature-project-testimonial"].length ? `
+              <div id="testimonial-section-container" class="testimonial-section">
+                <h2>Testimonials</h2>
+                <div class="swiper-container testimonial-swiper">
+                  <div class="swiper-wrapper">
+                    ${project["feature-project-testimonial"].map(testimonial => `
+                      <div class="swiper-slide">
+                        <div class="testimonial">
+                          <p class="quote">"${testimonial.quote}"</p>
+                          <p class="author">- ${testimonial.author}</p>
+                        </div>
+                      </div>
+                    `).join('')}
+                  </div>
+                  <div class="swiper-pagination"></div>
+                  <div class="swiper-button-prev" aria-label="Previous testimonial"></div>
+                  <div class="swiper-button-next" aria-label="Next testimonial"></div>
+                </div>
+              </div>
             ` : ''}
 
             <div class="detail-grid">
@@ -791,6 +887,30 @@
         galleryImagesGlobal = project["feature-project-gallery"].sort((a, b) => a.order - b.order);
         renderGallerySection(galleryImagesGlobal);
       }
+
+      if (project["feature-project-testimonial"] && project["feature-project-testimonial"].length) {
+        initTestimonialSwiper();
+      }
+    }
+
+    function initTestimonialSwiper() {
+      new Swiper('.testimonial-swiper', {
+        loop: true,
+        slidesPerView: 1,
+        spaceBetween: 20,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+        },
+      });
     }
 
     function renderGallerySection(galleryImages) {
@@ -943,6 +1063,27 @@
                   </div>
                 </div>
               ` : ''}
+
+              ${project["feature-project-testimonial"] && project["feature-project-testimonial"].length ? `
+                <div id="testimonial-section-container" class="testimonial-section">
+                  <h2>Testimonials</h2>
+                  <div class="swiper-container testimonial-swiper">
+                    <div class="swiper-wrapper">
+                      ${project["feature-project-testimonial"].map(testimonial => `
+                        <div class="swiper-slide">
+                          <div class="testimonial">
+                            <p class="quote">"${testimonial.quote}"</p>
+                            <p class="author">- ${testimonial.author}</p>
+                          </div>
+                        </div>
+                      `).join('')}
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-prev" aria-label="Previous testimonial"></div>
+                    <div class="swiper-button-next" aria-label="Next testimonial"></div>
+                  </div>
+                </div>
+              ` : ''}
             </section>
           </article>
         `;
@@ -950,6 +1091,11 @@
 
       detailsContainer.innerHTML = html + getLightboxMarkup();
       attachCategoryGalleryListeners(projects);
+      projects.forEach(project => {
+        if (project["feature-project-testimonial"] && project["feature-project-testimonial"].length) {
+          initTestimonialSwiper();
+        }
+      });
     }
 
     function getLightboxMarkup() {
@@ -1109,6 +1255,7 @@
     }
   </script>
 
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js" defer></script>
   <script src="sharable-scripts.js" defer></script>
 </body>
 </html>
