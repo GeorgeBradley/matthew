@@ -25,7 +25,23 @@
     "feature-project-client": "Workshed Animation’s feature film ‘The Iron Leech’",
     "feature-project-type": "highlighted",
     "project-feature-main-category-id": 1,
-    "feature-project-order": 2
+    "feature-project-order": 2,
+    "feature-project-testimonial": [
+      {
+        "testimonial-name": "Emma Clarkson",
+        "testimonial-client-name": "Workshed Animation",
+        "testimonial-employer-name": "Workshed Animation",
+        "testimonial-quote": "The walrus puppet was a standout in 'The Iron Leech'. Its lifelike movement and detailed craftsmanship elevated every scene it was in!",
+        "testimonial-role": "Animation Director"
+      },
+      {
+        "testimonial-name": "Tom Hargrove",
+        "testimonial-client-name": "Workshed Animation",
+        "testimonial-employer-name": "Workshed Animation",
+        "testimonial-quote": "Working with such a well-crafted puppet made animating a breeze. The replaceable parts were a genius touch.",
+        "testimonial-role": "Lead Animator"
+      }
+    ]
   },
   {
     "id": 2,
@@ -52,7 +68,16 @@
     "feature-project-client": "Television ad campaign for Olbas Oil - ‘The power to breathe’",
     "feature-project-type": "highlighted",
     "project-feature-main-category-id": 1,
-    "feature-project-order": 3
+    "feature-project-order": 3,
+    "feature-project-testimonial": [
+      {
+        "testimonial-name": null,
+        "testimonial-client-name": null,
+        "testimonial-employer-name": null,
+        "testimonial-quote": null,
+        "testimonial-role": null
+      }
+    ]
   },
   {
     "id": 3,
@@ -76,7 +101,16 @@
     "feature-project-client": "Television ad for BBC 2022 Commonwealth Games",
     "feature-project-type": "highlighted",
     "project-feature-main-category-id": 3,
-    "feature-project-order": 5
+    "feature-project-order": 5,
+    "feature-project-testimonial": [
+      {
+        "testimonial-name": null,
+        "testimonial-client-name": null,
+        "testimonial-employer-name": null,
+        "testimonial-quote": null,
+        "testimonial-role": null
+      }
+    ]
   },
   {
     "id": 4,
@@ -109,7 +143,16 @@
     "feature-project-client": "Deutsche Telekom Magenta.",
     "feature-project-type": "highlighted",
     "project-feature-main-category-id": 1,
-    "feature-project-order": 2
+    "feature-project-order": 2,
+    "feature-project-testimonial": [
+      {
+        "testimonial-name": null,
+        "testimonial-client-name": null,
+        "testimonial-employer-name": null,
+        "testimonial-quote": null,
+        "testimonial-role": null
+      }
+    ]
   },
   {
     "id": 5,
@@ -134,7 +177,16 @@
     "feature-project-client": "BBC",
     "feature-project-type": "highlighted",
     "project-feature-main-category-id": 3,
-    "feature-project-order": 4
+    "feature-project-order": 4,
+    "feature-project-testimonial": [
+      {
+        "testimonial-name": null,
+        "testimonial-client-name": null,
+        "testimonial-employer-name": null,
+        "testimonial-quote": null,
+        "testimonial-role": null
+      }
+    ]
   },
   {
     "id": 6,
@@ -159,7 +211,16 @@
     "feature-project-client": null,
     "feature-project-type": "un-highlighted",
     "project-feature-main-category-id": 4,
-    "feature-project-order": null
+    "feature-project-order": null,
+    "feature-project-testimonial": [
+      {
+        "testimonial-name": null,
+        "testimonial-client-name": null,
+        "testimonial-employer-name": null,
+        "testimonial-quote": null,
+        "testimonial-role": null
+      }
+    ]
   },
   {
     "id": 7,
@@ -184,7 +245,16 @@
     "feature-project-client": "Workshed Animation’s feature film ‘The Iron Leech’",
     "feature-project-type": "un-highlighted",
     "project-feature-main-category-id": 1,
-    "feature-project-order": null
+    "feature-project-order": null,
+    "feature-project-testimonial": [
+      {
+        "testimonial-name": null,
+        "testimonial-client-name": null,
+        "testimonial-employer-name": null,
+        "testimonial-quote": null,
+        "testimonial-role": null
+      }
+    ]
   },
   {
     "id": 8,
@@ -209,7 +279,16 @@
     "feature-project-client": null,
     "feature-project-type": "un-highlighted",
     "project-feature-main-category-id": 2,
-    "feature-project-order": null
+    "feature-project-order": null,
+    "feature-project-testimonial": [
+      {
+        "testimonial-name": null,
+        "testimonial-client-name": null,
+        "testimonial-employer-name": null,
+        "testimonial-quote": null,
+        "testimonial-role": null
+      }
+    ]
   },
   {
     "id": 9,
@@ -234,7 +313,16 @@
     "feature-project-client": null,
     "feature-project-type": "un-highlighted",
     "project-feature-main-category-id": 1,
-    "feature-project-order": null
+    "feature-project-order": null,
+    "feature-project-testimonial": [
+      {
+        "testimonial-name": null,
+        "testimonial-client-name": null,
+        "testimonial-employer-name": null,
+        "testimonial-quote": null,
+        "testimonial-role": null
+      }
+    ]
   },
   {
     "id": 10,
@@ -257,7 +345,16 @@
     "feature-project-client": null,
     "feature-project-type": "un-highlighted",
     "project-feature-main-category-id": 4,
-    "feature-project-order": null
+    "feature-project-order": null,
+    "feature-project-testimonial": [
+      {
+        "testimonial-name": null,
+        "testimonial-client-name": null,
+        "testimonial-employer-name": null,
+        "testimonial-quote": null,
+        "testimonial-role": null
+      }
+    ]
   },
   {
     "id": 11,
@@ -286,7 +383,16 @@
     "feature-project-client": null,
     "feature-project-type": "un-highlighted",
     "project-feature-main-category-id": 3,
-    "feature-project-order": null
+    "feature-project-order": null,
+    "feature-project-testimonial": [
+      {
+        "testimonial-name": null,
+        "testimonial-client-name": null,
+        "testimonial-employer-name": null,
+        "testimonial-quote": null,
+        "testimonial-role": null
+      }
+    ]
   },
   {
     "id": 12,
@@ -311,7 +417,16 @@
     "feature-project-client": "Comic Bookstore in Horsham",
     "feature-project-type": "un-highlighted",
     "project-feature-main-category-id": 2,
-    "feature-project-order": null
+    "feature-project-order": null,
+    "feature-project-testimonial": [
+      {
+        "testimonial-name": null,
+        "testimonial-client-name": null,
+        "testimonial-employer-name": null,
+        "testimonial-quote": null,
+        "testimonial-role": null
+      }
+    ]
   },
   {
     "id": 13,
@@ -338,7 +453,16 @@
     "feature-project-client": "Independent film 'Plaguepits'",
     "feature-project-type": "highlighted",
     "project-feature-main-category-id": 3,
-    "feature-project-order": 6
+    "feature-project-order": 6,
+    "feature-project-testimonial": [
+      {
+        "testimonial-name": null,
+        "testimonial-client-name": null,
+        "testimonial-employer-name": null,
+        "testimonial-quote": null,
+        "testimonial-role": null
+      }
+    ]
   },
   {
     "id": 14,
@@ -358,7 +482,16 @@
     "feature-project-client": null,
     "feature-project-type": "un-highlighted",
     "project-feature-main-category-id": 2,
-    "feature-project-order": null
+    "feature-project-order": null,
+    "feature-project-testimonial": [
+      {
+        "testimonial-name": null,
+        "testimonial-client-name": null,
+        "testimonial-employer-name": null,
+        "testimonial-quote": null,
+        "testimonial-role": null
+      }
+    ]
   },
   {
     "id": 15,
@@ -382,7 +515,16 @@
     "feature-project-client": null,
     "feature-project-type": "un-highlighted",
     "project-feature-main-category-id": 2,
-    "feature-project-order": null
+    "feature-project-order": null,
+    "feature-project-testimonial": [
+      {
+        "testimonial-name": null,
+        "testimonial-client-name": null,
+        "testimonial-employer-name": null,
+        "testimonial-quote": null,
+        "testimonial-role": null
+      }
+    ]
   },
   {
     "id": 16,
@@ -404,7 +546,16 @@
     "feature-project-client": "University production",
     "feature-project-type": "un-highlighted",
     "project-feature-main-category-id": 3,
-    "feature-project-order": null
+    "feature-project-order": null,
+    "feature-project-testimonial": [
+      {
+        "testimonial-name": null,
+        "testimonial-client-name": null,
+        "testimonial-employer-name": null,
+        "testimonial-quote": null,
+        "testimonial-role": null
+      }
+    ]
   },
   {
     "id": 17,
@@ -426,7 +577,16 @@
     "feature-project-client": null,
     "feature-project-type": "un-highlighted",
     "project-feature-main-category-id": 4,
-    "feature-project-order": null
+    "feature-project-order": null,
+    "feature-project-testimonial": [
+      {
+        "testimonial-name": null,
+        "testimonial-client-name": null,
+        "testimonial-employer-name": null,
+        "testimonial-quote": null,
+        "testimonial-role": null
+      }
+    ]
   },
   {
     "id": 18,
@@ -458,7 +618,16 @@
     "feature-project-client": null,
     "feature-project-type": "un-highlighted",
     "project-feature-main-category-id": 3,
-    "feature-project-order": null
+    "feature-project-order": null,
+    "feature-project-testimonial": [
+      {
+        "testimonial-name": null,
+        "testimonial-client-name": null,
+        "testimonial-employer-name": null,
+        "testimonial-quote": null,
+        "testimonial-role": null
+      }
+    ]
   },
   {
     "id": 19,
@@ -486,45 +655,59 @@
     "feature-project-client": null,
     "feature-project-type": "un-highlighted",
     "project-feature-main-category-id": 2,
-    "feature-project-order": null
+    "feature-project-order": null,
+    "feature-project-testimonial": [
+      {
+        "testimonial-name": null,
+        "testimonial-client-name": null,
+        "testimonial-employer-name": null,
+        "testimonial-quote": null,
+        "testimonial-role": null
+      }
+    ]
   },
   {
-  "id": 20,
-  "feature-project-name": "Styxosaurus - A Stop-Motion Puppet",
-  "feature-project-description": "A Styxosaurus stop-motion puppet with a ball-and-socket armature for full movement, three mounting points, and a maintenance-friendly design. A custom base completes it.",
-  "feature-project-long-description": "A stop-motion puppet, complete with inner ball and socket armature. Based on a Styxosaurus. I built the composite armature to maximise all possible movements. Special measures were taken to enable future maintenance, to ensure the life of the model, and to assure maximum functionality when it comes to animating! It features three mounting points, full motion in its neck, tail, fins, mouth, and body To finish, I built a custom base to showcase the finished puppet.",
-  "feature-project-thumbnail": "feature-img-beta/feature-20.gif",
-  "feature-project-gallery": [
-    { "image": "feature-img-beta/feature-20.gif", "description": "", "alt-text": "", "order": 1 },
-    { "image": "feature-img-beta/feature-20-1.jpg", "description": "", "alt-text": "", "order": 2 },
-    { "image": "feature-img-beta/feature-20-2.jpg", "description": "", "alt-text": "", "order": 3 },
-    { "image": "feature-img-beta/feature-20-3.jpg", "description": "", "alt-text": "", "order": 4 },
-    { "image": "feature-img-beta/feature-20-4.jpg", "description": "", "alt-text": "", "order": 5 },
-    { "image": "feature-img-beta/feature-20-5.jpg", "description": "", "alt-text": "", "order": 6 },
-    { "image": "feature-img-beta/feature-20-6.jpeg", "description": "", "alt-text": "", "order": 7 },
-    { "image": "feature-img-beta/feature-20-7.jpg", "description": "", "alt-text": "", "order": 8 },
-    { "image": "feature-img-beta/feature-20-8.jpg", "description": "", "alt-text": "", "order": 9 },
-    { "image": "feature-img-beta/feature-20-9.jpg", "description": "", "alt-text": "", "order": 10 },
-    { "image": "feature-img-beta/feature-20-10.jpg", "description": "", "alt-text": "", "order": 10 },
-    { "image": "feature-img-beta/feature-20-11.jpg", "description": "", "alt-text": "", "order": 10 },
-    { "image": "feature-img-beta/feature-20-12.jpg", "description": "", "alt-text": "", "order": 10 },
-    { "image": "feature-img-beta/feature-20-13.jpg", "description": "", "alt-text": "", "order": 10 },
-    { "image": "feature-img-beta/feature-20-14.jpg", "description": "", "alt-text": "", "order": 10 },
-        { "image": "feature-img-beta/feature-20-15.jpg", "description": "", "alt-text": "", "order": 10 }
-
-  ],
-  "feature-project-link": "https://greenpuppets.org/eco-series",
-  "feature-project-start-year": 2022,
-  "feature-project-end-year": null,
-  "feature-project-company-name": null,
-  "feature-project-skills": ["sculpting", "model making", "mixed media"],
-  "feature-project-job-category": "Miscellaneous creative projects",
-  "feature-project-client": null,
-  "feature-project-type": "highlighted",
-  "project-feature-main-category-id": 2,
-  "feature-project-order": 1
-}
- 
-
-  
+    "id": 20,
+    "feature-project-name": "Styxosaurus - A Stop-Motion Puppet",
+    "feature-project-description": "A Styxosaurus stop-motion puppet with a ball-and-socket armature for full movement, three mounting points, and a maintenance-friendly design. A custom base completes it.",
+    "feature-project-long-description": "A stop-motion puppet, complete with inner ball and socket armature. Based on a Styxosaurus. I built the composite armature to maximise all possible movements. Special measures were taken to enable future maintenance, to ensure the life of the model, and to assure maximum functionality when it comes to animating! It features three mounting points, full motion in its neck, tail, fins, mouth, and body To finish, I built a custom base to showcase the finished puppet.",
+    "feature-project-thumbnail": "feature-img-beta/feature-20.gif",
+    "feature-project-gallery": [
+      { "image": "feature-img-beta/feature-20.gif", "description": "", "alt-text": "", "order": 1 },
+      { "image": "feature-img-beta/feature-20-1.jpg", "description": "", "alt-text": "", "order": 2 },
+      { "image": "feature-img-beta/feature-20-2.jpg", "description": "", "alt-text": "", "order": 3 },
+      { "image": "feature-img-beta/feature-20-3.jpg", "description": "", "alt-text": "", "order": 4 },
+      { "image": "feature-img-beta/feature-20-4.jpg", "description": "", "alt-text": "", "order": 5 },
+      { "image": "feature-img-beta/feature-20-5.jpg", "description": "", "alt-text": "", "order": 6 },
+      { "image": "feature-img-beta/feature-20-6.jpeg", "description": "", "alt-text": "", "order": 7 },
+      { "image": "feature-img-beta/feature-20-7.jpg", "description": "", "alt-text": "", "order": 8 },
+      { "image": "feature-img-beta/feature-20-8.jpg", "description": "", "alt-text": "", "order": 9 },
+      { "image": "feature-img-beta/feature-20-9.jpg", "description": "", "alt-text": "", "order": 10 },
+      { "image": "feature-img-beta/feature-20-10.jpg", "description": "", "alt-text": "", "order": 10 },
+      { "image": "feature-img-beta/feature-20-11.jpg", "description": "", "alt-text": "", "order": 10 },
+      { "image": "feature-img-beta/feature-20-12.jpg", "description": "", "alt-text": "", "order": 10 },
+      { "image": "feature-img-beta/feature-20-13.jpg", "description": "", "alt-text": "", "order": 10 },
+      { "image": "feature-img-beta/feature-20-14.jpg", "description": "", "alt-text": "", "order": 10 },
+      { "image": "feature-img-beta/feature-20-15.jpg", "description": "", "alt-text": "", "order": 10 }
+    ],
+    "feature-project-link": "https://greenpuppets.org/eco-series",
+    "feature-project-start-year": 2022,
+    "feature-project-end-year": null,
+    "feature-project-company-name": null,
+    "feature-project-skills": ["sculpting", "model making", "mixed media"],
+    "feature-project-job-category": "Miscellaneous creative projects",
+    "feature-project-client": null,
+    "feature-project-type": "highlighted",
+    "project-feature-main-category-id": 2,
+    "feature-project-order": 1,
+    "feature-project-testimonial": [
+      {
+        "testimonial-name": null,
+        "testimonial-client-name": null,
+        "testimonial-employer-name": null,
+        "testimonial-quote": null,
+        "testimonial-role": null
+      }
+    ]
+  }
 ]
