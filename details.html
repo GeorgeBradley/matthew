@@ -690,9 +690,8 @@
      * Back Functionality
      ***********************/
     function goBackToProjects() {
-      const returnState = sessionStorage.getItem('returnState') || '{}';
-      const { scrollY = 0, section = 'projects-container' } = JSON.parse(returnState);
-      window.location.href = `index.html#${section}?scrollY=${scrollY}`;
+      const scrollY = sessionStorage.getItem('scrollY') || 0;
+      window.location.href = `index.html?scrollY=${scrollY}`;
     }
 
     /***********************
