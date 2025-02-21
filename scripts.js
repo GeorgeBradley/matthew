@@ -626,3 +626,73 @@ document.addEventListener("DOMContentLoaded", initUnHighlightedFeatures);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+// In index.html <script> section
+document.addEventListener('DOMContentLoaded', () => {
+  // Save scroll position before navigating to details.html
+  document.querySelectorAll('a[href^="details.html"]').forEach(link => {
+    link.addEventListener('click', () => {
+      const scrollPos = window.scrollY;
+      localStorage.setItem('indexScrollPosition', scrollPos);
+      console.log('Saved indexScrollPosition:', scrollPos);
+    });
+  });
+
+  // Restore scroll position on load if returning from details.html
+  const urlParams = new URLSearchParams(window.location.search);
+  const fromDetails = urlParams.get('fromDetails') === 'true';
+
+  window.addEventListener('load', () => {
+    const scrollPosition = localStorage.getItem('indexScrollPosition');
+    console.log('Retrieved indexScrollPosition:', scrollPosition);
+    console.log('From details:', fromDetails);
+
+    if (fromDetails && scrollPosition !== null) {
+      const pos = parseInt(scrollPosition);
+
+      // Clear hash to prevent anchor scrolling
+      if (window.location.hash) {
+        console.log('Clearing hash:', window.location.hash);
+        history.replaceState(null, null, 'index.html?fromDetails=true');
+      }
+
+      // Restore scroll position
+      setTimeout(() => {
+        window.scrollTo({ top: pos, behavior: 'instant' });
+        console.log('Restored scroll to:', pos);
+        console.log('Current scrollY after restore:', window.scrollY);
+
+        // Check for overrides
+        setTimeout(() => {
+          console.log('ScrollY 1s after restore:', window.scrollY);
+          if (window.scrollY !== pos) {
+            console.warn('Scroll overridden! Forcing back to:', pos);
+            window.scrollTo({ top: pos, behavior: 'instant' });
+          }
+        }, 1000);
+      }, 100); // Delay for DOM readiness
+    } else {
+      console.log('No restoration (not from details or no position saved)');
+      if (!fromDetails) {
+        window.scrollTo(0, 0); // Default to top on fresh load
+      }
+    }
+  });
+
+  // Log scroll events
+  window.addEventListener('scroll', () => {
+    console.log('Scroll event, current scrollY:', window.scrollY);
+  });
+});
