@@ -711,14 +711,31 @@
      ***********************/
     function goBackToProjects() {
       const scrollPosition = localStorage.getItem('scrollPosition') || 0;
-      // Navigate directly to index.html#projects-container
-      window.location.href = 'index.html#projects-container';
-      // Restore scroll position after navigation
-      window.addEventListener('load', () => {
-        setTimeout(() => {
-          window.scrollTo(0, parseInt(scrollPosition));
-        }, 0);
-      }, { once: true });
+      const fromIndex = localStorage.getItem('fromIndex') === 'true';
+
+      if (fromIndex && history.length > 1) {
+        // Go back through history until we reach index.html
+        window.history.back();
+        // Check if we're back at index.html after each back navigation
+        window.addEventListener('popstate', function handler() {
+          if (window.location.pathname.endsWith('index.html') || window.location.pathname === '/') {
+            window.scrollTo(0, parseInt(scrollPosition));
+            localStorage.removeItem('scrollPosition');
+            localStorage.removeItem('fromIndex');
+            window.removeEventListener('popstate', handler);
+          } else if (history.length > 1) {
+            window.history.back();
+          } else {
+            // Fallback if history exhausted
+            window.location.href = 'index.html#projects-container';
+            setTimeout(() => window.scrollTo(0, parseInt(scrollPosition)), 0);
+          }
+        }, { once: false });
+      } else {
+        // Direct navigation if not from index or no history
+        window.location.href = 'index.html#projects-container';
+        setTimeout(() => window.scrollTo(0, parseInt(scrollPosition)), 0);
+      }
     }
 
     /***********************
@@ -843,7 +860,6 @@
     function renderProjectDetails(project, projects) {
       const { prevProject, nextProject } = getNavigationProjects(project, projects);
 
-      // Check if testimonials exist and aren't null
       const hasTestimonials = project["feature-project-testimonial"] && 
                              project["feature-project-testimonial"].length > 0 &&
                              project["feature-project-testimonial"][0]["testimonial-quote"] !== null;
