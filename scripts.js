@@ -626,27 +626,3 @@ document.addEventListener("DOMContentLoaded", initUnHighlightedFeatures);
 
 
 
-
-
-// In index.html
-document.addEventListener('DOMContentLoaded', () => {
-  // Save scroll position and origin flag before navigating to details.html
-  document.querySelectorAll('a[href^="details.html"]').forEach(link => {
-    link.addEventListener('click', () => {
-      localStorage.setItem('scrollPosition', window.scrollY);
-      localStorage.setItem('fromIndex', 'true');
-    });
-  });
-
-  // Restore scroll position on page load if returning from details.html
-  window.addEventListener('load', () => {
-    const scrollPosition = localStorage.getItem('scrollPosition') || 0;
-    const fromIndex = localStorage.getItem('fromIndex') === 'true';
-    if (fromIndex) {
-      window.scrollTo(0, parseInt(scrollPosition));
-      // Optionally clear after restoration
-      // localStorage.removeItem('scrollPosition');
-      // localStorage.removeItem('fromIndex');
-    }
-  });
-});
