@@ -727,13 +727,13 @@
             window.history.back();
           } else {
             // Fallback if history exhausted
-            window.location.href = 'index.html#projects-container';
+            window.location.href = 'index.html';
             setTimeout(() => window.scrollTo(0, parseInt(scrollPosition)), 0);
           }
         }, { once: false });
       } else {
         // Direct navigation if not from index or no history
-        window.location.href = 'index.html#projects-container';
+        window.location.href = 'index.html';
         setTimeout(() => window.scrollTo(0, parseInt(scrollPosition)), 0);
       }
     }
