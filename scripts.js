@@ -638,4 +638,70 @@ document.addEventListener("DOMContentLoaded", initUnHighlightedFeatures);
 
 
 
+// In index.html <script> section
+document.addEventListener('DOMContentLoaded', () => {
+  // Save scroll position before navigating to details.html
+  document.querySelectorAll('a[href^="details.html"]').forEach(link => {
+    link.addEventListener('click', () => {
+      const scrollPos = window.scrollY;
+      localStorage.setItem('scrollPosition', scrollPos);
+      console.log('Saved scroll position:', scrollPos);
+    });
+  });
 
+  // Restore scroll position on load
+  const urlParams = new URLSearchParams(window.location.search);
+  const fromDetails = urlParams.get('fromDetails') === 'true';
+
+  window.addEventListener('load', () => {
+    const scrollPosition = localStorage.getItem('scrollPosition');
+    console.log('Retrieved scroll position:', scrollPosition);
+    console.log('From details page:', fromDetails);
+
+    if (fromDetails && scrollPosition !== null) {
+      const pos = parseInt(scrollPosition);
+
+      // Clear any hash to prevent anchor scrolling
+      if (window.location.hash) {
+        console.log('Removing hash:', window.location.hash);
+        history.replaceState(null, null, window.location.pathname + '?fromDetails=true');
+      }
+
+      // Block scroll overrides temporarily
+      const originalScrollTo = window.scrollTo;
+      const originalScrollIntoView = Element.prototype.scrollIntoView;
+      window.scrollTo = () => console.log('Blocked scrollTo attempt');
+      Element.prototype.scrollIntoView = () => console.log('Blocked scrollIntoView attempt');
+
+      // Restore scroll position
+      setTimeout(() => {
+        window.scrollTo({ top: pos, behavior: 'instant' });
+        console.log('Restored scroll to:', pos);
+        console.log('Current scrollY after restore:', window.scrollY);
+
+        // Check for overrides after 1 second
+        setTimeout(() => {
+          console.log('ScrollY 1s after restore:', window.scrollY);
+          if (window.scrollY !== pos) {
+            console.warn('Scroll position overridden! Forcing back to:', pos);
+            window.scrollTo({ top: pos, behavior: 'instant' });
+          }
+
+          // Re-enable scrolling after restoration
+          setTimeout(() => {
+            window.scrollTo = originalScrollTo;
+            Element.prototype.scrollIntoView = originalScrollIntoView;
+            console.log('Scroll functions re-enabled');
+          }, 1000);
+        }, 1000);
+      }, 100); // Delay to ensure DOM readiness
+    } else {
+      console.log('No scroll restoration needed (initial load or no position saved)');
+    }
+  });
+
+  // Log scroll events to detect interference
+  window.addEventListener('scroll', () => {
+    console.log('Scroll event detected, current scrollY:', window.scrollY);
+  });
+});
