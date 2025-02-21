@@ -381,7 +381,7 @@ function initFirstImpressionsSlider() {
         imagesHTML += `
           <div class="first-impressions-slide">
             <img src="${item["first-impression-image"]}" alt="${item["first-impression-caption"]}">
-            <a href="${item["first-impression-project-link"]}" class="first-impressions-label project-link">
+            <a href="${item["first-impression-project-link"]}" class="first-impressions-label">
               ${item["first-impression-caption"]}
             </a>
           </div>`;
@@ -640,7 +640,7 @@ document.addEventListener("DOMContentLoaded", initUnHighlightedFeatures);
 
 
   // Save scroll position when a project is clicked
-  document.querySelectorAll('.project-link').forEach(link => {
+  document.querySelectorAll('.first-impressions-label').forEach(link => {
     link.addEventListener('click', () => {
       sessionStorage.setItem('indexScroll', window.scrollY);
     });
