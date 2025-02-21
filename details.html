@@ -709,12 +709,15 @@
     /***********************
      * Back Functionality
      ***********************/
-    function goBackWithScroll() {
+    function goBackToProjects() {
       const scrollPosition = localStorage.getItem('scrollPosition') || 0;
-      window.history.back();
-      // Wait for navigation to complete, then restore scroll
-      window.addEventListener('pageshow', () => {
-        window.scrollTo(0, parseInt(scrollPosition));
+      // Navigate directly to index.html#projects-container
+      window.location.href = 'index.html#projects-container';
+      // Restore scroll position after navigation
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          window.scrollTo(0, parseInt(scrollPosition));
+        }, 0);
       }, { once: true });
     }
 
@@ -846,7 +849,7 @@
                              project["feature-project-testimonial"][0]["testimonial-quote"] !== null;
 
       detailsContainer.innerHTML = `
-        <a href="javascript:void(0)" class="back-link" onclick="goBackWithScroll()">
+        <a href="javascript:void(0)" class="back-link" onclick="goBackToProjects()">
           <i class="fas fa-arrow-left"></i> Back to Projects
         </a>
         <article class="project-detail">
@@ -1058,7 +1061,7 @@
      ***********************/
     function renderCategoryDetails(category, projects) {
       let html = `
-        <a href="javascript:void(0)" class="back-link" onclick="goBackWithScroll()">
+        <a href="javascript:void(0)" class="back-link" onclick="goBackToProjects()">
           <i class="fas fa-arrow-left"></i> Back to Projects
         </a>
         <section class="category-header" style="text-align: center; padding: 2rem;">
@@ -1300,7 +1303,7 @@
       detailsContainer.innerHTML = `
         <div class="error-state" style="text-align:center; padding:2rem;">
           <p style="font-size:1.2rem;">⚠️ Project or Category not found</p>
-          <a href="javascript:void(0)" class="back-link" onclick="goBackWithScroll()">
+          <a href="javascript:void(0)" class="back-link" onclick="goBackToProjects()">
             <i class="fas fa-arrow-left"></i> Return to Projects
           </a>
         </div>
