@@ -8,6 +8,23 @@ document.addEventListener('DOMContentLoaded', () => {
   initFirstImpressionsSlider();
   initModal();
   updateCurrentYear();
+
+  // --- Added for scroll position saving/restoring ---
+
+  // Save scroll position when a project link is clicked.
+  // In this case, the project links are the ones with class .first-impressions-label.
+  document.querySelectorAll('.first-impressions-label').forEach(link => {
+    link.addEventListener('click', () => {
+      sessionStorage.setItem('indexScroll', window.scrollY);
+    });
+  });
+
+  // Restore scroll position on page load.
+  const scrollY = sessionStorage.getItem('indexScroll');
+  if (scrollY !== null) {
+    window.scrollTo({ top: parseInt(scrollY, 10), behavior: 'smooth' });
+    sessionStorage.removeItem('indexScroll');
+  }
 });
 
 // 1. Accessibility Features
@@ -323,7 +340,6 @@ class HeroSlider {
 }
 
 function initHeroSlider() {
-  // Only initialize if the hero slider container exists
   if (document.querySelector('.hero-slides')) {
     const slider = new HeroSlider();
     slider.init();
@@ -386,7 +402,6 @@ function initFirstImpressionsSlider() {
             </a>
           </div>`;
       });
-      // Duplicate images on desktop for seamless scrolling
       sliderTrack.innerHTML = window.innerWidth >= 1024 ? imagesHTML + imagesHTML : imagesHTML;
     })
     .catch(error => {
@@ -419,7 +434,7 @@ function initModal() {
   });
 }
 
-// 9. Performance Monitoring (Not affecting load speed)
+// 9. Performance Monitoring
 window.addEventListener('load', () => {
   const timing = window.performance.timing;
   const loadTime = timing.loadEventEnd - timing.navigationStart;
@@ -487,12 +502,9 @@ function initUnHighlightedFeatures() {
 
   Promise.all([getCategoriesData(), getProjectsData()])
     .then(([categories, projects]) => {
-      // Filter projects that are un-highlighted
       const unhighlightedProjects = projects.filter(
         (p) => p["feature-project-type"] === "un-highlighted"
       );
-
-      // Group projects by their main category id
       const grouped = {};
       unhighlightedProjects.forEach((project) => {
         const catId = project["project-feature-main-category-id"];
@@ -501,25 +513,16 @@ function initUnHighlightedFeatures() {
         }
         grouped[catId].push(project);
       });
-
-      // For each category, create a slider if there are projects
       categories.forEach((category) => {
         const catId = category.id;
         if (grouped[catId] && grouped[catId].length > 0) {
-          // Create a card container for the category slider
           const card = document.createElement("div");
           card.className = "un-highlighted-category-slider";
-
-          // Create slider wrapper
           const sliderWrapper = document.createElement("div");
           sliderWrapper.className = "un-highlighted-slider-wrapper";
-
-          // Create a clickable link that wraps header and slider container
           const link = document.createElement("a");
           link.href = "details.html?cat=" + encodeURIComponent(category.id);
           link.className = "un-highlighted-features-slider-link";
-
-          // Create category header (title and description)
           const headerDiv = document.createElement("div");
           headerDiv.className = "un-highlighted-category-header";
           const categoryTitle = document.createElement("h2");
@@ -529,19 +532,11 @@ function initUnHighlightedFeatures() {
           categoryDesc.className = "un-highlighted-category-description";
           categoryDesc.textContent = category.description;
           headerDiv.appendChild(categoryDesc);
-
-          // Append the header to the clickable link
           link.appendChild(headerDiv);
-
-          // Create slider container
           const sliderContainer = document.createElement("div");
           sliderContainer.className = "un-highlighted-features-slider-container";
-
-          // Create slider track
           const sliderTrack = document.createElement("div");
           sliderTrack.className = "un-highlighted-features-slider-track";
-
-          // Group slides by project
           const projectSlides = [];
           grouped[catId].forEach((project) => {
             const gallery = project["feature-project-gallery"];
@@ -559,12 +554,10 @@ function initUnHighlightedFeatures() {
               projectSlides.push(slidesForProject);
             }
           });
-
-          // Interleave slides from different projects
           let finalSlides = [];
           if (projectSlides.length > 1) {
             seededShuffleArray(projectSlides, 12345);
-            const numberOfSlidesPerProject = projectSlides[0].length; // 2
+            const numberOfSlidesPerProject = projectSlides[0].length;
             for (let i = 0; i < numberOfSlidesPerProject; i++) {
               projectSlides.forEach((slidesForProject) => {
                 if (slidesForProject[i]) {
@@ -575,23 +568,11 @@ function initUnHighlightedFeatures() {
           } else if (projectSlides.length === 1) {
             finalSlides = projectSlides[0];
           }
-
-          // Append final slides to the slider track
           finalSlides.forEach((slide) => sliderTrack.appendChild(slide));
-
-          // Append the slider track to the slider container
           sliderContainer.appendChild(sliderTrack);
-
-          // Append the slider container to the clickable link
           link.appendChild(sliderContainer);
-
-          // Append the clickable link to the slider wrapper
           sliderWrapper.appendChild(link);
-
-          // Append the slider wrapper to the card
           card.appendChild(sliderWrapper);
-
-          // Append the card to the main section
           section.appendChild(card);
         }
       });
@@ -623,33 +604,8 @@ function seededShuffleArray(array, seed) {
 // Initialize Unhighlighted Features
 document.addEventListener("DOMContentLoaded", initUnHighlightedFeatures);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // Save scroll position when a project is clicked
-  document.querySelectorAll('.first-impressions-label').forEach(link => {
-    link.addEventListener('click', () => {
-      sessionStorage.setItem('indexScroll', window.scrollY);
-    });
-  });
-  // Restore scroll position on page load
-  document.addEventListener('DOMContentLoaded', () => {
-    const scrollY = sessionStorage.getItem('indexScroll');
-    if (scrollY !== null) {
-      window.scrollTo({ top: parseInt(scrollY), behavior: 'smooth' });
-      sessionStorage.removeItem('indexScroll');
-    }
-  });
+// Global Error Handling (if needed)
+window.onerror = function(message, source, lineno, colno, error) {
+  console.error(`Error: ${message} at ${source}:${lineno}:${colno}`);
+  return true;
+};
