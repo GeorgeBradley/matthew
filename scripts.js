@@ -638,28 +638,24 @@ document.addEventListener("DOMContentLoaded", initUnHighlightedFeatures);
 
 
 
-// Store scroll position and section context before navigating to details.html
+// Store scroll position before navigating to details.html
     document.querySelectorAll('a[href^="details.html"]').forEach(link => {
       link.addEventListener('click', (e) => {
         const scrollY = window.scrollY;
-        const section = link.closest('section')?.id || 'projects-container';
-        sessionStorage.setItem('returnState', JSON.stringify({ scrollY, section }));
+        sessionStorage.setItem('scrollY', scrollY);
       });
     });
 
-    // Restore scroll position when returning from details.html
+    // Restore scroll position on page load
     window.addEventListener('load', () => {
       const urlParams = new URLSearchParams(window.location.search);
       const scrollY = urlParams.get('scrollY');
-      const hash = window.location.hash.slice(1) || 'projects-container';
-
-      if (scrollY || hash) {
-        const targetSection = document.getElementById(hash);
-        if (targetSection) {
-          targetSection.scrollIntoView({ behavior: 'smooth' });
-          setTimeout(() => {
-            window.scrollTo(0, parseInt(scrollY) || 0);
-          }, 100); // Delay to ensure section is in view first
-        }
+      if (scrollY) {
+        window.scrollTo({
+          top: parseInt(scrollY),
+          behavior: 'instant' // Use 'instant' to avoid smooth scroll delay
+        });
+        // Clear the URL parameter after restoration to avoid confusion on refresh
+        history.replaceState({}, document.title, window.location.pathname);
       }
     });
