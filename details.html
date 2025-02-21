@@ -4,16 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Project Details – Professional Showcase</title>
-  <!-- Google Fonts for typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <!-- Shared styles -->
   <link rel="stylesheet" href="shareable.css" media="all">
-  <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    /* -------------------- Root Variables -------------------- */
+    /* All your existing CSS remains unchanged */
     :root {
       --primary: #005f73;
       --secondary: #333;
@@ -43,7 +40,6 @@
       color: inherit;
     }
 
-    /* -------------------- Project Detail Container -------------------- */
     .project-detail {
       max-width: 1100px;
       background: var(--card-bg);
@@ -59,7 +55,6 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* -------------------- Header Section -------------------- */
     .detail-header {
       background: var(--header-gradient);
       text-align: center;
@@ -99,7 +94,6 @@
       padding: 0.3rem;
     }
 
-    /* -------------------- Back Link -------------------- */
     .back-link {
       display: inline-block;
       background: var(--primary);
@@ -117,7 +111,6 @@
       background: #004c59;
     }
 
-    /* -------------------- Main Image -------------------- */
     .detail-image {
       max-width: 100%;
       display: block;
@@ -132,7 +125,6 @@
       transform: scale(1.03);
     }
 
-    /* -------------------- Content Section -------------------- */
     .detail-content {
       padding: 2rem;
     }
@@ -145,7 +137,6 @@
       color: var(--secondary);
     }
 
-    /* -------------------- Testimonial Section -------------------- */
     .testimonial-section {
       margin: 2rem 0;
       padding: 0 2rem;
@@ -266,7 +257,6 @@
       background: var(--primary);
     }
 
-    /* -------------------- Gallery Section -------------------- */
     .gallery-section {
       margin: 2rem 0;
       padding: 0 2rem;
@@ -340,7 +330,6 @@
       opacity: 1;
     }
 
-    /* -------------------- Pagination Controls (Mobile Only) -------------------- */
     .pagination-controls {
       display: none;
       justify-content: center;
@@ -375,7 +364,6 @@
       color: var(--secondary);
     }
 
-    /* -------------------- Detail Grid -------------------- */
     .detail-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -423,7 +411,6 @@
       font-weight: 600;
     }
 
-    /* -------------------- Other Project Navigation -------------------- */
     .other-project-nav-container {
       display: flex;
       justify-content: space-between;
@@ -465,7 +452,6 @@
       border-color: var(--primary);
     }
 
-    /* -------------------- Lightbox Styles -------------------- */
     .lightbox {
       position: fixed;
       top: 0;
@@ -598,7 +584,6 @@
 
     @keyframes spin { to { transform: rotate(360deg); } }
 
-    /* -------------------- Back-to-Top Chevron -------------------- */
     .back-to-top {
       position: fixed;
       bottom: 20px;
@@ -631,7 +616,6 @@
       font-size: 1.5rem;
     }
 
-    /* -------------------- Responsive Adjustments -------------------- */
     @media (max-width: 1024px) {
       .detail-image { }
     }
@@ -677,10 +661,8 @@
 
   <br><br><br><br>
 
-  <!-- Main container for project or category details -->
   <main id="project-detail-container"></main>
 
-  <!-- Back-to-Top Chevron Button -->
   <div class="back-to-top" title="Back to Top">
     <i class="fas fa-chevron-up"></i>
   </div>
@@ -702,7 +684,6 @@
     const imagesPerPage = 5;
     let currentGalleryPage = 1;
 
-    // Lightbox globals
     let currentImageIndex = 0;
     let lightboxInitialized = false;
 
@@ -710,32 +691,7 @@
      * Back Functionality
      ***********************/
     function goBackToProjects() {
-      const scrollPosition = localStorage.getItem('scrollPosition') || 0;
-      const fromIndex = localStorage.getItem('fromIndex') === 'true';
-
-      if (fromIndex && history.length > 1) {
-        // Go back through history until we reach index.html
-        window.history.back();
-        // Check if we're back at index.html after each back navigation
-        window.addEventListener('popstate', function handler() {
-          if (window.location.pathname.endsWith('index.html') || window.location.pathname === '/') {
-            window.scrollTo(0, parseInt(scrollPosition));
-            localStorage.removeItem('scrollPosition');
-            localStorage.removeItem('fromIndex');
-            window.removeEventListener('popstate', handler);
-          } else if (history.length > 1) {
-            window.history.back();
-          } else {
-            // Fallback if history exhausted
-            window.location.href = 'index.html';
-            setTimeout(() => window.scrollTo(0, parseInt(scrollPosition)), 0);
-          }
-        }, { once: false });
-      } else {
-        // Direct navigation if not from index or no history
-        window.location.href = 'index.html';
-        setTimeout(() => window.scrollTo(0, parseInt(scrollPosition)), 0);
-      }
+      window.location.href = 'index.html?fromDetails=true';
     }
 
     /***********************
