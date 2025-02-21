@@ -1,5 +1,6 @@
 // Consolidated Initialization on DOM Ready
 document.addEventListener('DOMContentLoaded', () => {
+  // Initialize all existing functions
   initAccessibility();
   setupServiceWorker();
   initFeatureSlider();
@@ -9,20 +10,29 @@ document.addEventListener('DOMContentLoaded', () => {
   initModal();
   updateCurrentYear();
 
-  // --- Added for scroll position saving/restoring ---
+  // --- Scroll Position Saving & Restoring Code ---
 
-  // Save scroll position when a project link is clicked.
-  // In this case, the project links are the ones with class .first-impressions-label.
-  document.querySelectorAll('.first-impressions-label').forEach(link => {
+  // Save scroll position when any project link is clicked.
+  // Combining selectors for various project links:
+  // .first-impressions-label -> your banner/project links
+  // .un-highlighted-features-slider-link -> your un-highlighted projects
+  // .feature-project-link -> (if you have feature project links with this class)
+  const projectLinks = document.querySelectorAll(
+    '.first-impressions-label, .un-highlighted-features-slider-link, .feature-project-link'
+  );
+  console.log("Found project links:", projectLinks.length);
+  projectLinks.forEach(link => {
     link.addEventListener('click', () => {
+      console.log("Project link clicked. Saving scrollY =", window.scrollY);
       sessionStorage.setItem('indexScroll', window.scrollY);
     });
   });
 
   // Restore scroll position on page load.
-  const scrollY = sessionStorage.getItem('indexScroll');
-  if (scrollY !== null) {
-    window.scrollTo({ top: parseInt(scrollY, 10), behavior: 'smooth' });
+  const savedScroll = sessionStorage.getItem('indexScroll');
+  if (savedScroll !== null) {
+    console.log("Restoring scroll position to:", savedScroll);
+    window.scrollTo({ top: parseInt(savedScroll, 10), behavior: 'smooth' });
     sessionStorage.removeItem('indexScroll');
   }
 });
@@ -69,7 +79,7 @@ function initFeatureSlider() {
   const closeBtn = document.querySelector('.feature-close');
   const prevButton = document.getElementById('feature-prev');
   const nextButton = document.getElementById('feature-next');
-  
+
   // Ensure required elements exist
   if (!slider || !lightbox || !modalImg || !captionText || !closeBtn || !prevButton || !nextButton) {
     console.warn('One or more feature slider elements not found.');
@@ -103,7 +113,6 @@ function initFeatureSlider() {
       img.removeAttribute('data-src');
     }
   }
-
   function handleLazyLoad() {
     images.forEach(img => {
       if (img.getBoundingClientRect().top < window.innerHeight && img.dataset.src) {
@@ -111,7 +120,6 @@ function initFeatureSlider() {
       }
     });
   }
-
   window.addEventListener('scroll', handleLazyLoad);
   handleLazyLoad(); // Initial check
 
@@ -122,11 +130,9 @@ function initFeatureSlider() {
     captionText.innerHTML = alt;
     lightbox.style.display = "block";
   }
-
   closeBtn.onclick = () => { 
     lightbox.style.display = "none";
   };
-
   window.addEventListener('click', (event) => {
     if (event.target === lightbox) {
       lightbox.style.display = "none";
@@ -138,7 +144,6 @@ function initFeatureSlider() {
     currentIndex = (index + images.length) % images.length;
     slider.style.transform = `translateX(-${currentIndex * 100}%)`;
   }
-
   prevButton.addEventListener('click', () => slideTo(currentIndex - 1));
   nextButton.addEventListener('click', () => slideTo(currentIndex + 1));
 
@@ -156,18 +161,14 @@ function initFeatureSlider() {
   function autoSlideFunction() {
     slideTo(currentIndex + 1);
   }
-
   function startSlide() {
     autoSlide = setInterval(autoSlideFunction, 3000);
   }
-
   function stopSlide() {
     clearInterval(autoSlide);
   }
-
   slider.addEventListener('mouseenter', stopSlide);
   slider.addEventListener('mouseleave', startSlide);
-
   startSlide();
 }
 
@@ -181,7 +182,6 @@ class HeroSlider {
     this.touchStartX = 0;
     this.touchEndX = 0;
   }
-
   async init() {
     try {
       this.projects = await this.getCachedData();
@@ -195,7 +195,6 @@ class HeroSlider {
       this.handleError(error);
     }
   }
-
   async getCachedData() {
     const key = "heroProjects";
     let data = localStorage.getItem(key);
@@ -209,36 +208,28 @@ class HeroSlider {
       return data;
     }
   }
-
   createSlides() {
     const slidesContainer = document.querySelector('.hero-slides');
     if (!slidesContainer) throw new Error("Hero slides container not found");
     this.slides = this.projects.map(project => {
       const slide = document.createElement('div');
       slide.className = 'hero-slide';
-      
       const img = new Image();
       img.src = project['feature-project-thumbnail'];
       img.alt = project['feature-project-name'];
       img.loading = 'eager';
-      
       const progress = document.createElement('div');
       progress.className = 'progress-bar';
-      
       const content = document.createElement('div');
       content.className = 'hero-content';
-      
       const text = document.createElement('div');
       text.className = 'hero-text';
-      
       const title = document.createElement('h2');
       title.className = 'hero-title';
       title.textContent = project['feature-project-name'];
-      
       const description = document.createElement('p');
       description.className = 'hero-description';
       description.textContent = project['feature-project-description'];
-      
       text.append(title, description);
       content.appendChild(text);
       slide.append(img, progress, content);
@@ -247,7 +238,6 @@ class HeroSlider {
     });
     if (this.slides.length > 0) this.slides[0].classList.add('active');
   }
-
   createDots() {
     const dotsContainer = document.querySelector('.hero-dots');
     if (!dotsContainer) {
@@ -264,7 +254,6 @@ class HeroSlider {
     });
     if (this.dots && this.dots[0]) this.dots[0].classList.add('active');
   }
-
   goToSlide(index) {
     if (index === this.currentIndex) return;
     this.slides[this.currentIndex].classList.remove('active');
@@ -278,25 +267,20 @@ class HeroSlider {
     }
     this.resetAutoPlay();
   }
-
   nextSlide() {
     const nextIndex = (this.currentIndex + 1) % this.slides.length;
     this.goToSlide(nextIndex);
   }
-
   startAutoPlay() {
     this.intervalId = setInterval(() => this.nextSlide(), this.intervalTime);
   }
-
   resetAutoPlay() {
     clearInterval(this.intervalId);
     this.startAutoPlay();
   }
-
   handleTouchStart(e) {
     this.touchStartX = e.changedTouches[0].screenX;
   }
-
   handleTouchEnd(e) {
     this.touchEndX = e.changedTouches[0].screenX;
     const diff = this.touchStartX - this.touchEndX;
@@ -304,7 +288,6 @@ class HeroSlider {
       diff > 0 ? this.nextSlide() : this.prevSlide();
     }
   }
-
   addEventListeners() {
     const heroContainer = document.querySelector('.hero-container');
     if (heroContainer) {
@@ -316,12 +299,10 @@ class HeroSlider {
       if (e.key === 'ArrowRight') this.nextSlide();
     });
   }
-
   prevSlide() {
     const prevIndex = (this.currentIndex - 1 + this.slides.length) % this.slides.length;
     this.goToSlide(prevIndex);
   }
-
   handleError(error) {
     console.error('Error:', error);
     const loading = document.querySelector('.loading');
@@ -338,7 +319,6 @@ class HeroSlider {
     }
   }
 }
-
 function initHeroSlider() {
   if (document.querySelector('.hero-slides')) {
     const slider = new HeroSlider();
@@ -364,7 +344,6 @@ function initContactSuccessMessage() {
 function initFirstImpressionsSlider() {
   const sliderTrack = document.querySelector('#first-impressions-slider .first-impressions-slider-track');
   if (!sliderTrack) return;
-
   function getFirstImpressionsData() {
     const key = "firstImpressionsData";
     return new Promise((resolve, reject) => {
@@ -388,7 +367,6 @@ function initFirstImpressionsSlider() {
       }
     });
   }
-
   getFirstImpressionsData()
     .then(data => {
       data.sort((a, b) => a["first-impression-order"] - b["first-impression-order"]);
@@ -402,6 +380,7 @@ function initFirstImpressionsSlider() {
             </a>
           </div>`;
       });
+      // Duplicate images on desktop for seamless scrolling
       sliderTrack.innerHTML = window.innerWidth >= 1024 ? imagesHTML + imagesHTML : imagesHTML;
     })
     .catch(error => {
@@ -415,7 +394,6 @@ function initModal() {
   const closeModalBtn = document.getElementById('closeModalBtn');
   const cvModal = document.getElementById('cvModal');
   if (!openModalBtn || !closeModalBtn || !cvModal) return;
-
   openModalBtn.addEventListener('click', () => {
     cvModal.classList.add('active');
   });
@@ -451,7 +429,6 @@ window.onerror = function(message, source, lineno, colno, error) {
 function initUnHighlightedFeatures() {
   const section = document.getElementById("un-highlighted-features");
   if (!section) return;
-
   function getCategoriesData() {
     const key = "categoriesData";
     return new Promise((resolve, reject) => {
@@ -475,7 +452,6 @@ function initUnHighlightedFeatures() {
       }
     });
   }
-
   function getProjectsData() {
     const key = "projectsData";
     return new Promise((resolve, reject) => {
@@ -499,7 +475,6 @@ function initUnHighlightedFeatures() {
       }
     });
   }
-
   Promise.all([getCategoriesData(), getProjectsData()])
     .then(([categories, projects]) => {
       const unhighlightedProjects = projects.filter(
@@ -581,7 +556,6 @@ function initUnHighlightedFeatures() {
       console.error("Error fetching un-highlighted features:", error);
     });
 }
-
 // Seeded pseudo-random number generator (mulberry32)
 function mulberry32(a) {
   return function () {
@@ -591,7 +565,6 @@ function mulberry32(a) {
     return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
   };
 }
-
 // Seeded shuffle function
 function seededShuffleArray(array, seed) {
   const random = mulberry32(seed);
@@ -600,10 +573,8 @@ function seededShuffleArray(array, seed) {
     [array[i], array[j]] = [array[j], array[i]];
   }
 }
-
 // Initialize Unhighlighted Features
 document.addEventListener("DOMContentLoaded", initUnHighlightedFeatures);
-
 // Global Error Handling (if needed)
 window.onerror = function(message, source, lineno, colno, error) {
   console.error(`Error: ${message} at ${source}:${lineno}:${colno}`);
