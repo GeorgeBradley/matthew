@@ -1034,26 +1034,3 @@
 </body>
 </html>
 
-
----
-
-On Your Index Page
-
-Be sure to add code to save the scroll position when a project link is clicked and to restore it on page load. For example:
-
-<script>
-  // Save scroll position when a project is clicked
-  document.querySelectorAll('.project-link').forEach(link => {
-    link.addEventListener('click', () => {
-      sessionStorage.setItem('indexScroll', window.scrollY);
-    });
-  });
-  // Restore scroll position on page load
-  document.addEventListener('DOMContentLoaded', () => {
-    const scrollY = sessionStorage.getItem('indexScroll');
-    if (scrollY !== null) {
-      window.scrollTo({ top: parseInt(scrollY), behavior: 'smooth' });
-      sessionStorage.removeItem('indexScroll');
-    }
-  });
-</script>
