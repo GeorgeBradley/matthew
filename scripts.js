@@ -381,7 +381,7 @@ function initFirstImpressionsSlider() {
         imagesHTML += `
           <div class="first-impressions-slide">
             <img src="${item["first-impression-image"]}" alt="${item["first-impression-caption"]}">
-            <a href="${item["first-impression-project-link"]}" class="first-impressions-label">
+            <a href="${item["first-impression-project-link"]}" class="first-impressions-label project-link">
               ${item["first-impression-caption"]}
             </a>
           </div>`;
@@ -638,24 +638,18 @@ document.addEventListener("DOMContentLoaded", initUnHighlightedFeatures);
 
 
 
-// Store scroll position before navigating to details.html
-    document.querySelectorAll('a[href^="details.html"]').forEach(link => {
-      link.addEventListener('click', (e) => {
-        const scrollY = window.scrollY;
-        sessionStorage.setItem('scrollY', scrollY);
-      });
-    });
 
-    // Restore scroll position on page load
-    window.addEventListener('load', () => {
-      const urlParams = new URLSearchParams(window.location.search);
-      const scrollY = urlParams.get('scrollY');
-      if (scrollY) {
-        window.scrollTo({
-          top: parseInt(scrollY),
-          behavior: 'instant' // Use 'instant' to avoid smooth scroll delay
-        });
-        // Clear the URL parameter after restoration to avoid confusion on refresh
-        history.replaceState({}, document.title, window.location.pathname);
-      }
+  // Save scroll position when a project is clicked
+  document.querySelectorAll('.project-link').forEach(link => {
+    link.addEventListener('click', () => {
+      sessionStorage.setItem('indexScroll', window.scrollY);
     });
+  });
+  // Restore scroll position on page load
+  document.addEventListener('DOMContentLoaded', () => {
+    const scrollY = sessionStorage.getItem('indexScroll');
+    if (scrollY !== null) {
+      window.scrollTo({ top: parseInt(scrollY), behavior: 'smooth' });
+      sessionStorage.removeItem('indexScroll');
+    }
+  });
