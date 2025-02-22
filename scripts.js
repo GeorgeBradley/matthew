@@ -1,3 +1,8 @@
+// Disable browser's default scroll restoration
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+
 // Consolidated Initialization on DOM Ready
 document.addEventListener('DOMContentLoaded', () => {
   // Initialize all existing functions
@@ -10,8 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initModal();
   updateCurrentYear();
 
-  // --- Scroll Position Saving & Restoring Code ---
-
+  // --- Scroll Position Saving Code ---
   // Save scroll position when any project link is clicked.
   // Combining selectors for various project links:
   // .first-impressions-label -> your banner/project links
@@ -27,13 +31,17 @@ document.addEventListener('DOMContentLoaded', () => {
       sessionStorage.setItem('indexScroll', window.scrollY);
     });
   });
+});
 
-  // Restore scroll position on page load.
+// Restore scroll position on pageshow event (works even when coming from the bfcache)
+window.addEventListener('pageshow', () => {
   const savedScroll = sessionStorage.getItem('indexScroll');
   if (savedScroll !== null) {
     console.log("Restoring scroll position to:", savedScroll);
-    window.scrollTo({ top: parseInt(savedScroll, 10), behavior: 'smooth' });
-    sessionStorage.removeItem('indexScroll');
+    setTimeout(() => {
+      window.scrollTo({ top: parseInt(savedScroll, 10), behavior: 'smooth' });
+      sessionStorage.removeItem('indexScroll');
+    }, 0);
   }
 });
 
@@ -556,6 +564,7 @@ function initUnHighlightedFeatures() {
       console.error("Error fetching un-highlighted features:", error);
     });
 }
+
 // Seeded pseudo-random number generator (mulberry32)
 function mulberry32(a) {
   return function () {
@@ -565,6 +574,7 @@ function mulberry32(a) {
     return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
   };
 }
+
 // Seeded shuffle function
 function seededShuffleArray(array, seed) {
   const random = mulberry32(seed);
@@ -573,8 +583,10 @@ function seededShuffleArray(array, seed) {
     [array[i], array[j]] = [array[j], array[i]];
   }
 }
+
 // Initialize Unhighlighted Features
 document.addEventListener("DOMContentLoaded", initUnHighlightedFeatures);
+
 // Global Error Handling (if needed)
 window.onerror = function(message, source, lineno, colno, error) {
   console.error(`Error: ${message} at ${source}:${lineno}:${colno}`);
