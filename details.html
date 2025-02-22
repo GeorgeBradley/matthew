@@ -192,6 +192,83 @@
     }
     .testimonial-dot.active { background: var(--primary); }
     
+    /* YouTube Video Section */
+    .youtube-section {
+      margin: 2rem 0;
+      padding: 0 2rem;
+      position: relative;
+    }
+    .youtube-section h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+    .youtube-section h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+    .youtube-container {
+      position: relative;
+      overflow: hidden;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .youtube-slider {
+      display: flex;
+      transition: transform 0.5s ease;
+      width: 100%;
+    }
+    .youtube-item {
+      flex: 0 0 100%;
+      padding: 1rem;
+      text-align: center;
+    }
+    .youtube-nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .youtube-nav-btn {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    .youtube-nav-btn:hover { background: #004c59; transform: scale(1.1); }
+    .youtube-nav-btn:disabled { background: #cccccc; cursor: not-allowed; }
+    .youtube-dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+    .youtube-dot {
+      width: 10px;
+      height: 10px;
+      background: var(--border);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .youtube-dot.active { background: var(--primary); }
+    
     /* Gallery Section */
     .gallery-section {
       margin: 2rem 0;
@@ -685,6 +762,36 @@
                 </div>
               </div>
             ` : ''}
+            ${project["feature-project-youtube"] && project["feature-project-youtube"].length ? `
+              <div class="youtube-section">
+                <h2>YouTube Videos</h2>
+                <div class="youtube-container">
+                  <div class="youtube-slider">
+                    ${project["feature-project-youtube"].map(video => `
+                      <div class="youtube-item">
+                        <iframe width="560" height="315" src="${video.url}" 
+                          title="${video.title || 'YouTube Video'}" frameborder="0" 
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                          allowfullscreen></iframe>
+                      </div>
+                    `).join('')}
+                  </div>
+                  <div class="youtube-nav">
+                    <button class="youtube-nav-btn prev" aria-label="Previous video">
+                      <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="youtube-nav-btn next" aria-label="Next video">
+                      <i class="fas fa-chevron-right"></i>
+                    </button>
+                  </div>
+                  <div class="youtube-dots">
+                    ${project["feature-project-youtube"].map((_, index) => `
+                      <span class="youtube-dot${index === 0 ? ' active' : ''}" data-index="${index}"></span>
+                    `).join('')}
+                  </div>
+                </div>
+              </div>
+            ` : ''}
             ${project["feature-project-gallery"] && project["feature-project-gallery"].length ? `
               <div id="gallery-section-container"></div>
             ` : ''}
@@ -738,6 +845,10 @@
       
       if (hasTestimonials) {
         initTestimonialSlider(project["feature-project-testimonial"].length);
+      }
+    
+      if (project["feature-project-youtube"] && project["feature-project-youtube"].length) {
+        initYouTubeSlider(project["feature-project-youtube"].length);
       }
     }
     
@@ -1001,6 +1112,64 @@
       updateSlider();
     }
     
+    // YouTube Slider Functionality
+    function initYouTubeSlider(videoCount) {
+      const slider = document.querySelector('.youtube-slider');
+      const prevBtn = document.querySelector('.youtube-nav-btn.prev');
+      const nextBtn = document.querySelector('.youtube-nav-btn.next');
+      const dots = document.querySelectorAll('.youtube-dot');
+      let currentIndex = 0;
+      let touchStartX = 0;
+      
+      function updateSlider() {
+        slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+        dots.forEach(dot => dot.classList.remove('active'));
+        dots[currentIndex].classList.add('active');
+        prevBtn.disabled = currentIndex === 0;
+        nextBtn.disabled = currentIndex === videoCount - 1;
+      }
+      
+      prevBtn.addEventListener('click', () => {
+        if (currentIndex > 0) { 
+          currentIndex--;
+          updateSlider();
+        }
+      });
+      
+      nextBtn.addEventListener('click', () => {
+        if (currentIndex < videoCount - 1) { 
+          currentIndex++;
+          updateSlider();
+        }
+      });
+      
+      dots.forEach(dot => {
+        dot.addEventListener('click', () => {
+          currentIndex = Number(dot.getAttribute('data-index'));
+          updateSlider();
+        });
+      });
+      
+      slider.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
+      });
+      
+      slider.addEventListener('touchend', (e) => {
+        const touchEndX = e.changedTouches[0].clientX;
+        const deltaX = touchEndX - touchStartX;
+        if (Math.abs(deltaX) > 50) {
+          if (deltaX > 0 && currentIndex > 0) { 
+            currentIndex--; 
+          } else if (deltaX < 0 && currentIndex < videoCount - 1) { 
+            currentIndex++; 
+          }
+          updateSlider();
+        }
+      });
+      
+      updateSlider();
+    }
+    
     // Error Handling
     function showDetailError() {
       detailsContainer.innerHTML = `
@@ -1033,4 +1202,3 @@
   <script src="sharable-scripts.js" defer></script>
 </body>
 </html>
-
