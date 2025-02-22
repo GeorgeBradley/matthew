@@ -73,16 +73,10 @@
     ],
  "feature-project-youtube-link": [
       {
-        "url": "https://www.youtube.com/watch?v=jkl456",
-        "title": "Arthur the Mail Snail Short Film",
-        "description": "The complete stop-motion short film featuring Arthur.",
+        "url": "https://youtu.be/vSfF1Bn8Wdc?si=tF8AFZoZa3OHeCxl",
+        "title": "The Commercial ",
+        "description": "Final product.",
         "order": 1
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=mno789",
-        "title": "Making of Arthur the Mail Snail",
-        "description": "A documentary-style video on the puppet and set creation.",
-        "order": 2
       }
     ]
   },
