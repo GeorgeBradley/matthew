@@ -192,112 +192,132 @@
     }    
     .testimonial-dot.active { background: var(--primary); }    
         
-    /* YouTube Video Section */    
-    .youtube-section {    
-      margin: 2rem 0;    
-      padding: 0 2rem;    
-      position: relative;    
-    }    
-    .youtube-section h2 {    
-      text-align: center;    
-      font-size: 2rem;    
-      margin-bottom: 1.5rem;    
-      position: relative;    
-      padding-bottom: 0.5rem;    
-    }    
-    .youtube-section h2::after {    
-      content: '';    
-      position: absolute;    
-      bottom: 0;    
-      left: 50%;    
-      transform: translateX(-50%);    
-      width: 60px;    
-      height: 3px;    
-      background: var(--primary);    
-      border-radius: 2px;    
-    }    
-    .youtube-container {    
-      position: relative;    
-      overflow: hidden;    
-      max-width: 900px;    
-      margin: 0 auto;    
-    }    
-    .youtube-slider {    
-      display: flex;    
-      transition: transform 0.5s ease;    
-      width: 100%;    
-    }    
-    .youtube-item {    
-      flex: 0 0 100%;    
-      background: var(--card-bg);    
-      border: 1px solid var(--border);    
-      border-radius: 8px;    
-      padding: 2rem;    
-      text-align: center;    
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);    
-    }    
-    .youtube iframe {    
-      width: 100%;    
-      max-width: 560px;    
-      height: 315px;    
-      border: none;    
-      margin-bottom: 1rem;    
-    }    
-    .youtube-title {    
-      font-size: 1.2rem;    
-      font-weight: 600;    
-      color: var(--primary);    
-      margin-bottom: 0.5rem;    
-    }    
-    .youtube-description {    
-      font-size: 1rem;    
-      color: var(--secondary);    
-    }    
-    .youtube-nav {    
-      display: flex;    
-      justify-content: center;    
-      gap: 1rem;    
-      margin-top: 1rem;    
-    }    
-    .youtube-nav-btn {    
-      background: var(--primary);    
-      color: #fff;    
-      border: none;    
-      border-radius: 50%;    
-      width: 40px;    
-      height: 40px;    
-      cursor: pointer;    
-      display: flex;    
-      align-items: center;    
-      justify-content: center;    
-      transition: background 0.3s ease, transform 0.3s ease;    
-    }    
-    .youtube-nav-btn:hover {    
-      background: #004c59;    
-      transform: scale(1.1);    
-    }    
-    .youtube-nav-btn:disabled {    
-      background: #cccccc;    
-      cursor: not-allowed;    
-    }    
-    .youtube-dots {    
-      display: flex;    
-      justify-content: center;    
-      gap: 0.5rem;    
-      margin-top: 1rem;    
-    }    
-    .youtube-dot {    
-      width: 10px;    
-      height: 10px;    
-      background: var(--border);    
-      border-radius: 50%;    
-      cursor: pointer;    
-      transition: background 0.3s ease;    
-    }    
-    .youtube-dot.active {    
-      background: var(--primary);    
-    }    
-        
+  
+  /* [Previous CSS unchanged up to Testimonial Section] */
+
+  /* YouTube Video Section */
+  .youtube-section {
+    margin: 2rem 0;
+    padding: 0 2rem;
+    position: relative;
+  }
+  .youtube-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+  }
+  .youtube-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--primary);
+    border-radius: 2px;
+  }
+  .youtube-container {
+    position: relative;
+    overflow: hidden;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .youtube-slider {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 100%;
+  }
+  .youtube-item {
+    flex: 0 0 100%;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  }
+  .youtube iframe {
+    width: 100%;
+    max-width: 560px;
+    aspect-ratio: 16 / 9;
+    border: none;
+    margin-bottom: 1rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .youtube-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+  }
+  .youtube-description {
+    font-size: 1rem;
+    color: var(--secondary);
+  }
+  .youtube-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  .youtube-nav-btn {
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  .youtube-nav-btn:hover {
+    background: #004c59;
+    transform: scale(1.1);
+  }
+  .youtube-nav-btn:disabled {
+    background: #cccccc;
+    cursor: not-allowed;
+  }
+  .youtube-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+  .youtube-dot {
+    width: 10px;
+    height: 10px;
+    background: var(--border);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  .youtube-dot.active {
+    background: var(--primary);
+  }
+  @media (max-width: 768px) {
+    .youtube-section h2 {
+      font-size: 1.8rem;
+    }
+    .youtube-item {
+      padding: 1.5rem;
+    }
+  }
+  @media (max-width: 480px) {
+    .youtube-item {
+      padding: 1rem;
+    }
+  }
+
+  /* [Rest of your CSS unchanged below YouTube Section] */  
     /* Gallery Section */    
     .gallery-section {    
       margin: 2rem 0;    
