@@ -15,11 +15,11 @@ document.addEventListener('DOMContentLoaded', () => {
   initModal();
   updateCurrentYear();
 
-  // --- Scroll Position Saving Code ---
+  // --- Scroll Position Saving Code (via click events) ---
   // Save scroll position when any project link is clicked.
   // Combining selectors for various project links:
-  // .first-impressions-label -> your banner/project links
-  // .un-highlighted-features-slider-link -> your un-highlighted projects
+  // .first-impressions-label -> banner/project links
+  // .un-highlighted-features-slider-link -> un-highlighted projects
   // .feature-project-link -> (if you have feature project links with this class)
   const projectLinks = document.querySelectorAll(
     '.first-impressions-label, .un-highlighted-features-slider-link, .feature-project-link'
@@ -33,15 +33,24 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// Restore scroll position on pageshow event (works even when coming from the bfcache)
+// --- Additional Scroll Saving on Pagehide ---
+// This event fires when the page is being unloaded (including bfcache scenarios)
+window.addEventListener('pagehide', () => {
+  console.log("Page is hiding. Saving scrollY =", window.scrollY);
+  sessionStorage.setItem('indexScroll', window.scrollY);
+});
+
+// --- Scroll Restoration on Pageshow ---
+// This event fires when the page is loaded (or restored from bfcache)
 window.addEventListener('pageshow', () => {
   const savedScroll = sessionStorage.getItem('indexScroll');
   if (savedScroll !== null) {
     console.log("Restoring scroll position to:", savedScroll);
+    // Delay slightly to allow all content to render
     setTimeout(() => {
       window.scrollTo({ top: parseInt(savedScroll, 10), behavior: 'smooth' });
       sessionStorage.removeItem('indexScroll');
-    }, 0);
+    }, 100);
   }
 });
 
