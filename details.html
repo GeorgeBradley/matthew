@@ -751,6 +751,10 @@
                               project["feature-project-youtube-link"].length > 0 &&    
                               project["feature-project-youtube-link"][0]["url"] !== null;    
         
+      console.log('Project Data:', project); // Debugging: Log project data    
+      console.log('Has YouTube Videos:', hasYouTubeVideos); // Debugging: Check condition    
+      console.log('YouTube Links:', project["feature-project-youtube-link"]); // Debugging: Log YouTube links    
+        
       detailsContainer.innerHTML = `    
         <a href="index.html" class="back-link">    
           <i class="fas fa-arrow-left"></i> Back to Projects    
@@ -807,7 +811,7 @@
                       .sort((a, b) => a.order - b.order)    
                       .map(video => `    
                         <div class="youtube-item">    
-                          <iframe src="${video.url.replace('watch?v=', 'embed/')}"     
+                          <iframe src="${video.url}"     
                                   title="${video.title}"     
                                   allowfullscreen     
                                   loading="lazy"></iframe>    
@@ -889,6 +893,8 @@
         
       if (hasYouTubeVideos) {    
         initYouTubeSlider(project["feature-project-youtube-link"].length);    
+      } else {    
+        console.warn('YouTube slider not initialized: No valid YouTube videos found.');    
       }    
     }    
         
@@ -1160,6 +1166,11 @@
       const dots = document.querySelectorAll('.youtube-dot');    
       let currentIndex = 0;    
       let touchStartX = 0;    
+        
+      if (!slider || !prevBtn || !nextBtn || !dots.length) {    
+        console.error('YouTube slider elements not found in DOM');    
+        return;    
+      }    
         
       function updateSlider() {    
         slider.style.transform = `translateX(-${currentIndex * 100}%)`;    
