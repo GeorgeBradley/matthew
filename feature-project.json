@@ -702,5 +702,50 @@
         "testimonial-role": null
       }
     ]
+  },
+
+  {
+    "id": 21,
+    "feature-project-name": "Arthur the Mail Snail (Stop Motion Short Film)",
+    "feature-project-description": "Arthur the snail puppet and other characters were crafted with props, sets, and story design.",
+    "feature-project-long-description": "Arthur the snail puppet was sculpted, molded, cast, and built with an armature, alongside other characters, involving the creation of small props like tiny carved spoons, set carving, detailing, base carpentry, dressing, and contributions to character and world designs as well as the story.",
+    "feature-project-thumbnail": "feature-img-beta/feature-20.gif",
+    "feature-project-gallery": [
+      { "image": "feature-img-beta/feature-20.gif", "description": "", "alt-text": "", "order": 1 },
+      { "image": "feature-img-beta/feature-20-1.jpg", "description": "", "alt-text": "", "order": 2 },
+      { "image": "feature-img-beta/feature-20-2.jpg", "description": "", "alt-text": "", "order": 3 },
+      { "image": "feature-img-beta/feature-20-3.jpg", "description": "", "alt-text": "", "order": 4 },
+      { "image": "feature-img-beta/feature-20-4.jpg", "description": "", "alt-text": "", "order": 5 },
+      { "image": "feature-img-beta/feature-20-5.jpg", "description": "", "alt-text": "", "order": 6 },
+      { "image": "feature-img-beta/feature-20-6.jpg", "description": "", "alt-text": "", "order": 7 },
+      { "image": "feature-img-beta/feature-20-7.jpg", "description": "", "alt-text": "", "order": 8 },
+      { "image": "feature-img-beta/feature-20-8.jpg", "description": "", "alt-text": "", "order": 9 },
+      { "image": "feature-img-beta/feature-20-9.jpg", "description": "", "alt-text": "", "order": 10 },
+      { "image": "feature-img-beta/feature-20-10.jpg", "description": "", "alt-text": "", "order": 10 },
+      { "image": "feature-img-beta/feature-20-11.jpg", "description": "", "alt-text": "", "order": 10 },
+      { "image": "feature-img-beta/feature-20-12.jpg", "description": "", "alt-text": "", "order": 10 },
+      { "image": "feature-img-beta/feature-20-13.jpg", "description": "", "alt-text": "", "order": 10 },
+      { "image": "feature-img-beta/feature-20-14.jpg", "description": "", "alt-text": "", "order": 10 },
+      { "image": "feature-img-beta/feature-20-15.jpg", "description": "", "alt-text": "", "order": 10 }
+    ],
+    "feature-project-link": "https://greenpuppets.org/eco-series",
+    "feature-project-start-year": 2021,
+    "feature-project-end-year": null,
+    "feature-project-company-name": null,
+    "feature-project-skills": ["sculpting", "model making", "mixed media"],
+    "feature-project-job-category": "Miscellaneous creative projects",
+    "feature-project-client": University group project,
+    "feature-project-type": "highlighted",
+    "project-feature-main-category-id": 2,
+    "feature-project-order": 1,
+    "feature-project-testimonial": [
+      {
+        "testimonial-name": null,
+        "testimonial-client-name": null,
+        "testimonial-employer-name": null,
+        "testimonial-quote": null,
+        "testimonial-role": null
+      }
+    ]
   }
 ]
