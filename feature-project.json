@@ -118,12 +118,6 @@
         "title": "Commonwealth Games coming to Birmingham",
         "description": "The part of the video that shows my work is at 0.33.",
         "order": 1
-      },
- {
-        "url": "https://www.youtube.com/embed/RDssdQDWwEg",
-        "title": "Commonwealth Games coming to Birmingham",
-        "description": "The part of the video that shows my work is at 0.33.",
-        "order": 1
       }
     ]
   },
@@ -734,7 +728,7 @@
     ],
  "feature-project-youtube-link": [
       {
-        "url": "https://www.youtube.com/embed/IbZ-8gHaqcU",
+        "url": "https://www.youtube.com/embed/IbZ-8gHaqcU?si=5QWrY_bY-MwsCrcY",
         "title": "Styxosaurus - A Silicone Stop-Motion Puppet Build (Plesiosaur)",
         "description": "My first journey into stop-motion puppet building.",
         "order": 1
