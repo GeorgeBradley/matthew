@@ -192,137 +192,121 @@
     }    
     .testimonial-dot.active { background: var(--primary); }    
         
-  
-  /* [Previous CSS unchanged up to Testimonial Section] */
-
-  /* YouTube Video Section */
-  .youtube-section {
-    margin: 2rem 0;
-    position: relative;
-  }
-  .youtube-section h2 {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    position: relative;
-    padding-bottom: 0.5rem;
-  }
-  .youtube-section h2::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 3px;
-    background: var(--primary);
-    border-radius: 2px;
-  }
-  .youtube-container {
-        position: relative;
-    overflow: hidden;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-  .youtube-slider {
-    display: flex;
-    transition: transform 0.5sease;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-  .youtube-item {
-    flex: 0 0 100%;
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 1rem;
-    text-align: center;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  }
-  .youtube iframe {
-    width: 100%;
-   
-    aspect-ratio: 16 / 9;
-    border: none;
-    margin-bottom: 1rem;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .youtube-title {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--primary);
-    margin-bottom: 0.5rem;
-  }
-  .youtube-description {
-    font-size: 1rem;
-    color: var(--secondary);
-  }
-  .youtube-nav {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 1rem;
-  }
-  .youtube-nav-btn {
-    background: var(--primary);
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.3s ease, transform 0.3s ease;
-  }
-  .youtube-nav-btn:hover {
-    background: #004c59;
-    transform: scale(1.1);
-  }
-  .youtube-nav-btn:disabled {
-    background: #cccccc;
-    cursor: not-allowed;
-  }
-  .youtube-dots {
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem;
-    margin-top: 1rem;
-  }
-  .youtube-dot {
-    width: 10px;
-    height: 10px;
-    background: var(--border);
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
-  .youtube-dot.active {
-    background: var(--primary);
-  }
-    .youtube-item iframe {
-              width: 100%;
-    height: 300px;
-    aspect-ratio: 3 / 2;
+    /* YouTube Video Section */
+    .youtube-section {
+      margin: 2rem 0;
+      position: relative;
     }
-  @media (max-width: 768px) {
     .youtube-section h2 {
-      font-size: 1.8rem;
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+    .youtube-section h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+    .youtube-container {
+      position: relative;
+      overflow: hidden;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .youtube-slider {
+      display: flex;
+      transition: transform 0.5s ease;
+      width: 100%;
     }
     .youtube-item {
-      /*padding: 1.5rem;*/
+      flex: 0 0 100%;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     }
-  }
-  @media (max-width: 480px) {
-    .youtube-item {
-      /*padding: 1rem;*/
+    .youtube iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: none;
+      margin-bottom: 1rem;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
     }
-  }
+    .youtube-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+    .youtube-description {
+      font-size: 1rem;
+      color: var(--secondary);
+    }
+    .youtube-nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .youtube-nav-btn {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    .youtube-nav-btn:hover {
+      background: #004c59;
+      transform: scale(1.1);
+    }
+    .youtube-nav-btn:disabled {
+      background: #cccccc;
+      cursor: not-allowed;
+    }
+    .youtube-dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+    .youtube-dot {
+      width: 10px;
+      height: 10px;
+      background: var(--border);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .youtube-dot.active {
+      background: var(--primary);
+    }
+    @media (max-width: 768px) {
+      .youtube-section h2 {
+        font-size: 1.8rem;
+      }
+    }
+    @media (max-width: 480px) {
+      .youtube iframe { height: 180px; }
+    }
 
-  /* [Rest of your CSS unchanged below YouTube Section] */  
     /* Gallery Section */    
     .gallery-section {    
       margin: 2rem 0;    
@@ -631,8 +615,6 @@
       .testimonial-quote { font-size: 1rem; }    
       .testimonial-section h2 { font-size: 1.8rem; }    
       .youtube-section h2 { font-size: 1.8rem; }    
-      .youtube-item { padding: 1.5rem; }    
-      .youtube iframe { height: 200px; }    
     }    
     @media (max-width: 480px) {    
       .project-meta { flex-direction: column; gap: 0.5rem; }    
@@ -641,7 +623,6 @@
       .close-btn { width: 32px; height: 32px; top: 5px; right: 5px; }    
       .back-to-top { width: 40px; height: 40px; }    
       .back-to-top i { font-size: 1.2rem; }    
-      .youtube iframe { height: 180px; }    
     }    
   </style>    
 </head>    
@@ -1015,52 +996,107 @@
       });    
     }    
         
-    // Category View    
-    function renderCategoryDetails(category, projects) {    
-      let html = `    
-        <a href="index.html" class="back-link">    
-          <i class="fas fa-arrow-left"></i> Back to Projects    
-        </a>    
-        <section class="category-header" style="text-align: center; padding: 2rem;">    
-          <h1>${category.categoryName}</h1>    
-          <p>${category.description}</p>    
-        </section>    
-      `;    
-      projects.forEach(project => {    
-        html += `    
-          <article class="project-detail" style="margin-bottom: 2rem;">    
-            <header class="detail-header">    
-              <h2 class="project-title">${project["feature-project-name"]}</h2>    
-              ${project["feature-project-start-year"] ? `    
-                <div class="project-meta">    
-                  <span>${project["feature-project-start-year"]}${project["feature-project-end-year"] ? ` - ${project["feature-project-end-year"]}` : ''}</span>    
-                </div>    
-              ` : ''}    
-            </header>    
-            <img src="${project["feature-project-thumbnail"]}" alt="${project["feature-project-name"]}" class="detail-image" loading="lazy">    
-            <section class="detail-content">    
-              <p class="project-description">${project["feature-project-long-description"]}</p>    
-              ${project["feature-project-gallery"] && project["feature-project-gallery"].length ? `    
-                <div class="gallery-section" data-project-id="${project.id}">    
-                  <h2>Gallery</h2>    
-                  <div class="gallery-grid">    
-                    ${project["feature-project-gallery"].sort((a, b) => a.order - b.order)    
-                      .map((image, i) => `    
-                        <div class="gallery-item">    
-                          <img src="${image.image}" alt="${image['alt-text']}" class="gallery-thumbnail" data-index="${i}" loading="lazy">    
-                          <div class="gallery-overlay">${image.description}</div>    
-                        </div>    
-                      `).join('')}    
-                  </div>    
-                </div>    
-              ` : ''}    
-            </section>    
-          </article>    
-        `;    
-      });    
-      detailsContainer.innerHTML = html + getLightboxMarkup();    
-      attachCategoryGalleryListeners(projects);    
-    }    
+    // Category View with YouTube Rendering
+    function renderCategoryDetails(category, projects) {
+      let html = `
+        <a href="index.html" class="back-link">
+          <i class="fas fa-arrow-left"></i> Back to Projects
+        </a>
+        <section class="category-header" style="text-align: center; padding: 2rem;">
+          <h1>${category.categoryName}</h1>
+          <p>${category.description}</p>
+        </section>
+      `;
+      projects.forEach((project, projectIndex) => {
+        const hasYouTubeVideos = project["feature-project-youtube-link"] && 
+                                Array.isArray(project["feature-project-youtube-link"]) && 
+                                project["feature-project-youtube-link"].length > 0 && 
+                                project["feature-project-youtube-link"].some(video => video.url && video.url !== null && video.url !== '');
+        html += `
+          <article class="project-detail" style="margin-bottom: 2rem;" data-project-index="${projectIndex}">
+            <header class="detail-header">
+              <h2 class="project-title">${project["feature-project-name"]}</h2>
+              ${project["feature-project-start-year"] ? `
+                <div class="project-meta">
+                  <span>${project["feature-project-start-year"]}${project["feature-project-end-year"] ? ` - ${project["feature-project-end-year"]}` : ''}</span>
+                </div>
+              ` : ''}
+            </header>
+            <img src="${project["feature-project-thumbnail"]}" alt="${project["feature-project-name"]}" class="detail-image" loading="lazy">
+            <section class="detail-content">
+              <p class="project-description">${project["feature-project-long-description"]}</p>
+              ${hasYouTubeVideos ? `
+                <div class="youtube-section">
+                  <h2>Videos</h2>
+                  <div class="youtube-container">
+                    <div class="youtube-slider">
+                      ${project["feature-project-youtube-link"]
+                        .sort((a, b) => a.order - b.order)
+                        .map(video => `
+                          <div class="youtube-item">
+                            <iframe src="${video.url}" title="${video.title}" allowfullscreen loading="lazy"></iframe>
+                            <p class="youtube-title">${video.title}</p>
+                            <p class="youtube-description">${video.description}</p>
+                          </div>
+                        `).join('')}
+                    </div>
+                  </div>
+                  <div class="youtube-nav">
+                    <button class="youtube-nav-btn prev" aria-label="Previous video">
+                      <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="youtube-nav-btn next" aria-label="Next video">
+                      <i class="fas fa-chevron-right"></i>
+                    </button>
+                  </div>
+                  <div class="youtube-dots">
+                    ${project["feature-project-youtube-link"].map((_, index) => `
+                      <span class="youtube-dot${index === 0 ? ' active' : ''}" data-index="${index}"></span>
+                    `).join('')}
+                  </div>
+                </div>
+              ` : ''}
+              ${project["feature-project-gallery"] && project["feature-project-gallery"].length ? `
+                <div class="gallery-section" data-project-id="${project.id}">
+                  <h2>Gallery</h2>
+                  <div class="gallery-grid">
+                    ${project["feature-project-gallery"].sort((a, b) => a.order - b.order)
+                      .map((image, i) => `
+                        <div class="gallery-item">
+                          <img src="${image.image}" alt="${image['alt-text']}" class="gallery-thumbnail" data-index="${i}" loading="lazy">
+                          <div class="gallery-overlay">${image.description}</div>
+                        </div>
+                      `).join('')}
+                  </div>
+                </div>
+              ` : ''}
+            </section>
+          </article>
+        `;
+      });
+      detailsContainer.innerHTML = html + getLightboxMarkup();
+      attachCategoryGalleryListeners(projects);
+
+      // Initialize YouTube sliders for each project with videos
+      projects.forEach((project, projectIndex) => {
+        const hasYouTubeVideos = project["feature-project-youtube-link"] && 
+                                Array.isArray(project["feature-project-youtube-link"]) && 
+                                project["feature-project-youtube-link"].length > 0 && 
+                                project["feature-project-youtube-link"].some(video => video.url && video.url !== null && video.url !== '');
+        if (hasYouTubeVideos) {
+          const projectContainer = detailsContainer.querySelector(`article.project-detail[data-project-index="${projectIndex}"]`);
+          if (projectContainer) {
+            const slider = projectContainer.querySelector('.youtube-slider');
+            const prevBtn = projectContainer.querySelector('.youtube-nav-btn.prev');
+            const nextBtn = projectContainer.querySelector('.youtube-nav-btn.next');
+            const dots = projectContainer.querySelectorAll('.youtube-dot');
+            initYouTubeSliderForProject(slider, prevBtn, nextBtn, dots, project["feature-project-youtube-link"].length);
+          } else {
+            console.warn(`Project container not found for index ${projectIndex}`);
+          }
+        }
+      });
+    }
         
     function getLightboxMarkup() {    
       return `    
@@ -1187,7 +1223,7 @@
       updateSlider();    
     }    
         
-    // YouTube Slider Functionality    
+    // YouTube Slider Functionality for Single Project    
     function initYouTubeSlider(videoCount) {    
       const slider = document.querySelector('.youtube-slider');    
       const prevBtn = document.querySelector('.youtube-nav-btn.prev');    
@@ -1249,6 +1285,65 @@
         
       updateSlider();    
     }    
+    
+    // YouTube Slider Functionality for Category View (Multiple Projects)
+    function initYouTubeSliderForProject(slider, prevBtn, nextBtn, dots, videoCount) {
+      let currentIndex = 0;
+      let touchStartX = 0;
+
+      if (!slider || !prevBtn || !nextBtn || dots.length === 0) {
+        console.error('YouTube slider elements missing:', { slider, prevBtn, nextBtn, dots });
+        return;
+      }
+
+      function updateSlider() {
+        slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+        dots.forEach(dot => dot.classList.remove('active'));
+        dots[currentIndex].classList.add('active');
+        prevBtn.disabled = currentIndex === 0;
+        nextBtn.disabled = currentIndex === videoCount - 1;
+      }
+
+      prevBtn.addEventListener('click', () => {
+        if (currentIndex > 0) {
+          currentIndex--;
+          updateSlider();
+        }
+      });
+
+      nextBtn.addEventListener('click', () => {
+        if (currentIndex < videoCount - 1) {
+          currentIndex++;
+          updateSlider();
+        }
+      });
+
+      dots.forEach(dot => {
+        dot.addEventListener('click', () => {
+          currentIndex = Number(dot.getAttribute('data-index'));
+          updateSlider();
+        });
+      });
+
+      slider.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
+      });
+
+      slider.addEventListener('touchend', (e) => {
+        const touchEndX = e.changedTouches[0].clientX;
+        const deltaX = touchEndX - touchStartX;
+        if (Math.abs(deltaX) > 50) {
+          if (deltaX > 0 && currentIndex > 0) {
+            currentIndex--;
+          } else if (deltaX < 0 && currentIndex < videoCount - 1) {
+            currentIndex++;
+          }
+          updateSlider();
+        }
+      });
+
+      updateSlider();
+    }
         
     // Error Handling    
     function showDetailError() {    
@@ -1281,4 +1376,4 @@
       
   <script src="sharable-scripts.js" defer></script>    
 </body>    
-</html>    
+</html>
