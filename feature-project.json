@@ -41,16 +41,20 @@
     "feature-project-name": "Olbas Oil - ‘The power to breathe’ (stop-motion ad campaign)",
     "feature-project-description": "Expressive puppet heads with interchangeable features, sculpted body parts, and managed the molding, casting, and armature construction, also contributing to set dressing.",
     "feature-project-long-description": "My responsibilities included fabricating two character heads, each with adjustable eyes and alternative expressions. This involved making replacement eyes, lids, and brows to allow for a range of expressions. I also sculpted the hands and feet for the puppets. Once sculpted, I oversaw the process of moulding these pieces and then casting them in both resin and silicone. Additionally, I was responsible for overseeing the building of the wire armatures that formed the internal structure of the puppets. Finally, I also assisted with set dressing during the shoot itself.",
-    "feature-project-thumbnail": "feature-img-beta/feature-2.jpg",
+    "feature-project-thumbnail": "feature-img-beta/feature-2-9.jpg",
     "feature-project-gallery": [
-      { "image": "feature-img-beta/feature-2-1.jpg", "description": "Wood carving stage of an 18th-century style marionette.", "alt-text": "A wooden marionette head being sculpted by hand.", "order": 1 },
-      { "image": "feature-img-beta/feature-2-2.jpg", "description": "A finished marionette with period-accurate costume.", "alt-text": "A fully dressed marionette in 18th-century attire.", "order": 2 },
-      { "image": "feature-img-beta/feature-2-3.jpg", "description": "A historical reenactment featuring marionette puppets.", "alt-text": "Marionettes performing on stage with historical set design.", "order": 3 },
-      { "image": "feature-img-beta/feature-2-4.jpg", "description": "A historical reenactment featuring marionette puppets.", "alt-text": "Marionettes performing on stage with historical set design.", "order": 4 },
-      { "image": "feature-img-beta/feature-2-5.jpg", "description": "A historical reenactment featuring marionette puppets.", "alt-text": "Marionettes performing on stage with historical set design.", "order": 5 },
-      { "image": "feature-img-beta/feature-2-6.jpg", "description": "A historical reenactment featuring marionette puppets.", "alt-text": "Marionettes performing on stage with historical set design.", "order": 6 },
-      { "image": "feature-img-beta/feature-2-7.jpg", "description": "A historical reenactment featuring marionette puppets.", "alt-text": "Marionettes performing on stage with historical set design.", "order": 7 },
-      { "image": "feature-img-beta/feature-2-8.jpg", "description": "A historical reenactment featuring marionette puppets.", "alt-text": "Marionettes performing on stage with historical set design.", "order": 8 }
+      { "image": "feature-img-beta/feature-2-1.jpg", "description": "", "alt-text": "", "order": 1 },
+      { "image": "feature-img-beta/feature-2-2.jpg", "description": "", "alt-text": "", "order": 2 },
+      { "image": "feature-img-beta/feature-2-3.jpg", "description": "", "alt-text": "", "order": 3 },
+      { "image": "feature-img-beta/feature-2-4.jpg", "description": "", "alt-text": "", "order": 4 },
+      { "image": "feature-img-beta/feature-2-5.jpg", "description": "", "alt-text": "", "order": 5 },
+      { "image": "feature-img-beta/feature-2-6.jpg", "description": "", "order": 6 },
+      { "image": "feature-img-beta/feature-2-7.jpg", "description": "", "order": 7 },
+      { "image": "feature-img-beta/feature-2-8.jpg", "description": "", "alt-text": "", "order": 8 },
+            { "image": "feature-img-beta/feature-2-9.jpg", "description": "", "alt-text": "", "order": 9 },
+
+       { "image": "feature-img-beta/feature-2.jpg", "description": "", "alt-text": "", "order": 10 }
+      
     ],
     "feature-project-link": "https://stringtheorycreations.com/marionette-revival",
     "feature-project-start-year": 2022,
