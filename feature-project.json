@@ -218,7 +218,7 @@
     "feature-project-skills": ["scale modeling", "woodworking", "carving", "resin casting", "joinery"],
     "feature-project-job-category": "Scale model fabricator and woodworker",
     "feature-project-client": null,
-    "feature-project-type": "un-highlighted",
+    "feature-project-type": "highlighted",
     "project-feature-main-category-id": 4,
     "feature-project-order": null,
     "feature-project-testimonial": [
