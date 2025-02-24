@@ -17,10 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- Scroll Position Saving Code (via click events) ---
   // Save scroll position when any project link is clicked.
-  // Combining selectors for various project links:
-  // .first-impressions-label -> banner/project links
-  // .un-highlighted-features-slider-link -> un-highlighted projects
-  // .feature-project-link -> (if you have feature project links with this class)
   const projectLinks = document.querySelectorAll(
     '.first-impressions-label, .un-highlighted-features-slider-link, .feature-project-link'
   );
@@ -34,19 +30,31 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // --- Additional Scroll Saving on Pagehide ---
-// This event fires when the page is being unloaded (including bfcache scenarios)
 window.addEventListener('pagehide', () => {
   console.log("Page is hiding. Saving scrollY =", window.scrollY);
   sessionStorage.setItem('indexScroll', window.scrollY);
 });
 
 // --- Scroll Restoration on Pageshow ---
-// This event fires when the page is loaded (or restored from bfcache)
 window.addEventListener('pageshow', () => {
   const savedScroll = sessionStorage.getItem('indexScroll');
+  const hash = window.location.hash; // e.g., "#contact"
+
+  // If there's a hash (like #contact), prioritize scrolling to that section
+  if (hash) {
+    const targetElement = document.querySelector(hash);
+    if (targetElement) {
+      setTimeout(() => {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+        sessionStorage.removeItem('indexScroll'); // Clear saved scroll after navigating to section
+      }, 100);
+      return; // Exit early to skip restoring the saved scroll position
+    }
+  }
+
+  // Otherwise, restore the saved scroll position (e.g., when navigating back)
   if (savedScroll !== null) {
     console.log("Restoring scroll position to:", savedScroll);
-    // Delay slightly to allow all content to render
     setTimeout(() => {
       window.scrollTo({ top: parseInt(savedScroll, 10), behavior: 'smooth' });
       sessionStorage.removeItem('indexScroll');
@@ -97,7 +105,6 @@ function initFeatureSlider() {
   const prevButton = document.getElementById('feature-prev');
   const nextButton = document.getElementById('feature-next');
 
-  // Ensure required elements exist
   if (!slider || !lightbox || !modalImg || !captionText || !closeBtn || !prevButton || !nextButton) {
     console.warn('One or more feature slider elements not found.');
     return;
@@ -107,7 +114,6 @@ function initFeatureSlider() {
   const images = [];
   let autoSlide;
 
-  // Dynamically create image elements
   for (let i = 1; i <= 17; i++) {
     let img = document.createElement('img');
     img.src = `data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7`; // Placeholder
@@ -122,7 +128,6 @@ function initFeatureSlider() {
     images.push(img);
   }
 
-  // Lazy loading images
   function loadImage(img) {
     const src = img.dataset.src;
     if (src) {
@@ -138,9 +143,8 @@ function initFeatureSlider() {
     });
   }
   window.addEventListener('scroll', handleLazyLoad);
-  handleLazyLoad(); // Initial check
+  handleLazyLoad();
 
-  // Lightbox functionality
   function openLightbox(src, alt) {
     modalImg.src = src;
     modalImg.alt = alt;
@@ -156,7 +160,6 @@ function initFeatureSlider() {
     }
   });
 
-  // Slider navigation
   function slideTo(index) {
     currentIndex = (index + images.length) % images.length;
     slider.style.transform = `translateX(-${currentIndex * 100}%)`;
@@ -164,7 +167,6 @@ function initFeatureSlider() {
   prevButton.addEventListener('click', () => slideTo(currentIndex - 1));
   nextButton.addEventListener('click', () => slideTo(currentIndex + 1));
 
-  // Keyboard navigation
   document.addEventListener('keydown', function(event) {
     if (lightbox.style.display === "block") {
       if (event.key === "Escape") lightbox.style.display = "none";
@@ -174,7 +176,6 @@ function initFeatureSlider() {
     }
   });
 
-  // Automatic slide every 3 seconds
   function autoSlideFunction() {
     slideTo(currentIndex + 1);
   }
@@ -192,7 +193,7 @@ function initFeatureSlider() {
 // 5. Hero Slider (Projects)
 class HeroSlider {
   constructor() {
-    this.API_URL = 'feature-project.json'; // Local file
+    this.API_URL = 'feature-project.json';
     this.currentIndex = 0;
     this.intervalTime = 5000;
     this.intervalId = null;
@@ -397,7 +398,6 @@ function initFirstImpressionsSlider() {
             </a>
           </div>`;
       });
-      // Duplicate images on desktop for seamless scrolling
       sliderTrack.innerHTML = window.innerWidth >= 1024 ? imagesHTML + imagesHTML : imagesHTML;
     })
     .catch(error => {
