@@ -739,17 +739,25 @@
     }    
         
     // Helper Function for Navigation    
-    function getNavigationProjects(project, allProjects) {    
-      if (project["feature-project-type"] !== "highlighted") { return { prevProject: null, nextProject: null }; }    
-      const highlightedProjects = allProjects    
-        .filter(p => p["feature-project-type"] === "highlighted")    
-        .sort((a, b) => a["feature-project-order"] - b["feature-project-order"]);    
-      const currentIndex = highlightedProjects.findIndex(p => p.id === project.id);    
-      if (currentIndex === -1) { return { prevProject: null, nextProject: null }; }    
-      const prevProject = currentIndex > 0 ? highlightedProjects[currentIndex - 1] : null;    
-      const nextProject = currentIndex < highlightedProjects.length - 1 ? highlightedProjects[currentIndex + 1] : null;    
-      return { prevProject, nextProject };    
-    }    
+    function getNavigationProjects(project, allProjects) {
+  // Filter only highlighted projects and sort them by order
+  const highlightedProjects = allProjects
+    .filter(p => p["feature-project-type"] === "highlighted")
+    .sort((a, b) => a["feature-project-order"] - b["feature-project-order"]);
+
+  // Find the index of the current project in the sorted highlighted list
+  const currentIndex = highlightedProjects.findIndex(p => p.id === project.id);
+
+  if (currentIndex === -1) {
+    return { prevProject: null, nextProject: null };
+  }
+
+  // Get previous and next highlighted projects
+  const prevProject = currentIndex > 0 ? highlightedProjects[currentIndex - 1] : null;
+  const nextProject = currentIndex < highlightedProjects.length - 1 ? highlightedProjects[currentIndex + 1] : null;
+
+  return { prevProject, nextProject };
+}
         
     // Single Project View    
     function renderProjectDetails(project, projects) {    
