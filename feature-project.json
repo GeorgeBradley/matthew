@@ -6,15 +6,15 @@
     "feature-project-long-description": "The second commision undertaken for Workshed Animation and their upcoming feature film. A silicone skin over a ball and socket armature, painted with pigmented silicone. The puppet features replaceable tusks, moving jaw, front and back flippers as well as articulation within the neck and body.",
     "feature-project-thumbnail": "feature-img-beta/feature-1.jpg",
     "feature-project-gallery": [
-      { "image": "feature-img-beta/feature-1-1.jpg", "description": "Intricate leather carving process of a shadow puppet.", "alt-text": "A craftsman carving a detailed leather shadow puppet.", "order": 1 },
-      { "image": "feature-img-beta/feature-1-2.jpg", "description": "A finished set of shadow puppets ready for performance.", "alt-text": "Multiple leather shadow puppets displayed under lighting.", "order": 2 },
-      { "image": "feature-img-beta/feature-1-3.jpg", "description": "The puppets in action during a theatre performance.", "alt-text": "Silhouettes of shadow puppets projected onto a screen.", "order": 3 },
-      { "image": "feature-img-beta/feature-1-4.jpg", "description": "The puppets in action during a theatre performance.", "alt-text": "Silhouettes of shadow puppets projected onto a screen.", "order": 4 },
-      { "image": "feature-img-beta/feature-1-5.jpg", "description": "The puppets in action during a theatre performance.", "alt-text": "Silhouettes of shadow puppets projected onto a screen.", "order": 5 },
-      { "image": "feature-img-beta/feature-1-6.jpg", "description": "The puppets in action during a theatre performance.", "alt-text": "Silhouettes of shadow puppets projected onto a screen.", "order": 6 },
-      { "image": "feature-img-beta/feature-1-7.jpg", "description": "The puppets in action during a theatre performance.", "alt-text": "Silhouettes of shadow puppets projected onto a screen.", "order": 7 },
-      { "image": "feature-img-beta/feature-1-8.jpg", "description": "The puppets in action during a theatre performance.", "alt-text": "Silhouettes of shadow puppets projected onto a screen.", "order": 8 },
-      { "image": "feature-img-beta/feature-1-9.jpg", "description": "The puppets in action during a theatre performance.", "alt-text": "Silhouettes of shadow puppets projected onto a screen.", "order": 9 }
+      { "image": "feature-img-beta/feature-1-1.jpg", "description": "", "alt-text": "", "order": 1 },
+      { "image": "feature-img-beta/feature-1-2.jpg", "description": "", "alt-text": "", "order": 2 },
+      { "image": "feature-img-beta/feature-1-3.jpg", "description": "", "alt-text": "", "order": 3 },
+      { "image": "feature-img-beta/feature-1-4.jpg", "description": "", "alt-text": "", "order": 4 },
+      { "image": "feature-img-beta/feature-1-5.jpg", "description": "", "alt-text": "", "order": 5 },
+      { "image": "feature-img-beta/feature-1-6.jpg", "description": "", "alt-text": "", "order": 6 },
+      { "image": "feature-img-beta/feature-1-7.jpg", "description": "", "alt-text": "", "order": 7 },
+      { "image": "feature-img-beta/feature-1-8.jpg", "description": "", "alt-text": "", "order": 8 },
+      { "image": "feature-img-beta/feature-1-9.jpg", "description": "", "alt-text": "", "order": 9 }
     ],
     "feature-project-link": "https://puppetcraft.com/shadow-odyssey",
     "feature-project-start-year": 2021,
@@ -48,13 +48,11 @@
       { "image": "feature-img-beta/feature-2-3.jpg", "description": "", "alt-text": "", "order": 3 },
       { "image": "feature-img-beta/feature-2-4.jpg", "description": "", "alt-text": "", "order": 4 },
       { "image": "feature-img-beta/feature-2-5.jpg", "description": "", "alt-text": "", "order": 5 },
-      { "image": "feature-img-beta/feature-2-6.jpg", "description": "", "order": 6 },
-      { "image": "feature-img-beta/feature-2-7.jpg", "description": "", "order": 7 },
+      { "image": "feature-img-beta/feature-2-6.jpg", "description": "", "alt-text": "", "order": 6 },
+      { "image": "feature-img-beta/feature-2-7.jpg", "description": "", "alt-text": "", "order": 7 },
       { "image": "feature-img-beta/feature-2-8.jpg", "description": "", "alt-text": "", "order": 8 },
-            { "image": "feature-img-beta/feature-2-9.jpg", "description": "", "alt-text": "", "order": 9 },
-
-       { "image": "feature-img-beta/feature-2.jpg", "description": "", "alt-text": "", "order": 10 }
-      
+      { "image": "feature-img-beta/feature-2-9.jpg", "description": "", "alt-text": "", "order": 9 },
+      { "image": "feature-img-beta/feature-2.jpg", "description": "", "alt-text": "", "order": 10 }
     ],
     "feature-project-link": "https://stringtheorycreations.com/marionette-revival",
     "feature-project-start-year": 2022,
@@ -75,7 +73,7 @@
         "testimonial-role": null
       }
     ],
- "feature-project-youtube-link": [
+    "feature-project-youtube-link": [
       {
         "url": "https://www.youtube.com/embed/vSfF1Bn8Wdc",
         "title": "The Commercial ",
@@ -91,11 +89,11 @@
     "feature-project-long-description": "I built and painted the scale model of Alexander Stadium for the final shot of the advert, and also assisted with set dressing during the shoot.",
     "feature-project-thumbnail": "feature-img-beta/feature-3.jpg",
     "feature-project-gallery": [
-      { "image": "feature-img-beta/feature-3-1.jpg", "description": "Cutting recycled materials for puppet construction.", "alt-text": "Hands cutting fabric from repurposed clothing for puppets.", "order": 1 },
-      { "image": "feature-img-beta/feature-3-2.jpg", "description": "Finished hand puppets designed for educational use.", "alt-text": "A set of colourful hand puppets made from recycled materials.", "order": 2 },
-      { "image": "feature-img-beta/feature-3-3.jpg", "description": "Children interacting with the eco-friendly puppets.", "alt-text": "A group of children using puppets in an educational setting.", "order": 3 },
-      { "image": "feature-img-beta/feature-3-4.jpg", "description": "Children interacting with the eco-friendly puppets.", "alt-text": "A group of children using puppets in an educational setting.", "order": 4 },
-      { "image": "feature-img-beta/feature-3-5.jpg", "description": "Children interacting with the eco-friendly puppets.", "alt-text": "A group of children using puppets in an educational setting.", "order": 5 }
+      { "image": "feature-img-beta/feature-3-1.jpg", "description": "", "alt-text": "", "order": 1 },
+      { "image": "feature-img-beta/feature-3-2.jpg", "description": "", "alt-text": "", "order": 2 },
+      { "image": "feature-img-beta/feature-3-3.jpg", "description": "", "alt-text": "", "order": 3 },
+      { "image": "feature-img-beta/feature-3-4.jpg", "description": "", "alt-text": "", "order": 4 },
+      { "image": "feature-img-beta/feature-3-5.jpg", "description": "", "alt-text": "", "order": 5 }
     ],
     "feature-project-link": "https://greenpuppets.org/eco-series",
     "feature-project-start-year": 2022,
@@ -116,7 +114,7 @@
         "testimonial-role": null
       }
     ],
-     "feature-project-youtube-link": [
+    "feature-project-youtube-link": [
       {
         "url": "https://www.youtube.com/embed/RDssdQDWwEg",
         "title": "Commonwealth Games coming to Birmingham",
@@ -127,25 +125,25 @@
   },
   {
     "id": 4,
-    "feature-project-name": "Duetsche Telekom Magenta (multiple television ad campaigns)",
-    "feature-project-description": "At Yamination Studios. Role: Sculptor, Model maker, Armature Construction, on-shoot puppet maintenance",
+    "feature-project-name": "Deutsche Telekom Magenta (multiple television ad campaigns)",
+    "feature-project-description": "At Yamination Studios, Birmingham. Role: sculptor, model maker, armature construction, on-shoot puppet maintenance",
     "feature-project-long-description": "I sculpted a clay maquette based on a 2D design of ‘The Dude’ and adapted a doll to create the cyclist character. I constructed ball-and-socket armatures, sculpted the hands and feet, then moulded and cast them in silicone before painting. Additionally, I created scale roof tiles for the falling shot and provided puppet maintenance throughout the shoot.",
     "feature-project-thumbnail": "feature-img-beta/feature-4.jpg",
     "feature-project-gallery": [
-      { "image": "feature-img-beta/feature-4-1.jpg", "description": "3D modeling of an animatronic puppet head.", "alt-text": "A computer screen showing a 3D model of a robotic puppet.", "order": 1 },
-      { "image": "feature-img-beta/feature-4-2.jpg", "description": "Assembling the mechanical components inside the puppet.", "alt-text": "A technician working on the servo motors of an animatronic puppet.", "order": 2 },
-      { "image": "feature-img-beta/feature-4-3.jpg", "description": "Final animatronic puppet performing on set.", "alt-text": "An animatronic puppet moving its face expressively during filming.", "order": 3 },
-      { "image": "feature-img-beta/feature-4-4.jpg", "description": "Final animatronic puppet performing on set.", "alt-text": "An animatronic puppet moving its face expressively during filming.", "order": 4 },
-      { "image": "feature-img-beta/feature-4-5.jpg", "description": "Final animatronic puppet performing on set.", "alt-text": "An animatronic puppet moving its face expressively during filming.", "order": 5 },
-      { "image": "feature-img-beta/feature-4-6.jpg", "description": "Final animatronic puppet performing on set.", "alt-text": "An animatronic puppet moving its face expressively during filming.", "order": 3 },
-      { "image": "feature-img-beta/feature-4-7.jpg", "description": "Final animatronic puppet performing on set.", "alt-text": "An animatronic puppet moving its face expressively during filming.", "order": 7 },
-      { "image": "feature-img-beta/feature-4-8.jpg", "description": "Final animatronic puppet performing on set.", "alt-text": "An animatronic puppet moving its face expressively during filming.", "order": 8 },
-      { "image": "feature-img-beta/feature-4-9.jpg", "description": "Final animatronic puppet performing on set.", "alt-text": "An animatronic puppet moving its face expressively during filming.", "order": 9 },
-      { "image": "feature-img-beta/feature-4-10.jpg", "description": "Final animatronic puppet performing on set.", "alt-text": "An animatronic puppet moving its face expressively during filming.", "order": 10 },
-      { "image": "feature-img-beta/feature-4-11.jpg", "description": "Final animatronic puppet performing on set.", "alt-text": "An animatronic puppet moving its face expressively during filming.", "order": 11 },
-      { "image": "feature-img-beta/feature-4-12.jpg", "description": "Final animatronic puppet performing on set.", "alt-text": "An animatronic puppet moving its face expressively during filming.", "order": 12 },
-      { "image": "feature-img-beta/feature-4-13.jpg", "description": "Final animatronic puppet performing on set.", "alt-text": "An animatronic puppet moving its face expressively during filming.", "order": 13 },
-      { "image": "feature-img-beta/feature-4-14.jpg", "description": "Final animatronic puppet performing on set.", "alt-text": "An animatronic puppet moving its face expressively during filming.", "order": 14 }
+      { "image": "feature-img-beta/feature-4-1.jpg", "description": "", "alt-text": "", "order": 1 },
+      { "image": "feature-img-beta/feature-4-2.jpg", "description": "", "alt-text": "", "order": 2 },
+      { "image": "feature-img-beta/feature-4-3.jpg", "description": "", "alt-text": "", "order": 3 },
+      { "image": "feature-img-beta/feature-4-4.jpg", "description": "", "alt-text": "", "order": 4 },
+      { "image": "feature-img-beta/feature-4-5.jpg", "description": "", "alt-text": "", "order": 5 },
+      { "image": "feature-img-beta/feature-4-6.jpg", "description": "", "alt-text": "", "order": 3 },
+      { "image": "feature-img-beta/feature-4-7.jpg", "description": "", "alt-text": "", "order": 7 },
+      { "image": "feature-img-beta/feature-4-8.jpg", "description": "", "alt-text": "", "order": 8 },
+      { "image": "feature-img-beta/feature-4-9.jpg", "description": "", "alt-text": "", "order": 9 },
+      { "image": "feature-img-beta/feature-4-10.jpg", "description": "", "alt-text": "", "order": 10 },
+      { "image": "feature-img-beta/feature-4-11.jpg", "description": "", "alt-text": "", "order": 11 },
+      { "image": "feature-img-beta/feature-4-12.jpg", "description": "", "alt-text": "", "order": 12 },
+      { "image": "feature-img-beta/feature-4-13.jpg", "description": "", "alt-text": "", "order": 13 },
+      { "image": "feature-img-beta/feature-4-14.jpg", "description": "", "alt-text": "", "order": 14 }
     ],
     "feature-project-link": "https://futurepuppet.tech/animatronic-x1",
     "feature-project-start-year": 2022,
@@ -174,12 +172,12 @@
     "feature-project-long-description": "My role involved fabricating a sword grip for the master prop, mould making and casting of the sword to create a lightweight duplicate and replicating the weathered and rusty finish with paint. The work also extended to creating, casting and finishing other soft prop duplicates.",
     "feature-project-thumbnail": "feature-img-beta/feature-5.jpg",
     "feature-project-gallery": [
-      { "image": "feature-img-beta/feature-5-1.jpg", "description": "Building the lightweight frame for a giant puppet.", "alt-text": "Artists constructing the inner frame of a large parade puppet.", "order": 1 },
-      { "image": "feature-img-beta/feature-5-2.jpg", "description": "A finished giant puppet displayed before a parade.", "alt-text": "A brightly coloured, large-scale puppet standing in a workshop.", "order": 2 },
-      { "image": "feature-img-beta/feature-5-3.jpg", "description": "Giant puppets in action during a street festival.", "alt-text": "A procession of giant puppets moving through a crowded festival street.", "order": 3 },
-      { "image": "feature-img-beta/feature-5-4.jpg", "description": "Giant puppets in action during a street festival.", "alt-text": "A procession of giant puppets moving through a crowded festival street.", "order": 4 },
-      { "image": "feature-img-beta/feature-5-5.jpg", "description": "Giant puppets in action during a street festival.", "alt-text": "A procession of giant puppets moving through a crowded festival street.", "order": 5 },
-      { "image": "feature-img-beta/feature-5-6.jpg", "description": "Giant puppets in action during a street festival.", "alt-text": "A procession of giant puppets moving through a crowded festival street.", "order": 5 }
+      { "image": "feature-img-beta/feature-5-1.jpg", "description": "", "alt-text": "", "order": 1 },
+      { "image": "feature-img-beta/feature-5-2.jpg", "description": "", "alt-text": "", "order": 2 },
+      { "image": "feature-img-beta/feature-5-3.jpg", "description": "", "alt-text": "", "order": 3 },
+      { "image": "feature-img-beta/feature-5-4.jpg", "description": "", "alt-text": "", "order": 4 },
+      { "image": "feature-img-beta/feature-5-5.jpg", "description": "", "alt-text": "", "order": 5 },
+      { "image": "feature-img-beta/feature-5-6.jpg", "description": "", "alt-text": "", "order": 5 }
     ],
     "feature-project-link": "https://bigpuppets.co/parade-series",
     "feature-project-start-year": 2023,
@@ -208,12 +206,12 @@
     "feature-project-long-description": "This is a 1:6 scale model based directly off an antique Edwards and Roberts ladies' writing desk. The legs have been lathed and the barley twists hand-carved into them. The lion head carvings were individually sculpted in clay and cast in resin and the same process for the green man drawer fronts. The edge leaf patterns were carefully hand- carved into the wood itself, as well as tiny handmade functioning dovetail joints in the drawer!",
     "feature-project-thumbnail": "feature-img-beta/feature-6.jpg",
     "feature-project-gallery": [
-      { "image": "feature-img-beta/feature-6-1.jpg", "description": "Cutting recycled materials for puppet construction.", "alt-text": "Hands cutting fabric from repurposed clothing for puppets.", "order": 1 },
-      { "image": "feature-img-beta/feature-6-2.jpg", "description": "Finished hand puppets designed for educational use.", "alt-text": "A set of colourful hand puppets made from recycled materials.", "order": 2 },
-      { "image": "feature-img-beta/feature-6-3.jpg", "description": "Children interacting with the eco-friendly puppets.", "alt-text": "A group of children using puppets in an educational setting.", "order": 3 },
-      { "image": "feature-img-beta/feature-6-4.jpg", "description": "Children interacting with the eco-friendly puppets.", "alt-text": "A group of children using puppets in an educational setting.", "order": 4 },
-      { "image": "feature-img-beta/feature-6-5.jpg", "description": "Children interacting with the eco-friendly puppets.", "alt-text": "A group of children using puppets in an educational setting.", "order": 5 },
-      { "image": "feature-img-beta/feature-6-6.jpg", "description": "Children interacting with the eco-friendly puppets.", "alt-text": "A group of children using puppets in an educational setting.", "order": 5 }
+      { "image": "feature-img-beta/feature-6-1.jpg", "description": "", "alt-text": "", "order": 1 },
+      { "image": "feature-img-beta/feature-6-2.jpg", "description": "", "alt-text": "", "order": 2 },
+      { "image": "feature-img-beta/feature-6-3.jpg", "description": "", "alt-text": "", "order": 3 },
+      { "image": "feature-img-beta/feature-6-4.jpg", "description": "", "alt-text": "", "order": 4 },
+      { "image": "feature-img-beta/feature-6-5.jpg", "description": "", "alt-text": "", "order": 5 },
+      { "image": "feature-img-beta/feature-6-6.jpg", "description": "", "alt-text": "", "order": 5 }
     ],
     "feature-project-link": "https://greenpuppets.org/eco-series",
     "feature-project-start-year": 2022,
@@ -242,12 +240,12 @@
     "feature-project-long-description": "A commision undertaken for Workshed Animation and their upcoming feature film. A silicone skin over a ball and socket armature, painted with pigmented silicone.",
     "feature-project-thumbnail": "feature-img-beta/feature-7.jpg",
     "feature-project-gallery": [
-      { "image": "feature-img-beta/feature-7-1.jpg", "description": "Cutting recycled materials for puppet construction.", "alt-text": "Hands cutting fabric from repurposed clothing for puppets.", "order": 1 },
-      { "image": "feature-img-beta/feature-7-2.jpg", "description": "Finished hand puppets designed for educational use.", "alt-text": "A set of colourful hand puppets made from recycled materials.", "order": 2 },
-      { "image": "feature-img-beta/feature-7-3.jpg", "description": "Children interacting with the eco-friendly puppets.", "alt-text": "A group of children using puppets in an educational setting.", "order": 3 },
-      { "image": "feature-img-beta/feature-7-4.jpg", "description": "Children interacting with the eco-friendly puppets.", "alt-text": "A group of children using puppets in an educational setting.", "order": 4 },
-      { "image": "feature-img-beta/feature-7-5.jpg", "description": "Children interacting with the eco-friendly puppets.", "alt-text": "A group of children using puppets in an educational setting.", "order": 5 },
-      { "image": "feature-img-beta/feature-7-6.jpg", "description": "Children interacting with the eco-friendly puppets.", "alt-text": "A group of children using puppets in an educational setting.", "order": 5 }
+      { "image": "feature-img-beta/feature-7-1.jpg", "description": "", "alt-text": "", "order": 1 },
+      { "image": "feature-img-beta/feature-7-2.jpg", "description": "", "alt-text": "", "order": 2 },
+      { "image": "feature-img-beta/feature-7-3.jpg", "description": "", "alt-text": "", "order": 3 },
+      { "image": "feature-img-beta/feature-7-4.jpg", "description": "", "alt-text": "", "order": 4 },
+      { "image": "feature-img-beta/feature-7-5.jpg", "description": "", "alt-text": "", "order": 5 },
+      { "image": "feature-img-beta/feature-7-6.jpg", "description": "", "alt-text": "", "order": 5 }
     ],
     "feature-project-link": "https://puppetcraft.com/shadow-odyssey",
     "feature-project-start-year": 2021,
@@ -276,12 +274,12 @@
     "feature-project-long-description": "A character sculpted from hard oil clay, over a metal armature, silicone moulded and cast in polyurethane resin. This Uruk-Hai was inspired by Peter Jacksons Lord of the Rings film trilogy.",
     "feature-project-thumbnail": "feature-img-beta/feature-8.jpg",
     "feature-project-gallery": [
-      { "image": "feature-img-beta/feature-8-1.jpg", "description": "Cutting recycled materials for puppet construction.", "alt-text": "Hands cutting fabric from repurposed clothing for puppets.", "order": 1 },
-      { "image": "feature-img-beta/feature-8-2.jpg", "description": "Finished hand puppets designed for educational use.", "alt-text": "A set of colourful hand puppets made from recycled materials.", "order": 2 },
-      { "image": "feature-img-beta/feature-8-3.jpg", "description": "Children interacting with the eco-friendly puppets.", "alt-text": "A group of children using puppets in an educational setting.", "order": 3 },
-      { "image": "feature-img-beta/feature-8-4.jpg", "description": "Children interacting with the eco-friendly puppets.", "alt-text": "A group of children using puppets in an educational setting.", "order": 4 },
-      { "image": "feature-img-beta/feature-8-5.jpg", "description": "Children interacting with the eco-friendly puppets.", "alt-text": "A group of children using puppets in an educational setting.", "order": 5 },
-      { "image": "feature-img-beta/feature-8-6.jpg", "description": "Children interacting with the eco-friendly puppets.", "alt-text": "A group of children using puppets in an educational setting.", "order": 5 }
+      { "image": "feature-img-beta/feature-8-1.jpg", "description": "", "alt-text": "", "order": 1 },
+      { "image": "feature-img-beta/feature-8-2.jpg", "description": "", "alt-text": "", "order": 2 },
+      { "image": "feature-img-beta/feature-8-3.jpg", "description": "", "alt-text": "", "order": 3 },
+      { "image": "feature-img-beta/feature-8-4.jpg", "description": "", "alt-text": "", "order": 4 },
+      { "image": "feature-img-beta/feature-8-5.jpg", "description": "", "alt-text": "", "order": 5 },
+      { "image": "feature-img-beta/feature-8-6.jpg", "description": "", "alt-text": "", "order": 5 }
     ],
     "feature-project-link": "https://greenpuppets.org/eco-series",
     "feature-project-start-year": 2022,
@@ -302,7 +300,7 @@
         "testimonial-role": null
       }
     ],
- "feature-project-youtube-link": [
+    "feature-project-youtube-link": [
       {
         "url": "https://www.youtube.com/embed/JK-PMQdTpPE?si=qFBXAqp2557-yuaO",
         "title": "Uruk-Hai: The Blacksmith",
@@ -318,12 +316,12 @@
     "feature-project-long-description": "Stealy is a puppet I made during university based on the character from the animated series Rick and Morty. Part of the challenge was converting a 2D design into a three-dimensional functioning puppet. This project featured my greatest learning of new disciplines so far, I developed new skills in foam work, pattern making, different varieties of stitching and creating a working hand mechanism. All of this, while adapting Stealy’s eccentric characteristics and movements into puppet form.",
     "feature-project-thumbnail": "feature-img-beta/feature-9.jpg",
     "feature-project-gallery": [
-      { "image": "feature-img-beta/feature-9-1.jpg", "description": "Cutting recycled materials for puppet construction.", "alt-text": "Hands cutting fabric from repurposed clothing for puppets.", "order": 1 },
-      { "image": "feature-img-beta/feature-9-2.jpg", "description": "Finished hand puppets designed for educational use.", "alt-text": "A set of colourful hand puppets made from recycled materials.", "order": 2 },
-      { "image": "feature-img-beta/feature-9-3.jpg", "description": "Children interacting with the eco-friendly puppets.", "alt-text": "A group of children using puppets in an educational setting.", "order": 3 },
-      { "image": "feature-img-beta/feature-9-4.jpg", "description": "Children interacting with the eco-friendly puppets.", "alt-text": "A group of children using puppets in an educational setting.", "order": 4 },
-      { "image": "feature-img-beta/feature-9-5.jpg", "description": "Children interacting with the eco-friendly puppets.", "alt-text": "A group of children using puppets in an educational setting.", "order": 5 },
-      { "image": "feature-img-beta/feature-9-6.jpg", "description": "Children interacting with the eco-friendly puppets.", "alt-text": "A group of children using puppets in an educational setting.", "order": 5 }
+      { "image": "feature-img-beta/feature-9-1.jpg", "description": "", "alt-text": "", "order": 1 },
+      { "image": "feature-img-beta/feature-9-2.jpg", "description": "", "alt-text": "", "order": 2 },
+      { "image": "feature-img-beta/feature-9-3.jpg", "description": "", "alt-text": "", "order": 3 },
+      { "image": "feature-img-beta/feature-9-4.jpg", "description": "", "alt-text": "", "order": 4 },
+      { "image": "feature-img-beta/feature-9-5.jpg", "description": "", "alt-text": "", "order": 5 },
+      { "image": "feature-img-beta/feature-9-6.jpg", "description": "", "alt-text": "", "order": 5 }
     ],
     "feature-project-link": "https://greenpuppets.org/eco-series",
     "feature-project-start-year": 2022,
@@ -352,10 +350,10 @@
     "feature-project-long-description": "A 1:6 scale model of a Windsor chair, originally created by green woodworker Jason Mosseri, made using a variety of techniques, created out of oak and epoxy putty.",
     "feature-project-thumbnail": "feature-img-beta/feature-10.jpg",
     "feature-project-gallery": [
-      { "image": "feature-img-beta/feature-10-1.jpg", "description": "Cutting recycled materials for puppet construction.", "alt-text": "Hands cutting fabric from repurposed clothing for puppets.", "order": 1 },
-      { "image": "feature-img-beta/feature-10-2.jpg", "description": "Finished hand puppets designed for educational use.", "alt-text": "A set of colourful hand puppets made from recycled materials.", "order": 2 },
-      { "image": "feature-img-beta/feature-10-3.jpg", "description": "Children interacting with the eco-friendly puppets.", "alt-text": "A group of children using puppets in an educational setting.", "order": 3 },
-      { "image": "feature-img-beta/feature-10-4.jpg", "description": "Children interacting with the eco-friendly puppets.", "alt-text": "A group of children using puppets in an educational setting.", "order": 4 }
+      { "image": "feature-img-beta/feature-10-1.jpg", "description": "", "alt-text": "", "order": 1 },
+      { "image": "feature-img-beta/feature-10-2.jpg", "description": "", "alt-text": "", "order": 2 },
+      { "image": "feature-img-beta/feature-10-3.jpg", "description": "", "alt-text": "", "order": 3 },
+      { "image": "feature-img-beta/feature-10-4.jpg", "description": "", "alt-text": "", "order": 4 }
     ],
     "feature-project-link": "https://greenpuppets.org/eco-series",
     "feature-project-start-year": 2022,
@@ -384,16 +382,16 @@
     "feature-project-long-description": "My recreation of Peter Jackson’s Lothlórien as depicted in the 2001 film ‘Lord of the Rings: The Fellowship of the Ring’ home of Galadriel and the elves. All made from my small student accommodation room during the second lockdown.Began as a 3D Sketch-Up model, every component was worked out and built from scratch. The trees poly-carved, the stairway arches carved from chemi-wood and cast 40+ times, and the stair treads laser cut, amongst other processes",
     "feature-project-thumbnail": "feature-img-beta/feature-11.jpg",
     "feature-project-gallery": [
-      { "image": "feature-img-beta/feature-11-1.jpg", "description": "Cutting recycled materials for puppet construction.", "alt-text": "Hands cutting fabric from repurposed clothing for puppets.", "order": 1 },
-      { "image": "feature-img-beta/feature-11-2.jpg", "description": "Finished hand puppets designed for educational use.", "alt-text": "A set of colourful hand puppets made from recycled materials.", "order": 2 },
-      { "image": "feature-img-beta/feature-11-3.jpg", "description": "Children interacting with the eco-friendly puppets.", "alt-text": "A group of children using puppets in an educational setting.", "order": 3 },
-      { "image": "feature-img-beta/feature-11-4.jpg", "description": "Children interacting with the eco-friendly puppets.", "alt-text": "A group of children using puppets in an educational setting.", "order": 4 },
-      { "image": "feature-img-beta/feature-11-5.jpg", "description": "Children interacting with the eco-friendly puppets.", "alt-text": "A group of children using puppets in an educational setting.", "order": 5 },
-      { "image": "feature-img-beta/feature-11-6.jpg", "description": "Children interacting with the eco-friendly puppets.", "alt-text": "A group of children using puppets in an educational setting.", "order": 6 },
-      { "image": "feature-img-beta/feature-11-7.jpg", "description": "Children interacting with the eco-friendly puppets.", "alt-text": "A group of children using puppets in an educational setting.", "order": 7 },
-      { "image": "feature-img-beta/feature-11-8.jpg", "description": "Children interacting with the eco-friendly puppets.", "alt-text": "A group of children using puppets in an educational setting.", "order": 8 },
-      { "image": "feature-img-beta/feature-11-9.jpg", "description": "Children interacting with the eco-friendly puppets.", "alt-text": "A group of children using puppets in an educational setting.", "order": 9 },
-      { "image": "feature-img-beta/feature-11-10.jpg", "description": "Children interacting with the eco-friendly puppets.", "alt-text": "A group of children using puppets in an educational setting.", "order": 10 }
+      { "image": "feature-img-beta/feature-11-1.jpg", "description": "", "alt-text": "", "order": 1 },
+      { "image": "feature-img-beta/feature-11-2.jpg", "description": "", "alt-text": "", "order": 2 },
+      { "image": "feature-img-beta/feature-11-3.jpg", "description": "", "alt-text": "", "order": 3 },
+      { "image": "feature-img-beta/feature-11-4.jpg", "description": "", "alt-text": "", "order": 4 },
+      { "image": "feature-img-beta/feature-11-5.jpg", "description": "", "alt-text": "", "order": 5 },
+      { "image": "feature-img-beta/feature-11-6.jpg", "description": "", "alt-text": "", "order": 6 },
+      { "image": "feature-img-beta/feature-11-7.jpg", "description": "", "alt-text": "", "order": 7 },
+      { "image": "feature-img-beta/feature-11-8.jpg", "description": "", "alt-text": "", "order": 8 },
+      { "image": "feature-img-beta/feature-11-9.jpg", "description": "", "alt-text": "", "order": 9 },
+      { "image": "feature-img-beta/feature-11-10.jpg", "description": "", "alt-text": "", "order": 10 }
     ],
     "feature-project-link": "https://greenpuppets.org/eco-series",
     "feature-project-start-year": 2022,
@@ -422,12 +420,12 @@
     "feature-project-long-description": "A client project, a comic bookstore in Horsham, where I, alongside a small team of people, all worked to create a life-size ceiling installation of a Xenomorph from the original 1979 Alien. During the project, I was needed to sculpt, both additively and reductively, alongside fibreglassing and finishing effects that included learning to airbrush. I fabricated this hand from carving Celotex, overlaying it with fibreglass and finishing it using epoxy putty. Other areas I was able to contribute to were in the paint finishes, I applied a subtle mottling effect with an airbrush to certain areas.",
     "feature-project-thumbnail": "feature-img-beta/feature-12.jpg",
     "feature-project-gallery": [
-      { "image": "feature-img-beta/feature-12-1.jpg", "description": "Cutting recycled materials for puppet construction.", "alt-text": "Hands cutting fabric from repurposed clothing for puppets.", "order": 1 },
-      { "image": "feature-img-beta/feature-12-2.jpg", "description": "Finished hand puppets designed for educational use.", "alt-text": "A set of colourful hand puppets made from recycled materials.", "order": 2 },
-      { "image": "feature-img-beta/feature-12-3.jpg", "description": "Children interacting with the eco-friendly puppets.", "alt-text": "A group of children using puppets in an educational setting.", "order": 3 },
-      { "image": "feature-img-beta/feature-12-4.jpg", "description": "Children interacting with the eco-friendly puppets.", "alt-text": "A group of children using puppets in an educational setting.", "order": 4 },
-      { "image": "feature-img-beta/feature-12-5.jpg", "description": "Children interacting with the eco-friendly puppets.", "alt-text": "A group of children using puppets in an educational setting.", "order": 5 },
-      { "image": "feature-img-beta/feature-12-6.jpg", "description": "Children interacting with the eco-friendly puppets.", "alt-text": "A group of children using puppets in an educational setting.", "order": 5 }
+      { "image": "feature-img-beta/feature-12-1.jpg", "description": "", "alt-text": "", "order": 1 },
+      { "image": "feature-img-beta/feature-12-2.jpg", "description": "", "alt-text": "", "order": 2 },
+      { "image": "feature-img-beta/feature-12-3.jpg", "description": "", "alt-text": "", "order": 3 },
+      { "image": "feature-img-beta/feature-12-4.jpg", "description": "", "alt-text": "", "order": 4 },
+      { "image": "feature-img-beta/feature-12-5.jpg", "description": "", "alt-text": "", "order": 5 },
+      { "image": "feature-img-beta/feature-12-6.jpg", "description": "", "alt-text": "", "order": 5 }
     ],
     "feature-project-link": "https://greenpuppets.org/eco-series",
     "feature-project-start-year": 2022,
@@ -456,14 +454,14 @@
     "feature-project-long-description": "A large and ancient tomb for an independent upcoming movie ‘Plaguepits’. A team project I helped take the lead on, from designing, scheduling, welding, Celotex carving, fibreglassing and finishing and painting. To be used in a pivotal moment at the end of the film!",
     "feature-project-thumbnail": "feature-img-beta/feature-13.jpg",
     "feature-project-gallery": [
-      { "image": "feature-img-beta/feature-13-1.jpg", "description": "Cutting recycled materials for puppet construction.", "alt-text": "Hands cutting fabric from repurposed clothing for puppets.", "order": 1 },
-      { "image": "feature-img-beta/feature-13-2.jpg", "description": "Finished hand puppets designed for educational use.", "alt-text": "A set of colourful hand puppets made from recycled materials.", "order": 2 },
-      { "image": "feature-img-beta/feature-13-3.jpg", "description": "Children interacting with the eco-friendly puppets.", "alt-text": "A group of children using puppets in an educational setting.", "order": 3 },
-      { "image": "feature-img-beta/feature-13-4.jpg", "description": "Children interacting with the eco-friendly puppets.", "alt-text": "A group of children using puppets in an educational setting.", "order": 4 },
-      { "image": "feature-img-beta/feature-13-5.jpg", "description": "Children interacting with the eco-friendly puppets.", "alt-text": "A group of children using puppets in an educational setting.", "order": 5 },
-      { "image": "feature-img-beta/feature-13-6.jpg", "description": "Children interacting with the eco-friendly puppets.", "alt-text": "A group of children using puppets in an educational setting.", "order": 5 },
-      { "image": "feature-img-beta/feature-13-7.jpg", "description": "Children interacting with the eco-friendly puppets.", "alt-text": "A group of children using puppets in an educational setting.", "order": 7 },
-      { "image": "feature-img-beta/feature-13-8.jpg", "description": "Children interacting with the eco-friendly puppets.", "alt-text": "A group of children using puppets in an educational setting.", "order": 8 }
+      { "image": "feature-img-beta/feature-13-1.jpg", "description": "", "alt-text": "", "order": 1 },
+      { "image": "feature-img-beta/feature-13-2.jpg", "description": "", "alt-text": "", "order": 2 },
+      { "image": "feature-img-beta/feature-13-3.jpg", "description": "", "alt-text": "", "order": 3 },
+      { "image": "feature-img-beta/feature-13-4.jpg", "description": "", "alt-text": "", "order": 4 },
+      { "image": "feature-img-beta/feature-13-5.jpg", "description": "", "alt-text": "", "order": 5 },
+      { "image": "feature-img-beta/feature-13-6.jpg", "description": "", "alt-text": "", "order": 5 },
+      { "image": "feature-img-beta/feature-13-7.jpg", "description": "", "alt-text": "", "order": 7 },
+      { "image": "feature-img-beta/feature-13-8.jpg", "description": "", "alt-text": "", "order": 8 }
     ],
     "feature-project-link": "https://greenpuppets.org/eco-series",
     "feature-project-start-year": 2022,
@@ -492,7 +490,7 @@
     "feature-project-long-description": "My first major venture into sculpting and what re-launched my passion for this craft, a real labour of love! Made out of a medium hardness oil-based clay over a metal armature, the teeth, nails and eyes were created using polymer clay.",
     "feature-project-thumbnail": "feature-img-beta/feature-14.jpg",
     "feature-project-gallery": [
-      { "image": "feature-img-beta/feature-14.jpg", "description": "Cutting recycled materials for puppet construction.", "alt-text": "Hands cutting fabric from repurposed clothing for puppets.", "order": 1 }
+      { "image": "feature-img-beta/feature-14.jpg", "description": "", "alt-text": "", "order": 1 }
     ],
     "feature-project-link": "https://greenpuppets.org/eco-series",
     "feature-project-start-year": 2022,
@@ -521,11 +519,11 @@
     "feature-project-long-description": "A selection of characters created from plasticine, a more fun and lighthearted approach to model making! Some my own and some inspired by TV and films I enjoy. ",
     "feature-project-thumbnail": "feature-img-beta/feature-15.jpg",
     "feature-project-gallery": [
-      { "image": "feature-img-beta/feature-15-1.jpg", "description": "'Mr. PoopyButthole” from the TV series ‘Rick and Morty’.", "alt-text": "“Mr. PoopyButthole” from the TV series ‘Rick and Morty’.", "order": 1 },
-      { "image": "feature-img-beta/feature-15-2.jpg", "description": "‘Lumpy Space Princess’ from the series ‘Adventure Time’.", "alt-text": "‘Lumpy Space Princess’ from the series ‘Adventure Time’.", "order": 2 },
-      { "image": "feature-img-beta/feature-15-3.jpg", "description": "Children interacting with the eco-friendly puppets.", "alt-text": "A group of children using puppets in an educational setting.", "order": 3 },
-      { "image": "feature-img-beta/feature-15-4.jpg", "description": "Children interacting with the eco-friendly puppets.", "alt-text": "A group of children using puppets in an educational setting.", "order": 4 },
-      { "image": "feature-img-beta/feature-15-5.jpg", "description": "Children interacting with the eco-friendly puppets.", "alt-text": "A group of children using puppets in an educational setting.", "order": 5 }
+      { "image": "feature-img-beta/feature-15-1.jpg", "description": "", "alt-text": "", "order": 1 },
+      { "image": "feature-img-beta/feature-15-2.jpg", "description": "", "alt-text": "", "order": 2 },
+      { "image": "feature-img-beta/feature-15-3.jpg", "description": "", "alt-text": "", "order": 3 },
+      { "image": "feature-img-beta/feature-15-4.jpg", "description": "", "alt-text": "", "order": 4 },
+      { "image": "feature-img-beta/feature-15-5.jpg", "description": "", "alt-text": "", "order": 5 }
     ],
     "feature-project-link": "https://greenpuppets.org/eco-series",
     "feature-project-start-year": 2022,
@@ -554,9 +552,9 @@
     "feature-project-long-description": "A collaborative team-based project for the in-house University production. I was tasked to interpret and convert the scaled modelled designs and construct them out of timber and ply. As well as building a structural frame for the flying flats.",
     "feature-project-thumbnail": "feature-img-beta/feature-16.jpg",
     "feature-project-gallery": [
-      { "image": "feature-img-beta/feature-16-1.jpg", "description": "Cutting recycled materials for puppet construction.", "alt-text": "Hands cutting fabric from repurposed clothing for puppets.", "order": 1 },
-      { "image": "feature-img-beta/feature-16-2.jpg", "description": "Finished hand puppets designed for educational use.", "alt-text": "A set of colourful hand puppets made from recycled materials.", "order": 2 },
-      { "image": "feature-img-beta/feature-16.jpg", "description": "Children interacting with the eco-friendly puppets.", "alt-text": "A group of children using puppets in an educational setting.", "order": 3 }
+      { "image": "feature-img-beta/feature-16-1.jpg", "description": "", "alt-text": "", "order": 1 },
+      { "image": "feature-img-beta/feature-16-2.jpg", "description": "", "alt-text": "", "order": 2 },
+      { "image": "feature-img-beta/feature-16.jpg", "description": "", "alt-text": "", "order": 3 }
     ],
     "feature-project-link": "https://greenpuppets.org/eco-series",
     "feature-project-start-year": 2022,
@@ -585,9 +583,9 @@
     "feature-project-long-description": "Here are some of the carpentry projects I've undertaken.",
     "feature-project-thumbnail": "feature-img-beta/feature-17.jpg",
     "feature-project-gallery": [
-      { "image": "feature-img-beta/feature-17.jpg", "description": "Dovetailed Blanket Chest", "alt-text": "Dovetailed Blanket Chest", "order": 1 },
-      { "image": "feature-img-beta/feature-17-1.jpg", "description": "Chess Board", "alt-text": "Chess Board", "order": 2 },
-      { "image": "feature-img-beta/feature-17-2.jpg", "description": "Tree Carving", "alt-text": "Tree Carving", "order": 2 }
+      { "image": "feature-img-beta/feature-17.jpg", "description": "", "alt-text": "", "order": 1 },
+      { "image": "feature-img-beta/feature-17-1.jpg", "description": "", "alt-text": "", "order": 2 },
+      { "image": "feature-img-beta/feature-17-2.jpg", "description": "", "alt-text": "", "order": 2 }
     ],
     "feature-project-link": "https://greenpuppets.org/eco-series",
     "feature-project-start-year": 2022,
@@ -616,19 +614,9 @@
     "feature-project-long-description": "Here are a few 'honourable' mentions.",
     "feature-project-thumbnail": "feature-img-beta/feature-18.jpg",
     "feature-project-gallery": [
-      {
-        "image": "feature-img-beta/feature-18.jpg",
-        "description": "Lothlórien (a 1:30 scale model section mock-up of the elven city lothlórien)",
-        "alt-text": "Lothlórien (a 1:30 scale model section mock-up of the elven city lothlórien)",
-        "order": 1
-      },
-      {
-        "image": "feature-img-beta/feature-18-1.jpg",
-        "description": "Tomb Design (plaguepits designed and later built for peter thorndike’s upcoming horror movie, ‘plaguepits’).",
-        "alt-text": "Tomb Design (plaguepits designed and later built for peter thorndike’s upcoming horror movie, ‘plaguepits’).",
-        "order": 2
-      },
-      { "image": "feature-img-beta/feature-18-2.jpg", "description": "20mm BALL& SOCKET JOINT", "alt-text": "20mm BALL& SOCKET JOINT", "order": 4 }
+      { "image": "feature-img-beta/feature-18.jpg", "description": "", "alt-text": "", "order": 1 },
+      { "image": "feature-img-beta/feature-18-1.jpg", "description": "", "alt-text": "", "order": 2 },
+      { "image": "feature-img-beta/feature-18-2.jpg", "description": "", "alt-text": "", "order": 4 }
     ],
     "feature-project-link": "https://greenpuppets.org/eco-series",
     "feature-project-start-year": 2022,
@@ -730,7 +718,7 @@
         "testimonial-role": null
       }
     ],
- "feature-project-youtube-link": [
+    "feature-project-youtube-link": [
       {
         "url": "https://www.youtube.com/embed/IbZ-8gHaqcU?si=5QWrY_bY-MwsCrcY",
         "title": "Styxosaurus - A Silicone Stop-Motion Puppet Build (Plesiosaur)",
@@ -739,7 +727,6 @@
       }
     ]
   },
-
   {
     "id": 21,
     "feature-project-name": "Arthur the Mail Snail (Stop Motion Short Film)",
