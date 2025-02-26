@@ -679,7 +679,7 @@
     "id": 20,
     "feature-project-name": "Styxosaurus - A Stop-Motion Puppet",
     "feature-project-description": "A Styxosaurus stop-motion puppet with a ball-and-socket armature for full movement, three mounting points, and a maintenance-friendly design. A custom base completes it.",
-    "feature-project-long-description": "A stop-motion puppet, complete with inner ball and socket armature. Based on a Styxosaurus. I built the composite armature to maximise all possible movements. Special measures were taken to enable future maintenance, to ensure the life of the model, and to assure maximum functionality when it comes to animating! It features three mounting points, full motion in its neck, tail, fins, mouth, and body To finish, I built a custom base to showcase the finished puppet.",
+    "feature-project-long-description": "A stop-motion puppet, complete with inner ball and socket armature. Based on a Styxosaurus. I built the composite armature to maximise all possible movements. Special measures were taken to enable future maintenance, to ensure the life of the model, and to assure maximum functionality when it comes to animating! It features three mounting points, full motion in its neck, tail, fins, mouth, and body. To finish, I built a custom base to showcase the finished puppet.",
     "feature-project-thumbnail": "feature-img-beta/feature-20.gif",
     "feature-project-gallery": [
       { "image": "feature-img-beta/feature-20.gif", "description": "", "alt-text": "", "order": 1 },
