@@ -128,7 +128,7 @@
     "feature-project-name": "Deutsche Telekom Magenta (multiple television ad campaigns)",
     "feature-project-description": "At Yamination Studios, Birmingham. Role: sculptor, model maker, armature construction, on-shoot puppet maintenance",
     "feature-project-long-description": "I sculpted a clay maquette based on a 2D design of ‘The Dude’ and adapted a doll to create the cyclist character. I constructed ball-and-socket armatures, sculpted the hands and feet, then moulded and cast them in silicone before painting. Additionally, I created scale roof tiles for the falling shot and provided puppet maintenance throughout the shoot.",
-    "feature-project-thumbnail": "feature-img-beta/feature-4.jpg",
+    "feature-project-thumbnail": "feature-img-beta/feature-4-15.jpg",
     "feature-project-gallery": [
       { "image": "feature-img-beta/feature-4-1.jpg", "description": "", "alt-text": "", "order": 1 },
       { "image": "feature-img-beta/feature-4-2.jpg", "description": "", "alt-text": "", "order": 2 },
@@ -144,6 +144,7 @@
       { "image": "feature-img-beta/feature-4-12.jpg", "description": "", "alt-text": "", "order": 12 },
       { "image": "feature-img-beta/feature-4-13.jpg", "description": "", "alt-text": "", "order": 13 },
       { "image": "feature-img-beta/feature-4-14.jpg", "description": "", "alt-text": "", "order": 14 }
+      { "image": "feature-img-beta/feature-4-16.jpg", "description": "", "alt-text": "", "order": 14 }
     ],
     "feature-project-link": "https://futurepuppet.tech/animatronic-x1",
     "feature-project-start-year": 2022,
