@@ -4,93 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="description" content="Matthew Bradley - Model maker, prop sculptor, and stop-motion artisan blending historical craftsmanship with Tolkienesque fantasy. Creating wonder through tactile storytelling.">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Combined styles.css inline -->
+  <!-- External CSS: shared root variables and full styles -->
+  <link rel="stylesheet" href="shareable.css" media="all">
+  <link rel="stylesheet" href="styles.css" media="all">
+  <!-- Inline CSS: new search/filter styles only -->
   <style>
-    /* ==========================================================================
-       Reset & Global Styles
-       ========================================================================== */
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 2rem;
-    }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      line-height: 1.6;
-      text-rendering: optimizeLegibility;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-        Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-      color: var(--tertiary-color);
-      display: flex;
-      flex-direction: column;
-      padding-top: 5.2rem;
-    }
-
-    /* Navigation Styles */
-    .main-navigation-nav {
-      background: rgba(255, 255, 255, 0.98);
-      padding: 1rem 5%;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 1000;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-    }
-
-    .main-navigation-logo {
-      height: 60px;
-      transition: opacity 0.3s ease;
-    }
-
-    .main-navigation-nav-links {
-      display: flex;
-      gap: 2rem;
-      align-items: center;
-    }
-
-    .main-navigation-nav-links a {
-      text-decoration: none;
-      color: #222;
-      font-weight: 500;
-      position: relative;
-      font-size: 1rem;
-      padding: 0.5rem 0.8rem;
-      transition: all 0.2s ease-in-out;
-    }
-
-    .cta-button {
-      display: inline-block;
-      padding: 1rem 2rem;
-      background: var(--primary-color);
-      color: var(--secondary-color) !important;
-      text-decoration: none;
-      border-radius: 30px;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      border: 2px solid transparent;
-      cursor: pointer;
-    }
-
-    /* Social Links, Slider, About Section, Projects Grid, Contact, etc.
-       (Additional CSS from your original styles.css goes here)
-       ...
-    */
-
-    /* New Styles: Search Filter Section */
     #search-filter {
       display: flex;
       gap: 1rem;
@@ -99,7 +17,6 @@
       background: var(--secondary-color);
       border-bottom: 1px solid var(--primary-color);
     }
-
     #project-search, #project-category {
       padding: 0.75rem;
       border: 1px solid var(--tertiary-color);
@@ -107,8 +24,9 @@
       font-size: 1rem;
     }
   </style>
-  <!-- Shared CSS (root variables, etc.) remains external -->
-  <link rel="stylesheet" href="shareable.css" media="all">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
   <meta name="theme-color" content="#3a5f40">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -188,7 +106,7 @@
     </div>
   </div>
 
-  <!-- NEW: Search Filter Section (Dynamic Filters) -->
+  <!-- NEW: Search Filter Section -->
   <section id="search-filter">
     <input type="text" id="project-search" placeholder="Search projects..." aria-label="Search Projects">
     <select id="project-category">
@@ -200,9 +118,9 @@
     </select>
   </section>
 
-  <!-- Projects Grid (Dynamically generated project cards) -->
+  <!-- Projects Grid -->
   <div class="projects-grid" id="projects-container">
-    <!-- Project cards will be injected here -->
+    <!-- Project cards will be injected here dynamically -->
   </div>
 
   <!-- Contact Section -->
@@ -256,9 +174,11 @@
     </form>
   </div>
 
-  <!-- Combined JavaScript: scripts.js + Dynamic Project Loading & Filtering -->
+  <!-- Inline JavaScript (combining scripts.js and new dynamic project loading & filtering) -->
   <script>
-    // --- Begin scripts.js content ---
+    // ------------------------------
+    // Original JS functionality (from scripts.js)
+    // ------------------------------
     if ('scrollRestoration' in history) {
       history.scrollRestoration = 'manual';
     }
@@ -552,8 +472,7 @@
           loading.innerHTML = `
             <div style="text-align: center">
               <p>⚠️ Failed to load content</p>
-              <button onclick="location.reload()" 
-                      style="margin-top: 1rem; padding: 0.5rem 1rem; background: white; border: none; border-radius: 4px; cursor: pointer">
+              <button onclick="location.reload()" style="margin-top: 1rem; padding: 0.5rem 1rem; background: white; border: none; border-radius: 4px; cursor: pointer">
                   Retry
               </button>
             </div>
@@ -739,9 +658,10 @@
         })
         .catch(error => { console.error("Error loading un-highlighted features:", error); });
     }
-    // --- End scripts.js content ---
 
-    // --- Begin Dynamic Project Loading & Filtering Code ---
+    // ------------------------------
+    // NEW: Dynamic Project Loading & Filtering
+    // ------------------------------
     document.addEventListener('DOMContentLoaded', function() {
       fetch('feature-project.json')
         .then(response => response.json())
@@ -755,7 +675,7 @@
             4: 'Stop Motion'
           };
           projectsData.forEach(project => {
-            // For this grid, only include projects of type "highlighted"
+            // Only include projects of type "highlighted" for the grid
             if (project["feature-project-type"] === "highlighted") {
               const card = document.createElement('div');
               card.classList.add('project-card');
@@ -801,7 +721,6 @@
         categorySelect.addEventListener('change', filterProjects);
       }
     });
-    // --- End Dynamic Project Loading & Filtering Code ---
   </script>
 </body>
 </html>
