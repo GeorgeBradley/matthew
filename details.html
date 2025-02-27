@@ -726,6 +726,67 @@
     let currentImageIndex = 0;
     let lightboxInitialized = false;
     
+    // Global Stopwords (can be extended)
+    const stopwords = new Set(['the', 'and', 'is', 'in', 'at', 'of', 'a', 'an', 'to', 'for', 'with', 'on', 'by', 'this', 'that', 'it']);
+
+    // Tokenizer used for text processing
+    function tokenize(text) {
+      return text.toLowerCase()
+                 .replace(/[^\w\s]/g, '')
+                 .split(/\s+/)
+                 .filter(word => word && !stopwords.has(word));
+    }
+
+    // Compute TF-IDF vectors for all project descriptions
+    function computeTFIDFVectors(projects) {
+      const N = projects.length;
+      const tfVectors = {};  // {projectId: {tf: {token: count}, total: number}}
+      const df = {};         // document frequency: {token: count}
+      
+      projects.forEach(p => {
+        if (p["feature-project-long-description"]) {
+          const tokens = tokenize(p["feature-project-long-description"]);
+          tfVectors[p.id] = { tf: {}, total: tokens.length };
+          // Count term frequencies
+          tokens.forEach(token => {
+            tfVectors[p.id].tf[token] = (tfVectors[p.id].tf[token] || 0) + 1;
+          });
+          // Update document frequencies (unique tokens)
+          new Set(tokens).forEach(token => {
+            df[token] = (df[token] || 0) + 1;
+          });
+        }
+      });
+      
+      // Build TF-IDF vectors
+      const tfidfVectors = {};
+      Object.keys(tfVectors).forEach(docId => {
+        const { tf, total } = tfVectors[docId];
+        const vector = {};
+        Object.keys(tf).forEach(token => {
+          const termFreq = tf[token] / total;
+          const inverseDF = Math.log(N / (df[token] + 1)); // smoothing by adding 1
+          vector[token] = termFreq * inverseDF;
+        });
+        // Compute vector magnitude
+        const magnitude = Math.sqrt(Object.values(vector).reduce((sum, w) => sum + w * w, 0));
+        tfidfVectors[docId] = { vector, magnitude };
+      });
+      
+      return tfidfVectors;
+    }
+    
+    // Cosine similarity between two TF-IDF vectors
+    function cosineSimilarity(vecA, magA, vecB, magB) {
+      let dot = 0;
+      for (let token in vecA) {
+        if (vecB[token]) {
+          dot += vecA[token] * vecB[token];
+        }
+      }
+      return (magA && magB) ? dot / (magA * magB) : 0;
+    }
+    
     // Data Fetching with Local Storage
     function getProjectsData() {
       const key = "projectsData";
@@ -772,27 +833,15 @@
       }
     }
     
-    // Improved Related Projects Algorithm
+    // Advanced Related Projects Algorithm using TF-IDF cosine similarity
     function getRelatedProjects(currentProjectId, allProjects) {
       const currentProject = allProjects.find(p => p.id === currentProjectId);
       if (!currentProject) return [];
-      
-      // Define a set of stopwords for description tokenization
-      const stopwords = new Set(['the', 'and', 'is', 'in', 'at', 'of', 'a', 'an', 'to', 'for', 'with', 'on', 'by', 'this', 'that', 'it']);
 
-      // Helper function to tokenize and clean text
-      function tokenize(text) {
-        return text.toLowerCase()
-                   .replace(/[^\w\s]/g, '')
-                   .split(/\s+/)
-                   .filter(word => word && !stopwords.has(word));
-      }
-
-      // Precompute frequencies for clients, categories, skills, and description words
+      // Precompute frequencies for client, category, and skills as before
       const clientFreq = {};
       const categoryFreq = {};
       const skillFreq = {};
-      const descriptionWordFreq = {};
 
       allProjects.forEach(p => {
         const client = p["feature-project-client"];
@@ -802,65 +851,44 @@
         (p["feature-project-skills"] || []).forEach(s => {
           skillFreq[s] = (skillFreq[s] || 0) + 1;
         });
-        if(p["feature-project-long-description"]) {
-          const tokens = tokenize(p["feature-project-long-description"]);
-          tokens.forEach(token => {
-             descriptionWordFreq[token] = (descriptionWordFreq[token] || 0) + 1;
-          });
-        }
       });
 
-      // Tokenize current project's description once
-      const currentDescriptionTokens = currentProject["feature-project-long-description"] ? tokenize(currentProject["feature-project-long-description"]) : [];
+      // Compute TF-IDF vectors for descriptions
+      const tfidfVectors = computeTFIDFVectors(allProjects);
+      const currentTFIDF = tfidfVectors[currentProject.id];
 
-      // Function to compute Jaccard similarity between two token arrays
-      function jaccardSimilarity(tokensA, tokensB) {
-        const setA = new Set(tokensA);
-        const setB = new Set(tokensB);
-        const intersection = new Set([...setA].filter(x => setB.has(x)));
-        const union = new Set([...setA, ...setB]);
-        return union.size === 0 ? 0 : intersection.size / union.size;
-      }
-
-      // Calculate scores for each project
+      // Calculate scores for each other project
       const scoredProjects = allProjects
         .filter(p => p.id !== currentProjectId)
         .map(project => {
           let score = 0;
-
-          // Client similarity (weight inversely proportional to frequency)
+          // Client similarity
           if (project["feature-project-client"] === currentProject["feature-project-client"]) {
             score += 3 / Math.sqrt(clientFreq[project["feature-project-client"]] || 1);
           }
-
           // Category similarity
           if (project["project-feature-main-category-id"] === currentProject["project-feature-main-category-id"]) {
             score += 2 / Math.sqrt(categoryFreq[project["project-feature-main-category-id"]] || 1);
           }
-
-          // Skills overlap (weight by rarity)
+          // Skills overlap
           const currentSkills = currentProject["feature-project-skills"] || [];
           const projectSkills = project["feature-project-skills"] || [];
           const sharedSkills = projectSkills.filter(s => currentSkills.includes(s));
           sharedSkills.forEach(skill => {
             score += 1 / Math.sqrt(skillFreq[skill] || 1);
           });
-
-          // Timeline proximity (bonus if same start year)
+          // Timeline proximity (bonus for same start year)
           const currentYear = currentProject["feature-project-start-year"] || "";
           const projectYear = project["feature-project-start-year"] || "";
           if (currentYear && projectYear && currentYear === projectYear) {
             score += 0.5;
           }
-
-          // Improved description similarity using Jaccard similarity
-          let descriptionScore = 0;
-          if (currentProject["feature-project-long-description"] && project["feature-project-long-description"]) {
-            const projectTokens = tokenize(project["feature-project-long-description"]);
-            const similarity = jaccardSimilarity(currentDescriptionTokens, projectTokens);
-            descriptionScore = similarity * 1.5; // adjust multiplier as needed
+          // Advanced description similarity using TF-IDF cosine similarity
+          let tfidfSim = 0;
+          if (currentTFIDF && tfidfVectors[project.id]) {
+            tfidfSim = cosineSimilarity(currentTFIDF.vector, currentTFIDF.magnitude, tfidfVectors[project.id].vector, tfidfVectors[project.id].magnitude);
           }
-          score += descriptionScore;
+          score += tfidfSim * 2.0; // multiplier can be tuned
 
           return { project, score };
         })
