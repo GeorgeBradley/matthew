@@ -109,7 +109,7 @@
       max-width: 900px;
       margin: 0 auto 2rem auto;
       font-size: 1.15rem;
-      text-align: justify;
+      text-align: justify center;
       color: var(--secondary);
     }
     
@@ -259,6 +259,8 @@
       justify-content: center;
       gap: 1rem;
       margin-top: 1rem;
+Facetime: true;
+      margin-bottom: 20px;
     }
     .youtube-nav-btn {
       background: var(--primary);
@@ -430,6 +432,46 @@
       font-weight: 600;
     }
 
+    #project-detail-container {
+      padding: .5rem;
+    }
+    /* Other Project Navigation */
+    .other-project-nav-container {
+      display: flex;
+      justify-content: space-between;
+      background: var(--accent);
+      border-top: 1px solid var(--border);
+      flex-wrap: wrap;
+      padding: 1rem;
+      gap: 1rem;
+    }
+    .other-project-nav-button {
+      flex: 1;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      transition: background 0.3s ease, transform 0.3s ease;
+      color: var(--text);
+      flex-direction: column;
+      padding: 0.5rem;
+      text-align: center;
+    }
+    .other-project-nav-container i {
+      width: 100%;
+      text-align: center;
+      margin: 0.3rem;
+      padding: 0.5rem;
+    }
+    .other-project-nav-button:hover {
+      background: #f0f4f8;
+      transform: translateY(-2px);
+      border-color: var(--primary);
+    }
+    
     /* Related Projects Section */
     .related-projects {
       margin: 2rem 0;
@@ -484,7 +526,7 @@
       font-size: 1.1rem;
       color: var(--text);
     }
-
+    
     /* Lightbox */
     .lightbox {
       position: fixed;
@@ -630,7 +672,6 @@
       .testimonial-quote { font-size: 1rem; }
       .testimonial-section h2 { font-size: 1.8rem; }
       .youtube-section h2 { font-size: 1.8rem; }
-      .related-projects h2 { font-size: 1.8rem; }
     }
     @media (max-width: 480px) {
       .project-meta { flex-direction: column; gap: 0.5rem; }
@@ -816,7 +857,7 @@
             score += 0.5; // Small bonus for same year
           }
 
-          // Optional: Add description similarity (e.g., keyword overlap)
+          // Description similarity (keyword overlap)
           if (currentProject["feature-project-long-description"] && project["feature-project-long-description"]) {
             const currWords = currentProject["feature-project-long-description"].toLowerCase().split(/\s+/);
             const projWords = project["feature-project-long-description"].toLowerCase().split(/\s+/);
@@ -827,7 +868,7 @@
           return { project, score };
         })
         .filter(item => item.score > 0) // Only relevant projects
-        .sort((a, b) => b.score - a.score) // Sort by score
+        .sort((a, b) => b.score - a.score) // Sort by score descending
         .slice(0, 3) // Top 3
         .map(item => item.project);
 
@@ -853,7 +894,7 @@
       const youtubeSectionTitle = videoCount === 1 ? 'Video' : 'Videos';
 
       const relatedProjects = getRelatedProjects(project.id, projects);
-    
+
       detailsContainer.innerHTML = `
         <a href="index.html" class="back-link">
           <i class="fas fa-arrow-left"></i> Back to Projects
