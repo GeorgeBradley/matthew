@@ -136,17 +136,13 @@
     width: 100%;
 }
 
+/* Restored original CTA button without hover effect */
 .main-navigation-cta-button {
     background: #2a2a2a;
     color: white !important;
     padding: 0.8rem 1.8rem;
     border-radius: 30px;
     transition: all 0.3s ease;
-}
-
-.main-navigation-cta-button:hover {
-    background: #3a3a3a;
-    transform: translateY(-2px);
 }
 
 @media (max-width: 933px) {
