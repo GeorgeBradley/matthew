@@ -105,7 +105,7 @@
     align-items: center;
 }
 
-.main-navigation-nav-links a {
+.main-navigation-nav-links a:not(.main-navigation-cta-button) {
     text-decoration: none;
     color: #222;
     font-weight: 500;
@@ -115,8 +115,8 @@
     transition: all var(--transition-base);
 }
 
-/* Hover effect with underline animation */
-.main-navigation-nav-links a::after {
+/* Hover effect with underline animation for non-CTA links only */
+.main-navigation-nav-links a:not(.main-navigation-cta-button)::after {
     content: '';
     position: absolute;
     width: 0;
@@ -128,15 +128,15 @@
     transform: translateX(-50%);
 }
 
-.main-navigation-nav-links a:hover {
+.main-navigation-nav-links a:not(.main-navigation-cta-button):hover {
     color: var(--primary-color);
 }
 
-.main-navigation-nav-links a:hover::after {
+.main-navigation-nav-links a:not(.main-navigation-cta-button):hover::after {
     width: 100%;
 }
 
-/* Restored original CTA button without hover effect */
+/* Original CTA button styling restored, no hover effect added */
 .main-navigation-cta-button {
     background: #2a2a2a;
     color: white !important;
