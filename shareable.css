@@ -105,17 +105,20 @@
     align-items: center;
 }
 
-.main-navigation-nav-links a:not(.main-navigation-cta-button) {
+.main-navigation-nav-links a {
     text-decoration: none;
     color: #222;
     font-weight: 500;
     position: relative;
     font-size: 1rem;
+}
+
+/* Apply hover effect only to non-CTA links */
+.main-navigation-nav-links a:not(.main-navigation-cta-button) {
     padding: 0.5rem 0.25rem; /* Added padding for better hover area */
     transition: all var(--transition-base);
 }
 
-/* Hover effect with underline animation for non-CTA links only */
 .main-navigation-nav-links a:not(.main-navigation-cta-button)::after {
     content: '';
     position: absolute;
@@ -136,7 +139,7 @@
     width: 100%;
 }
 
-/* Original CTA button styling restored, no hover effect added */
+/* Original CTA button styling for CV/Portfolio */
 .main-navigation-cta-button {
     background: #2a2a2a;
     color: white !important;
