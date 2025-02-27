@@ -755,9 +755,13 @@
     // Single Project View
     function renderProjectDetails(project, projects) {
       const { prevProject, nextProject } = getNavigationProjects(project, projects);
-      const hasTestimonials = project["feature-project-testimonial"] && 
-                              project["feature-project-testimonial"].length > 0 && 
-                              project["feature-project-testimonial"][0]["testimonial-quote"] !== null;
+      const testimonials = project["feature-project-testimonial"] && 
+                           Array.isArray(project["feature-project-testimonial"]) ? 
+                           project["feature-project-testimonial"].filter(t => t["testimonial-quote"] && t["testimonial-quote"] !== null) : [];
+      const hasTestimonials = testimonials.length > 0;
+      const testimonialCount = testimonials.length;
+      const testimonialSectionTitle = testimonialCount === 1 ? 'Testimonial' : 'Testimonials';
+
       const youtubeVideos = project["feature-project-youtube-link"] && 
                             Array.isArray(project["feature-project-youtube-link"]) && 
                             project["feature-project-youtube-link"].length > 0 ? 
@@ -786,10 +790,10 @@
             <p class="project-description">${project["feature-project-long-description"]}</p>
             ${hasTestimonials ? `
               <div class="testimonial-section">
-                <h2>Testimonials</h2>
+                <h2>${testimonialSectionTitle}</h2>
                 <div class="testimonial-container">
                   <div class="testimonial-slider">
-                    ${project["feature-project-testimonial"].map(testimonial => `
+                    ${testimonials.map(testimonial => `
                       <div class="testimonial-item">
                         <p class="testimonial-quote">"${testimonial["testimonial-quote"]}"</p>
                         <p class="testimonial-author">${testimonial["testimonial-name"]}</p>
@@ -798,19 +802,21 @@
                     `).join('')}
                   </div>
                 </div>
-                <div class="testimonial-nav">
-                  <button class="testimonial-nav-btn prev" aria-label="Previous testimonial">
-                    <i class="fas fa-chevron-left"></i>
-                  </button>
-                  <button class="testimonial-nav-btn next" aria-label="Next testimonial">
-                    <i class="fas fa-chevron-right"></i>
-                  </button>
-                </div>
-                <div class="testimonial-dots">
-                  ${project["feature-project-testimonial"].map((_, index) => `
-                    <span class="testimonial-dot${index === 0 ? ' active' : ''}" data-index="${index}"></span>
-                  `).join('')}
-                </div>
+                ${testimonialCount > 1 ? `
+                  <div class="testimonial-nav">
+                    <button class="testimonial-nav-btn prev" aria-label="Previous testimonial">
+                      <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="testimonial-nav-btn next" aria-label="Next testimonial">
+                      <i class="fas fa-chevron-right"></i>
+                    </button>
+                  </div>
+                  <div class="testimonial-dots">
+                    ${testimonials.map((_, index) => `
+                      <span class="testimonial-dot${index === 0 ? ' active' : ''}" data-index="${index}"></span>
+                    `).join('')}
+                  </div>
+                ` : ''}
               </div>
             ` : ''}
             ${hasYouTubeVideos ? `
@@ -900,8 +906,8 @@
         renderGallerySection(galleryImagesGlobal);
       }
       
-      if (hasTestimonials) {
-        initTestimonialSlider(project["feature-project-testimonial"].length);
+      if (hasTestimonials && testimonialCount > 1) {
+        initTestimonialSlider(testimonialCount);
       }
       
       if (hasYouTubeVideos && videoCount > 1) {
@@ -997,7 +1003,7 @@
       });
     }
     
-    // Category View with YouTube Rendering
+    // Category View with YouTube and Testimonial Rendering
     function renderCategoryDetails(category, projects) {
       let html = `
         <a href="index.html" class="back-link">
@@ -1009,6 +1015,13 @@
         </section>
       `;
       projects.forEach((project, projectIndex) => {
+        const testimonials = project["feature-project-testimonial"] && 
+                             Array.isArray(project["feature-project-testimonial"]) ? 
+                             project["feature-project-testimonial"].filter(t => t["testimonial-quote"] && t["testimonial-quote"] !== null) : [];
+        const hasTestimonials = testimonials.length > 0;
+        const testimonialCount = testimonials.length;
+        const testimonialSectionTitle = testimonialCount === 1 ? 'Testimonial' : 'Testimonials';
+
         const youtubeVideos = project["feature-project-youtube-link"] && 
                               Array.isArray(project["feature-project-youtube-link"]) ? 
                               project["feature-project-youtube-link"].filter(video => video.url && video.url !== null && video.url !== '') : [];
@@ -1029,6 +1042,37 @@
             <img src="${project["feature-project-thumbnail"]}" alt="${project["feature-project-name"]}" class="detail-image" loading="lazy">
             <section class="detail-content">
               <p class="project-description">${project["feature-project-long-description"]}</p>
+              ${hasTestimonials ? `
+                <div class="testimonial-section">
+                  <h2>${testimonialSectionTitle}</h2>
+                  <div class="testimonial-container">
+                    <div class="testimonial-slider">
+                      ${testimonials.map(testimonial => `
+                        <div class="testimonial-item">
+                          <p class="testimonial-quote">"${testimonial["testimonial-quote"]}"</p>
+                          <p class="testimonial-author">${testimonial["testimonial-name"]}</p>
+                          <p class="testimonial-role">${testimonial["testimonial-role"]}${testimonial["testimonial-client-name"] ? `, ${testimonial["testimonial-client-name"]}` : ''}</p>
+                        </div>
+                      `).join('')}
+                    </div>
+                  </div>
+                  ${testimonialCount > 1 ? `
+                    <div class="testimonial-nav">
+                      <button class="testimonial-nav-btn prev" aria-label="Previous testimonial">
+                        <i class="fas fa-chevron-left"></i>
+                      </button>
+                      <button class="testimonial-nav-btn next" aria-label="Next testimonial">
+                        <i class="fas fa-chevron-right"></i>
+                      </button>
+                    </div>
+                    <div class="testimonial-dots">
+                      ${testimonials.map((_, index) => `
+                        <span class="testimonial-dot${index === 0 ? ' active' : ''}" data-index="${index}"></span>
+                      `).join('')}
+                    </div>
+                  ` : ''}
+                </div>
+              ` : ''}
               ${hasYouTubeVideos ? `
                 <div class="youtube-section">
                   <h2>${youtubeSectionTitle}</h2>
@@ -1083,8 +1127,28 @@
       detailsContainer.innerHTML = html + getLightboxMarkup();
       attachCategoryGalleryListeners(projects);
 
-      // Initialize YouTube sliders for each project with videos
+      // Initialize sliders for each project with multiple testimonials or videos
       projects.forEach((project, projectIndex) => {
+        const projectContainer = detailsContainer.querySelector(`article.project-detail[data-project-index="${projectIndex}"]`);
+        if (!projectContainer) {
+          console.warn(`Project container not found for index ${projectIndex}`);
+          return;
+        }
+
+        const testimonials = project["feature-project-testimonial"] && 
+                             Array.isArray(project["feature-project-testimonial"]) ? 
+                             project["feature-project-testimonial"].filter(t => t["testimonial-quote"] && t["testimonial-quote"] !== null) : [];
+        const hasTestimonials = testimonials.length > 0;
+        const testimonialCount = testimonials.length;
+
+        if (hasTestimonials && testimonialCount > 1) {
+          const slider = projectContainer.querySelector('.testimonial-slider');
+          const prevBtn = projectContainer.querySelector('.testimonial-nav-btn.prev');
+          const nextBtn = projectContainer.querySelector('.testimonial-nav-btn.next');
+          const dots = projectContainer.querySelectorAll('.testimonial-dot');
+          initTestimonialSliderForProject(slider, prevBtn, nextBtn, dots, testimonialCount);
+        }
+
         const youtubeVideos = project["feature-project-youtube-link"] && 
                               Array.isArray(project["feature-project-youtube-link"]) ? 
                               project["feature-project-youtube-link"].filter(video => video.url && video.url !== null && video.url !== '') : [];
@@ -1092,16 +1156,11 @@
         const videoCount = youtubeVideos.length;
 
         if (hasYouTubeVideos && videoCount > 1) {
-          const projectContainer = detailsContainer.querySelector(`article.project-detail[data-project-index="${projectIndex}"]`);
-          if (projectContainer) {
-            const slider = projectContainer.querySelector('.youtube-slider');
-            const prevBtn = projectContainer.querySelector('.youtube-nav-btn.prev');
-            const nextBtn = projectContainer.querySelector('.youtube-nav-btn.next');
-            const dots = projectContainer.querySelectorAll('.youtube-dot');
-            initYouTubeSliderForProject(slider, prevBtn, nextBtn, dots, videoCount);
-          } else {
-            console.warn(`Project container not found for index ${projectIndex}`);
-          }
+          const slider = projectContainer.querySelector('.youtube-slider');
+          const prevBtn = projectContainer.querySelector('.youtube-nav-btn.prev');
+          const nextBtn = projectContainer.querySelector('.youtube-nav-btn.next');
+          const dots = projectContainer.querySelectorAll('.youtube-dot');
+          initYouTubeSliderForProject(slider, prevBtn, nextBtn, dots, videoCount);
         }
       });
     }
@@ -1198,7 +1257,7 @@
       document.body.style.overflow = '';
     }
     
-    // Testimonial Slider Functionality
+    // Testimonial Slider Functionality for Single Project
     function initTestimonialSlider(testimonialCount) {
       const slider = document.querySelector('.testimonial-slider');
       const prevBtn = document.querySelector('.testimonial-nav-btn.prev');
@@ -1228,6 +1287,65 @@
           updateSlider();
         }
       });
+      updateSlider();
+    }
+    
+    // Testimonial Slider Functionality for Category View (Multiple Projects)
+    function initTestimonialSliderForProject(slider, prevBtn, nextBtn, dots, testimonialCount) {
+      let currentIndex = 0;
+      let touchStartX = 0;
+
+      if (!slider || !prevBtn || !nextBtn || dots.length === 0) {
+        console.error('Testimonial slider elements missing:', { slider, prevBtn, nextBtn, dots });
+        return;
+      }
+
+      function updateSlider() {
+        slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+        dots.forEach(dot => dot.classList.remove('active'));
+        dots[currentIndex].classList.add('active');
+        prevBtn.disabled = currentIndex === 0;
+        nextBtn.disabled = currentIndex === testimonialCount - 1;
+      }
+
+      prevBtn.addEventListener('click', () => {
+        if (currentIndex > 0) {
+          currentIndex--;
+          updateSlider();
+        }
+      });
+
+      nextBtn.addEventListener('click', () => {
+        if (currentIndex < testimonialCount - 1) {
+          currentIndex++;
+          updateSlider();
+        }
+      });
+
+      dots.forEach(dot => {
+        dot.addEventListener('click', () => {
+          currentIndex = Number(dot.getAttribute('data-index'));
+          updateSlider();
+        });
+      });
+
+      slider.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
+      });
+
+      slider.addEventListener('touchend', (e) => {
+        const touchEndX = e.changedTouches[0].clientX;
+        const deltaX = touchEndX - touchStartX;
+        if (Math.abs(deltaX) > 50) {
+          if (deltaX > 0 && currentIndex > 0) {
+            currentIndex--;
+          } else if (deltaX < 0 && currentIndex < testimonialCount - 1) {
+            currentIndex++;
+          }
+          updateSlider();
+        }
+      });
+
       updateSlider();
     }
     
