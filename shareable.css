@@ -2,37 +2,33 @@
    CSS Variables & Global Settings
    ========================================================================== */
 :root {
-        --header-height: 100px;
+    --header-height: 100px;
     --transition-duration: 0.4s;
     --easing: cubic-bezier(0.23, 1, 0.32, 1);
-  /* Colors */
-  --primary-color: #359494;
-  --secondary-color: #fff; /* Warm Cream */
-  --tertiary-color: #070707; /* Rich Coffee Brown */
-  --accent-color-1: #c75233; /* Terracotta Red */
-  --accent-color-2: #3a7068; /* Muted Teal */
-  --text-dark: #2a2a2a;
-  --text-light: #fff;
-
-  /* Transitions & Animation */
-  --transition-base: 0.2s ease-in-out;
-  --transition-duration: 0.6s;
-  
-  /* Shadows */
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
-
-  /* Layout */
-  --slide-interval: 3s;
-  --control-size: 40px;
-  --control-color: rgba(255, 255, 255, 0.9);
-  --control-hover: rgba(255, 255, 255, 1);
-  --aspect-ratio: 41.84%; /* 100% / 2.39 */
-  --text-padding: clamp(1rem, 3vw, 3rem);
-  --title-size: clamp(1.5rem, 4vw, 3.5rem);
-  --description-size: clamp(0.9rem, 2vw, 1.2rem);
-
-   
+    /* Colors */
+    --primary-color: #359494;
+    --secondary-color: #fff; /* Warm Cream */
+    --tertiary-color: #070707; /* Rich Coffee Brown */
+    --accent-color-1: #c75233; /* Terracotta Red */
+    --accent-color-2: #3a7068; /* Muted Teal */
+    --text-dark: #2a2a2a;
+    --text-light: #fff;
+    /* Transitions & Animation */
+    --transition-base: 0.2s ease-in-out;
+    --transition-duration: 0.6s;
+    /* Shadows */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+    /* Layout */
+    --slide-interval: 3s;
+    --control-size: 40px;
+    --control-color: rgba(255, 255, 255, 0.9);
+    --control-hover: rgba(255, 255, 255, 1);
+    --aspect-ratio: 41.84%; /* 100% / 2.39 */
+    --text-padding: clamp(1rem, 3vw, 3rem);
+    --title-size: clamp(1.5rem, 4vw, 3.5rem);
+    --description-size: clamp(0.9rem, 2vw, 1.2rem);
 }
+
 /* Navigation styles */
 .main-navigation-nav {
     background: rgba(255, 255, 255, 0.98);
@@ -115,6 +111,29 @@
     font-weight: 500;
     position: relative;
     font-size: 1rem;
+    padding: 0.5rem 0.25rem; /* Added padding for better hover area */
+    transition: all var(--transition-base);
+}
+
+/* Hover effect with underline animation */
+.main-navigation-nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background: var(--primary-color);
+    transition: all var(--transition-base);
+    transform: translateX(-50%);
+}
+
+.main-navigation-nav-links a:hover {
+    color: var(--primary-color);
+}
+
+.main-navigation-nav-links a:hover::after {
+    width: 100%;
 }
 
 .main-navigation-cta-button {
@@ -123,6 +142,11 @@
     padding: 0.8rem 1.8rem;
     border-radius: 30px;
     transition: all 0.3s ease;
+}
+
+.main-navigation-cta-button:hover {
+    background: #3a3a3a;
+    transform: translateY(-2px);
 }
 
 @media (max-width: 933px) {
@@ -146,27 +170,29 @@
     .main-navigation-nav-links.active {
         right: 0;
     }
-   .main-navigation-logo {
-    height: 40px;
-    transition: opacity 0.3s ease;
-}
+    
+    .main-navigation-logo {
+        height: 40px;
+        transition: opacity 0.3s ease;
+    }
 }
 
 .cta-button {
-  display: inline-block;
+    display: inline-block;
     padding: 1rem 2rem;
     background: var(--primary-color);
     color: var(--secondary-color) !important;
     text-decoration: none;
     border-radius: 30px;
     font-weight: 600;
-    transition: all 0.3sease;
+    transition: all 0.3s ease;
     border: 2px solid transparent;
- cursor: pointer;
+    cursor: pointer;
 }
+
 .cta-button:hover {
-  background: var(--secondary-color);
-  color: var(--text-dark) !important;
-  border-color: var(--primary-color);
-  transform: translateY(-2px);
+    background: var(--secondary-color);
+    color: var(--text-dark) !important;
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
 }
