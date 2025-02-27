@@ -109,7 +109,7 @@
       max-width: 900px;
       margin: 0 auto 2rem auto;
       font-size: 1.15rem;
-      text-align: justify center;
+      text-align: justify;
       color: var(--secondary);
     }
     
@@ -430,46 +430,6 @@
       font-weight: 600;
     }
 
-    #project-detail-container {
-      padding: .5rem;
-    }
-    /* Other Project Navigation */
-    .other-project-nav-container {
-      display: flex;
-      justify-content: space-between;
-      background: var(--accent);
-      border-top: 1px solid var(--border);
-      flex-wrap: wrap;
-      padding: 1rem;
-      gap: 1rem;
-    }
-    .other-project-nav-button {
-      flex: 1;
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 600;
-      transition: background 0.3s ease, transform 0.3s ease;
-      color: var(--text);
-      flex-direction: column;
-      padding: 0.5rem;
-      text-align: center;
-    }
-    .other-project-nav-container i {
-      width: 100%;
-      text-align: center;
-      margin: 0.3rem;
-      padding: 0.5rem;
-    }
-    .other-project-nav-button:hover {
-      background: #f0f4f8;
-      transform: translateY(-2px);
-      border-color: var(--primary);
-    }
-    
     /* Related Projects Section */
     .related-projects {
       margin: 2rem 0;
@@ -524,7 +484,7 @@
       font-size: 1.1rem;
       color: var(--text);
     }
-    
+
     /* Lightbox */
     .lightbox {
       position: fixed;
@@ -808,32 +768,70 @@
       return { prevProject, nextProject };
     }
     
-    // Suggest Related Projects
+    // Intelligent Related Projects Algorithm
     function getRelatedProjects(currentProjectId, allProjects) {
       const currentProject = allProjects.find(p => p.id === currentProjectId);
       if (!currentProject) return [];
-    
-      const client = currentProject["feature-project-client"];
-      const categoryId = currentProject["project-feature-main-category-id"];
-    
-      // Get same-client projects, exclude current
-      let sameClient = allProjects.filter(p => p["feature-project-client"] === client && p.id !== currentProjectId);
-      sameClient.sort((a, b) => b.id - a.id); // Sort by id descending
-      let related = sameClient.slice(0, 3);
-    
-      if (related.length < 3) {
-        // Get same-category projects, exclude current and those already in related
-        let sameCategory = allProjects.filter(p => 
-          p["project-feature-main-category-id"] === categoryId && 
-          p.id !== currentProjectId && 
-          !related.some(r => r.id === p.id)
-        );
-        sameCategory.sort((a, b) => b.id - a.id);
-        const additional = sameCategory.slice(0, 3 - related.length);
-        related = related.concat(additional);
-      }
-    
-      return related;
+
+      // Precompute factor frequencies for dynamic weighting
+      const clientFreq = {};
+      const categoryFreq = {};
+      const skillFreq = {};
+      allProjects.forEach(p => {
+        clientFreq[p["feature-project-client"]] = (clientFreq[p["feature-project-client"]] || 0) + 1;
+        categoryFreq[p["project-feature-main-category-id"]] = (categoryFreq[p["project-feature-main-category-id"]] || 0) + 1;
+        (p["feature-project-skills"] || []).forEach(s => {
+          skillFreq[s] = (skillFreq[s] || 0) + 1;
+        });
+      });
+
+      // Calculate scores for each project
+      const scoredProjects = allProjects
+        .filter(p => p.id !== currentProjectId) // Exclude current project
+        .map(project => {
+          let score = 0;
+
+          // Client similarity (weight inversely proportional to frequency)
+          if (project["feature-project-client"] === currentProject["feature-project-client"]) {
+            score += 3 / Math.sqrt(clientFreq[project["feature-project-client"]] || 1);
+          }
+
+          // Category similarity
+          if (project["project-feature-main-category-id"] === currentProject["project-feature-main-category-id"]) {
+            score += 2 / Math.sqrt(categoryFreq[project["project-feature-main-category-id"]] || 1);
+          }
+
+          // Skills overlap (weight by rarity)
+          const currentSkills = currentProject["feature-project-skills"] || [];
+          const projectSkills = project["feature-project-skills"] || [];
+          const sharedSkills = projectSkills.filter(s => currentSkills.includes(s));
+          sharedSkills.forEach(skill => {
+            score += 1 / Math.sqrt(skillFreq[skill] || 1);
+          });
+
+          // Timeline proximity (basic example, assuming "YYYY" format)
+          const currentYear = currentProject["feature-project-start-year"] || "";
+          const projectYear = project["feature-project-start-year"] || "";
+          if (currentYear && projectYear && currentYear === projectYear) {
+            score += 0.5; // Small bonus for same year
+          }
+
+          // Optional: Add description similarity (e.g., keyword overlap)
+          if (currentProject["feature-project-long-description"] && project["feature-project-long-description"]) {
+            const currWords = currentProject["feature-project-long-description"].toLowerCase().split(/\s+/);
+            const projWords = project["feature-project-long-description"].toLowerCase().split(/\s+/);
+            const sharedWords = currWords.filter(w => projWords.includes(w));
+            score += sharedWords.length * 0.1; // Small weight per shared word
+          }
+
+          return { project, score };
+        })
+        .filter(item => item.score > 0) // Only relevant projects
+        .sort((a, b) => b.score - a.score) // Sort by score
+        .slice(0, 3) // Top 3
+        .map(item => item.project);
+
+      return scoredProjects;
     }
     
     // Single Project View
@@ -845,7 +843,7 @@
       const hasTestimonials = testimonials.length > 0;
       const testimonialCount = testimonials.length;
       const testimonialSectionTitle = testimonialCount === 1 ? 'Testimonial' : 'Testimonials';
-    
+
       const youtubeVideos = project["feature-project-youtube-link"] && 
                             Array.isArray(project["feature-project-youtube-link"]) && 
                             project["feature-project-youtube-link"].length > 0 ? 
