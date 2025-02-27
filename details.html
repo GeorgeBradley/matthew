@@ -259,7 +259,6 @@
       justify-content: center;
       gap: 1rem;
       margin-top: 1rem;
-Facetime: true;
       margin-bottom: 20px;
     }
     .youtube-nav-btn {
@@ -773,6 +772,106 @@ Facetime: true;
       }
     }
     
+    // Improved Related Projects Algorithm
+    function getRelatedProjects(currentProjectId, allProjects) {
+      const currentProject = allProjects.find(p => p.id === currentProjectId);
+      if (!currentProject) return [];
+      
+      // Define a set of stopwords for description tokenization
+      const stopwords = new Set(['the', 'and', 'is', 'in', 'at', 'of', 'a', 'an', 'to', 'for', 'with', 'on', 'by', 'this', 'that', 'it']);
+
+      // Helper function to tokenize and clean text
+      function tokenize(text) {
+        return text.toLowerCase()
+                   .replace(/[^\w\s]/g, '')
+                   .split(/\s+/)
+                   .filter(word => word && !stopwords.has(word));
+      }
+
+      // Precompute frequencies for clients, categories, skills, and description words
+      const clientFreq = {};
+      const categoryFreq = {};
+      const skillFreq = {};
+      const descriptionWordFreq = {};
+
+      allProjects.forEach(p => {
+        const client = p["feature-project-client"];
+        if (client) clientFreq[client] = (clientFreq[client] || 0) + 1;
+        const category = p["project-feature-main-category-id"];
+        if (category) categoryFreq[category] = (categoryFreq[category] || 0) + 1;
+        (p["feature-project-skills"] || []).forEach(s => {
+          skillFreq[s] = (skillFreq[s] || 0) + 1;
+        });
+        if(p["feature-project-long-description"]) {
+          const tokens = tokenize(p["feature-project-long-description"]);
+          tokens.forEach(token => {
+             descriptionWordFreq[token] = (descriptionWordFreq[token] || 0) + 1;
+          });
+        }
+      });
+
+      // Tokenize current project's description once
+      const currentDescriptionTokens = currentProject["feature-project-long-description"] ? tokenize(currentProject["feature-project-long-description"]) : [];
+
+      // Function to compute Jaccard similarity between two token arrays
+      function jaccardSimilarity(tokensA, tokensB) {
+        const setA = new Set(tokensA);
+        const setB = new Set(tokensB);
+        const intersection = new Set([...setA].filter(x => setB.has(x)));
+        const union = new Set([...setA, ...setB]);
+        return union.size === 0 ? 0 : intersection.size / union.size;
+      }
+
+      // Calculate scores for each project
+      const scoredProjects = allProjects
+        .filter(p => p.id !== currentProjectId)
+        .map(project => {
+          let score = 0;
+
+          // Client similarity (weight inversely proportional to frequency)
+          if (project["feature-project-client"] === currentProject["feature-project-client"]) {
+            score += 3 / Math.sqrt(clientFreq[project["feature-project-client"]] || 1);
+          }
+
+          // Category similarity
+          if (project["project-feature-main-category-id"] === currentProject["project-feature-main-category-id"]) {
+            score += 2 / Math.sqrt(categoryFreq[project["project-feature-main-category-id"]] || 1);
+          }
+
+          // Skills overlap (weight by rarity)
+          const currentSkills = currentProject["feature-project-skills"] || [];
+          const projectSkills = project["feature-project-skills"] || [];
+          const sharedSkills = projectSkills.filter(s => currentSkills.includes(s));
+          sharedSkills.forEach(skill => {
+            score += 1 / Math.sqrt(skillFreq[skill] || 1);
+          });
+
+          // Timeline proximity (bonus if same start year)
+          const currentYear = currentProject["feature-project-start-year"] || "";
+          const projectYear = project["feature-project-start-year"] || "";
+          if (currentYear && projectYear && currentYear === projectYear) {
+            score += 0.5;
+          }
+
+          // Improved description similarity using Jaccard similarity
+          let descriptionScore = 0;
+          if (currentProject["feature-project-long-description"] && project["feature-project-long-description"]) {
+            const projectTokens = tokenize(project["feature-project-long-description"]);
+            const similarity = jaccardSimilarity(currentDescriptionTokens, projectTokens);
+            descriptionScore = similarity * 1.5; // adjust multiplier as needed
+          }
+          score += descriptionScore;
+
+          return { project, score };
+        })
+        .filter(item => item.score > 0)
+        .sort((a, b) => b.score - a.score)
+        .slice(0, 3)
+        .map(item => item.project);
+
+      return scoredProjects;
+    }
+    
     // Initialization
     async function initPage() {
       await fetchData();
@@ -807,72 +906,6 @@ Facetime: true;
       const prevProject = currentIndex > 0 ? highlightedProjects[currentIndex - 1] : null;
       const nextProject = currentIndex < highlightedProjects.length - 1 ? highlightedProjects[currentIndex + 1] : null;
       return { prevProject, nextProject };
-    }
-    
-    // Intelligent Related Projects Algorithm
-    function getRelatedProjects(currentProjectId, allProjects) {
-      const currentProject = allProjects.find(p => p.id === currentProjectId);
-      if (!currentProject) return [];
-
-      // Precompute factor frequencies for dynamic weighting
-      const clientFreq = {};
-      const categoryFreq = {};
-      const skillFreq = {};
-      allProjects.forEach(p => {
-        clientFreq[p["feature-project-client"]] = (clientFreq[p["feature-project-client"]] || 0) + 1;
-        categoryFreq[p["project-feature-main-category-id"]] = (categoryFreq[p["project-feature-main-category-id"]] || 0) + 1;
-        (p["feature-project-skills"] || []).forEach(s => {
-          skillFreq[s] = (skillFreq[s] || 0) + 1;
-        });
-      });
-
-      // Calculate scores for each project
-      const scoredProjects = allProjects
-        .filter(p => p.id !== currentProjectId) // Exclude current project
-        .map(project => {
-          let score = 0;
-
-          // Client similarity (weight inversely proportional to frequency)
-          if (project["feature-project-client"] === currentProject["feature-project-client"]) {
-            score += 3 / Math.sqrt(clientFreq[project["feature-project-client"]] || 1);
-          }
-
-          // Category similarity
-          if (project["project-feature-main-category-id"] === currentProject["project-feature-main-category-id"]) {
-            score += 2 / Math.sqrt(categoryFreq[project["project-feature-main-category-id"]] || 1);
-          }
-
-          // Skills overlap (weight by rarity)
-          const currentSkills = currentProject["feature-project-skills"] || [];
-          const projectSkills = project["feature-project-skills"] || [];
-          const sharedSkills = projectSkills.filter(s => currentSkills.includes(s));
-          sharedSkills.forEach(skill => {
-            score += 1 / Math.sqrt(skillFreq[skill] || 1);
-          });
-
-          // Timeline proximity (basic example, assuming "YYYY" format)
-          const currentYear = currentProject["feature-project-start-year"] || "";
-          const projectYear = project["feature-project-start-year"] || "";
-          if (currentYear && projectYear && currentYear === projectYear) {
-            score += 0.5; // Small bonus for same year
-          }
-
-          // Description similarity (keyword overlap)
-          if (currentProject["feature-project-long-description"] && project["feature-project-long-description"]) {
-            const currWords = currentProject["feature-project-long-description"].toLowerCase().split(/\s+/);
-            const projWords = project["feature-project-long-description"].toLowerCase().split(/\s+/);
-            const sharedWords = currWords.filter(w => projWords.includes(w));
-            score += sharedWords.length * 0.1; // Small weight per shared word
-          }
-
-          return { project, score };
-        })
-        .filter(item => item.score > 0) // Only relevant projects
-        .sort((a, b) => b.score - a.score) // Sort by score descending
-        .slice(0, 3) // Top 3
-        .map(item => item.project);
-
-      return scoredProjects;
     }
     
     // Single Project View
