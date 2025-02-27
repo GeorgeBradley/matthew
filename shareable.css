@@ -98,48 +98,39 @@
     transform: rotate(-45deg) translate(4.95px, -4.95px); /* 24px * 0.2071 */
 }
 
-/* Navigation links */
+/* Navigation links with hover effect */
 .main-navigation-nav-links {
     display: flex;
     gap: 2rem;
     align-items: center;
 }
 
-.main-navigation-nav-links a {
+.main-navigation-nav-links a:not(.cta-button) {
     text-decoration: none;
     color: #222;
     font-weight: 500;
     position: relative;
     font-size: 1rem;
+    padding: 0.5rem 0.8rem; /* Added padding for better hover area */
+    transition: all var(--transition-base); /* Using your transition variable */
 }
 
-/* Apply hover effect only to non-CTA links */
-.main-navigation-nav-links a:not(.main-navigation-cta-button) {
-    padding: 0.5rem 0.25rem; /* Added padding for better hover area */
-    transition: all var(--transition-base);
+/* Hover effect for nav links (excluding CTA) */
+.main-navigation-nav-links a:not(.cta-button):hover {
+    color: var(--primary-color); /* Changes to your teal color */
+    background: rgba(53, 148, 148, 0.1); /* Subtle background tint using primary color */
+    border-radius: 5px; /* Slightly rounded edges */
+    transform: translateY(-2px); /* Subtle lift effect */
 }
 
-.main-navigation-nav-links a:not(.main-navigation-cta-button)::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 50%;
-    background: var(--primary-color);
-    transition: all var(--transition-base);
-    transform: translateX(-50%);
-}
-
-.main-navigation-nav-links a:not(.main-navigation-cta-button):hover {
+/* Optional: Focus state for accessibility */
+.main-navigation-nav-links a:not(.cta-button):focus {
+    outline: none;
     color: var(--primary-color);
+    background: rgba(53, 148, 148, 0.15);
+    box-shadow: 0 0 0 2px rgba(53, 148, 148, 0.3); /* Focus ring */
 }
 
-.main-navigation-nav-links a:not(.main-navigation-cta-button):hover::after {
-    width: 100%;
-}
-
-/* Original CTA button styling for CV/Portfolio */
 .main-navigation-cta-button {
     background: #2a2a2a;
     color: white !important;
@@ -169,7 +160,7 @@
     .main-navigation-nav-links.active {
         right: 0;
     }
-    
+
     .main-navigation-logo {
         height: 40px;
         transition: opacity 0.3s ease;
