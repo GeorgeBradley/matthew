@@ -4,6 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Project Details – Professional Showcase</title>
+  <meta name="description" content="View detailed project information and showcases.">
+  <meta property="og:title" content="Project Details – Professional Showcase">
+  <meta property="og:description" content="View detailed project information and showcases.">
+  <meta property="og:image" content="">
+  <meta property="og:url" content="">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Project Details – Professional Showcase">
+  <meta name="twitter:description" content="View detailed project information and showcases.">
+  <meta name="twitter:image" content="">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
@@ -77,6 +87,31 @@
       justify-content: center;
       gap: 1rem;
       padding: 0.3rem;
+    }
+    
+    /* Share Section */
+    .share-section {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    .share-btn {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    .share-btn:hover {
+      background: #004c59;
+      transform: scale(1.1);
     }
     
     /* Back Link */
@@ -346,7 +381,7 @@
       background: var(--card-bg);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .gallery-item:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+    .gallery-item:hover { transform niceY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
     .gallery-thumbnail {
       width: 100%;
       aspect-ratio: 16 / 9;
@@ -393,7 +428,7 @@
     /* Detail Grid & Skills */
     .detail-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr­to);
       gap: 1.5rem;
       margin: 2rem 0;
       padding: 0 2rem;
@@ -752,6 +787,24 @@
       return { prevProject, nextProject };
     }
     
+    // Update Social Media Metadata
+    function updateSocialMeta(project) {
+      const title = project["feature-project-name"];
+      const description = project["feature-project-long-description"].slice(0, 200);
+      const image = project["feature-project-thumbnail"];
+      const url = window.location.href;
+
+      document.title = `${title} – Professional Showcase`;
+      document.querySelector('meta[name="description"]').setAttribute('content', description);
+      document.querySelector('meta[property="og:title"]').setAttribute('content', title);
+      document.querySelector('meta[property="og:description"]').setAttribute('content', description);
+      document.querySelector('meta[property="og:image"]').setAttribute('content', image);
+      document.querySelector('meta[property="og:url"]').setAttribute('content', url);
+      document.querySelector('meta[name="twitter:title"]').setAttribute('content', title);
+      document.querySelector('meta[name="twitter:description"]').setAttribute('content', description);
+      document.querySelector('meta[name="twitter:image"]').setAttribute('content', image);
+    }
+    
     // Single Project View
     function renderProjectDetails(project, projects) {
       const { prevProject, nextProject } = getNavigationProjects(project, projects);
@@ -777,6 +830,17 @@
         <article class="project-detail">
           <header class="detail-header">
             <h1 class="project-title">${project["feature-project-name"]}</h1>
+            <div class="share-section">
+              <button class="share-btn" data-platform="twitter" aria-label="Share on Twitter">
+                <i class="fab fa-twitter"></i>
+              </button>
+              <button class="share-btn" data-platform="facebook" aria-label="Share on Facebook">
+                <i class="fab fa-facebook-f"></i>
+              </button>
+              <button class="share-btn" data-platform="linkedin" aria-label="Share on LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+              </button>
+            </div>
             ${project["feature-project-start-year"] ? `
               <div class="project-meta">
                 <span>${project["feature-project-start-year"]}${project["feature-project-end-year"] ? ` - ${project["feature-project-end-year"]}` : ''}</span>
@@ -900,6 +964,8 @@
           ${getLightboxMarkup()}
         </article>
       `;
+
+      updateSocialMeta(project); // Update meta tags
 
       if (project["feature-project-gallery"] && project["feature-project-gallery"].length) {
         galleryImagesGlobal = project["feature-project-gallery"].sort((a, b) => a.order - b.order);
@@ -1033,6 +1099,17 @@
           <article class="project-detail" style="margin-bottom: 2rem;" data-project-index="${projectIndex}">
             <header class="detail-header">
               <h2 class="project-title">${project["feature-project-name"]}</h2>
+              <div class="share-section">
+                <button class="share-btn" data-platform="twitter" aria-label="Share on Twitter">
+                  <i class="fab fa-twitter"></i>
+                </button>
+                <button class="share-btn" data-platform="facebook" aria-label="Share on Facebook">
+                  <i class="fab fa-facebook-f"></i>
+                </button>
+                <button class="share-btn" data-platform="linkedin" aria-label="Share on LinkedIn">
+                  <i class="fab fa-linkedin-in"></i>
+                </button>
+              </div>
               ${project["feature-project-start-year"] ? `
                 <div class="project-meta">
                   <span>${project["feature-project-start-year"]}${project["feature-project-end-year"] ? ` - ${project["feature-project-end-year"]}` : ''}</span>
@@ -1125,6 +1202,7 @@
         `;
       });
       detailsContainer.innerHTML = html + getLightboxMarkup();
+      if (projects.length > 0) updateSocialMeta(projects[0]); // Use first project for category meta
       attachCategoryGalleryListeners(projects);
 
       // Initialize sliders for each project with multiple testimonials or videos
@@ -1471,6 +1549,42 @@
       updateSlider();
     }
     
+    // Share Buttons Functionality
+    function initShareButtons() {
+      const shareButtons = document.querySelectorAll('.share-btn');
+      shareButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const url = window.location.href;
+          const title = document.querySelector('.project-title').textContent;
+          const description = document.querySelector('.project-description').textContent.slice(0, 200);
+
+          switch (btn.dataset.platform) {
+            case 'twitter':
+              window.open(
+                `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title + ' - ' + description)}`,
+                '_blank',
+                'width=600,height=400'
+              );
+              break;
+            case 'facebook':
+              window.open(
+                `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
+                '_blank',
+                'width=600,height=400'
+              );
+              break;
+            case 'linkedin':
+              window.open(
+                `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(url)}&title=${encodeURIComponent(title)}&summary=${encodeURIComponent(description)}`,
+                '_blank',
+                'width=600,height=400'
+              );
+              break;
+          }
+        });
+      });
+    }
+    
     // Error Handling
     function showDetailError() {
       detailsContainer.innerHTML = `
@@ -1493,8 +1607,12 @@
       });
     }
     
+    // Initialize Page and Features
     if (projectParam || categoryParam) {
-      initPage().then(() => { initBackToTop(); });
+      initPage().then(() => {
+        initBackToTop();
+        initShareButtons();
+      });
     } else {
       window.location.href = 'index.html';
     }
