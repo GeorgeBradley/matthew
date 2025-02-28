@@ -10,852 +10,308 @@
     <link rel="preload" href="styles.css" as="style">
     <link rel="stylesheet" href="styles.css" media="all">
     <link rel="stylesheet" href="shareable.css" media="all">
-    <!-- Adding navigation.css from your later files for completeness -->
-    <link rel="stylesheet" href="navigation.css" media="all">
     <meta name="theme-color" content="#3a5f40">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="site.webmanifest">
+   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="site.webmanifest">
     <link rel="icon" href="favicon.ico?v=2">
+
     <title>Matthew Bradley | Artisan Maker</title>
-
-    <!-- New Styles for Project Filter -->
-    <style>
-        .project-filter {
-            max-width: 1440px;
-            margin: 4rem auto 2rem;
-            padding: 0 2rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            justify-content: center;
-        }
-
-        .project-filter label {
-            font-size: 1.1rem;
-            color: #070707; /* --tertiary-color */
-            font-weight: 500;
-        }
-
-        .category-filter-select {
-            padding: 0.75rem 1.5rem;
-            font-size: 1rem;
-            border-radius: 8px;
-            border: 2px solid #359494; /* --primary-color */
-            background: #fff; /* --secondary-color */
-            color: #2a2a2a; /* --text-dark */
-            cursor: pointer;
-            transition: all 0.3s ease;
-            min-width: 200px;
-        }
-
-        .category-filter-select:hover,
-        .category-filter-select:focus {
-            border-color: #c75233; /* --accent-color-1 */
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(53, 148, 148, 0.3);
-        }
-
-        @media (max-width: 768px) {
-            .project-filter {
-                flex-direction: column;
-                text-align: center;
-                margin: 2rem auto 1rem;
-            }
-            .category-filter-select {
-                width: 100%;
-                max-width: 300px;
-            }
-        }
-    </style>
 </head>
+
+
 <body>
-    <nav class="main-navigation-nav">
-        <a href="#home">
-            <img src="Header.png" alt="Logo" class="main-navigation-logo">
-        </a>
-        <div class="main-navigation-nav-links">
-            <a href="index.html#home">Home</a>
-            <a href="index.html#projects-container">Projects</a>
-            <a href="#contact">Contact</a>
-            <a href="portfolio-cv.html" class="cta-button">CV / Portfolio</a>
-        </div>
-        <button class="main-navigation-hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-    </nav>
 
-    <div class="social-links" id="home">
-        <a href="https://www.instagram.com/m.g.b_artwork/?hl=en" target="_blank" class="social-link instagram" aria-label="Instagram">
-            <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://www.youtube.com/channel/UCjNBnhekbjApHw49ZqEiMlw/featured" target="_blank" class="social-link youtube" aria-label="YouTube">
-            <i class="fab fa-youtube"></i>
-        </a>
-        <a href="http://www.linkedin.com/in/matthew-bradley-a59811267" target="_blank" class="social-link linkedin" aria-label="LinkedIn">
-            <i class="fab fa-linkedin"></i>
-        </a>
+   <nav class="main-navigation-nav">
+       
+    <a href="#home">
+    <img src="Header.png" alt="Logo" class="main-navigation-logo"> </a>
+    <div class="main-navigation-nav-links">
+      <a href="index.html#home">Home</a>
+      <a href="index.html#projects-container">Projects</a>
+    
+      <a href="#contact">Contact</a> 
+      <!--<button class="cta-button" id="openModalBtn">Portfolio &amp; CV</button>-->
+      <a href="portfolio-cv.html" class="cta-button">CV / Portfolio</a>
+
+     <!-- <a href="#contact" class="main-navigation-cta-button">Get in Touch</a> -->
     </div>
+    <button class="main-navigation-hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
 
-    <section id="first-impressions-slider">
-        <div class="first-impressions-slider-container">
-            <div class="first-impressions-slider-track">
-                <!-- Images will be dynamically inserted here -->
-            </div>
+ <div class="social-links" id="home">
+    <a
+      href="https://www.instagram.com/m.g.b_artwork/?hl=en"
+      target="_blank"
+      class="social-link instagram"
+      aria-label="Instagram"
+    >
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a
+      href="https://www.youtube.com/channel/UCjNBnhekbjApHw49ZqEiMlw/featured"
+      target="_blank"
+      class="social-link youtube"
+      aria-label="YouTube"
+    >
+      <i class="fab fa-youtube"></i>
+    </a>
+    <a
+      href="http://www.linkedin.com/in/matthew-bradley-a59811267"
+      target="_blank"
+      class="social-link linkedin"
+      aria-label="LinkedIn"
+    >
+      <i class="fab fa-linkedin"></i>
+    </a>
+  </div>
+
+<section id="first-impressions-slider">
+  <div class="first-impressions-slider-container">
+    <div class="first-impressions-slider-track">
+      <!-- Images will be dynamically inserted here -->
+    </div>
+  </div>
+</section>
+
+
+    <!-- Images will be dynamically inserted here 
+  <div class="hero-container">
+        <div class="hero-slides"></div>
+        <div class="hero-dots"></div>
+        <div class="loading">
+            <div class="loading-spinner"></div>
+            Loading Projects...
         </div>
+    </div>
+-->
+
+    
+<!-- About Me Section -->
+<section class="about-section">
+    <div class="about-container">
+        <!-- Image container - replace icon with your image -->
+        <div class="about-image">
+            <!-- Default icon - remove/replace with your image -->
+            
+            
+            <!-- Uncomment below to use your own image -->
+            
+          
+            
+        </div>
+
+        <div class="about-content">
+            <div class="about-text">
+                <p class="lead">I am a model & prop maker with a keen affinity for sculpting. I have a lifelong love of stop-motion animation and its associated artistry, alongside interests in history, and an enchantment with Tolkienesque fantasy and English folklore. These passions culminate in my creations wherever possible. My ideal life? That of a forest-dwelling Hobbit wood carver!</p>
+<p>Please explore my website or view and download my <span class="highlight">PDF portfolio </span> and <span class="highlight">CV below.</span></p>
+                <p>Please feel free to contact me!</p>              
+            </div>
+            <a href="portfolio-cv" class="cta-button">CV / Portfolio</a>
+           <!--<button class="cta-button" id="openModalBtn"><i class="fa-solid fa-eye"></i> View CV</button> -->
+        </div>
+        
+    </div>
+</div>
+
+</section>
+
+ <!-- Modal Overlay -->
+  <div class="modal-overlay" id="cvModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-content">
+      <span class="modal-close" id="closeModalBtn" aria-label="Close Modal"><i class="fa-solid fa-xmark"></i></span>
+      <h1 id="modalTitle">Matthew Bradley</h1>
+
+      <!-- Header Section -->
+      <div class="section" id="cvHeader">
+        <p><i class="fa-solid fa-user icon"></i> Sculpting Models &amp; Props</p>
+        <p>
+          <i class="fa-solid fa-envelope icon"></i>
+          <a href="mailto:mgbradley.uk@gmail.com" style="color: var(--text-dark); text-decoration: none;">
+            mgbradley.uk@gmail.com
+          </a>
+        </p>
+        <p>
+          <i class="fa-solid fa-phone icon"></i>
+          <a href="tel:07428464118" style="color: var(--text-dark); text-decoration: none;">
+            07428464118
+          </a>
+        </p>
+        <p>
+          <i class="fa-solid fa-globe icon"></i>
+          <a href="https://mgbradley.uk" target="_blank" style="color: var(--text-dark); text-decoration: none;">
+            mgbradley.uk
+          </a>
+        </p>
+        <p>
+          <i class="fa-brands fa-instagram icon"></i>
+          <a href="https://www.instagram.com/m.g.b_artwork/" target="_blank" style="color: var(--text-dark); text-decoration: none;">
+            @m.gb_artwork
+          </a>
+        </p>
+      </div>
+      
+      <!-- About Section -->
+      <div class="section" id="about">
+        <h2><i class="fa-solid fa-info-circle icon"></i> About</h2>
+        <p>I'm a model and prop maker with a keen affinity for sculpting from North Somerset, with a life-long love of stop-motion animation and its associated artistry, alongside interests in history, and an enchantment with Tolkienesque fantasy and English folklore. These passions cumulate in my creations where possible.</p>
+        <p>I've completed multiple commissions for a film studio in the USA, acting as lead stop-motion puppet creature fabricator. Most recently I've been working with Yamina-tion studio developing a stop motion children's television series, as well as various commercials.</p>
+        <p>I'm able to confidently use my strong skills in sculpture, model making, moulding, casting, and armature fabrication to produce robust stop motion puppets and any props.</p>
+        <p>I'm easy going and enthusiastic, I work well in a team as well as independently. I'm reliable, dedicated, always keen to help, can manage my time and resources effectively, will take direction well, and have a keen eye for detail!</p>
+        <p>My ideal life is that of a forest dwelling Hobbit wood carver!</p>
+      </div>
+      
+      <!-- Experience Section -->
+      <div class="section" id="experience">
+        <h2><i class="fa-solid fa-briefcase icon"></i> Experience</h2>
+        
+        <h3>Mangostone - Model Maker and Sculptor <span style="font-weight: normal; font-size: 15px;">(June - July 2023)</span></h3>
+        <ul>
+          <li>Worked on projects involving mould making, casting, fabrication, and painting of various props and models.</li>
+        </ul>
+        
+        <h3>Yamination Studios - Sculptor and Model Maker <span style="font-weight: normal; font-size: 15px;">(January - November 2022)</span></h3>
+        <ul>
+          <li>Worked on a stop motion television series and a range of commercials. Responsible for puppet making, including armature building, moulding, casting, maquette sculpture, developing characters from a 2D sketch into a fully realised 3D model, and collaborating with directors to bring puppets to life.</li>
+        </ul>
+        
+        <h3>Workshed Animation - Stop Motion Puppet Fabricator <span style="font-weight: normal; font-size: 15px;">(2020 - 2021)</span></h3>
+        <ul>
+          <li>Handled multiple commissions from a USA-based film studio; designed, built, and finished every aspect of detailed puppets per client briefs.</li>
+        </ul>
+        
+        <h3>Prop Making &amp; SFX - Client Projects <span style="font-weight: normal; font-size: 15px;">(2019 - 2020)</span></h3>
+        <ul>
+          <li>Led a collaborative project to create a large, “ancient” tomb for Peter Thorndike's debut movie, 'PlaguePits'.</li>
+        </ul>
+        
+        <h3>Other Employment - ASDA <span style="font-weight: normal; font-size: 15px;">(2015 - 2017)</span></h3>
+      </div>
+      
+      <!-- Education Section -->
+      <div class="section" id="education">
+        <h2><i class="fa-solid fa-graduation-cap icon"></i> Education</h2>
+        <p><strong>Greater Brighton Metropolitan College</strong></p>
+        <ul>
+          <li>2021: 1st CLASS - BA (Hons) Prop Making &amp; Special Effects</li>
+          <li>2020: DISTINCTION - FdA Theatre Arts: Prop Making &amp; Special Effects</li>
+        </ul>
+        <p><strong>Weston College</strong></p>
+        <ul>
+          <li>2015: LEVEL 2 DIPLOMA - Woodwork &amp; Joinery</li>
+        </ul>
+      </div>
+      
+      <!-- Leading Skills Section -->
+      <div class="section" id="skills">
+        <h2><i class="fa-solid fa-cogs icon"></i> Leading Skills</h2>
+        <ul>
+          <li><strong>Woodwork &amp; Construction</strong> | <strong>Urethane Casting</strong> | <strong>Silver Soldering</strong></li>
+          <li><strong>Sculpting</strong> (clay, reductive poly-carving) | <strong>Basic Foam Construction</strong> | <strong>Model Making</strong></li>
+          <li><strong>Fibreglassing</strong> | <strong>Basic MIG Welding</strong> | <strong>Platinum Silicone</strong> (casting, patching, painting)</li>
+          <li><strong>Moulding</strong> (glicone, fibreglass, piaster) | <strong>Painting &amp; Finishing</strong> | <strong>Basic CAD Skills</strong></li>
+          <li><strong>Full Drivers Licence</strong> | <strong>Reliable - Dedicated - Organised</strong></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+<div class="projects-grid" id="projects-container"></div>
+
+<section id="un-highlighted-features">
+      <!-- Sliders will be dynamically inserted here -->
     </section>
 
-    <section class="about-section">
-        <div class="about-container">
-            <div class="about-image"></div>
-            <div class="about-content">
-                <div class="about-text">
-                    <p class="lead">I am a model & prop maker with a keen affinity for sculpting. I have a lifelong love of stop-motion animation and its associated artistry, alongside interests in history, and an enchantment with Tolkienesque fantasy and English folklore. These passions culminate in my creations wherever possible. My ideal life? That of a forest-dwelling Hobbit wood carver!</p>
-                    <p>Please explore my website or view and download my <span class="highlight">PDF portfolio </span> and <span class="highlight">CV below.</span></p>
-                    <p>Please feel free to contact me!</p>
+
+<section class="contact-section">
+    <div class="contact-container">
+        <h2 class="section-title">Get in Touch</h2>
+        
+        <div class="contact-grid">
+            <!-- Email Card -->
+            <a href="mailto:mgbbradley.uk@gmail.com" class="contact-card">
+                <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
                 </div>
-                <a href="portfolio-cv" class="cta-button">CV / Portfolio</a>
-            </div>
-        </div>
-    </section>
+                <div class="contact-info">
+                    <span class="contact-label">Email</span>
+                    <span class="contact-detail">mgbbradley.uk@gmail.com</span>
+                </div>
+            </a>
 
-    <div class="modal-overlay" id="cvModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-        <div class="modal-content">
-            <span class="modal-close" id="closeModalBtn" aria-label="Close Modal"><i class="fa-solid fa-xmark"></i></span>
-            <h1 id="modalTitle">Matthew Bradley</h1>
-            <div class="section" id="cvHeader">
-                <p><i class="fa-solid fa-user icon"></i> Sculpting Models & Props</p>
-                <p><i class="fa-solid fa-envelope icon"></i> <a href="/cdn-cgi/l/email-protection#3f52585d4d5e5b535a46114a547f58525e5653115c5052">[email protected]</a></p>
-                <p><i class="fa-solid fa-phone icon"></i> <a href="tel:07428464118">07428464118</a></p>
-                <p><i class="fa-solid fa-globe icon"></i> <a href="https://mgbradley.uk" target="_blank">mgbradley.uk</a></p>
-                <p><i class="fa-brands fa-instagram icon"></i> <a href="https://www.instagram.com/m.g.b_artwork/" target="_blank">@m.gb_artwork</a></p>
-            </div>
-            <div class="section" id="about">
-                <h2><i class="fa-solid fa-info-circle icon"></i> About</h2>
-                <p>I'm a model and prop maker with a keen affinity for sculpting from North Somerset...</p>
-                <!-- Rest of CV content unchanged -->
-            </div>
-            <!-- Other CV sections unchanged -->
-        </div>
-    </div>
+            <!-- Instagram Card -->
+            <a href="https://instagram.com/m.g.b_artwork" target="_blank" class="contact-card">
+                <div class="contact-icon">
+                    <i class="fab fa-instagram"></i>
+                </div>
+                <div class="contact-info">
+                    <span class="contact-label">Instagram</span>
+                    <span class="contact-detail">@m.g.b_artwork</span>
+                </div>
+            </a>
 
-    <div class="projects-grid" id="projects-container">
-        <div class="project-filter">
-            <label for="category-filter">Filter Projects by Category:</label>
-            <select id="category-filter" class="category-filter-select">
-                <option value="highlighted" selected>Highlighted</option>
-            </select>
-        </div>
-        <div class="projects-grid-inner"></div>
-    </div>
-
-    <section id="un-highlighted-features">
-        <!-- Sliders will be dynamically inserted here -->
-    </section>
-
-    <section class="contact-section">
-        <div class="contact-container">
-            <h2 class="section-title">Get in Touch</h2>
-            <div class="contact-grid">
-                <a href="/cdn-cgi/l/email-protection#4d202a2f2f3f2c292128346338260d2a202c2421632e2220" class="contact-card">
-                    <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-                    <div class="contact-info">
-                        <span class="contact-label">Email</span>
-                        <span class="contact-detail">[email protected]</span>
-                    </div>
-                </a>
-                <a href="https://instagram.com/m.g.b_artwork" target="_blank" class="contact-card">
-                    <div class="contact-icon"><i class="fab fa-instagram"></i></div>
-                    <div class="contact-info">
-                        <span class="contact-label">Instagram</span>
-                        <span class="contact-detail">@m.g.b_artwork</span>
-                    </div>
-                </a>
-                <div class="contact-card">
-                    <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-                    <div class="contact-info">
-                        <span class="contact-label">Location</span>
-                        <span class="contact-detail">North Somerset, UK</span>
-                    </div>
+            <!-- Location Card -->
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="contact-info">
+                    <span class="contact-label">Location</span>
+                    <span class="contact-detail">North Somerset, UK</span>
                 </div>
             </div>
         </div>
-    </section>
-
-    <div class="contactContainer" id="contact">
-        <div id="contactSuccessMessage" class="contactAlert contactAlertSuccess"></div>
-        <form target="_blank" action="https://formsubmit.co/georgeaustinbradley@outlook.com" method="POST" class="main-contact-form">
-            <input type="hidden" name="_next" value="https://georgebradley.github.io/matthew/index.html?message=successfully%20sent,%20Matthew%20will%20get%20back%20to%20you%20as%20soon%20as%20possible">
-            <img src="Used+image.jpg" alt="Your Name" class="profile-photo">
-            <h1 id="contactTitle">Contact Me!</h1>
-            <div class="contactFormGroup">
-                <label for="contactName">Full Name</label>
-                <input type="text" id="contactName" name="contactName" class="contactFormControl" placeholder="Your full name" required>
-            </div>
-            <div class="contactFormGroup">
-                <label for="contactEmail">Email Address</label>
-                <input type="email" id="contactEmail" name="contactEmail" class="contactFormControl" placeholder="Your email address" required>
-            </div>
-            <div class="contactFormGroup">
-                <label for="contactMessage">Your Message</label>
-                <textarea id="contactMessage" name="contactMessage" class="contactFormControl" rows="5" placeholder="Type your message here..." required></textarea>
-            </div>
-            <button type="submit">Submit Form</button>
-        </form>
     </div>
+</section>
 
-    <footer class="footer">
+<div class="contactContainer" id="contact">
+    <!-- This div will display the success message if available -->
+    <div id="contactSuccessMessage" class="contactAlert contactAlertSuccess"></div>
+   
+   
+    <form target="_blank" action="https://formsubmit.co/georgeaustinbradley@outlook.com" method="POST" class="main-contact-form">
+      <!-- Hidden input to redirect back to this page with a custom success message -->
+      <input type="hidden" name="_next" value="https://georgebradley.github.io/matthew/index.html?message=successfully%20sent,%20Matthew%20will%20get%20back%20to%20you%20as%20soon%20as%20possible">
+        <img src="Used+image.jpg" alt="Your Name" class="profile-photo">
+         <h1 id="contactTitle">Contact Me!</h1>
+      <div class="contactFormGroup">
+        <label for="contactName">Full Name</label>
+        <input type="text" id="contactName" name="contactName" class="contactFormControl" placeholder="Your full name" required>
+      </div>
+      <div class="contactFormGroup">
+        <label for="contactEmail">Email Address</label>
+        <input type="email" id="contactEmail" name="contactEmail" class="contactFormControl" placeholder="Your email address" required>
+      </div>
+      <div class="contactFormGroup">
+        <label for="contactMessage">Your Message</label>
+        <textarea id="contactMessage" name="contactMessage" class="contactFormControl" rows="5" placeholder="Type your message here..." required></textarea>
+      </div>
+      <button type="submit">Submit Form</button>
+    </form>
+  </div>
+
+    
+<footer class="footer">
         <div class="footer-content">
             <span class="footer-name">Matthew Bradley</span>
             <span class="footer-date">© <span id="current-year"></span> All rights reserved</span>
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-    <script src="sharable-scripts.js" defer></script>
-    <script src="feature-project.js" defer></script>
 
-    <script>
-        if ('scrollRestoration' in history) {
-            history.scrollRestoration = 'manual';
-        }
+ <script src="scripts.js" defer></script>
+ <script src="sharable-scripts.js" defer></script>
 
-        document.addEventListener('DOMContentLoaded', () => {
-            initAccessibility();
-            setupServiceWorker();
-            initFeatureSlider();
-            initHeroSlider();
-            initContactSuccessMessage();
-            initFirstImpressionsSlider();
-            initModal();
-            updateCurrentYear();
-            initUnHighlightedFeatures();
-            initProjectFilter();
+<script src="feature-project.js" defer></script>
+   
 
-            const projectLinks = document.querySelectorAll('.first-impressions-label, .un-highlighted-features-slider-link, .feature-project-link');
-            console.log("Found project links:", projectLinks.length);
-            projectLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    console.log("Project link clicked. Saving scrollY =", window.scrollY);
-                    sessionStorage.setItem('indexScroll', window.scrollY);
-                });
-            });
-        });
 
-        window.addEventListener('pageshow', () => {
-            const savedScroll = sessionStorage.getItem('indexScroll');
-            const hash = window.location.hash;
-
-            if (hash) {
-                const targetElement = document.querySelector(hash);
-                if (targetElement) {
-                    setTimeout(() => {
-                        targetElement.scrollIntoView({ behavior: 'smooth' });
-                        sessionStorage.removeItem('indexScroll');
-                    }, 100);
-                    return;
-                }
-            }
-
-            if (savedScroll !== null) {
-                console.log("Restoring scroll position to:", savedScroll);
-                setTimeout(() => {
-                    window.scrollTo({ top: parseInt(savedScroll, 10), behavior: 'smooth' });
-                    sessionStorage.removeItem('indexScroll');
-                }, 100);
-            }
-        });
-
-        function initAccessibility() {
-            const currentPath = window.location.pathname;
-            document.querySelectorAll('nav a').forEach(link => {
-                if (link.getAttribute('href') === currentPath) {
-                    link.setAttribute('aria-current', 'page');
-                }
-            });
-        }
-
-        function setupServiceWorker() {
-            if ('serviceWorker' in navigator) {
-                window.addEventListener('load', () => {
-                    navigator.serviceWorker.register('/sw.js')
-                        .then(registration => console.log('ServiceWorker registration successful'))
-                        .catch(err => console.log('ServiceWorker registration failed:', err));
-                });
-            }
-        }
-
-        function updateCurrentYear() {
-            const yearElement = document.getElementById('current-year');
-            if (yearElement) yearElement.textContent = new Date().getFullYear();
-        }
-
-        function initFeatureSlider() {
-            const slider = document.getElementById('feature-slider');
-            const lightbox = document.getElementById('feature-lightbox');
-            const modalImg = document.getElementById('feature-img-modal');
-            const captionText = document.getElementById('feature-caption');
-            const closeBtn = document.querySelector('.feature-close');
-            const prevButton = document.getElementById('feature-prev');
-            const nextButton = document.getElementById('feature-next');
-
-            if (!slider || !lightbox || !modalImg || !captionText || !closeBtn || !prevButton || !nextButton) {
-                console.warn('One or more feature slider elements not found.');
-                return;
-            }
-
-            let currentIndex = 0;
-            const images = [];
-            let autoSlide;
-
-            for (let i = 1; i <= 17; i++) {
-                let img = document.createElement('img');
-                img.src = `data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7`;
-                img.dataset.src = `feature-img/feature-${i}.jpg`;
-                img.alt = `Work ${i}`;
-                img.title = `Work ${i}`;
-                img.loading = "lazy";
-                img.addEventListener('click', function() {
-                    openLightbox(this.dataset.src, this.alt);
-                });
-                slider.appendChild(img);
-                images.push(img);
-            }
-
-            function loadImage(img) {
-                const src = img.dataset.src;
-                if (src) {
-                    img.src = src;
-                    img.removeAttribute('data-src');
-                }
-            }
-            function handleLazyLoad() {
-                images.forEach(img => {
-                    if (img.getBoundingClientRect().top < window.innerHeight && img.dataset.src) loadImage(img);
-                });
-            }
-            window.addEventListener('scroll', handleLazyLoad);
-            handleLazyLoad();
-
-            function openLightbox(src, alt) {
-                modalImg.src = src;
-                modalImg.alt = alt;
-                captionText.innerHTML = alt;
-                lightbox.style.display = "block";
-            }
-            closeBtn.onclick = () => lightbox.style.display = "none";
-            window.addEventListener('click', (event) => {
-                if (event.target === lightbox) lightbox.style.display = "none";
-            });
-
-            function slideTo(index) {
-                currentIndex = (index + images.length) % images.length;
-                slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-            }
-            prevButton.addEventListener('click', () => slideTo(currentIndex - 1));
-            nextButton.addEventListener('click', () => slideTo(currentIndex + 1));
-
-            document.addEventListener('keydown', function(event) {
-                if (lightbox.style.display === "block") {
-                    if (event.key === "Escape") lightbox.style.display = "none";
-                } else {
-                    if (event.key === "ArrowLeft") slideTo(currentIndex - 1);
-                    if (event.key === "ArrowRight") slideTo(currentIndex + 1);
-                }
-            });
-
-            function autoSlideFunction() {
-                slideTo(currentIndex + 1);
-            }
-            function startSlide() {
-                autoSlide = setInterval(autoSlideFunction, 3000);
-            }
-            function stopSlide() {
-                clearInterval(autoSlide);
-            }
-            slider.addEventListener('mouseenter', stopSlide);
-            slider.addEventListener('mouseleave', startSlide);
-            startSlide();
-        }
-
-        class HeroSlider {
-            constructor() {
-                this.API_URL = 'feature-project.json';
-                this.currentIndex = 0;
-                this.intervalTime = 5000;
-                this.intervalId = null;
-                this.touchStartX = 0;
-                this.touchEndX = 0;
-            }
-            async init() {
-                try {
-                    this.projects = await this.getCachedData();
-                    this.createSlides();
-                    this.createDots();
-                    this.startAutoPlay();
-                    this.addEventListeners();
-                    const loadingElem = document.querySelector('.loading');
-                    if (loadingElem) loadingElem.remove();
-                } catch (error) {
-                    this.handleError(error);
-                }
-            }
-            async getCachedData() {
-                const key = "heroProjects";
-                let data = localStorage.getItem(key);
-                if (data) return JSON.parse(data);
-                const response = await fetch(this.API_URL);
-                if (!response.ok) throw new Error('Network response was not ok');
-                data = await response.json();
-                localStorage.setItem(key, JSON.stringify(data));
-                return data;
-            }
-            createSlides() {
-                const slidesContainer = document.querySelector('.hero-slides');
-                if (!slidesContainer) throw new Error("Hero slides container not found");
-                this.slides = this.projects.map(project => {
-                    const slide = document.createElement('div');
-                    slide.className = 'hero-slide';
-                    const img = new Image();
-                    img.src = project['feature-project-thumbnail'];
-                    img.alt = project['feature-project-name'];
-                    img.loading = 'eager';
-                    const progress = document.createElement('div');
-                    progress.className = 'progress-bar';
-                    const content = document.createElement('div');
-                    content.className = 'hero-content';
-                    const text = document.createElement('div');
-                    text.className = 'hero-text';
-                    const title = document.createElement('h2');
-                    title.className = 'hero-title';
-                    title.textContent = project['feature-project-name'];
-                    const description = document.createElement('p');
-                    description.className = 'hero-description';
-                    description.textContent = project['feature-project-description'];
-                    text.append(title, description);
-                    content.appendChild(text);
-                    slide.append(img, progress, content);
-                    slidesContainer.appendChild(slide);
-                    return slide;
-                });
-                if (this.slides.length > 0) this.slides[0].classList.add('active');
-            }
-            createDots() {
-                const dotsContainer = document.querySelector('.hero-dots');
-                if (!dotsContainer) {
-                    console.warn("Hero dots container not found");
-                    return;
-                }
-                this.dots = this.projects.map((_, index) => {
-                    const dot = document.createElement('button');
-                    dot.className = 'hero-dot';
-                    dot.ariaLabel = `Go to slide ${index + 1}`;
-                    dot.addEventListener('click', () => this.goToSlide(index));
-                    dotsContainer.appendChild(dot);
-                    return dot;
-                });
-                if (this.dots && this.dots[0]) this.dots[0].classList.add('active');
-            }
-            goToSlide(index) {
-                if (index === this.currentIndex) return;
-                this.slides[this.currentIndex].classList.remove('active');
-                if (this.dots && this.dots[this.currentIndex]) this.dots[this.currentIndex].classList.remove('active');
-                this.currentIndex = index;
-                this.slides[this.currentIndex].classList.add('active');
-                if (this.dots && this.dots[this.currentIndex]) this.dots[this.currentIndex].classList.add('active');
-                this.resetAutoPlay();
-            }
-            nextSlide() {
-                const nextIndex = (this.currentIndex + 1) % this.slides.length;
-                this.goToSlide(nextIndex);
-            }
-            startAutoPlay() {
-                this.intervalId = setInterval(() => this.nextSlide(), this.intervalTime);
-            }
-            resetAutoPlay() {
-                clearInterval(this.intervalId);
-                this.startAutoPlay();
-            }
-            handleTouchStart(e) {
-                this.touchStartX = e.changedTouches[0].screenX;
-            }
-            handleTouchEnd(e) {
-                this.touchEndX = e.changedTouches[0].screenX;
-                const diff = this.touchStartX - this.touchEndX;
-                if (Math.abs(diff) > 50) {
-                    diff > 0 ? this.nextSlide() : this.prevSlide();
-                }
-            }
-            addEventListeners() {
-                const heroContainer = document.querySelector('.hero-container');
-                if (heroContainer) {
-                    heroContainer.addEventListener('touchstart', e => this.handleTouchStart(e));
-                    heroContainer.addEventListener('touchend', e => this.handleTouchEnd(e));
-                }
-                document.addEventListener('keydown', e => {
-                    if (e.key === 'ArrowLeft') this.prevSlide();
-                    if (e.key === 'ArrowRight') this.nextSlide();
-                });
-            }
-            prevSlide() {
-                const prevIndex = (this.currentIndex - 1 + this.slides.length) % this.slides.length;
-                this.goToSlide(prevIndex);
-            }
-            handleError(error) {
-                console.error('Error:', error);
-                const loading = document.querySelector('.loading');
-                if (loading) {
-                    loading.innerHTML = `
-                        <div style="text-align: center">
-                            <p>⚠️ Failed to load content</p>
-                            <button onclick="location.reload()">Retry</button>
-                        </div>
-                    `;
-                }
-            }
-        }
-        function initHeroSlider() {
-            if (document.querySelector('.hero-slides')) {
-                const slider = new HeroSlider();
-                slider.init();
-            }
-        }
-
-        function initContactSuccessMessage() {
-            const params = new URLSearchParams(window.location.search);
-            const contactSuccessMessage = params.get('message');
-            if (contactSuccessMessage) {
-                const messageContainer = document.getElementById('contactSuccessMessage');
-                if (messageContainer) {
-                    messageContainer.textContent = contactSuccessMessage;
-                    messageContainer.style.display = 'block';
-                    window.history.replaceState({}, document.title, window.location.pathname);
-                }
-            }
-        }
-
-        function initFirstImpressionsSlider() {
-            const sliderTrack = document.querySelector('#first-impressions-slider .first-impressions-slider-track');
-            if (!sliderTrack) return;
-            function getFirstImpressionsData() {
-                const key = "firstImpressionsData";
-                return new Promise((resolve, reject) => {
-                    let data = localStorage.getItem(key);
-                    if (data) resolve(JSON.parse(data));
-                    else {
-                        fetch("first-impression-banner.json")
-                            .then(response => {
-                                if (!response.ok) reject(new Error('Network response was not ok'));
-                                return response.json();
-                            })
-                            .then(data => {
-                                localStorage.setItem(key, JSON.stringify(data));
-                                resolve(data);
-                            })
-                            .catch(reject);
-                    }
-                });
-            }
-            getFirstImpressionsData()
-                .then(data => {
-                    data.sort((a, b) => a["first-impression-order"] - b["first-impression-order"]);
-                    let imagesHTML = "";
-                    data.forEach(item => {
-                        imagesHTML += `
-                            <div class="first-impressions-slide">
-                                <img src="${item["first-impression-image"]}" alt="${item["first-impression-caption"]}">
-                                <a href="${item["first-impression-project-link"]}" class="first-impressions-label">
-                                    ${item["first-impression-caption"]}
-                                </a>
-                            </div>`;
-                    });
-                    sliderTrack.innerHTML = window.innerWidth >= 1024 ? imagesHTML + imagesHTML : imagesHTML;
-                })
-                .catch(error => console.error("Error fetching banner JSON:", error));
-        }
-
-        function initModal() {
-            const openModalBtn = document.getElementById('openModalBtn');
-            const closeModalBtn = document.getElementById('closeModalBtn');
-            const cvModal = document.getElementById('cvModal');
-            if (!openModalBtn || !closeModalBtn || !cvModal) return;
-            openModalBtn.addEventListener('click', () => cvModal.classList.add('active'));
-            closeModalBtn.addEventListener('click', () => cvModal.classList.remove('active'));
-            cvModal.addEventListener('click', (e) => {
-                if (e.target === cvModal) cvModal.classList.remove('active');
-            });
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && cvModal.classList.contains('active')) cvModal.classList.remove('active');
-            });
-        }
-
-        function initUnHighlightedFeatures() {
-            const section = document.getElementById("un-highlighted-features");
-            if (!section) return;
-            function getCategoriesData() {
-                const key = "categoriesData";
-                return new Promise((resolve, reject) => {
-                    let data = localStorage.getItem(key);
-                    if (data) resolve(JSON.parse(data));
-                    else {
-                        fetch("feature-project-category.json")
-                            .then(response => {
-                                if (!response.ok) reject(new Error('Network response was not ok'));
-                                return response.json();
-                            })
-                            .then(data => {
-                                localStorage.setItem(key, JSON.stringify(data));
-                                resolve(data);
-                            })
-                            .catch(reject);
-                    }
-                });
-            }
-            function getProjectsData() {
-                const key = "projectsData";
-                return new Promise((resolve, reject) => {
-                    let data = localStorage.getItem(key);
-                    if (data) resolve(JSON.parse(data));
-                    else {
-                        fetch("feature-project.json")
-                            .then(response => {
-                                if (!response.ok) reject(new Error('Network response was not ok'));
-                                return response.json();
-                            })
-                            .then(data => {
-                                localStorage.setItem(key, JSON.stringify(data));
-                                resolve(data);
-                            })
-                            .catch(reject);
-                    }
-                });
-            }
-            Promise.all([getCategoriesData(), getProjectsData()])
-                .then(([categories, projects]) => {
-                    const unhighlightedProjects = projects.filter(p => p["feature-project-type"] === "un-highlighted");
-                    const grouped = {};
-                    unhighlightedProjects.forEach(project => {
-                        const catId = project["project-feature-main-category-id"];
-                        if (!grouped[catId]) grouped[catId] = [];
-                        grouped[catId].push(project);
-                    });
-                    categories.forEach(category => {
-                        const catId = category.id;
-                        if (grouped[catId] && grouped[catId].length > 0) {
-                            const card = document.createElement("div");
-                            card.className = "un-highlighted-category-slider";
-                            const sliderWrapper = document.createElement("div");
-                            sliderWrapper.className = "un-highlighted-slider-wrapper";
-                            const link = document.createElement("a");
-                            link.href = "details.html?cat=" + encodeURIComponent(category.id);
-                            link.className = "un-highlighted-features-slider-link";
-                            const headerDiv = document.createElement("div");
-                            headerDiv.className = "un-highlighted-category-header";
-                            const categoryTitle = document.createElement("h2");
-                            categoryTitle.textContent = category.categoryName;
-                            headerDiv.appendChild(categoryTitle);
-                            const categoryDesc = document.createElement("p");
-                            categoryDesc.className = "un-highlighted-category-description";
-                            categoryDesc.textContent = category.description;
-                            headerDiv.appendChild(categoryDesc);
-                            link.appendChild(headerDiv);
-                            const sliderContainer = document.createElement("div");
-                            sliderContainer.className = "un-highlighted-features-slider-container";
-                            const sliderTrack = document.createElement("div");
-                            sliderTrack.className = "un-highlighted-features-slider-track";
-                            const projectSlides = [];
-                            grouped[catId].forEach(project => {
-                                const gallery = project["feature-project-gallery"];
-                                if (gallery && gallery.length >= 2) {
-                                    const slidesForProject = [];
-                                    for (let i = 0; i < 2; i++) {
-                                        const slide = document.createElement("div");
-                                        slide.className = "un-highlighted-features-slide";
-                                        const img = document.createElement("img");
-                                        img.src = gallery[i].image;
-                                        img.alt = gallery[i]["alt-text"] || project["feature-project-name"];
-                                        slide.appendChild(img);
-                                        slidesForProject.push(slide);
-                                    }
-                                    projectSlides.push(slidesForProject);
-                                }
-                            });
-                            let finalSlides = [];
-                            if (projectSlides.length > 1) {
-                                seededShuffleArray(projectSlides, 12345);
-                                const numberOfSlidesPerProject = projectSlides[0].length;
-                                for (let i = 0; i < numberOfSlidesPerProject; i++) {
-                                    projectSlides.forEach(slidesForProject => {
-                                        if (slidesForProject[i]) finalSlides.push(slidesForProject[i]);
-                                    });
-                                }
-                            } else if (projectSlides.length === 1) {
-                                finalSlides = projectSlides[0];
-                            }
-                            finalSlides.forEach(slide => sliderTrack.appendChild(slide));
-                            sliderContainer.appendChild(sliderTrack);
-                            link.appendChild(sliderContainer);
-                            sliderWrapper.appendChild(link);
-                            card.appendChild(sliderWrapper);
-                            section.appendChild(card);
-                        }
-                    });
-                })
-                .catch(error => console.error("Error fetching un-highlighted features:", error));
-        }
-
-        function seededShuffleArray(array, seed) {
-            const random = mulberry32(seed);
-            for (let i = array.length - 1; i > 0; i--) {
-                const j = Math.floor(random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]];
-            }
-        }
-        function mulberry32(a) {
-            return function() {
-                var t = (a += 0x6d2b79f5);
-                t = Math.imul(t ^ (t >>> 15), t | 1);
-                t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
-                return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-            };
-        }
-
-        function initProjectFilter() {
-            const filterSelect = document.getElementById('category-filter');
-            const projectsGrid = document.querySelector('#projects-container .projects-grid-inner');
-            if (!filterSelect || !projectsGrid) {
-                console.warn('Project filter elements not found:', { filterSelect, projectsGrid });
-                return;
-            }
-
-            function getCategoriesData() {
-                const key = "categoriesData";
-                return new Promise((resolve, reject) => {
-                    let data = localStorage.getItem(key);
-                    if (data) resolve(JSON.parse(data));
-                    else {
-                        fetch("feature-project-category.json")
-                            .then(response => {
-                                if (!response.ok) throw new Error('Failed to fetch categories: ' + response.statusText);
-                                return response.json();
-                            })
-                            .then(data => {
-                                localStorage.setItem(key, JSON.stringify(data));
-                                resolve(data);
-                            })
-                            .catch(error => reject(error));
-                    }
-                });
-            }
-
-            function getProjectsData() {
-                const key = "projectsData";
-                return new Promise((resolve, reject) => {
-                    let data = localStorage.getItem(key);
-                    if (data) resolve(JSON.parse(data));
-                    else {
-                        fetch("feature-project.json")
-                            .then(response => {
-                                if (!response.ok) throw new Error('Failed to fetch projects: ' + response.statusText);
-                                return response.json();
-                            })
-                            .then(data => {
-                                localStorage.setItem(key, JSON.stringify(data));
-                                resolve(data);
-                            })
-                            .catch(error => reject(error));
-                    }
-                });
-            }
-
-            Promise.all([getCategoriesData(), getProjectsData()])
-                .then(([categories, projects]) => {
-                    console.log("Categories loaded:", categories);
-                    console.log("Projects loaded:", projects);
-
-                    // Populate dropdown
-                    categories.forEach(category => {
-                        const option = document.createElement('option');
-                        option.value = category.id;
-                        option.textContent = category.categoryName;
-                        filterSelect.appendChild(option);
-                    });
-
-                    function createProjectCard(project) {
-                        const card = document.createElement('div');
-                        card.className = 'project-card';
-                        const link = document.createElement('a');
-                        link.href = project['feature-project-link'] || '#';
-                        link.className = 'card-link';
-                        const imageContainer = document.createElement('div');
-                        imageContainer.className = 'card-image-container';
-                        const img = document.createElement('img');
-                        img.src = project['feature-project-thumbnail'];
-                        img.alt = project['feature-project-name'];
-                        img.className = 'card-image';
-                        imageContainer.appendChild(img);
-                        const content = document.createElement('div');
-                        content.className = 'card-content';
-                        const name = document.createElement('h3');
-                        name.className = 'project-name';
-                        name.textContent = project['feature-project-name'];
-                        const description = document.createElement('p');
-                        description.className = 'project-description';
-                        description.textContent = project['feature-project-description'];
-                        content.append(name, description);
-                        link.append(imageContainer, content);
-                        card.appendChild(link);
-                        return card;
-                    }
-
-                    function displayProjects(filterValue) {
-                        projectsGrid.innerHTML = '';
-                        let filteredProjects = [];
-                        if (filterValue === 'highlighted') {
-                            filteredProjects = projects.filter(p => p['feature-project-type'] === 'highlighted');
-                        } else {
-                            filteredProjects = projects.filter(p => String(p['project-feature-main-category-id']) === String(filterValue));
-                        }
-                        console.log(`Displaying projects for filter "${filterValue}":`, filteredProjects);
-                        if (filteredProjects.length === 0) {
-                            projectsGrid.innerHTML = '<p>No projects found for this category.</p>';
-                        } else {
-                            filteredProjects.forEach(project => {
-                                const card = createProjectCard(project);
-                                projectsGrid.appendChild(card);
-                            });
-                        }
-                    }
-
-                    // Initial display
-                    displayProjects('highlighted');
-
-                    filterSelect.addEventListener('change', (e) => {
-                        const selectedValue = e.target.value;
-                        displayProjects(selectedValue);
-                    });
-                })
-                .catch(error => {
-                    console.error('Error initializing project filter:', error);
-                    projectsGrid.innerHTML = '<p>Failed to load projects. Please try again later.</p>';
-                });
-        }
-
-        window.addEventListener('load', () => {
-            const timing = window.performance.timing;
-            const loadTime = timing.loadEventEnd - timing.navigationStart;
-            console.log(`Page loaded in ${loadTime}ms`);
-        });
-
-        window.onerror = function(message, source, lineno, colno, error) {
-            console.error(`Error: ${message} at ${source}:${lineno}:${colno}`);
-            return true;
-        };
-    </script>
-
+    <!-- Progressive Enhancement -->
     <noscript>
         <style>
             .no-js-warning {
