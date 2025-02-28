@@ -10,6 +10,8 @@
     <link rel="preload" href="styles.css" as="style">
     <link rel="stylesheet" href="styles.css" media="all">
     <link rel="stylesheet" href="shareable.css" media="all">
+    <!-- Adding navigation.css from your later files for completeness -->
+    <link rel="stylesheet" href="navigation.css" media="all">
     <meta name="theme-color" content="#3a5f40">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -126,7 +128,7 @@
             <h1 id="modalTitle">Matthew Bradley</h1>
             <div class="section" id="cvHeader">
                 <p><i class="fa-solid fa-user icon"></i> Sculpting Models & Props</p>
-                <p><i class="fa-solid fa-envelope icon"></i> <a href="/cdn-cgi/l/email-protection#3f52585d4d5e5b535a0e59121c7f58525e565b195c5052">[email protected]</a></p>
+                <p><i class="fa-solid fa-envelope icon"></i> <a href="/cdn-cgi/l/email-protection#3f52585d4d5e5b535a46114a547f58525e5653115c5052">[email protected]</a></p>
                 <p><i class="fa-solid fa-phone icon"></i> <a href="tel:07428464118">07428464118</a></p>
                 <p><i class="fa-solid fa-globe icon"></i> <a href="https://mgbradley.uk" target="_blank">mgbradley.uk</a></p>
                 <p><i class="fa-brands fa-instagram icon"></i> <a href="https://www.instagram.com/m.g.b_artwork/" target="_blank">@m.gb_artwork</a></p>
@@ -134,9 +136,9 @@
             <div class="section" id="about">
                 <h2><i class="fa-solid fa-info-circle icon"></i> About</h2>
                 <p>I'm a model and prop maker with a keen affinity for sculpting from North Somerset...</p>
-                <!-- Rest of the about content -->
+                <!-- Rest of CV content unchanged -->
             </div>
-            <!-- Other CV sections remain unchanged -->
+            <!-- Other CV sections unchanged -->
         </div>
     </div>
 
@@ -723,9 +725,9 @@
 
         function initProjectFilter() {
             const filterSelect = document.getElementById('category-filter');
-            const projectsGrid = document.querySelector('.projects-grid-inner');
+            const projectsGrid = document.querySelector('#projects-container .projects-grid-inner');
             if (!filterSelect || !projectsGrid) {
-                console.warn('Project filter elements not found.');
+                console.warn('Project filter elements not found:', { filterSelect, projectsGrid });
                 return;
             }
 
@@ -736,12 +738,15 @@
                     if (data) resolve(JSON.parse(data));
                     else {
                         fetch("feature-project-category.json")
-                            .then(response => response.ok ? response.json() : reject(new Error('Network response was not ok')))
+                            .then(response => {
+                                if (!response.ok) throw new Error('Failed to fetch categories: ' + response.statusText);
+                                return response.json();
+                            })
                             .then(data => {
                                 localStorage.setItem(key, JSON.stringify(data));
                                 resolve(data);
                             })
-                            .catch(reject);
+                            .catch(error => reject(error));
                     }
                 });
             }
@@ -753,18 +758,25 @@
                     if (data) resolve(JSON.parse(data));
                     else {
                         fetch("feature-project.json")
-                            .then(response => response.ok ? response.json() : reject(new Error('Network response was not ok')))
+                            .then(response => {
+                                if (!response.ok) throw new Error('Failed to fetch projects: ' + response.statusText);
+                                return response.json();
+                            })
                             .then(data => {
                                 localStorage.setItem(key, JSON.stringify(data));
                                 resolve(data);
                             })
-                            .catch(reject);
+                            .catch(error => reject(error));
                     }
                 });
             }
 
             Promise.all([getCategoriesData(), getProjectsData()])
                 .then(([categories, projects]) => {
+                    console.log("Categories loaded:", categories);
+                    console.log("Projects loaded:", projects);
+
+                    // Populate dropdown
                     categories.forEach(category => {
                         const option = document.createElement('option');
                         option.value = category.id;
@@ -805,14 +817,20 @@
                         if (filterValue === 'highlighted') {
                             filteredProjects = projects.filter(p => p['feature-project-type'] === 'highlighted');
                         } else {
-                            filteredProjects = projects.filter(p => p['project-feature-main-category-id'] == filterValue);
+                            filteredProjects = projects.filter(p => String(p['project-feature-main-category-id']) === String(filterValue));
                         }
-                        filteredProjects.forEach(project => {
-                            const card = createProjectCard(project);
-                            projectsGrid.appendChild(card);
-                        });
+                        console.log(`Displaying projects for filter "${filterValue}":`, filteredProjects);
+                        if (filteredProjects.length === 0) {
+                            projectsGrid.innerHTML = '<p>No projects found for this category.</p>';
+                        } else {
+                            filteredProjects.forEach(project => {
+                                const card = createProjectCard(project);
+                                projectsGrid.appendChild(card);
+                            });
+                        }
                     }
 
+                    // Initial display
                     displayProjects('highlighted');
 
                     filterSelect.addEventListener('change', (e) => {
