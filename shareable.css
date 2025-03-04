@@ -29,6 +29,10 @@
     --description-size: clamp(0.9rem, 2vw, 1.2rem);
 }
 
+body {
+margin-top:1rem;
+}
+
 /* Navigation styles */
 .main-navigation-nav {
     background: rgba(255, 255, 255, 0.98);
@@ -140,6 +144,10 @@
 }
 
 @media (max-width: 933px) {
+
+   body {
+      margin:0;
+   }
     .main-navigation-hamburger {
         display: block;
     }
