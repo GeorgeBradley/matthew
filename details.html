@@ -1,1726 +1,1704 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Project Details – Professional Showcase</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="shareable.css" media="all">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    /* CSS Variables & Reset */
-    :root {
-      --primary: #005f73;
-      --secondary: #333;
-      --background: #f7f7f7;
-      --card-bg: #fff;
-      --text: #333;
-      --border: #e0e0e0;
-      --accent: linear-gradient(135deg, #f0f4f8, #d9e2ec);
-      --header-gradient: linear-gradient(135deg, #005f73, #0a9396);
-      --lightbox-bg: rgba(0, 0, 0, 0.8);
-    }
-    *, *::before, *::after { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: var(--background);
-      color: var(--text);
-      line-height: 1.6;
-    }
-    a { text-decoration: none; color: inherit; }
-    
-    /* Project Detail & Header */
-    .project-detail {
-      max-width: 1100px;
-      background: var(--card-bg);
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      animation: fadeIn 0.5s ease-out;
-      margin: 0 auto 2rem auto;
-    }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-    .detail-header {
-      background: var(--header-gradient);
-      text-align: center;
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      padding-bottom: 1rem;
-      position: relative;
-    }
-    .detail-header::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 4px;
-      background: var(--accent);
-      border-radius: 2px;
-    }
-    .project-title {
-      margin: 1rem;
-      font-size: 2.5rem;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-    }
-    .project-meta {
-      font-size: 1rem;
-      opacity: 0.9;
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      padding: 0.3rem;
-    }
-    
-    /* Back Link */
-    .back-link {
-      display: inline-block;
-      background: var(--primary);
-      color: #fff;
-      padding: 0.75rem 1.5rem;
-      border-radius: 8px;
-      font-weight: 600;
-      width: fit-content;
-      transition: background 0.3s ease;
-      margin: 1rem auto;
-    }
-    .back-link:hover { background: #004c59; }
-    
-    /* Images & Content */
-    .detail-image {
-      max-width: 100%;
-      display: block;
-      width: 600px;
-      margin: 1rem auto;
-      height: 250px;
-      object-fit: contain;
-      transition: transform 0.4s ease;
-    }
-    .detail-image:hover { transform: scale(1.03); }
-    .detail-content { padding: 2rem; }
-    .project-description {
-      max-width: 900px;
-      margin: 0 auto 2rem auto;
-      font-size: 1.15rem;
-      text-align: justify;
-      color: var(--secondary);
-    }
-    
-    /* Testimonial Section */
-    .testimonial-section {
-      margin: 2rem 0;
-      padding: 0 2rem;
-      position: relative;
-    }
-    .testimonial-section h2 {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-      position: relative;
-      padding-bottom: 0.5rem;
-    }
-    .testimonial-section h2::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 60px;
-      height: 3px;
-      background: var(--primary);
-      border-radius: 2px;
-    }
-    .testimonial-container {
-      position: relative;
-      overflow: hidden;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    .testimonial-slider {
-      display: flex;
-      transition: transform 0.5s ease;
-      width: 100%;
-    }
-    .testimonial-item {
-      flex: 0 0 100%;
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 2rem;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    }
-    .testimonial-quote { font-size: 1.1rem; font-style: italic; color: var(--secondary); margin-bottom: 1rem; }
-    .testimonial-author { font-weight: 600; color: var(--primary); margin-bottom: 0.5rem; }
-    .testimonial-role { font-size: 0.95rem; color: var(--text); opacity: 0.8; }
-    .testimonial-nav { display: flex; justify-content: center; gap: 1rem; margin-top: 1rem; }
-    .testimonial-nav-btn {
-      background: var(--primary);
-      color: #fff;
-      border: none;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.3s ease, transform 0.3s ease;
-    }
-    .testimonial-nav-btn:hover { background: #004c59; transform: scale(1.1); }
-    .testimonial-nav-btn:disabled { background: #cccccc; cursor: not-allowed; }
-    .testimonial-dots {
-      display: flex;
-      justify-content: center;
-      gap: 0.5rem;
-      margin-top: 1rem;
-    }
-    .testimonial-dot {
-      width: 10px;
-      height: 10px;
-      background: var(--border);
-      border-radius: 50%;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-    .testimonial-dot.active { background: var(--primary); }
-    
-    /* YouTube Video Section */
-    .youtube-section {
-      margin: 2rem 0;
-      position: relative;
-    }
-    .youtube-section h2 {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-      position: relative;
-      padding-bottom: 0.5rem;
-    }
-    .youtube-section h2::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 60px;
-      height: 3px;
-      background: var(--primary);
-      border-radius: 2px;
-    }
-    .youtube-container {
-      position: relative;
-      overflow: hidden;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    .youtube-slider {
-      display: flex;
-      transition: transform 0.5s ease;
-      width: 100%;
-    }
-    .youtube-item {
-      flex: 0 0 100%;
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1rem;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    }
-    .youtube iframe {
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      border: none;
-      margin-bottom: 1rem;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .youtube-title {
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: var(--primary);
-      margin-bottom: 0.5rem;
-    }
-    .youtube-description {
-      font-size: 1rem;
-      color: var(--secondary);
-    }
-    .youtube-nav {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 1rem;
-      margin-bottom: 20px;
-    }
-    .youtube-nav-btn {
-      background: var(--primary);
-      color: #fff;
-      border: none;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.3s ease, transform 0.3s ease;
-    }
-    .youtube-nav-btn:hover {
-      background: #004c59;
-      transform: scale(1.1);
-    }
-    .youtube-nav-btn:disabled {
-      background: #cccccc;
-      cursor: not-allowed;
-    }
-    .youtube-dots {
-      display: flex;
-      justify-content: center;
-      gap: 0.5rem;
-      margin-top: 1rem;
-    }
-    .youtube-dot {
-      width: 10px;
-      height: 10px;
-      background: var(--border);
-      border-radius: 50%;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-    .youtube-dot.active {
-      background: var(--primary);
-    }
-    @media (max-width: 768px) {
-      .youtube-section h2 {
-        font-size: 1.8rem;
-      }
-    }
-    @media (max-width: 480px) {
-      .youtube iframe { height: 180px; }
-    }
-
-    /* Gallery Section */
-    .gallery-section {
-      margin: 2rem 0;
-      padding: 0 2rem;
-    }
-    .gallery-section h2 {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-      position: relative;
-      padding-bottom: 0.5rem;
-    }
-    .gallery-section h2::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 60px;
-      height: 3px;
-      background: var(--primary);
-      border-radius: 2px;
-    }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .gallery-item {
-      position: relative;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      overflow: hidden;
-      cursor: pointer;
-      background: var(--card-bg);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .gallery-item:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
-    .gallery-thumbnail {
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      object-fit: contain;
-      display: block;
-    }
-    .gallery-overlay {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: rgba(0, 95, 115, 0.85);
-      color: #fff;
-      padding: 0.5rem;
-      font-size: 0.95rem;
-      text-align: center;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-    .gallery-item:hover .gallery-overlay { opacity: 1; }
-    
-    /* Pagination (for mobile gallery) */
-    .pagination-controls {
-      display: none;
-      justify-content: center;
-      align-items: center;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-    @media (max-width: 1023px) { .pagination-controls { display: flex; } }
-    .pagination-button {
-      background: var(--primary);
-      color: #fff;
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 4px;
-      cursor: pointer;
-      font-weight: 600;
-      transition: background 0.3s ease;
-    }
-    .pagination-button:hover { background: #004c59; }
-    .pagination-info { font-size: 0.95rem; color: var(--secondary); }
-    
-    /* Detail Grid & Skills */
-    .detail-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin: 2rem 0;
-      padding: 0 2rem;
-    }
-    .detail-item {
-      background: var(--background);
-      padding: 1.5rem;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .detail-item:hover { transform: translateY(-3px); box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
-    .detail-item h3 {
-      font-size: 1.1rem;
-      margin-bottom: 0.5rem;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      color: var(--primary);
-    }
-    .skill-list {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.5rem;
-      margin-top: 0.75rem;
-    }
-    .skill-tag {
-      background: var(--primary);
-      color: #fff;
-      padding: 0.4rem 0.8rem;
-      border-radius: 20px;
-      font-size: 0.9rem;
-      font-weight: 600;
-    }
-
-    #project-detail-container {
-      padding: .5rem;
-    }
-    /* Other Project Navigation */
-    .other-project-nav-container {
-      display: flex;
-      justify-content: space-between;
-      background: var(--accent);
-      border-top: 1px solid var(--border);
-      flex-wrap: wrap;
-      padding: 1rem;
-      gap: 1rem;
-    }
-    .other-project-nav-button {
-      flex: 1;
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 600;
-      transition: background 0.3s ease, transform 0.3s ease;
-      color: var(--text);
-      flex-direction: column;
-      padding: 0.5rem;
-      text-align: center;
-    }
-    .other-project-nav-container i {
-      width: 100%;
-      text-align: center;
-      margin: 0.3rem;
-      padding: 0.5rem;
-    }
-    .other-project-nav-button:hover {
-      background: #f0f4f8;
-      transform: translateY(-2px);
-      border-color: var(--primary);
-    }
-    
-    /* Related Projects Section */
-    .related-projects {
-      margin: 2rem 0;
-      padding: 0 2rem;
-      position: relative;
-    }
-    .related-projects h2 {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-      position: relative;
-      padding-bottom: 0.5rem;
-    }
-    .related-projects h2::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 60px;
-      height: 3px;
-      background: var(--primary);
-      border-radius: 2px;
-    }
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .related-project {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      text-align: center;
-    }
-    .related-project:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    }
-    .related-thumbnail {
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      object-fit: contain;
-      display: block;
-    }
-    .related-project h3 {
-      padding: 1rem;
-      font-size: 1.1rem;
-      color: var(--text);
-    }
-    
-    /* Lightbox */
-    .lightbox {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: var(--lightbox-bg);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 1rem;
-      z-index: 1000;
-    }
-    .lightbox.active { opacity: 1; pointer-events: auto; }
-    .lightbox-content {
-      position: relative;
-      background: #000;
-      border-radius: 8px;
-      overflow: hidden;
-      width: 900px;
-      display: flex;
-      flex-direction: column;
-    }
-    .lightbox-image-container {
-      position: relative;
-      width: 100%;
-      text-align: center;
-      background: #000;
-    }
-    .lightbox-image {
-      max-width: 100%;
-      height: 500px;
-      object-fit: contain;
-      display: block;
-      margin: 0 auto;
-      transition: opacity 0.3s ease;
-    }
-    .lightbox-caption {
-      background: var(--primary);
-      color: #fff;
-      padding: 1rem;
-      font-size: 1rem;
-      text-align: center;
-    }
-    .nav-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(255, 255, 255, 0.2);
-      border: none;
-      border-radius: 50%;
-      width: 44px;
-      height: 44px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.3s ease, background 0.3s ease;
-      color: #fff;
-      font-size: 1.5rem;
-    }
-    .nav-btn:hover { transform: translateY(-50%) scale(1.1); background: rgba(255, 255, 255, 0.3); }
-    .prev-btn { left: 10px; }
-    .next-btn { right: 10px; }
-    .close-btn {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: rgba(255, 255, 255, 0.2);
-      border: none;
-      border-radius: 50%;
-      width: 36px;
-      height: 36px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 10;
-      transition: transform 0.3s ease, background 0.3s ease;
-    }
-    .close-btn:hover { transform: scale(1.1); background: rgba(255, 255, 255, 0.3); }
-    .close-btn::before,
-    .close-btn::after {
-      content: '';
-      position: absolute;
-      width: 18px;
-      height: 2px;
-      background: #fff;
-    }
-    .close-btn::before { transform: rotate(45deg); }
-    .close-btn::after { transform: rotate(-45deg); }
-    .loading-spinner {
-      position: absolute;
-      width: 40px;
-      height: 40px;
-      border: 3px solid rgba(255, 255, 255, 0.3);
-      border-radius: 50%;
-      border-top-color: #fff;
-      animation: spin 1s ease-in-out infinite;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      display: none;
-    }
-    @keyframes spin { to { transform: rotate(360deg); } }
-    
-    /* Back-to-Top */
-    .back-to-top {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--primary);
-      color: #fff;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      opacity: 0;
-      transition: opacity 0.3s ease, transform 0.3s ease;
-      z-index: 100;
-    }
-    .back-to-top.visible { opacity: 0.8; }
-    .back-to-top:hover { opacity: 1; transform: translateX(-50%) scale(1.1); }
-    .back-to-top i { font-size: 1.5rem; }
-    
-    /* Responsive Adjustments */
-    @media (max-width: 1024px) { .detail-image { } }
-    @media (max-width: 768px) {
-      .detail-content { padding: 1.5rem; }
-      .project-description { font-size: 1.05rem; }
-      .gallery-section h2 { font-size: 1.8rem; }
-      .detail-grid { padding: 0 1rem; }
-      .other-project-nav-container { padding: 1rem; }
-      .testimonial-item { padding: 1.5rem; }
-      .testimonial-quote { font-size: 1rem; }
-      .testimonial-section h2 { font-size: 1.8rem; }
-      .youtube-section h2 { font-size: 1.8rem; }
-    }
-    @media (max-width: 480px) {
-      .project-meta { flex-direction: column; gap: 0.5rem; }
-      .detail-image { height: 300px; }
-      .nav-btn { width: 36px; height: 36px; font-size: 1.2rem; }
-      .close-btn { width: 32px; height: 32px; top: 5px; right: 5px; }
-      .back-to-top { width: 40px; height: 40px; }
-      .back-to-top i { font-size: 1.2rem; }
-    }
-  </style>
-</head>
-<body>
-  <nav class="main-navigation-nav">
-    <a href="index.html#home">
-      <img src="Header.png" alt="Logo" class="main-navigation-logo">
-    </a>
-    <div class="main-navigation-nav-links">
-      <a href="index.html#home">Home</a>
-      <a href="index.html#projects-container">Projects</a>
-      <a href="index.html#contact">Contact</a>
-      <a href="portfolio-cv.html" class="cta-button">CV / Portfolio</a>
-    </div>
-    <button class="main-navigation-hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-  </nav>
-
-  <br><br><br><br>
-
-  <!-- Project Detail Container -->
-  <main id="project-detail-container"></main>
-
-  <div class="back-to-top" title="Back to Top">
-    <i class="fas fa-chevron-up"></i>
-  </div>
-
-  <script>
-    // -------------------------------
-    // 1. SLUGIFY HELPER FUNCTION
-    // -------------------------------
-    function slugify(text) {
-      return text.toString().toLowerCase()
-        .replace(/\s+/g, '-')      // Replace spaces with -
-        .replace(/[^\w\-]+/g, '')  // Remove all non-word chars
-        .replace(/\-\-+/g, '-')    // Replace multiple - with single -
-        .replace(/^-+/, '')        // Trim - from start of text
-        .replace(/-+$/, '');       // Trim - from end of text
-    }
-
-    // -------------------------------
-    // Global Variables and URLs
-    // -------------------------------
-    const PROJECTS_URL = 'feature-project.json';
-    const CATEGORIES_URL = 'feature-project-category.json';
-    const detailsContainer = document.getElementById('project-detail-container');
-    const urlParams = new URLSearchParams(window.location.search);
-    const projectParam = urlParams.get('id');
-    const slugParam = urlParams.get('slug');  // New slug parameter
-    const categoryParam = urlParams.get('cat');
-    
-    let allProjects = [];
-    let allCategories = [];
-    let galleryImagesGlobal = [];
-    const imagesPerPage = 5;
-    let currentGalleryPage = 1;
-    let currentImageIndex = 0;
-    let lightboxInitialized = false;
-    
-    // Global Stopwords (can be extended)
-    const stopwords = new Set(['the', 'and', 'is', 'in', 'at', 'of', 'a', 'an', 'to', 'for', 'with', 'on', 'by', 'this', 'that', 'it']);
-
-    // Tokenizer used for text processing
-    function tokenize(text) {
-      return text.toLowerCase()
-                 .replace(/[^\w\s]/g, '')
-                 .split(/\s+/)
-                 .filter(word => word && !stopwords.has(word));
-    }
-
-    // Compute TF-IDF vectors for all project descriptions
-    function computeTFIDFVectors(projects) {
-      const N = projects.length;
-      const tfVectors = {};  // {projectId: {tf: {token: count}, total: number}}
-      const df = {};         // document frequency: {token: count}
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+  <meta charset="UTF-8" />  
+  <meta name="viewport" content="width=device-width, initial-scale=1" />  
+  <title>Project Details – Professional Showcase</title>  
+  <link rel="preconnect" href="https://fonts.googleapis.com">  
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">  
+  <link rel="stylesheet" href="shareable.css" media="all">  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">  
+  <style>  
+    /* CSS Variables & Reset */  
+    :root {  
+      --primary: #005f73;  
+      --secondary: #333;  
+      --background: #f7f7f7;  
+      --card-bg: #fff;  
+      --text: #333;  
+      --border: #e0e0e0;  
+      --accent: linear-gradient(135deg, #f0f4f8, #d9e2ec);  
+      --header-gradient: linear-gradient(135deg, #005f73, #0a9396);  
+      --lightbox-bg: rgba(0, 0, 0, 0.8);  
+    }  
+    *, *::before, *::after { box-sizing: border-box; }  
+    body {  
+      margin: 0;  
+      font-family: 'Poppins', sans-serif;  
+      background: var(--background);  
+      color: var(--text);  
+      line-height: 1.6;  
+    }  
+    a { text-decoration: none; color: inherit; }  
       
-      projects.forEach(p => {
-        if (p["feature-project-long-description"]) {
-          const tokens = tokenize(p["feature-project-long-description"]);
-          tfVectors[p.id] = { tf: {}, total: tokens.length };
-          // Count term frequencies
-          tokens.forEach(token => {
-            tfVectors[p.id].tf[token] = (tfVectors[p.id].tf[token] || 0) + 1;
-          });
-          // Update document frequencies (unique tokens)
-          new Set(tokens).forEach(token => {
-            df[token] = (df[token] || 0) + 1;
-          });
-        }
-      });
+    /* Project Detail & Header */  
+    .project-detail {  
+      max-width: 1100px;  
+      background: var(--card-bg);  
+      border-radius: 12px;  
+      overflow: hidden;  
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);  
+      animation: fadeIn 0.5s ease-out;  
+      margin: 0 auto 2rem auto;  
+    }  
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }  
+    .detail-header {  
+      background: var(--header-gradient);  
+      text-align: center;  
+      color: #fff;  
+      display: flex;  
+      flex-direction: column;  
+      padding-bottom: 1rem;  
+      position: relative;  
+    }  
+    .detail-header::after {  
+      content: '';  
+      position: absolute;  
+      bottom: 0;  
+      left: 50%;  
+      transform: translateX(-50%);  
+      width: 80px;  
+      height: 4px;  
+      background: var(--accent);  
+      border-radius: 2px;  
+    }  
+    .project-title {  
+      margin: 1rem;  
+      font-size: 2.5rem;  
+      font-weight: 700;  
+      letter-spacing: 1px;  
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);  
+    }  
+    .project-meta {  
+      font-size: 1rem;  
+      opacity: 0.9;  
+      display: flex;  
+      justify-content: center;  
+      gap: 1rem;  
+      padding: 0.3rem;  
+    }  
       
-      // Build TF-IDF vectors
-      const tfidfVectors = {};
-      Object.keys(tfVectors).forEach(docId => {
-        const { tf, total } = tfVectors[docId];
-        const vector = {};
-        Object.keys(tf).forEach(token => {
-          const termFreq = tf[token] / total;
-          const inverseDF = Math.log(N / (df[token] + 1)); // smoothing by adding 1
-          vector[token] = termFreq * inverseDF;
-        });
-        // Compute vector magnitude
-        const magnitude = Math.sqrt(Object.values(vector).reduce((sum, w) => sum + w * w, 0));
-        tfidfVectors[docId] = { vector, magnitude };
-      });
+    /* Back Link */  
+    .back-link {  
+      display: inline-block;  
+      background: var(--primary);  
+      color: #fff;  
+      padding: 0.75rem 1.5rem;  
+      border-radius: 8px;  
+      font-weight: 600;  
+      width: fit-content;  
+      transition: background 0.3s ease;  
+      margin: 1rem auto;  
+    }  
+    .back-link:hover { background: #004c59; }  
       
-      return tfidfVectors;
-    }
-    
-    // Cosine similarity between two TF-IDF vectors
-    function cosineSimilarity(vecA, magA, vecB, magB) {
-      let dot = 0;
-      for (let token in vecA) {
-        if (vecB[token]) {
-          dot += vecA[token] * vecB[token];
-        }
-      }
-      return (magA && magB) ? dot / (magA * magB) : 0;
-    }
-    
-    // Data Fetching with Local Storage
-    function getProjectsData() {
-      const key = "projectsData";
-      return new Promise((resolve, reject) => {
-        let data = localStorage.getItem(key);
-        if (data) {
-          resolve(JSON.parse(data));
-        } else {
-          fetch(PROJECTS_URL)
-            .then(response => {
-              if (!response.ok) { reject(new Error('Network response was not ok')); }
-              return response.json();
-            })
-            .then(data => { localStorage.setItem(key, JSON.stringify(data)); resolve(data); })
-            .catch(reject);
-        }
-      });
-    }
-    
-    function getCategoriesData() {
-      const key = "categoriesData";
-      return new Promise((resolve, reject) => {
-        let data = localStorage.getItem(key);
-        if (data) {
-          resolve(JSON.parse(data));
-        } else {
-          fetch(CATEGORIES_URL)
-            .then(response => {
-              if (!response.ok) { reject(new Error('Network response was not ok')); }
-              return response.json();
-            })
-            .then(data => { localStorage.setItem(key, JSON.stringify(data)); resolve(data); })
-            .catch(reject);
-        }
-      });
-    }
-    
-    async function fetchData() {
-      try {
-        allProjects = await getProjectsData();
-        allCategories = await getCategoriesData();
-      } catch (error) {
-        console.error('Error loading data:', error);
-      }
-    }
-    
-    // Advanced Related Projects Algorithm using TF-IDF cosine similarity
-    function getRelatedProjects(currentProjectId, allProjects) {
-      const currentProject = allProjects.find(p => p.id === currentProjectId);
-      if (!currentProject) return [];
-
-      // Precompute frequencies for client, category, and skills as before
-      const clientFreq = {};
-      const categoryFreq = {};
-      const skillFreq = {};
-
-      allProjects.forEach(p => {
-        const client = p["feature-project-client"];
-        if (client) clientFreq[client] = (clientFreq[client] || 0) + 1;
-        const category = p["project-feature-main-category-id"];
-        if (category) categoryFreq[category] = (categoryFreq[category] || 0) + 1;
-        (p["feature-project-skills"] || []).forEach(s => {
-          skillFreq[s] = (skillFreq[s] || 0) + 1;
-        });
-      });
-
-      // Compute TF-IDF vectors for descriptions
-      const tfidfVectors = computeTFIDFVectors(allProjects);
-      const currentTFIDF = tfidfVectors[currentProject.id];
-
-      // Calculate scores for each other project
-      const scoredProjects = allProjects
-        .filter(p => p.id !== currentProjectId)
-        .map(project => {
-          let score = 0;
-          // Client similarity
-          if (project["feature-project-client"] === currentProject["feature-project-client"]) {
-            score += 3 / Math.sqrt(clientFreq[project["feature-project-client"]] || 1);
-          }
-          // Category similarity
-          if (project["project-feature-main-category-id"] === currentProject["project-feature-main-category-id"]) {
-            score += 2 / Math.sqrt(categoryFreq[project["project-feature-main-category-id"]] || 1);
-          }
-          // Skills overlap
-          const currentSkills = currentProject["feature-project-skills"] || [];
-          const projectSkills = project["feature-project-skills"] || [];
-          const sharedSkills = projectSkills.filter(s => currentSkills.includes(s));
-          sharedSkills.forEach(skill => {
-            score += 1 / Math.sqrt(skillFreq[skill] || 1);
-          });
-          // Timeline proximity (bonus for same start year)
-          const currentYear = currentProject["feature-project-start-year"] || "";
-          const projectYear = project["feature-project-start-year"] || "";
-          if (currentYear && projectYear && currentYear === projectYear) {
-            score += 0.5;
-          }
-          // Advanced description similarity using TF-IDF cosine similarity
-          let tfidfSim = 0;
-          if (currentTFIDF && tfidfVectors[project.id]) {
-            tfidfSim = cosineSimilarity(currentTFIDF.vector, currentTFIDF.magnitude, tfidfVectors[project.id].vector, tfidfVectors[project.id].magnitude);
-          }
-          score += tfidfSim * 2.0; // multiplier can be tuned
-
-          return { project, score };
-        })
-        .filter(item => item.score > 0)
-        .sort((a, b) => b.score - a.score)
-        .slice(0, 3)
-        .map(item => item.project);
-
-      return scoredProjects;
-    }
-    
-    // Initialization
-    async function initPage() {
-      await fetchData();
-      let project;
-      if (categoryParam) {
-        // Category view (not the focus now)
-        const category = allCategories.find(c => c.id === Number(categoryParam));
-        if (category) {
-          const filteredProjects = allProjects.filter(
-            p => p["project-feature-main-category-id"] === Number(categoryParam) &&
-                 p["feature-project-type"] === "un-highlighted"
-          );
-          renderCategoryDetails(category, filteredProjects);
-          initLightbox();
-        } else { showDetailError(); }
-      } else {
-        // New: Check for slug parameter first, then fallback to id.
-        if (slugParam) {
-          project = allProjects.find(p => slugify(p["feature-project-name"]) === slugParam);
-        } else if (projectParam) {
-          project = allProjects.find(p => p.id === Number(projectParam));
-        }
-        if (project) {
-          renderProjectDetails(project, allProjects);
-          initLightbox();
-        } else { showDetailError(); }
-      }
-    }
-    
-    // Helper Function for Navigation
-    function getNavigationProjects(project, allProjects) {
-      const highlightedProjects = allProjects
-        .filter(p => p["feature-project-type"] === "highlighted")
-        .sort((a, b) => a["feature-project-order"] - b["feature-project-order"]);
-      const currentIndex = highlightedProjects.findIndex(p => p.id === project.id);
-      if (currentIndex === -1) {
-        return { prevProject: null, nextProject: null };
-      }
-      const prevProject = currentIndex > 0 ? highlightedProjects[currentIndex - 1] : null;
-      const nextProject = currentIndex < highlightedProjects.length - 1 ? highlightedProjects[currentIndex + 1] : null;
-      return { prevProject, nextProject };
-    }
-    
-    // Single Project View
-    function renderProjectDetails(project, projects) {
-      const { prevProject, nextProject } = getNavigationProjects(project, projects);
-      const testimonials = project["feature-project-testimonial"] && 
-                           Array.isArray(project["feature-project-testimonial"]) ? 
-                           project["feature-project-testimonial"].filter(t => t["testimonial-quote"] && t["testimonial-quote"] !== null) : [];
-      const hasTestimonials = testimonials.length > 0;
-      const testimonialCount = testimonials.length;
-      const testimonialSectionTitle = testimonialCount === 1 ? 'Testimonial' : 'Testimonials';
-
-      const youtubeVideos = project["feature-project-youtube-link"] && 
-                            Array.isArray(project["feature-project-youtube-link"]) && 
-                            project["feature-project-youtube-link"].length > 0 ? 
-                            project["feature-project-youtube-link"].filter(video => video.url && video.url !== null && video.url !== '') : [];
-      const hasYouTubeVideos = youtubeVideos.length > 0;
-      const videoCount = youtubeVideos.length;
-      const youtubeSectionTitle = videoCount === 1 ? 'Video' : 'Videos';
-
-      const relatedProjects = getRelatedProjects(project.id, projects);
-
-      detailsContainer.innerHTML = `
-        <a href="index.html" class="back-link">
-          <i class="fas fa-arrow-left"></i> Back to Projects
-        </a>
-        <article class="project-detail">
-          <header class="detail-header">
-            <h1 class="project-title">${project["feature-project-name"]}</h1>
-            ${project["feature-project-start-year"] ? `
-              <div class="project-meta">
-                <span>${project["feature-project-start-year"]}${project["feature-project-end-year"] ? ` - ${project["feature-project-end-year"]}` : ''}</span>
-              </div>
-            ` : ''}
-          </header>
-          <img src="${project["feature-project-thumbnail"]}" 
-               alt="${project["feature-project-name"]}" 
-               class="detail-image" loading="lazy">
-          <section class="detail-content">
-            <p class="project-description">${project["feature-project-long-description"]}</p>
-            ${hasTestimonials ? `
-              <div class="testimonial-section">
-                <h2>${testimonialSectionTitle}</h2>
-                <div class="testimonial-container">
-                  <div class="testimonial-slider">
-                    ${testimonials.map(testimonial => `
-                      <div class="testimonial-item">
-                        <p class="testimonial-quote">"${testimonial["testimonial-quote"]}"</p>
-                        <p class="testimonial-author">${testimonial["testimonial-name"]}</p>
-                        <p class="testimonial-role">${testimonial["testimonial-role"]}${testimonial["testimonial-client-name"] ? `, ${testimonial["testimonial-client-name"]}` : ''}</p>
-                      </div>
-                    `).join('')}
-                  </div>
-                </div>
-                ${testimonialCount > 1 ? `
-                  <div class="testimonial-nav">
-                    <button class="testimonial-nav-btn prev" aria-label="Previous testimonial">
-                      <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <button class="testimonial-nav-btn next" aria-label="Next testimonial">
-                      <i class="fas fa-chevron-right"></i>
-                    </button>
-                  </div>
-                  <div class="testimonial-dots">
-                    ${testimonials.map((_, index) => `
-                      <span class="testimonial-dot${index === 0 ? ' active' : ''}" data-index="${index}"></span>
-                    `).join('')}
-                  </div>
-                ` : ''}
-              </div>
-            ` : ''}
-            ${hasYouTubeVideos ? `
-              <div class="youtube-section">
-                <h2>${youtubeSectionTitle}</h2>
-                <div class="youtube-container">
-                  <div class="youtube-slider">
-                    ${youtubeVideos
-                      .sort((a, b) => a.order - b.order)
-                      .map(video => `
-                        <div class="youtube-item">
-                          <iframe src="${video.url}" 
-                                  title="${video.title}" 
-                                  allowfullscreen 
-                                  loading="lazy"></iframe>
-                          <p class="youtube-title">${video.title}</p>
-                          <p class="youtube-description">${video.description}</p>
-                        </div>
-                      `).join('')}
-                  </div>
-                </div>
-                ${videoCount > 1 ? `
-                  <div class="youtube-nav">
-                    <button class="youtube-nav-btn prev" aria-label="Previous video">
-                      <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <button class="youtube-nav-btn next" aria-label="Next video">
-                      <i class="fas fa-chevron-right"></i>
-                    </button>
-                  </div>
-                  <div class="youtube-dots">
-                    ${youtubeVideos.map((_, index) => `
-                      <span class="youtube-dot${index === 0 ? ' active' : ''}" data-index="${index}"></span>
-                    `).join('')}
-                  </div>
-                ` : ''}
-              </div>
-            ` : ''}
-            ${project["feature-project-gallery"] && project["feature-project-gallery"].length ? `
-              <div id="gallery-section-container"></div>
-            ` : ''}
-            <div class="detail-grid">
-              ${project["feature-project-company-name"] ? `
-                <div class="detail-item">
-                  <h3>Company</h3>
-                  <p>${project["feature-project-company-name"]}</p>
-                </div>
-              ` : ''}
-              ${project["feature-project-client"] ? `
-                <div class="detail-item">
-                  <h3>Client</h3>
-                  <p>${project["feature-project-client"]}</p>
-                </div>
-              ` : ''}
-              ${project["feature-project-skills"] && project["feature-project-skills"].length ? `
-                <div class="detail-item">
-                  <h3>Skills Used</h3>
-                  <div class="skill-list">
-                    ${project["feature-project-skills"].map(skill => `<span class="skill-tag">${skill}</span>`).join('')}
-                  </div>
-                </div>
-              ` : ''}
-            </div>
-          </section>
-          ${prevProject || nextProject ? `
-            <nav class="other-project-nav-container">
-              ${prevProject ? `
-                <a href="details.html?id=${prevProject.id}" class="other-project-nav-button" title="Previous project: ${prevProject["feature-project-name"]}">
-                  <i class="fas fa-arrow-left"></i>
-                  <span>${prevProject["feature-project-name"]}</span>
-                </a>
-              ` : '<div class="other-project-nav-spacer"></div>'}
-              ${nextProject ? `
-                <a href="details.html?id=${nextProject.id}" class="other-project-nav-button" title="Next project: ${nextProject["feature-project-name"]}">
-                  <span>${nextProject["feature-project-name"]}</span>
-                  <i class="fas fa-arrow-right"></i>
-                </a>
-              ` : '<div class="other-project-nav-spacer"></div>'}
-            </nav>
-          ` : ''}
-          ${relatedProjects.length > 0 ? `
-            <section class="related-projects">
-              <h2>Related Projects</h2>
-              <div class="project-grid">
-                ${relatedProjects.map(p => `
-                  <a href="details.html?id=${p.id}" class="related-project">
-                    <img src="${p["feature-project-thumbnail"]}" alt="${p["feature-project-name"]}" class="related-thumbnail" loading="lazy">
-                    <h3>${p["feature-project-name"]}</h3>
-                  </a>
-                `).join('')}
-              </div>
-            </section>
-          ` : ''}
-          ${getLightboxMarkup()}
-        </article>
-      `;
-
-      if (project["feature-project-gallery"] && project["feature-project-gallery"].length) {
-        galleryImagesGlobal = project["feature-project-gallery"].sort((a, b) => a.order - b.order);
-        renderGallerySection(galleryImagesGlobal);
-      }
+    /* Images & Content */  
+    .detail-image {  
+      max-width: 100%;  
+      display: block;  
+      width: 600px;  
+      margin: 1rem auto;  
+      height: 250px;  
+      object-fit: contain;  
+      transition: transform 0.4s ease;  
+    }  
+    .detail-image:hover { transform: scale(1.03); }  
+    .detail-content { padding: 2rem; }  
+    .project-description {  
+      max-width: 900px;  
+      margin: 0 auto 2rem auto;  
+      font-size: 1.15rem;  
+      text-align: justify center;  
+      color: var(--secondary);  
+    }  
       
-      if (hasTestimonials && testimonialCount > 1) {
-        initTestimonialSlider(testimonialCount);
-      }
+    /* Testimonial Section */  
+    .testimonial-section {  
+      margin: 2rem 0;  
+      padding: 0 2rem;  
+      position: relative;  
+    }  
+    .testimonial-section h2 {  
+      text-align: center;  
+      font-size: 2rem;  
+      margin-bottom: 1.5rem;  
+      position: relative;  
+      padding-bottom: 0.5rem;  
+    }  
+    .testimonial-section h2::after {  
+      content: '';  
+      position: absolute;  
+      bottom: 0;  
+      left: 50%;  
+      transform: translateX(-50%);  
+      width: 60px;  
+      height: 3px;  
+      background: var(--primary);  
+      border-radius: 2px;  
+    }  
+    .testimonial-container {  
+      position: relative;  
+      overflow: hidden;  
+      max-width: 900px;  
+      margin: 0 auto;  
+    }  
+    .testimonial-slider {  
+      display: flex;  
+      transition: transform 0.5s ease;  
+      width: 100%;  
+    }  
+    .testimonial-item {  
+      flex: 0 0 100%;  
+      background: var(--card-bg);  
+      border: 1px solid var(--border);  
+      border-radius: 8px;  
+      padding: 2rem;  
+      text-align: center;  
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);  
+    }  
+    .testimonial-quote { font-size: 1.1rem; font-style: italic; color: var(--secondary); margin-bottom: 1rem; }  
+    .testimonial-author { font-weight: 600; color: var(--primary); margin-bottom: 0.5rem; }  
+    .testimonial-role { font-size: 0.95rem; color: var(--text); opacity: 0.8; }  
+    .testimonial-nav { display: flex; justify-content: center; gap: 1rem; margin-top: 1rem; }  
+    .testimonial-nav-btn {  
+      background: var(--primary);  
+      color: #fff;  
+      border: none;  
+      border-radius: 50%;  
+      width: 40px;  
+      height: 40px;  
+      cursor: pointer;  
+      display: flex;  
+      align-items: center;  
+      justify-content: center;  
+      transition: background 0.3s ease, transform 0.3s ease;  
+    }  
+    .testimonial-nav-btn:hover { background: #004c59; transform: scale(1.1); }  
+    .testimonial-nav-btn:disabled { background: #cccccc; cursor: not-allowed; }  
+    .testimonial-dots {  
+      display: flex;  
+      justify-content: center;  
+      gap: 0.5rem;  
+      margin-top: 1rem;  
+    }  
+    .testimonial-dot {  
+      width: 10px;  
+      height: 10px;  
+      background: var(--border);  
+      border-radius: 50%;  
+      cursor: pointer;  
+      transition: background 0.3s ease;  
+    }  
+    .testimonial-dot.active { background: var(--primary); }  
       
-      if (hasYouTubeVideos && videoCount > 1) {
-        initYouTubeSlider(videoCount);
-      }
-    }
-    
-    function renderGallerySection(galleryImages) {
-      const container = document.getElementById('gallery-section-container');
-      container.innerHTML = `
-        <div class="gallery-section">
-          <h2>Gallery</h2>
-          <div id="galleryGrid" class="gallery-grid"></div>
-          <div id="paginationControls" class="pagination-controls"></div>
-        </div>
-      `;
-      currentGalleryPage = 1;
-      renderGalleryPage();
-    }
-    
-    function renderGalleryPage() {
-      const galleryGrid = document.getElementById('galleryGrid');
-      const paginationControls = document.getElementById('paginationControls');
-      let startIndex, endIndex;
-      if (window.innerWidth >= 1024) {
-        startIndex = 0;
-        endIndex = galleryImagesGlobal.length;
-        paginationControls.innerHTML = '';
-      } else {
-        const totalImages = galleryImagesGlobal.length;
-        const totalPages = Math.ceil(totalImages / imagesPerPage);
-        startIndex = (currentGalleryPage - 1) * imagesPerPage;
-        endIndex = Math.min(startIndex + imagesPerPage, totalImages);
-        if (totalPages > 1) {
-          let controlsHTML = '';
-          if (currentGalleryPage > 1) {
-            controlsHTML += `<button class="pagination-button" id="prevPage">Previous</button>`;
-          }
-          controlsHTML += `<span class="pagination-info">Page ${currentGalleryPage} of ${totalPages}</span>`;
-          if (currentGalleryPage < totalPages) {
-            controlsHTML += `<button class="pagination-button" id="nextPage">Next</button>`;
-          }
-          paginationControls.innerHTML = controlsHTML;
-          const prevBtn = document.getElementById('prevPage');
-          if (prevBtn) {
-            prevBtn.addEventListener('click', () => {
-              currentGalleryPage--;
-              renderGalleryPage();
-              scrollToGalleryTitle();
-            });
-          }
-          const nextBtn = document.getElementById('nextPage');
-          if (nextBtn) {
-            nextBtn.addEventListener('click', () => {
-              currentGalleryPage++;
-              renderGalleryPage();
-              scrollToGalleryTitle();
-            });
-          }
-        } else { paginationControls.innerHTML = ''; }
-      }
-      galleryGrid.innerHTML = galleryImagesGlobal
-        .slice(startIndex, endIndex)
-        .map((image, i) => {
-          const globalIndex = startIndex + i;
-          return `
-            <div class="gallery-item">
-              <img src="${image.image}" alt="${image['alt-text']}" class="gallery-thumbnail" data-index="${globalIndex}" loading="lazy">
-              <div class="gallery-overlay">${image.description}</div>
-            </div>
-          `;
-        }).join('');
-      attachGalleryThumbnails();
-    }
-    
-    function scrollToGalleryTitle() {
-      const galleryTitle = document.querySelector('.gallery-section h2');
-      if (galleryTitle) {
-        galleryTitle.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }
-    
-    function attachGalleryThumbnails() {
-      const lightbox = document.getElementById('galleryLightbox');
-      const galleryItems = document.querySelectorAll('#galleryGrid .gallery-thumbnail');
-      galleryItems.forEach(item => {
-        item.addEventListener('click', () => {
-          currentImageIndex = Number(item.getAttribute('data-index'));
-          updateLightbox(currentImageIndex);
-          lightbox.classList.add('active');
-          document.body.style.overflow = 'hidden';
-        });
-      });
-    }
-    
-    // Category View with YouTube and Testimonial Rendering
-    function renderCategoryDetails(category, projects) {
-      let html = `
-        <a href="index.html" class="back-link">
-          <i class="fas fa-arrow-left"></i> Back to Projects
-        </a>
-        <section class="category-header" style="text-align: center; padding: 2rem;">
-          <h1>${category.categoryName}</h1>
-          <p>${category.description}</p>
-        </section>
-      `;
-      projects.forEach((project, projectIndex) => {
-        const testimonials = project["feature-project-testimonial"] && 
-                             Array.isArray(project["feature-project-testimonial"]) ? 
-                             project["feature-project-testimonial"].filter(t => t["testimonial-quote"] && t["testimonial-quote"] !== null) : [];
-        const hasTestimonials = testimonials.length > 0;
-        const testimonialCount = testimonials.length;
-        const testimonialSectionTitle = testimonialCount === 1 ? 'Testimonial' : 'Testimonials';
-
-        const youtubeVideos = project["feature-project-youtube-link"] && 
-                              Array.isArray(project["feature-project-youtube-link"]) ? 
-                              project["feature-project-youtube-link"].filter(video => video.url && video.url !== null && video.url !== '') : [];
-        const hasYouTubeVideos = youtubeVideos.length > 0;
-        const videoCount = youtubeVideos.length;
-        const youtubeSectionTitle = videoCount === 1 ? 'Video' : 'Videos';
-
-        html += `
-          <article class="project-detail" style="margin-bottom: 2rem;" data-project-index="${projectIndex}">
-            <header class="detail-header">
-              <h2 class="project-title">${project["feature-project-name"]}</h2>
-              ${project["feature-project-start-year"] ? `
-                <div class="project-meta">
-                  <span>${project["feature-project-start-year"]}${project["feature-project-end-year"] ? ` - ${project["feature-project-end-year"]}` : ''}</span>
-                </div>
-              ` : ''}
-            </header>
-            <img src="${project["feature-project-thumbnail"]}" alt="${project["feature-project-name"]}" class="detail-image" loading="lazy">
-            <section class="detail-content">
-              <p class="project-description">${project["feature-project-long-description"]}</p>
-              ${hasTestimonials ? `
-                <div class="testimonial-section">
-                  <h2>${testimonialSectionTitle}</h2>
-                  <div class="testimonial-container">
-                    <div class="testimonial-slider">
-                      ${testimonials.map(testimonial => `
-                        <div class="testimonial-item">
-                          <p class="testimonial-quote">"${testimonial["testimonial-quote"]}"</p>
-                          <p class="testimonial-author">${testimonial["testimonial-name"]}</p>
-                          <p class="testimonial-role">${testimonial["testimonial-role"]}${testimonial["testimonial-client-name"] ? `, ${testimonial["testimonial-client-name"]}` : ''}</p>
-                        </div>
-                      `).join('')}
-                    </div>
-                  </div>
-                  ${testimonialCount > 1 ? `
-                    <div class="testimonial-nav">
-                      <button class="testimonial-nav-btn prev" aria-label="Previous testimonial">
-                        <i class="fas fa-chevron-left"></i>
-                      </button>
-                      <button class="testimonial-nav-btn next" aria-label="Next testimonial">
-                        <i class="fas fa-chevron-right"></i>
-                      </button>
-                    </div>
-                    <div class="testimonial-dots">
-                      ${testimonials.map((_, index) => `
-                        <span class="testimonial-dot${index === 0 ? ' active' : ''}" data-index="${index}"></span>
-                      `).join('')}
-                    </div>
-                  ` : ''}
-                </div>
-              ` : ''}
-              ${hasYouTubeVideos ? `
-                <div class="youtube-section">
-                  <h2>${youtubeSectionTitle}</h2>
-                  <div class="youtube-container">
-                    <div class="youtube-slider">
-                      ${youtubeVideos
-                        .sort((a, b) => a.order - b.order)
-                        .map(video => `
-                          <div class="youtube-item">
-                            <iframe src="${video.url}" title="${video.title}" allowfullscreen loading="lazy"></iframe>
-                            <p class="youtube-title">${video.title}</p>
-                            <p class="youtube-description">${video.description}</p>
-                          </div>
-                        `).join('')}
-                    </div>
-                  </div>
-                  ${videoCount > 1 ? `
-                    <div class="youtube-nav">
-                      <button class="youtube-nav-btn prev" aria-label="Previous video">
-                        <i class="fas fa-chevron-left"></i>
-                      </button>
-                      <button class="youtube-nav-btn next" aria-label="Next video">
-                        <i class="fas fa-chevron-right"></i>
-                      </button>
-                    </div>
-                    <div class="youtube-dots">
-                      ${youtubeVideos.map((_, index) => `
-                        <span class="youtube-dot${index === 0 ? ' active' : ''}" data-index="${index}"></span>
-                      `).join('')}
-                    </div>
-                  ` : ''}
-                </div>
-              ` : ''}
-              ${project["feature-project-gallery"] && project["feature-project-gallery"].length ? `
-                <div class="gallery-section" data-project-id="${project.id}">
-                  <h2>Gallery</h2>
-                  <div class="gallery-grid">
-                    ${project["feature-project-gallery"].sort((a, b) => a.order - b.order)
-                      .map((image, i) => `
-                        <div class="gallery-item">
-                          <img src="${image.image}" alt="${image['alt-text']}" class="gallery-thumbnail" data-index="${i}" loading="lazy">
-                          <div class="gallery-overlay">${image.description}</div>
-                        </div>
-                      `).join('')}
-                  </div>
-                </div>
-              ` : ''}
-            </section>
-          </article>
-        `;
-      });
-      detailsContainer.innerHTML = html + getLightboxMarkup();
-      attachCategoryGalleryListeners(projects);
-
-      // Initialize sliders for each project with multiple testimonials or videos
-      projects.forEach((project, projectIndex) => {
-        const projectContainer = detailsContainer.querySelector(`article.project-detail[data-project-index="${projectIndex}"]`);
-        if (!projectContainer) {
-          console.warn(`Project container not found for index ${projectIndex}`);
-          return;
-        }
-
-        const testimonials = project["feature-project-testimonial"] && 
-                             Array.isArray(project["feature-project-testimonial"]) ? 
-                             project["feature-project-testimonial"].filter(t => t["testimonial-quote"] && t["testimonial-quote"] !== null) : [];
-        const hasTestimonials = testimonials.length > 0;
-        const testimonialCount = testimonials.length;
-
-        if (hasTestimonials && testimonialCount > 1) {
-          const slider = projectContainer.querySelector('.testimonial-slider');
-          const prevBtn = projectContainer.querySelector('.testimonial-nav-btn.prev');
-          const nextBtn = projectContainer.querySelector('.testimonial-nav-btn.next');
-          const dots = projectContainer.querySelectorAll('.testimonial-dot');
-          initTestimonialSliderForProject(slider, prevBtn, nextBtn, dots, testimonialCount);
-        }
-
-        const youtubeVideos = project["feature-project-youtube-link"] && 
-                              Array.isArray(project["feature-project-youtube-link"]) ? 
-                              project["feature-project-youtube-link"].filter(video => video.url && video.url !== null && video.url !== '') : [];
-        const hasYouTubeVideos = youtubeVideos.length > 0;
-        const videoCount = youtubeVideos.length;
-
-        if (hasYouTubeVideos && videoCount > 1) {
-          const slider = projectContainer.querySelector('.youtube-slider');
-          const prevBtn = projectContainer.querySelector('.youtube-nav-btn.prev');
-          const nextBtn = projectContainer.querySelector('.youtube-nav-btn.next');
-          const dots = projectContainer.querySelectorAll('.youtube-dot');
-          initYouTubeSliderForProject(slider, prevBtn, nextBtn, dots, videoCount);
-        }
-      });
-    }
-    
-    function getLightboxMarkup() {
-      return `
-        <div class="lightbox" id="galleryLightbox">
-          <div class="lightbox-content">
-            <button class="close-btn" aria-label="Close lightbox"></button>
-            <div class="lightbox-image-container">
-              <img class="lightbox-image" src="" alt="">
-              <div class="loading-spinner"></div>
-              <button class="nav-btn prev-btn" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
-              <button class="nav-btn next-btn" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
-            </div>
-            <div class="lightbox-caption"></div>
-          </div>
-        </div>
-      `;
-    }
-    
-    function attachCategoryGalleryListeners(projects) {
-      const galleryThumbnails = document.querySelectorAll('.gallery-thumbnail');
-      galleryThumbnails.forEach(thumbnail => {
-        thumbnail.addEventListener('click', (e) => {
-          const gallerySection = e.target.closest('.gallery-section');
-          const projectId = gallerySection.getAttribute('data-project-id');
-          const project = projects.find(p => p.id === Number(projectId));
-          if (!project) return;
-          galleryImagesGlobal = (project["feature-project-gallery"] || []).sort((a, b) => a.order - b.order);
-          currentImageIndex = Number(e.target.getAttribute('data-index'));
-          updateLightbox(currentImageIndex);
-          document.getElementById('galleryLightbox').classList.add('active');
-          document.body.style.overflow = 'hidden';
-        });
-      });
-    }
-    
-    // Lightbox Functionality
-    function updateLightbox(index) {
-      const lightbox = document.getElementById('galleryLightbox');
-      const lightboxImage = lightbox.querySelector('.lightbox-image');
-      const lightboxCaption = lightbox.querySelector('.lightbox-caption');
-      const spinner = lightbox.querySelector('.loading-spinner');
-      currentImageIndex = (index + galleryImagesGlobal.length) % galleryImagesGlobal.length;
-      const image = galleryImagesGlobal[currentImageIndex];
-      lightboxImage.style.opacity = '0';
-      spinner.style.display = 'block';
-      const img = new Image();
-      img.src = image.image;
-      img.onload = () => {
-        spinner.style.display = 'none';
-        lightboxImage.src = image.image;
-        lightboxImage.alt = image['alt-text'];
-        const imageCount = galleryImagesGlobal.length > 1 ? `Image ${currentImageIndex + 1} of ${galleryImagesGlobal.length} - ` : '';
-        lightboxCaption.textContent = `${imageCount}${image.description}`;
-        lightboxImage.style.opacity = '1';
-      };
-    }
-    
-    function nextImage() { updateLightbox(currentImageIndex + 1); }
-    function prevImage() { updateLightbox(currentImageIndex - 1); }
-    
-    function initLightbox() {
-      if (lightboxInitialized) return;
-      const lightbox = document.getElementById('galleryLightbox');
-      const closeBtn = lightbox.querySelector('.close-btn');
-      const prevBtn = lightbox.querySelector('.prev-btn');
-      const nextBtn = lightbox.querySelector('.next-btn');
-      let touchStartX = 0;
-      lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeModal(); });
-      closeBtn.addEventListener('click', closeModal);
-      prevBtn.addEventListener('click', prevImage);
-      nextBtn.addEventListener('click', nextImage);
-      document.addEventListener('keydown', (e) => {
-        if (lightbox.classList.contains('active')) {
-          if (e.key === 'ArrowLeft') prevImage();
-          if (e.key === 'ArrowRight') nextImage();
-          if (e.key === 'Escape') closeModal();
-        }
-      });
-      lightbox.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; });
-      lightbox.addEventListener('touchend', (e) => {
-        const touchEndX = e.changedTouches[0].clientX;
-        const deltaX = touchEndX - touchStartX;
-        if (Math.abs(deltaX) > 50) { deltaX > 0 ? prevImage() : nextImage(); }
-      });
-      lightboxInitialized = true;
-    }
-    
-    function closeModal() {
-      const lightbox = document.getElementById('galleryLightbox');
-      lightbox.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-    
-    // Testimonial Slider Functionality for Single Project
-    function initTestimonialSlider(testimonialCount) {
-      const slider = document.querySelector('.testimonial-slider');
-      const prevBtn = document.querySelector('.testimonial-nav-btn.prev');
-      const nextBtn = document.querySelector('.testimonial-nav-btn.next');
-      const dots = document.querySelectorAll('.testimonial-dot');
-      let currentIndex = 0;
-      let touchStartX = 0;
-      function updateSlider() {
-        slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-        dots.forEach(dot => dot.classList.remove('active'));
-        dots[currentIndex].classList.add('active');
-        prevBtn.disabled = currentIndex === 0;
-        nextBtn.disabled = currentIndex === testimonialCount - 1;
-      }
-      prevBtn.addEventListener('click', () => { if (currentIndex > 0) { currentIndex--; updateSlider(); } });
-      nextBtn.addEventListener('click', () => { if (currentIndex < testimonialCount - 1) { currentIndex++; updateSlider(); } });
-      dots.forEach(dot => {
-        dot.addEventListener('click', () => { currentIndex = Number(dot.getAttribute('data-index')); updateSlider(); });
-      });
-      slider.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; });
-      slider.addEventListener('touchend', (e) => {
-        const touchEndX = e.changedTouches[0].clientX;
-        const deltaX = touchEndX - touchStartX;
-        if (Math.abs(deltaX) > 50) {
-          if (deltaX > 0 && currentIndex > 0) { currentIndex--; }
-          else if (deltaX < 0 && currentIndex < testimonialCount - 1) { currentIndex++; }
-          updateSlider();
-        }
-      });
-      updateSlider();
-    }
-    
-    // Testimonial Slider Functionality for Category View (Multiple Projects)
-    function initTestimonialSliderForProject(slider, prevBtn, nextBtn, dots, testimonialCount) {
-      let currentIndex = 0;
-      let touchStartX = 0;
-
-      if (!slider || !prevBtn || !nextBtn || dots.length === 0) {
-        console.error('Testimonial slider elements missing:', { slider, prevBtn, nextBtn, dots });
-        return;
-      }
-
-      function updateSlider() {
-        slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-        dots.forEach(dot => dot.classList.remove('active'));
-        dots[currentIndex].classList.add('active');
-        prevBtn.disabled = currentIndex === 0;
-        nextBtn.disabled = currentIndex === testimonialCount - 1;
-      }
-
-      prevBtn.addEventListener('click', () => {
-        if (currentIndex > 0) {
-          currentIndex--;
-          updateSlider();
-        }
-      });
-
-      nextBtn.addEventListener('click', () => {
-        if (currentIndex < testimonialCount - 1) {
-          currentIndex++;
-          updateSlider();
-        }
-      });
-
-      dots.forEach(dot => {
-        dot.addEventListener('click', () => {
-          currentIndex = Number(dot.getAttribute('data-index'));
-          updateSlider();
-        });
-      });
-
-      slider.addEventListener('touchstart', (e) => {
-        touchStartX = e.touches[0].clientX;
-      });
-
-      slider.addEventListener('touchend', (e) => {
-        const touchEndX = e.changedTouches[0].clientX;
-        const deltaX = touchEndX - touchStartX;
-        if (Math.abs(deltaX) > 50) {
-          if (deltaX > 0 && currentIndex > 0) {
-            currentIndex--;
-          } else if (deltaX < 0 && currentIndex < testimonialCount - 1) {
-            currentIndex++;
-          }
-          updateSlider();
-        }
-      });
-
-      updateSlider();
-    }
-    
-    // YouTube Slider Functionality for Single Project
-    function initYouTubeSlider(videoCount) {
-      const slider = document.querySelector('.youtube-slider');
-      const prevBtn = document.querySelector('.youtube-nav-btn.prev');
-      const nextBtn = document.querySelector('.youtube-nav-btn.next');
-      const dots = document.querySelectorAll('.youtube-dot');
-      let currentIndex = 0;
-      let touchStartX = 0;
-      
-      if (!slider || !prevBtn || !nextBtn || !dots.length) {
-        console.error('YouTube slider elements not found in DOM');
-        return;
-      }
-      
-      function updateSlider() {
-        slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-        dots.forEach(dot => dot.classList.remove('active'));
-        dots[currentIndex].classList.add('active');
-        prevBtn.disabled = currentIndex === 0;
-        nextBtn.disabled = currentIndex === videoCount - 1;
-      }
-      
-      prevBtn.addEventListener('click', () => {
-        if (currentIndex > 0) {
-          currentIndex--;
-          updateSlider();
-        }
-      });
-      
-      nextBtn.addEventListener('click', () => {
-        if (currentIndex < videoCount - 1) {
-          currentIndex++;
-          updateSlider();
-        }
-      });
-      
-      dots.forEach(dot => {
-        dot.addEventListener('click', () => {
-          currentIndex = Number(dot.getAttribute('data-index'));
-          updateSlider();
-        });
-      });
-      
-      slider.addEventListener('touchstart', (e) => {
-        touchStartX = e.touches[0].clientX;
-      });
-      
-      slider.addEventListener('touchend', (e) => {
-        const touchEndX = e.changedTouches[0].clientX;
-        const deltaX = touchEndX - touchStartX;
-        if (Math.abs(deltaX) > 50) {
-          if (deltaX > 0 && currentIndex > 0) {
-            currentIndex--;
-          } else if (deltaX < 0 && currentIndex < videoCount - 1) {
-            currentIndex++;
-          }
-          updateSlider();
-        }
-      });
-      
-      updateSlider();
-    }
-    
-    // YouTube Slider Functionality for Category View (Multiple Projects)
-    function initYouTubeSliderForProject(slider, prevBtn, nextBtn, dots, videoCount) {
-      let currentIndex = 0;
-      let touchStartX = 0;
-
-      if (!slider || !prevBtn || !nextBtn || dots.length === 0) {
-        console.error('YouTube slider elements missing:', { slider, prevBtn, nextBtn, dots });
-        return;
-      }
-
-      function updateSlider() {
-        slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-        dots.forEach(dot => dot.classList.remove('active'));
-        dots[currentIndex].classList.add('active');
-        prevBtn.disabled = currentIndex === 0;
-        nextBtn.disabled = currentIndex === videoCount - 1;
-      }
-
-      prevBtn.addEventListener('click', () => {
-        if (currentIndex > 0) {
-          currentIndex--;
-          updateSlider();
-        }
-      });
-
-      nextBtn.addEventListener('click', () => {
-        if (currentIndex < videoCount - 1) {
-          currentIndex++;
-          updateSlider();
-        }
-      });
-
-      dots.forEach(dot => {
-        dot.addEventListener('click', () => {
-          currentIndex = Number(dot.getAttribute('data-index'));
-          updateSlider();
-        });
-      });
-
-      slider.addEventListener('touchstart', (e) => {
-        touchStartX = e.touches[0].clientX;
-      });
-
-      slider.addEventListener('touchend', (e) => {
-        const touchEndX = e.changedTouches[0].clientX;
-        const deltaX = touchEndX - touchStartX;
-        if (Math.abs(deltaX) > 50) {
-          if (deltaX > 0 && currentIndex > 0) {
-            currentIndex--;
-          } else if (deltaX < 0 && currentIndex < videoCount - 1) {
-            currentIndex++;
-          }
-          updateSlider();
-        }
-      });
-
-      updateSlider();
-    }
-    
-    // Error Handling
-    function showDetailError() {
-      detailsContainer.innerHTML = `
-        <div class="error-state" style="text-align:center; padding:2rem;">
-          <p style="font-size:1.2rem;">⚠️ Project or Category not found</p>
-          <a href="index.html" class="back-link">
-            <i class="fas fa-arrow-left"></i> Return to Projects
-          </a>
-        </div>
-      `;
-    }
-    
-    // Back-to-Top Functionality
-    function initBackToTop() {
-      const backToTop = document.querySelector('.back-to-top');
-      window.addEventListener('scroll', () => { backToTop.classList.toggle('visible', window.scrollY > 50); });
-      backToTop.addEventListener('click', () => {
-        backToTop.classList.remove('visible');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-    }
-    
-    if (projectParam || slugParam || categoryParam) {
-      initPage().then(() => { initBackToTop(); });
-    } else {
-      window.location.href = 'index.html';
-    }
-  </script>
+    /* YouTube Video Section */  
+    .youtube-section {  
+      margin: 2rem 0;  
+      position: relative;  
+    }  
+    .youtube-section h2 {  
+      text-align: center;  
+      font-size: 2rem;  
+      margin-bottom: 1.5rem;  
+      position: relative;  
+      padding-bottom: 0.5rem;  
+    }  
+    .youtube-section h2::after {  
+      content: '';  
+      position: absolute;  
+      bottom: 0;  
+      left: 50%;  
+      transform: translateX(-50%);  
+      width: 60px;  
+      height: 3px;  
+      background: var(--primary);  
+      border-radius: 2px;  
+    }  
+    .youtube-container {  
+      position: relative;  
+      overflow: hidden;  
+      max-width: 900px;  
+      margin: 0 auto;  
+    }  
+    .youtube-slider {  
+      display: flex;  
+      transition: transform 0.5s ease;  
+      width: 100%;  
+    }  
+    .youtube-item {  
+      flex: 0 0 100%;  
+      background: var(--card-bg);  
+      border: 1px solid var(--border);  
+      border-radius: 8px;  
+      padding: 1rem;  
+      text-align: center;  
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);  
+    }  
+    .youtube iframe {  
+      width: 100%;  
+      aspect-ratio: 16 / 9;  
+      border: none;  
+      margin-bottom: 1rem;  
+      display: block;  
+      margin-left: auto;  
+      margin-right: auto;  
+    }  
+    .youtube-title {  
+      font-size: 1.2rem;  
+      font-weight: 600;  
+      color: var(--primary);  
+      margin-bottom: 0.5rem;  
+    }  
+    .youtube-description {  
+      font-size: 1rem;  
+      color: var(--secondary);  
+    }  
+    .youtube-nav {  
+      display: flex;  
+      justify-content: center;  
+      gap: 1rem;  
+      margin-top: 1rem;  
+      margin-bottom: 20px;  
+    }  
+    .youtube-nav-btn {  
+      background: var(--primary);  
+      color: #fff;  
+      border: none;  
+      border-radius: 50%;  
+      width: 40px;  
+      height: 40px;  
+      cursor: pointer;  
+      display: flex;  
+      align-items: center;  
+      justify-content: center;  
+      transition: background 0.3s ease, transform 0.3s ease;  
+    }  
+    .youtube-nav-btn:hover {  
+      background: #004c59;  
+      transform: scale(1.1);  
+    }  
+    .youtube-nav-btn:disabled {  
+      background: #cccccc;  
+      cursor: not-allowed;  
+    }  
+    .youtube-dots {  
+      display: flex;  
+      justify-content: center;  
+      gap: 0.5rem;  
+      margin-top: 1rem;  
+    }  
+    .youtube-dot {  
+      width: 10px;  
+      height: 10px;  
+      background: var(--border);  
+      border-radius: 50%;  
+      cursor: pointer;  
+      transition: background 0.3s ease;  
+    }  
+    .youtube-dot.active {  
+      background: var(--primary);  
+    }  
+    @media (max-width: 768px) {  
+      .youtube-section h2 {  
+        font-size: 1.8rem;  
+      }  
+    }  
+    @media (max-width: 480px) {  
+      .youtube iframe { height: 180px; }  
+    }  
   
-  <script src="sharable-scripts.js" defer></script>
-</body>
+    /* Gallery Section */  
+    .gallery-section {  
+      margin: 2rem 0;  
+      padding: 0 2rem;  
+    }  
+    .gallery-section h2 {  
+      text-align: center;  
+      font-size: 2rem;  
+      margin-bottom: 1.5rem;  
+      position: relative;  
+      padding-bottom: 0.5rem;  
+    }  
+    .gallery-section h2::after {  
+      content: '';  
+      position: absolute;  
+      bottom: 0;  
+      left: 50%;  
+      transform: translateX(-50%);  
+      width: 60px;  
+      height: 3px;  
+      background: var(--primary);  
+      border-radius: 2px;  
+    }  
+    .gallery-grid {  
+      display: grid;  
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));  
+      gap: 1.5rem;  
+      max-width: 1100px;  
+      margin: 0 auto;  
+    }  
+    .gallery-item {  
+      position: relative;  
+      border: 1px solid var(--border);  
+      border-radius: 8px;  
+      overflow: hidden;  
+      cursor: pointer;  
+      background: var(--card-bg);  
+      transition: transform 0.3s ease, box-shadow 0.3s ease;  
+    }  
+    .gallery-item:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }  
+    .gallery-thumbnail {  
+      width: 100%;  
+      aspect-ratio: 16 / 9;  
+      object-fit: contain;  
+      display: block;  
+    }  
+    .gallery-overlay {  
+      position: absolute;  
+      bottom: 0;  
+      left: 0;  
+      right: 0;  
+      background: rgba(0, 95, 115, 0.85);  
+      color: #fff;  
+      padding: 0.5rem;  
+      font-size: 0.95rem;  
+      text-align: center;  
+      opacity: 0;  
+      transition: opacity 0.3s ease;  
+    }  
+    .gallery-item:hover .gallery-overlay { opacity: 1; }  
+      
+    /* Pagination (for mobile gallery) */  
+    .pagination-controls {  
+      display: none;  
+      justify-content: center;  
+      align-items: center;  
+      gap: 1rem;  
+      margin-top: 1rem;  
+    }  
+    @media (max-width: 1023px) { .pagination-controls { display: flex; } }  
+    .pagination-button {  
+      background: var(--primary);  
+      color: #fff;  
+      border: none;  
+      padding: 0.5rem 1rem;  
+      border-radius: 4px;  
+      cursor: pointer;  
+      font-weight: 600;  
+      transition: background 0.3s ease;  
+    }  
+    .pagination-button:hover { background: #004c59; }  
+    .pagination-info { font-size: 0.95rem; color: var(--secondary); }  
+      
+    /* Detail Grid & Skills */  
+    .detail-grid {  
+      display: grid;  
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));  
+      gap: 1.5rem;  
+      margin: 2rem 0;  
+      padding: 0 2rem;  
+    }  
+    .detail-item {  
+      background: var(--background);  
+      padding: 1.5rem;  
+      border: 1px solid var(--border);  
+      border-radius: 8px;  
+      text-align: center;  
+      transition: transform 0.3s ease, box-shadow 0.3s ease;  
+    }  
+    .detail-item:hover { transform: translateY(-3px); box-shadow: 0 6px 18px rgba(0,0,0,0.08); }  
+    .detail-item h3 {  
+      font-size: 1.1rem;  
+      margin-bottom: 0.5rem;  
+      text-transform: uppercase;  
+      letter-spacing: 0.5px;  
+      color: var(--primary);  
+    }  
+    .skill-list {  
+      display: flex;  
+      flex-wrap: wrap;  
+      justify-content: center;  
+      gap: 0.5rem;  
+      margin-top: 0.75rem;  
+    }  
+    .skill-tag {  
+      background: var(--primary);  
+      color: #fff;  
+      padding: 0.4rem 0.8rem;  
+      border-radius: 20px;  
+      font-size: 0.9rem;  
+      font-weight: 600;  
+    }  
+  
+    #project-detail-container {  
+      padding: .5rem;  
+    }  
+    /* Other Project Navigation */  
+    .other-project-nav-container {  
+      display: flex;  
+      justify-content: space-between;  
+      background: var(--accent);  
+      border-top: 1px solid var(--border);  
+      flex-wrap: wrap;  
+      padding: 1rem;  
+      gap: 1rem;  
+    }  
+    .other-project-nav-button {  
+      flex: 1;  
+      background: var(--card-bg);  
+      border: 1px solid var(--border);  
+      border-radius: 6px;  
+      display: flex;  
+      align-items: center;  
+      justify-content: center;  
+      font-weight: 600;  
+      transition: background 0.3s ease, transform 0.3s ease;  
+      color: var(--text);  
+      flex-direction: column;  
+      padding: 0.5rem;  
+      text-align: center;  
+    }  
+    .other-project-nav-container i {  
+      width: 100%;  
+      text-align: center;  
+      margin: 0.3rem;  
+      padding: 0.5rem;  
+    }  
+    .other-project-nav-button:hover {  
+      background: #f0f4f8;  
+      transform: translateY(-2px);  
+      border-color: var(--primary);  
+    }  
+      
+    /* Related Projects Section */  
+    .related-projects {  
+      margin: 2rem 0;  
+      padding: 0 2rem;  
+      position: relative;  
+    }  
+    .related-projects h2 {  
+      text-align: center;  
+      font-size: 2rem;  
+      margin-bottom: 1.5rem;  
+      position: relative;  
+      padding-bottom: 0.5rem;  
+    }  
+    .related-projects h2::after {  
+      content: '';  
+      position: absolute;  
+      bottom: 0;  
+      left: 50%;  
+      transform: translateX(-50%);  
+      width: 60px;  
+      height: 3px;  
+      background: var(--primary);  
+      border-radius: 2px;  
+    }  
+    .project-grid {  
+      display: grid;  
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));  
+      gap: 1.5rem;  
+      max-width: 1100px;  
+      margin: 0 auto;  
+    }  
+    .related-project {  
+      background: var(--card-bg);  
+      border: 1px solid var(--border);  
+      border-radius: 8px;  
+      overflow: hidden;  
+      transition: transform 0.3s ease, box-shadow 0.3s ease;  
+      text-align: center;  
+    }  
+    .related-project:hover {  
+      transform: translateY(-4px);  
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);  
+    }  
+    .related-thumbnail {  
+      width: 100%;  
+      aspect-ratio: 16 / 9;  
+      object-fit: contain;  
+      display: block;  
+    }  
+    .related-project h3 {  
+      padding: 1rem;  
+      font-size: 1.1rem;  
+      color: var(--text);  
+    }  
+      
+    /* Lightbox */  
+    .lightbox {  
+      position: fixed;  
+      top: 0;  
+      left: 0;  
+      width: 100%;  
+      height: 100%;  
+      background: var(--lightbox-bg);  
+      opacity: 0;  
+      pointer-events: none;  
+      transition: opacity 0.3s ease;  
+      display: flex;  
+      align-items: center;  
+      justify-content: center;  
+      padding: 1rem;  
+      z-index: 1000;  
+    }  
+    .lightbox.active { opacity: 1; pointer-events: auto; }  
+    .lightbox-content {  
+      position: relative;  
+      background: #000;  
+      border-radius: 8px;  
+      overflow: hidden;  
+      width: 900px;  
+      display: flex;  
+      flex-direction: column;  
+    }  
+    .lightbox-image-container {  
+      position: relative;  
+      width: 100%;  
+      text-align: center;  
+      background: #000;  
+    }  
+    .lightbox-image {  
+      max-width: 100%;  
+      height: 500px;  
+      object-fit: contain;  
+      display: block;  
+      margin: 0 auto;  
+      transition: opacity 0.3s ease;  
+    }  
+    .lightbox-caption {  
+      background: var(--primary);  
+      color: #fff;  
+      padding: 1rem;  
+      font-size: 1rem;  
+      text-align: center;  
+    }  
+    .nav-btn {  
+      position: absolute;  
+      top: 50%;  
+      transform: translateY(-50%);  
+      background: rgba(255, 255, 255, 0.2);  
+      border: none;  
+      border-radius: 50%;  
+      width: 44px;  
+      height: 44px;  
+      cursor: pointer;  
+      display: flex;  
+      align-items: center;  
+      justify-content: center;  
+      transition: transform 0.3s ease, background 0.3s ease;  
+      color: #fff;  
+      font-size: 1.5rem;  
+    }  
+    .nav-btn:hover { transform: translateY(-50%) scale(1.1); background: rgba(255, 255, 255, 0.3); }  
+    .prev-btn { left: 10px; }  
+    .next-btn { right: 10px; }  
+    .close-btn {  
+      position: absolute;  
+      top: 10px;  
+      right: 10px;  
+      background: rgba(255, 255, 255, 0.2);  
+      border: none;  
+      border-radius: 50%;  
+      width: 36px;  
+      height: 36px;  
+      cursor: pointer;  
+      display: flex;  
+      align-items: center;  
+      justify-content: center;  
+      z-index: 10;  
+      transition: transform 0.3s ease, background 0.3s ease;  
+    }  
+    .close-btn:hover { transform: scale(1.1); background: rgba(255, 255, 255, 0.3); }  
+    .close-btn::before,  
+    .close-btn::after {  
+      content: '';  
+      position: absolute;  
+      width: 18px;  
+      height: 2px;  
+      background: #fff;  
+    }  
+    .close-btn::before { transform: rotate(45deg); }  
+    .close-btn::after { transform: rotate(-45deg); }  
+    .loading-spinner {  
+      position: absolute;  
+      width: 40px;  
+      height: 40px;  
+      border: 3px solid rgba(255, 255, 255, 0.3);  
+      border-radius: 50%;  
+      border-top-color: #fff;  
+      animation: spin 1s ease-in-out infinite;  
+      left: 50%;  
+      top: 50%;  
+      transform: translate(-50%, -50%);  
+      display: none;  
+    }  
+    @keyframes spin { to { transform: rotate(360deg); } }  
+      
+    /* Back-to-Top */  
+    .back-to-top {  
+      position: fixed;  
+      bottom: 20px;  
+      left: 50%;  
+      transform: translateX(-50%);  
+      background: var(--primary);  
+      color: #fff;  
+      width: 50px;  
+      height: 50px;  
+      border-radius: 50%;  
+      display: flex;  
+      align-items: center;  
+      justify-content: center;  
+      cursor: pointer;  
+      opacity: 0;  
+      transition: opacity 0.3s ease, transform 0.3s ease;  
+      z-index: 100;  
+    }  
+    .back-to-top.visible { opacity: 0.8; }  
+    .back-to-top:hover { opacity: 1; transform: translateX(-50%) scale(1.1); }  
+    .back-to-top i { font-size: 1.5rem; }  
+      
+    /* Responsive Adjustments */  
+    @media (max-width: 1024px) { .detail-image { } }  
+    @media (max-width: 768px) {  
+      .detail-content { padding: 1.5rem; }  
+      .project-description { font-size: 1.05rem; }  
+      .gallery-section h2 { font-size: 1.8rem; }  
+      .detail-grid { padding: 0 1rem; }  
+      .other-project-nav-container { padding: 1rem; }  
+      .testimonial-item { padding: 1.5rem; }  
+      .testimonial-quote { font-size: 1rem; }  
+      .testimonial-section h2 { font-size: 1.8rem; }  
+      .youtube-section h2 { font-size: 1.8rem; }  
+    }  
+    @media (max-width: 480px) {  
+      .project-meta { flex-direction: column; gap: 0.5rem; }  
+      .detail-image { height: 300px; }  
+      .nav-btn { width: 36px; height: 36px; font-size: 1.2rem; }  
+      .close-btn { width: 32px; height: 32px; top: 5px; right: 5px; }  
+      .back-to-top { width: 40px; height: 40px; }  
+      .back-to-top i { font-size: 1.2rem; }  
+    }  
+  </style>  
+</head>  
+<body>  
+  <nav class="main-navigation-nav">  
+    <a href="index.html#home">  
+      <img src="Header.png" alt="Logo" class="main-navigation-logo">  
+    </a>  
+    <div class="main-navigation-nav-links">  
+      <a href="index.html#home">Home</a>  
+      <a href="index.html#projects-container">Projects</a>  
+      <a href="index.html#contact">Contact</a>  
+      <a href="portfolio-cv.html" class="cta-button">CV / Portfolio</a>  
+    </div>  
+    <button class="main-navigation-hamburger">  
+      <span></span>  
+      <span></span>  
+      <span></span>  
+    </button>  
+  </nav>  
+  
+  <br><br><br><br>  
+  
+  <!-- Project Detail Container -->  
+  <main id="project-detail-container"></main>  
+  
+  <div class="back-to-top" title="Back to Top">  
+    <i class="fas fa-chevron-up"></i>  
+  </div>  
+  
+  <script>  
+    // Global Variables  
+    const PROJECTS_URL = 'feature-project.json';  
+    const CATEGORIES_URL = 'feature-project-category.json';  
+    const detailsContainer = document.getElementById('project-detail-container');  
+    const urlParams = new URLSearchParams(window.location.search);  
+    const projectParam = urlParams.get('id');  
+    const categoryParam = urlParams.get('cat');  
+      
+    let allProjects = [];  
+    let allCategories = [];  
+    let galleryImagesGlobal = [];  
+    const imagesPerPage = 5;  
+    let currentGalleryPage = 1;  
+    let currentImageIndex = 0;  
+    let lightboxInitialized = false;  
+      
+    // Global Stopwords (can be extended)  
+    const stopwords = new Set(['the', 'and', 'is', 'in', 'at', 'of', 'a', 'an', 'to', 'for', 'with', 'on', 'by', 'this', 'that', 'it']);  
+  
+    // Tokenizer used for text processing  
+    function tokenize(text) {  
+      return text.toLowerCase()  
+                 .replace(/[^\w\s]/g, '')  
+                 .split(/\s+/)  
+                 .filter(word => word && !stopwords.has(word));  
+    }  
+  
+    // Compute TF-IDF vectors for all project descriptions  
+    function computeTFIDFVectors(projects) {  
+      const N = projects.length;  
+      const tfVectors = {};  // {projectId: {tf: {token: count}, total: number}}  
+      const df = {};         // document frequency: {token: count}  
+        
+      projects.forEach(p => {  
+        if (p["feature-project-long-description"]) {  
+          const tokens = tokenize(p["feature-project-long-description"]);  
+          tfVectors[p.id] = { tf: {}, total: tokens.length };  
+          // Count term frequencies  
+          tokens.forEach(token => {  
+            tfVectors[p.id].tf[token] = (tfVectors[p.id].tf[token] || 0) + 1;  
+          });  
+          // Update document frequencies (unique tokens)  
+          new Set(tokens).forEach(token => {  
+            df[token] = (df[token] || 0) + 1;  
+          });  
+        }  
+      });  
+        
+      // Build TF-IDF vectors  
+      const tfidfVectors = {};  
+      Object.keys(tfVectors).forEach(docId => {  
+        const { tf, total } = tfVectors[docId];  
+        const vector = {};  
+        Object.keys(tf).forEach(token => {  
+          const termFreq = tf[token] / total;  
+          const inverseDF = Math.log(N / (df[token] + 1)); // smoothing by adding 1  
+          vector[token] = termFreq * inverseDF;  
+        });  
+        // Compute vector magnitude  
+        const magnitude = Math.sqrt(Object.values(vector).reduce((sum, w) => sum + w * w, 0));  
+        tfidfVectors[docId] = { vector, magnitude };  
+      });  
+        
+      return tfidfVectors;  
+    }  
+      
+    // Cosine similarity between two TF-IDF vectors  
+    function cosineSimilarity(vecA, magA, vecB, magB) {  
+      let dot = 0;  
+      for (let token in vecA) {  
+        if (vecB[token]) {  
+          dot += vecA[token] * vecB[token];  
+        }  
+      }  
+      return (magA && magB) ? dot / (magA * magB) : 0;  
+    }  
+      
+    // Data Fetching with Local Storage  
+    function getProjectsData() {  
+      const key = "projectsData";  
+      return new Promise((resolve, reject) => {  
+        let data = localStorage.getItem(key);  
+        if (data) {  
+          resolve(JSON.parse(data));  
+        } else {  
+          fetch(PROJECTS_URL)  
+            .then(response => {  
+              if (!response.ok) { reject(new Error('Network response was not ok')); }  
+              return response.json();  
+            })  
+            .then(data => { localStorage.setItem(key, JSON.stringify(data)); resolve(data); })  
+            .catch(reject);  
+        }  
+      });  
+    }  
+      
+    function getCategoriesData() {  
+      const key = "categoriesData";  
+      return new Promise((resolve, reject) => {  
+        let data = localStorage.getItem(key);  
+        if (data) {  
+          resolve(JSON.parse(data));  
+        } else {  
+          fetch(CATEGORIES_URL)  
+            .then(response => {  
+              if (!response.ok) { reject(new Error('Network response was not ok')); }  
+              return response.json();  
+            })  
+            .then(data => { localStorage.setItem(key, JSON.stringify(data)); resolve(data); })  
+            .catch(reject);  
+        }  
+      });  
+    }  
+      
+    async function fetchData() {  
+      try {  
+        allProjects = await getProjectsData();  
+        allCategories = await getCategoriesData();  
+      } catch (error) {  
+        console.error('Error loading data:', error);  
+      }  
+    }  
+      
+    // Advanced Related Projects Algorithm using TF-IDF cosine similarity  
+    function getRelatedProjects(currentProjectId, allProjects) {  
+      const currentProject = allProjects.find(p => p.id === currentProjectId);  
+      if (!currentProject) return [];  
+  
+      // Precompute frequencies for client, category, and skills as before  
+      const clientFreq = {};  
+      const categoryFreq = {};  
+      const skillFreq = {};  
+  
+      allProjects.forEach(p => {  
+        const client = p["feature-project-client"];  
+        if (client) clientFreq[client] = (clientFreq[client] || 0) + 1;  
+        const category = p["project-feature-main-category-id"];  
+        if (category) categoryFreq[category] = (categoryFreq[category] || 0) + 1;  
+        (p["feature-project-skills"] || []).forEach(s => {  
+          skillFreq[s] = (skillFreq[s] || 0) + 1;  
+        });  
+      });  
+  
+      // Compute TF-IDF vectors for descriptions  
+      const tfidfVectors = computeTFIDFVectors(allProjects);  
+      const currentTFIDF = tfidfVectors[currentProject.id];  
+  
+      // Calculate scores for each other project  
+      const scoredProjects = allProjects  
+        .filter(p => p.id !== currentProjectId)  
+        .map(project => {  
+          let score = 0;  
+          // Client similarity  
+          if (project["feature-project-client"] === currentProject["feature-project-client"]) {  
+            score += 3 / Math.sqrt(clientFreq[project["feature-project-client"]] || 1);  
+          }  
+          // Category similarity  
+          if (project["project-feature-main-category-id"] === currentProject["project-feature-main-category-id"]) {  
+            score += 2 / Math.sqrt(categoryFreq[project["project-feature-main-category-id"]] || 1);  
+          }  
+          // Skills overlap  
+          const currentSkills = currentProject["feature-project-skills"] || [];  
+          const projectSkills = project["feature-project-skills"] || [];  
+          const sharedSkills = projectSkills.filter(s => currentSkills.includes(s));  
+          sharedSkills.forEach(skill => {  
+            score += 1 / Math.sqrt(skillFreq[skill] || 1);  
+          });  
+          // Timeline proximity (bonus for same start year)  
+          const currentYear = currentProject["feature-project-start-year"] || "";  
+          const projectYear = project["feature-project-start-year"] || "";  
+          if (currentYear && projectYear && currentYear === projectYear) {  
+            score += 0.5;  
+          }  
+          // Advanced description similarity using TF-IDF cosine similarity  
+          let tfidfSim = 0;  
+          if (currentTFIDF && tfidfVectors[project.id]) {  
+            tfidfSim = cosineSimilarity(currentTFIDF.vector, currentTFIDF.magnitude, tfidfVectors[project.id].vector, tfidfVectors[project.id].magnitude);  
+          }  
+          score += tfidfSim * 2.0; // multiplier can be tuned  
+  
+          return { project, score };  
+        })  
+        .filter(item => item.score > 0)  
+        .sort((a, b) => b.score - a.score)  
+        .slice(0, 3)  
+        .map(item => item.project);  
+  
+      return scoredProjects;  
+    }  
+      
+    // Initialization  
+    async function initPage() {  
+      await fetchData();  
+      if (categoryParam) {  
+        const category = allCategories.find(c => c.id === Number(categoryParam));  
+        if (category) {  
+          const filteredProjects = allProjects.filter(  
+            p => p["project-feature-main-category-id"] === Number(categoryParam) &&  
+                 p["feature-project-type"] === "un-highlighted"  
+          );  
+          renderCategoryDetails(category, filteredProjects);  
+          initLightbox();  
+        } else { showDetailError(); }  
+      } else if (projectParam) {  
+        const project = allProjects.find(p => p.id === Number(projectParam));  
+        if (project) {  
+          renderProjectDetails(project, allProjects);  
+          initLightbox();  
+        } else { showDetailError(); }  
+      } else { showDetailError(); }  
+    }  
+      
+    // Helper Function for Navigation  
+    function getNavigationProjects(project, allProjects) {  
+      const highlightedProjects = allProjects  
+        .filter(p => p["feature-project-type"] === "highlighted")  
+        .sort((a, b) => a["feature-project-order"] - b["feature-project-order"]);  
+      const currentIndex = highlightedProjects.findIndex(p => p.id === project.id);  
+      if (currentIndex === -1) {  
+        return { prevProject: null, nextProject: null };  
+      }  
+      const prevProject = currentIndex > 0 ? highlightedProjects[currentIndex - 1] : null;  
+      const nextProject = currentIndex < highlightedProjects.length - 1 ? highlightedProjects[currentIndex + 1] : null;  
+      return { prevProject, nextProject };  
+    }  
+      
+    // Single Project View  
+    function renderProjectDetails(project, projects) {  
+      const { prevProject, nextProject } = getNavigationProjects(project, projects);  
+      const testimonials = project["feature-project-testimonial"] &&   
+                           Array.isArray(project["feature-project-testimonial"]) ?   
+                           project["feature-project-testimonial"].filter(t => t["testimonial-quote"] && t["testimonial-quote"] !== null) : [];  
+      const hasTestimonials = testimonials.length > 0;  
+      const testimonialCount = testimonials.length;  
+      const testimonialSectionTitle = testimonialCount === 1 ? 'Testimonial' : 'Testimonials';  
+  
+      const youtubeVideos = project["feature-project-youtube-link"] &&   
+                            Array.isArray(project["feature-project-youtube-link"]) &&   
+                            project["feature-project-youtube-link"].length > 0 ?   
+                            project["feature-project-youtube-link"].filter(video => video.url && video.url !== null && video.url !== '') : [];  
+      const hasYouTubeVideos = youtubeVideos.length > 0;  
+      const videoCount = youtubeVideos.length;  
+      const youtubeSectionTitle = videoCount === 1 ? 'Video' : 'Videos';  
+  
+      const relatedProjects = getRelatedProjects(project.id, projects);  
+  
+      detailsContainer.innerHTML = `  
+        <a href="index.html" class="back-link">  
+          <i class="fas fa-arrow-left"></i> Back to Projects  
+        </a>  
+        <article class="project-detail">  
+          <header class="detail-header">  
+            <h1 class="project-title">${project["feature-project-name"]}</h1>  
+            ${project["feature-project-start-year"] ? `  
+              <div class="project-meta">  
+                <span>${project["feature-project-start-year"]}${project["feature-project-end-year"] ? ` - ${project["feature-project-end-year"]}` : ''}</span>  
+              </div>  
+            ` : ''}  
+          </header>  
+          <img src="${project["feature-project-thumbnail"]}"   
+               alt="${project["feature-project-name"]}"   
+               class="detail-image" loading="lazy">  
+          <section class="detail-content">  
+            <p class="project-description">${project["feature-project-long-description"]}</p>  
+            ${hasTestimonials ? `  
+              <div class="testimonial-section">  
+                <h2>${testimonialSectionTitle}</h2>  
+                <div class="testimonial-container">  
+                  <div class="testimonial-slider">  
+                    ${testimonials.map(testimonial => `  
+                      <div class="testimonial-item">  
+                        <p class="testimonial-quote">"${testimonial["testimonial-quote"]}"</p>  
+                        <p class="testimonial-author">${testimonial["testimonial-name"]}</p>  
+                        <p class="testimonial-role">${testimonial["testimonial-role"]}${testimonial["testimonial-client-name"] ? `, ${testimonial["testimonial-client-name"]}` : ''}</p>  
+                      </div>  
+                    `).join('')}  
+                  </div>  
+                </div>  
+                ${testimonialCount > 1 ? `  
+                  <div class="testimonial-nav">  
+                    <button class="testimonial-nav-btn prev" aria-label="Previous testimonial">  
+                      <i class="fas fa-chevron-left"></i>  
+                    </button>  
+                    <button class="testimonial-nav-btn next" aria-label="Next testimonial">  
+                      <i class="fas fa-chevron-right"></i>  
+                    </button>  
+                  </div>  
+                  <div class="testimonial-dots">  
+                    ${testimonials.map((_, index) => `  
+                      <span class="testimonial-dot${index === 0 ? ' active' : ''}" data-index="${index}"></span>  
+                    `).join('')}  
+                  </div>  
+                ` : ''}  
+              </div>  
+            ` : ''}  
+            ${hasYouTubeVideos ? `  
+              <div class="youtube-section">  
+                <h2>${youtubeSectionTitle}</h2>  
+                <div class="youtube-container">  
+                  <div class="youtube-slider">  
+                    ${youtubeVideos  
+                      .sort((a, b) => a.order - b.order)  
+                      .map(video => `  
+                        <div class="youtube-item">  
+                          <iframe src="${video.url}"   
+                                  title="${video.title}"   
+                                  allowfullscreen   
+                                  loading="lazy"></iframe>  
+                          <p class="youtube-title">${video.title}</p>  
+                          <p class="youtube-description">${video.description}</p>  
+                        </div>  
+                      `).join('')}  
+                  </div>  
+                </div>  
+                ${videoCount > 1 ? `  
+                  <div class="youtube-nav">  
+                    <button class="youtube-nav-btn prev" aria-label="Previous video">  
+                      <i class="fas fa-chevron-left"></i>  
+                    </button>  
+                    <button class="youtube-nav-btn next" aria-label="Next video">  
+                      <i class="fas fa-chevron-right"></i>  
+                    </button>  
+                  </div>  
+                  <div class="youtube-dots">  
+                    ${youtubeVideos.map((_, index) => `  
+                      <span class="youtube-dot${index === 0 ? ' active' : ''}" data-index="${index}"></span>  
+                    `).join('')}  
+                  </div>  
+                ` : ''}  
+              </div>  
+            ` : ''}  
+            ${project["feature-project-gallery"] && project["feature-project-gallery"].length ? `  
+              <div id="gallery-section-container"></div>  
+            ` : ''}  
+            <div class="detail-grid">  
+              ${project["feature-project-company-name"] ? `  
+                <div class="detail-item">  
+                  <h3>Company</h3>  
+                  <p>${project["feature-project-company-name"]}</p>  
+                </div>  
+              ` : ''}  
+              ${project["feature-project-client"] ? `  
+                <div class="detail-item">  
+                  <h3>Client</h3>  
+                  <p>${project["feature-project-client"]}</p>  
+                </div>  
+              ` : ''}  
+              ${project["feature-project-skills"] && project["feature-project-skills"].length ? `  
+                <div class="detail-item">  
+                  <h3>Skills Used</h3>  
+                  <div class="skill-list">  
+                    ${project["feature-project-skills"].map(skill => `<span class="skill-tag">${skill}</span>`).join('')}  
+                  </div>  
+                </div>  
+              ` : ''}  
+            </div>  
+          </section>  
+          ${prevProject || nextProject ? `  
+            <nav class="other-project-nav-container">  
+              ${prevProject ? `  
+                <a href="details.html?id=${prevProject.id}" class="other-project-nav-button" title="Previous project: ${prevProject["feature-project-name"]}">  
+                  <i class="fas fa-arrow-left"></i>  
+                  <span>${prevProject["feature-project-name"]}</span>  
+                </a>  
+              ` : '<div class="other-project-nav-spacer"></div>'}  
+              ${nextProject ? `  
+                <a href="details.html?id=${nextProject.id}" class="other-project-nav-button" title="Next project: ${nextProject["feature-project-name"]}">  
+                  <span>${nextProject["feature-project-name"]}</span>  
+                  <i class="fas fa-arrow-right"></i>  
+                </a>  
+              ` : '<div class="other-project-nav-spacer"></div>'}  
+            </nav>  
+          ` : ''}  
+          ${relatedProjects.length > 0 ? `  
+            <section class="related-projects">  
+              <h2>Related Projects</h2>  
+              <div class="project-grid">  
+                ${relatedProjects.map(p => `  
+                  <a href="details.html?id=${p.id}" class="related-project">  
+                    <img src="${p["feature-project-thumbnail"]}" alt="${p["feature-project-name"]}" class="related-thumbnail" loading="lazy">  
+                    <h3>${p["feature-project-name"]}</h3>  
+                  </a>  
+                `).join('')}  
+              </div>  
+            </section>  
+          ` : ''}  
+          ${getLightboxMarkup()}  
+        </article>  
+      `;  
+  
+      if (project["feature-project-gallery"] && project["feature-project-gallery"].length) {  
+        galleryImagesGlobal = project["feature-project-gallery"].sort((a, b) => a.order - b.order);  
+        renderGallerySection(galleryImagesGlobal);  
+      }  
+        
+      if (hasTestimonials && testimonialCount > 1) {  
+        initTestimonialSlider(testimonialCount);  
+      }  
+        
+      if (hasYouTubeVideos && videoCount > 1) {  
+        initYouTubeSlider(videoCount);  
+      }  
+    }  
+      
+    function renderGallerySection(galleryImages) {  
+      const container = document.getElementById('gallery-section-container');  
+      container.innerHTML = `  
+        <div class="gallery-section">  
+          <h2>Gallery</h2>  
+          <div id="galleryGrid" class="gallery-grid"></div>  
+          <div id="paginationControls" class="pagination-controls"></div>  
+        </div>  
+      `;  
+      currentGalleryPage = 1;  
+      renderGalleryPage();  
+    }  
+      
+    function renderGalleryPage() {  
+      const galleryGrid = document.getElementById('galleryGrid');  
+      const paginationControls = document.getElementById('paginationControls');  
+      let startIndex, endIndex;  
+      if (window.innerWidth >= 1024) {  
+        startIndex = 0;  
+        endIndex = galleryImagesGlobal.length;  
+        paginationControls.innerHTML = '';  
+      } else {  
+        const totalImages = galleryImagesGlobal.length;  
+        const totalPages = Math.ceil(totalImages / imagesPerPage);  
+        startIndex = (currentGalleryPage - 1) * imagesPerPage;  
+        endIndex = Math.min(startIndex + imagesPerPage, totalImages);  
+        if (totalPages > 1) {  
+          let controlsHTML = '';  
+          if (currentGalleryPage > 1) {  
+            controlsHTML += `<button class="pagination-button" id="prevPage">Previous</button>`;  
+          }  
+          controlsHTML += `<span class="pagination-info">Page ${currentGalleryPage} of ${totalPages}</span>`;  
+          if (currentGalleryPage < totalPages) {  
+            controlsHTML += `<button class="pagination-button" id="nextPage">Next</button>`;  
+          }  
+          paginationControls.innerHTML = controlsHTML;  
+          const prevBtn = document.getElementById('prevPage');  
+          if (prevBtn) {  
+            prevBtn.addEventListener('click', () => {  
+              currentGalleryPage--;  
+              renderGalleryPage();  
+              scrollToGalleryTitle();  
+            });  
+          }  
+          const nextBtn = document.getElementById('nextPage');  
+          if (nextBtn) {  
+            nextBtn.addEventListener('click', () => {  
+              currentGalleryPage++;  
+              renderGalleryPage();  
+              scrollToGalleryTitle();  
+            });  
+          }  
+        } else { paginationControls.innerHTML = ''; }  
+      }  
+      galleryGrid.innerHTML = galleryImagesGlobal  
+        .slice(startIndex, endIndex)  
+        .map((image, i) => {  
+          const globalIndex = startIndex + i;  
+          return `  
+            <div class="gallery-item">  
+              <img src="${image.image}" alt="${image['alt-text']}" class="gallery-thumbnail" data-index="${globalIndex}" loading="lazy">  
+              <div class="gallery-overlay">${image.description}</div>  
+            </div>  
+          `;  
+        }).join('');  
+      attachGalleryThumbnails();  
+    }  
+      
+    function scrollToGalleryTitle() {  
+      const galleryTitle = document.querySelector('.gallery-section h2');  
+      if (galleryTitle) {  
+        galleryTitle.scrollIntoView({ behavior: 'smooth', block: 'start' });  
+      }  
+    }  
+      
+    function attachGalleryThumbnails() {  
+      const lightbox = document.getElementById('galleryLightbox');  
+      const galleryItems = document.querySelectorAll('#galleryGrid .gallery-thumbnail');  
+      galleryItems.forEach(item => {  
+        item.addEventListener('click', () => {  
+          currentImageIndex = Number(item.getAttribute('data-index'));  
+          updateLightbox(currentImageIndex);  
+          lightbox.classList.add('active');  
+          document.body.style.overflow = 'hidden';  
+        });  
+      });  
+    }  
+      
+    // Category View with YouTube and Testimonial Rendering  
+    function renderCategoryDetails(category, projects) {  
+      let html = `  
+        <a href="index.html" class="back-link">  
+          <i class="fas fa-arrow-left"></i> Back to Projects  
+        </a>  
+        <section class="category-header" style="text-align: center; padding: 2rem;">  
+          <h1>${category.categoryName}</h1>  
+          <p>${category.description}</p>  
+        </section>  
+      `;  
+      projects.forEach((project, projectIndex) => {  
+        const testimonials = project["feature-project-testimonial"] &&   
+                             Array.isArray(project["feature-project-testimonial"]) ?   
+                             project["feature-project-testimonial"].filter(t => t["testimonial-quote"] && t["testimonial-quote"] !== null) : [];  
+        const hasTestimonials = testimonials.length > 0;  
+        const testimonialCount = testimonials.length;  
+        const testimonialSectionTitle = testimonialCount === 1 ? 'Testimonial' : 'Testimonials';  
+  
+        const youtubeVideos = project["feature-project-youtube-link"] &&   
+                              Array.isArray(project["feature-project-youtube-link"]) ?   
+                              project["feature-project-youtube-link"].filter(video => video.url && video.url !== null && video.url !== '') : [];  
+        const hasYouTubeVideos = youtubeVideos.length > 0;  
+        const videoCount = youtubeVideos.length;  
+        const youtubeSectionTitle = videoCount === 1 ? 'Video' : 'Videos';  
+  
+        html += `  
+          <article class="project-detail" style="margin-bottom: 2rem;" data-project-index="${projectIndex}">  
+            <header class="detail-header">  
+              <h2 class="project-title">${project["feature-project-name"]}</h2>  
+              ${project["feature-project-start-year"] ? `  
+                <div class="project-meta">  
+                  <span>${project["feature-project-start-year"]}${project["feature-project-end-year"] ? ` - ${project["feature-project-end-year"]}` : ''}</span>  
+                </div>  
+              ` : ''}  
+            </header>  
+            <img src="${project["feature-project-thumbnail"]}" alt="${project["feature-project-name"]}" class="detail-image" loading="lazy">  
+            <section class="detail-content">  
+              <p class="project-description">${project["feature-project-long-description"]}</p>  
+              ${hasTestimonials ? `  
+                <div class="testimonial-section">  
+                  <h2>${testimonialSectionTitle}</h2>  
+                  <div class="testimonial-container">  
+                    <div class="testimonial-slider">  
+                      ${testimonials.map(testimonial => `  
+                        <div class="testimonial-item">  
+                          <p class="testimonial-quote">"${testimonial["testimonial-quote"]}"</p>  
+                          <p class="testimonial-author">${testimonial["testimonial-name"]}</p>  
+                          <p class="testimonial-role">${testimonial["testimonial-role"]}${testimonial["testimonial-client-name"] ? `, ${testimonial["testimonial-client-name"]}` : ''}</p>  
+                        </div>  
+                      `).join('')}  
+                    </div>  
+                  </div>  
+                  ${testimonialCount > 1 ? `  
+                    <div class="testimonial-nav">  
+                      <button class="testimonial-nav-btn prev" aria-label="Previous testimonial">  
+                        <i class="fas fa-chevron-left"></i>  
+                      </button>  
+                      <button class="testimonial-nav-btn next" aria-label="Next testimonial">  
+                        <i class="fas fa-chevron-right"></i>  
+                      </button>  
+                    </div>  
+                    <div class="testimonial-dots">  
+                      ${testimonials.map((_, index) => `  
+                        <span class="testimonial-dot${index === 0 ? ' active' : ''}" data-index="${index}"></span>  
+                      `).join('')}  
+                    </div>  
+                  ` : ''}  
+                </div>  
+              ` : ''}  
+              ${hasYouTubeVideos ? `  
+                <div class="youtube-section">  
+                  <h2>${youtubeSectionTitle}</h2>  
+                  <div class="youtube-container">  
+                    <div class="youtube-slider">  
+                      ${youtubeVideos  
+                        .sort((a, b) => a.order - b.order)  
+                        .map(video => `  
+                          <div class="youtube-item">  
+                            <iframe src="${video.url}" title="${video.title}" allowfullscreen loading="lazy"></iframe>  
+                            <p class="youtube-title">${video.title}</p>  
+                            <p class="youtube-description">${video.description}</p>  
+                          </div>  
+                        `).join('')}  
+                    </div>  
+                  </div>  
+                  ${videoCount > 1 ? `  
+                    <div class="youtube-nav">  
+                      <button class="youtube-nav-btn prev" aria-label="Previous video">  
+                        <i class="fas fa-chevron-left"></i>  
+                      </button>  
+                      <button class="youtube-nav-btn next" aria-label="Next video">  
+                        <i class="fas fa-chevron-right"></i>  
+                      </button>  
+                    </div>  
+                    <div class="youtube-dots">  
+                      ${youtubeVideos.map((_, index) => `  
+                        <span class="youtube-dot${index === 0 ? ' active' : ''}" data-index="${index}"></span>  
+                      `).join('')}  
+                    </div>  
+                  ` : ''}  
+                </div>  
+              ` : ''}  
+              ${project["feature-project-gallery"] && project["feature-project-gallery"].length ? `  
+                <div class="gallery-section" data-project-id="${project.id}">  
+                  <h2>Gallery</h2>  
+                  <div class="gallery-grid">  
+                    ${project["feature-project-gallery"].sort((a, b) => a.order - b.order)  
+                      .map((image, i) => `  
+                        <div class="gallery-item">  
+                          <img src="${image.image}" alt="${image['alt-text']}" class="gallery-thumbnail" data-index="${i}" loading="lazy">  
+                          <div class="gallery-overlay">${image.description}</div>  
+                        </div>  
+                      `).join('')}  
+                  </div>  
+                </div>  
+              ` : ''}  
+            </section>  
+          </article>  
+        `;  
+      });  
+      detailsContainer.innerHTML = html + getLightboxMarkup();  
+      attachCategoryGalleryListeners(projects);  
+  
+      // Initialize sliders for each project with multiple testimonials or videos  
+      projects.forEach((project, projectIndex) => {  
+        const projectContainer = detailsContainer.querySelector(`article.project-detail[data-project-index="${projectIndex}"]`);  
+        if (!projectContainer) {  
+          console.warn(`Project container not found for index ${projectIndex}`);  
+          return;  
+        }  
+  
+        const testimonials = project["feature-project-testimonial"] &&   
+                             Array.isArray(project["feature-project-testimonial"]) ?   
+                             project["feature-project-testimonial"].filter(t => t["testimonial-quote"] && t["testimonial-quote"] !== null) : [];  
+        const hasTestimonials = testimonials.length > 0;  
+        const testimonialCount = testimonials.length;  
+  
+        if (hasTestimonials && testimonialCount > 1) {  
+          const slider = projectContainer.querySelector('.testimonial-slider');  
+          const prevBtn = projectContainer.querySelector('.testimonial-nav-btn.prev');  
+          const nextBtn = projectContainer.querySelector('.testimonial-nav-btn.next');  
+          const dots = projectContainer.querySelectorAll('.testimonial-dot');  
+          initTestimonialSliderForProject(slider, prevBtn, nextBtn, dots, testimonialCount);  
+        }  
+  
+        const youtubeVideos = project["feature-project-youtube-link"] &&   
+                              Array.isArray(project["feature-project-youtube-link"]) ?   
+                              project["feature-project-youtube-link"].filter(video => video.url && video.url !== null && video.url !== '') : [];  
+        const hasYouTubeVideos = youtubeVideos.length > 0;  
+        const videoCount = youtubeVideos.length;  
+  
+        if (hasYouTubeVideos && videoCount > 1) {  
+          const slider = projectContainer.querySelector('.youtube-slider');  
+          const prevBtn = projectContainer.querySelector('.youtube-nav-btn.prev');  
+          const nextBtn = projectContainer.querySelector('.youtube-nav-btn.next');  
+          const dots = projectContainer.querySelectorAll('.youtube-dot');  
+          initYouTubeSliderForProject(slider, prevBtn, nextBtn, dots, videoCount);  
+        }  
+      });  
+    }  
+      
+    function getLightboxMarkup() {  
+      return `  
+        <div class="lightbox" id="galleryLightbox">  
+          <div class="lightbox-content">  
+            <button class="close-btn" aria-label="Close lightbox"></button>  
+            <div class="lightbox-image-container">  
+              <img class="lightbox-image" src="" alt="">  
+              <div class="loading-spinner"></div>  
+              <button class="nav-btn prev-btn" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>  
+              <button class="nav-btn next-btn" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>  
+            </div>  
+            <div class="lightbox-caption"></div>  
+          </div>  
+        </div>  
+      `;  
+    }  
+      
+    function attachCategoryGalleryListeners(projects) {  
+      const galleryThumbnails = document.querySelectorAll('.gallery-thumbnail');  
+      galleryThumbnails.forEach(thumbnail => {  
+        thumbnail.addEventListener('click', (e) => {  
+          const gallerySection = e.target.closest('.gallery-section');  
+          const projectId = gallerySection.getAttribute('data-project-id');  
+          const project = projects.find(p => p.id === Number(projectId));  
+          if (!project) return;  
+          galleryImagesGlobal = (project["feature-project-gallery"] || []).sort((a, b) => a.order - b.order);  
+          currentImageIndex = Number(e.target.getAttribute('data-index'));  
+          updateLightbox(currentImageIndex);  
+          document.getElementById('galleryLightbox').classList.add('active');  
+          document.body.style.overflow = 'hidden';  
+        });  
+      });  
+    }  
+      
+    // Lightbox Functionality  
+    function updateLightbox(index) {  
+      const lightbox = document.getElementById('galleryLightbox');  
+      const lightboxImage = lightbox.querySelector('.lightbox-image');  
+      const lightboxCaption = lightbox.querySelector('.lightbox-caption');  
+      const spinner = lightbox.querySelector('.loading-spinner');  
+      currentImageIndex = (index + galleryImagesGlobal.length) % galleryImagesGlobal.length;  
+      const image = galleryImagesGlobal[currentImageIndex];  
+      lightboxImage.style.opacity = '0';  
+      spinner.style.display = 'block';  
+      const img = new Image();  
+      img.src = image.image;  
+      img.onload = () => {  
+        spinner.style.display = 'none';  
+        lightboxImage.src = image.image;  
+        lightboxImage.alt = image['alt-text'];  
+        const imageCount = galleryImagesGlobal.length > 1 ? `Image ${currentImageIndex + 1} of ${galleryImagesGlobal.length} - ` : '';  
+        lightboxCaption.textContent = `${imageCount}${image.description}`;  
+        lightboxImage.style.opacity = '1';  
+      };  
+    }  
+      
+    function nextImage() { updateLightbox(currentImageIndex + 1); }  
+    function prevImage() { updateLightbox(currentImageIndex - 1); }  
+      
+    function initLightbox() {  
+      if (lightboxInitialized) return;  
+      const lightbox = document.getElementById('galleryLightbox');  
+      const closeBtn = lightbox.querySelector('.close-btn');  
+      const prevBtn = lightbox.querySelector('.prev-btn');  
+      const nextBtn = lightbox.querySelector('.next-btn');  
+      let touchStartX = 0;  
+      lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeModal(); });  
+      closeBtn.addEventListener('click', closeModal);  
+      prevBtn.addEventListener('click', prevImage);  
+      nextBtn.addEventListener('click', nextImage);  
+      document.addEventListener('keydown', (e) => {  
+        if (lightbox.classList.contains('active')) {  
+          if (e.key === 'ArrowLeft') prevImage();  
+          if (e.key === 'ArrowRight') nextImage();  
+          if (e.key === 'Escape') closeModal();  
+        }  
+      });  
+      lightbox.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; });  
+      lightbox.addEventListener('touchend', (e) => {  
+        const touchEndX = e.changedTouches[0].clientX;  
+        const deltaX = touchEndX - touchStartX;  
+        if (Math.abs(deltaX) > 50) { deltaX > 0 ? prevImage() : nextImage(); }  
+      });  
+      lightboxInitialized = true;  
+    }  
+      
+    function closeModal() {  
+      const lightbox = document.getElementById('galleryLightbox');  
+      lightbox.classList.remove('active');  
+      document.body.style.overflow = '';  
+    }  
+      
+    // Testimonial Slider Functionality for Single Project  
+    function initTestimonialSlider(testimonialCount) {  
+      const slider = document.querySelector('.testimonial-slider');  
+      const prevBtn = document.querySelector('.testimonial-nav-btn.prev');  
+      const nextBtn = document.querySelector('.testimonial-nav-btn.next');  
+      const dots = document.querySelectorAll('.testimonial-dot');  
+      let currentIndex = 0;  
+      let touchStartX = 0;  
+      function updateSlider() {  
+        slider.style.transform = `translateX(-${currentIndex * 100}%)`;  
+        dots.forEach(dot => dot.classList.remove('active'));  
+        dots[currentIndex].classList.add('active');  
+        prevBtn.disabled = currentIndex === 0;  
+        nextBtn.disabled = currentIndex === testimonialCount - 1;  
+      }  
+      prevBtn.addEventListener('click', () => { if (currentIndex > 0) { currentIndex--; updateSlider(); } });  
+      nextBtn.addEventListener('click', () => { if (currentIndex < testimonialCount - 1) { currentIndex++; updateSlider(); } });  
+      dots.forEach(dot => {  
+        dot.addEventListener('click', () => { currentIndex = Number(dot.getAttribute('data-index')); updateSlider(); });  
+      });  
+      slider.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; });  
+      slider.addEventListener('touchend', (e) => {  
+        const touchEndX = e.changedTouches[0].clientX;  
+        const deltaX = touchEndX - touchStartX;  
+        if (Math.abs(deltaX) > 50) {  
+          if (deltaX > 0 && currentIndex > 0) { currentIndex--; }  
+          else if (deltaX < 0 && currentIndex < testimonialCount - 1) { currentIndex++; }  
+          updateSlider();  
+        }  
+      });  
+      updateSlider();  
+    }  
+      
+    // Testimonial Slider Functionality for Category View (Multiple Projects)  
+    function initTestimonialSliderForProject(slider, prevBtn, nextBtn, dots, testimonialCount) {  
+      let currentIndex = 0;  
+      let touchStartX = 0;  
+  
+      if (!slider || !prevBtn || !nextBtn || dots.length === 0) {  
+        console.error('Testimonial slider elements missing:', { slider, prevBtn, nextBtn, dots });  
+        return;  
+      }  
+  
+      function updateSlider() {  
+        slider.style.transform = `translateX(-${currentIndex * 100}%)`;  
+        dots.forEach(dot => dot.classList.remove('active'));  
+        dots[currentIndex].classList.add('active');  
+        prevBtn.disabled = currentIndex === 0;  
+        nextBtn.disabled = currentIndex === testimonialCount - 1;  
+      }  
+  
+      prevBtn.addEventListener('click', () => {  
+        if (currentIndex > 0) {  
+          currentIndex--;  
+          updateSlider();  
+        }  
+      });  
+  
+      nextBtn.addEventListener('click', () => {  
+        if (currentIndex < testimonialCount - 1) {  
+          currentIndex++;  
+          updateSlider();  
+        }  
+      });  
+  
+      dots.forEach(dot => {  
+        dot.addEventListener('click', () => {  
+          currentIndex = Number(dot.getAttribute('data-index'));  
+          updateSlider();  
+        });  
+      });  
+  
+      slider.addEventListener('touchstart', (e) => {  
+        touchStartX = e.touches[0].clientX;  
+      });  
+  
+      slider.addEventListener('touchend', (e) => {  
+        const touchEndX = e.changedTouches[0].clientX;  
+        const deltaX = touchEndX - touchStartX;  
+        if (Math.abs(deltaX) > 50) {  
+          if (deltaX > 0 && currentIndex > 0) {  
+            currentIndex--;  
+          } else if (deltaX < 0 && currentIndex < testimonialCount - 1) {  
+            currentIndex++;  
+          }  
+          updateSlider();  
+        }  
+      });  
+  
+      updateSlider();  
+    }  
+      
+    // YouTube Slider Functionality for Single Project  
+    function initYouTubeSlider(videoCount) {  
+      const slider = document.querySelector('.youtube-slider');  
+      const prevBtn = document.querySelector('.youtube-nav-btn.prev');  
+      const nextBtn = document.querySelector('.youtube-nav-btn.next');  
+      const dots = document.querySelectorAll('.youtube-dot');  
+      let currentIndex = 0;  
+      let touchStartX = 0;  
+        
+      if (!slider || !prevBtn || !nextBtn || !dots.length) {  
+        console.error('YouTube slider elements not found in DOM');  
+        return;  
+      }  
+        
+      function updateSlider() {  
+        slider.style.transform = `translateX(-${currentIndex * 100}%)`;  
+        dots.forEach(dot => dot.classList.remove('active'));  
+        dots[currentIndex].classList.add('active');  
+        prevBtn.disabled = currentIndex === 0;  
+        nextBtn.disabled = currentIndex === videoCount - 1;  
+      }  
+        
+      prevBtn.addEventListener('click', () => {  
+        if (currentIndex > 0) {  
+          currentIndex--;  
+          updateSlider();  
+        }  
+      });  
+        
+      nextBtn.addEventListener('click', () => {  
+        if (currentIndex < videoCount - 1) {  
+          currentIndex++;  
+          updateSlider();  
+        }  
+      });  
+        
+      dots.forEach(dot => {  
+        dot.addEventListener('click', () => {  
+          currentIndex = Number(dot.getAttribute('data-index'));  
+          updateSlider();  
+        });  
+      });  
+        
+      slider.addEventListener('touchstart', (e) => {  
+        touchStartX = e.touches[0].clientX;  
+      });  
+        
+      slider.addEventListener('touchend', (e) => {  
+        const touchEndX = e.changedTouches[0].clientX;  
+        const deltaX = touchEndX - touchStartX;  
+        if (Math.abs(deltaX) > 50) {  
+          if (deltaX > 0 && currentIndex > 0) {  
+            currentIndex--;  
+          } else if (deltaX < 0 && currentIndex < videoCount - 1) {  
+            currentIndex++;  
+          }  
+          updateSlider();  
+        }  
+      });  
+        
+      updateSlider();  
+    }  
+      
+    // YouTube Slider Functionality for Category View (Multiple Projects)  
+    function initYouTubeSliderForProject(slider, prevBtn, nextBtn, dots, videoCount) {  
+      let currentIndex = 0;  
+      let touchStartX = 0;  
+  
+      if (!slider || !prevBtn || !nextBtn || dots.length === 0) {  
+        console.error('YouTube slider elements missing:', { slider, prevBtn, nextBtn, dots });  
+        return;  
+      }  
+  
+      function updateSlider() {  
+        slider.style.transform = `translateX(-${currentIndex * 100}%)`;  
+        dots.forEach(dot => dot.classList.remove('active'));  
+        dots[currentIndex].classList.add('active');  
+        prevBtn.disabled = currentIndex === 0;  
+        nextBtn.disabled = currentIndex === videoCount - 1;  
+      }  
+  
+      prevBtn.addEventListener('click', () => {  
+        if (currentIndex > 0) {  
+          currentIndex--;  
+          updateSlider();  
+        }  
+      });  
+  
+      nextBtn.addEventListener('click', () => {  
+        if (currentIndex < videoCount - 1) {  
+          currentIndex++;  
+          updateSlider();  
+        }  
+      });  
+  
+      dots.forEach(dot => {  
+        dot.addEventListener('click', () => {  
+          currentIndex = Number(dot.getAttribute('data-index'));  
+          updateSlider();  
+        });  
+      });  
+  
+      slider.addEventListener('touchstart', (e) => {  
+        touchStartX = e.touches[0].clientX;  
+      });  
+  
+      slider.addEventListener('touchend', (e) => {  
+        const touchEndX = e.changedTouches[0].clientX;  
+        const deltaX = touchEndX - touchStartX;  
+        if (Math.abs(deltaX) > 50) {  
+          if (deltaX > 0 && currentIndex > 0) {  
+            currentIndex--;  
+          } else if (deltaX < 0 && currentIndex < videoCount - 1) {  
+            currentIndex++;  
+          }  
+          updateSlider();  
+        }  
+      });  
+  
+      updateSlider();  
+    }  
+      
+    // Error Handling  
+    function showDetailError() {  
+      detailsContainer.innerHTML = `  
+        <div class="error-state" style="text-align:center; padding:2rem;">  
+          <p style="font-size:1.2rem;">⚠️ Project or Category not found</p>  
+          <a href="index.html" class="back-link">  
+            <i class="fas fa-arrow-left"></i> Return to Projects  
+          </a>  
+        </div>  
+      `;  
+    }  
+      
+    // Back-to-Top Functionality  
+    function initBackToTop() {  
+      const backToTop = document.querySelector('.back-to-top');  
+      window.addEventListener('scroll', () => { backToTop.classList.toggle('visible', window.scrollY > 50); });  
+      backToTop.addEventListener('click', () => {  
+        backToTop.classList.remove('visible');  
+        window.scrollTo({ top: 0, behavior: 'smooth' });  
+      });  
+    }  
+      
+    if (projectParam || categoryParam) {  
+      initPage().then(() => { initBackToTop(); });  
+    } else {  
+      window.location.href = 'index.html';  
+    }  
+  </script>  
+    
+  <script src="sharable-scripts.js" defer></script>  
+</body>  
 </html>
