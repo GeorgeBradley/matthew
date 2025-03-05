@@ -1,29 +1,55 @@
 export async function onRequestGet({ params, request, env }) {
-  // Fetch feature-project.json (assumed to be in the public directory)
-  const jsonUrl = new URL('/feature-project.json', request.url).toString();
-  const response = await fetch(jsonUrl);
-  const projects = await response.json();
+  // Default to root, but allow flexibility for JSON location
+  const jsonPath = '/feature-project.json'; // Adjust this if JSON is elsewhere (e.g., '/public/feature-project.json')
+  const jsonUrl = new URL(jsonPath, request.url).toString();
 
-  // Create slug-to-ID mapping
-  const slugToId = {};
-  projects.forEach(project => {
-    const slug = slugify(project["feature-project-name"]);
-    slugToId[slug] = project.id;
-  });
+  try {
+    // Fetch the JSON file
+    const response = await fetch(jsonUrl);
+    if (!response.ok) {
+      return new Response(`Failed to fetch ${jsonPath}: ${response.status} ${response.statusText}`, { status: 500 });
+    }
+    const projects = await response.json();
 
-  const slug = params.slug; // e.g., "walrus"
-  const projectId = slugToId[slug];
+    // Ensure projects is an array
+    if (!Array.isArray(projects)) {
+      return new Response('Invalid JSON: Expected an array', { status: 500 });
+    }
 
-  if (!projectId) {
-    return new Response("Project not found", { status: 404 });
+    // Build slug-to-ID map
+    const slugToId = {};
+    projects.forEach(project => {
+      if (project["feature-project-name"] && project.id) {
+        slugToId[slugify(project["feature-project-name"])] = project.id;
+      }
+    });
+
+    const slug = params.slug; // e.g., "walrus-stop-motion-puppet"
+    const projectId = slugToId[slug];
+
+    if (!projectId) {
+      return new Response(`No project found for slug: ${slug}`, { status: 404 });
+    }
+
+    // Rewrite to details.html with ID
+    const newUrl = new URL(request.url);
+    newUrl.pathname = '/details.html';
+    newUrl.searchParams.set('id', projectId);
+
+    // Fetch the static HTML
+    const htmlResponse = await env.ASSETS.fetch(newUrl);
+    return htmlResponse;
+  } catch (error) {
+    // Return detailed error for debugging
+    return new Response(`Function error: ${error.message}`, { status: 500 });
   }
+}
 
-  // Rewrite the request to details.html with the ID as a query parameter
-  const newUrl = new URL(request.url);
-  newUrl.pathname = '/details.html';
-  newUrl.searchParams.set('id', projectId);
-
-  // Fetch the static details.html with the modified URL
-  const htmlResponse = await env.ASSETS.fetch(newUrl);
-  return htmlResponse;
+function slugify(text) {
+  return text
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, '') // Remove special chars
+    .trim()
+    .replace(/\s+/g, '-')     // Spaces to hyphens
+    .replace(/-+/g, '-');     // Collapse hyphens
 }
