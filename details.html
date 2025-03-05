@@ -109,7 +109,7 @@
       max-width: 900px;
       margin: 0 auto 2rem auto;
       font-size: 1.15rem;
-      text-align: justify center;
+      text-align: justify;
       color: var(--secondary);
     }
     
@@ -710,12 +710,27 @@
   </div>
 
   <script>
-    // Global Variables
+    // -------------------------------
+    // 1. SLUGIFY HELPER FUNCTION
+    // -------------------------------
+    function slugify(text) {
+      return text.toString().toLowerCase()
+        .replace(/\s+/g, '-')      // Replace spaces with -
+        .replace(/[^\w\-]+/g, '')  // Remove all non-word chars
+        .replace(/\-\-+/g, '-')    // Replace multiple - with single -
+        .replace(/^-+/, '')        // Trim - from start of text
+        .replace(/-+$/, '');       // Trim - from end of text
+    }
+
+    // -------------------------------
+    // Global Variables and URLs
+    // -------------------------------
     const PROJECTS_URL = 'feature-project.json';
     const CATEGORIES_URL = 'feature-project-category.json';
     const detailsContainer = document.getElementById('project-detail-container');
     const urlParams = new URLSearchParams(window.location.search);
     const projectParam = urlParams.get('id');
+    const slugParam = urlParams.get('slug');  // New slug parameter
     const categoryParam = urlParams.get('cat');
     
     let allProjects = [];
@@ -903,7 +918,9 @@
     // Initialization
     async function initPage() {
       await fetchData();
+      let project;
       if (categoryParam) {
+        // Category view (not the focus now)
         const category = allCategories.find(c => c.id === Number(categoryParam));
         if (category) {
           const filteredProjects = allProjects.filter(
@@ -913,13 +930,18 @@
           renderCategoryDetails(category, filteredProjects);
           initLightbox();
         } else { showDetailError(); }
-      } else if (projectParam) {
-        const project = allProjects.find(p => p.id === Number(projectParam));
+      } else {
+        // New: Check for slug parameter first, then fallback to id.
+        if (slugParam) {
+          project = allProjects.find(p => slugify(p["feature-project-name"]) === slugParam);
+        } else if (projectParam) {
+          project = allProjects.find(p => p.id === Number(projectParam));
+        }
         if (project) {
           renderProjectDetails(project, allProjects);
           initLightbox();
         } else { showDetailError(); }
-      } else { showDetailError(); }
+      }
     }
     
     // Helper Function for Navigation
@@ -1692,7 +1714,7 @@
       });
     }
     
-    if (projectParam || categoryParam) {
+    if (projectParam || slugParam || categoryParam) {
       initPage().then(() => { initBackToTop(); });
     } else {
       window.location.href = 'index.html';
