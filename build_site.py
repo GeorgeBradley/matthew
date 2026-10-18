@@ -17,6 +17,10 @@ EMAIL = 'mgbradley.uk@gmail.com'
 PROJECTS = json.loads((ROOT / 'feature-project.json').read_text(encoding='utf-8'))
 CATEGORIES = [c for c in json.loads((ROOT / 'feature-project-category.json').read_text(encoding='utf-8')) if c['id'] <= 4]
 MANIFEST = {}
+ASSET_VERSIONS = {
+    asset: hashlib.sha256((ROOT / asset).read_text(encoding='utf-8').encode()).hexdigest()[:12]
+    for asset in ('portfolio.css', 'portfolio.js')
+}
 
 def clean(value):
     return str(value or '').replace('\u2014', ', ').replace('\u2013', ' to ').replace('commision', 'commission')
@@ -102,7 +106,7 @@ def page(title, description, path, body, photo='feature-img-beta/feature-1.jpg',
 <title>{h(title)}</title><meta name="description" content="{h(description)}"><link rel="canonical" href="{SITE}{path}">
 <meta property="og:type" content="website"><meta property="og:title" content="{h(title)}"><meta property="og:description" content="{h(description)}"><meta property="og:url" content="{SITE}{path}"><meta property="og:image" content="{share}"><meta property="og:image:alt" content="{h(title)}"><meta property="og:site_name" content="Matthew Bradley"><meta property="og:locale" content="en_GB"><meta name="twitter:card" content="summary_large_image">
 {'<meta name="robots" content="noindex, follow">' if noindex else ''}
-<meta name="theme-color" content="#237c7c"><link rel="icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="stylesheet" href="/portfolio.css"><script src="/portfolio.js" defer></script>
+<meta name="theme-color" content="#237c7c"><link rel="icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="stylesheet" href="/portfolio.css?v={ASSET_VERSIONS['portfolio.css']}"><script src="/portfolio.js?v={ASSET_VERSIONS['portfolio.js']}" defer></script>
 <script type="application/ld+json">{json.dumps(structured, ensure_ascii=False).replace('<', '\\u003c')}</script></head>
 <body>{nav(path)}<main id="main" tabindex="-1">{body}</main><footer><p>Matthew Bradley © <span data-year>2026</span>. All rights reserved.</p><a href="mailto:{EMAIL}">{EMAIL}</a>{socials()}<a class="back-top" href="#main">Back to top ↑</a></footer></body></html>'''
 
