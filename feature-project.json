@@ -3,24 +3,74 @@
     "id": 1,
     "feature-project-name": "Walrus (stop-motion puppet)",
     "feature-project-description": "A complex stop-motion puppet with silicone skin, articulated features, and replaceable parts for Workshed Animation's feature film.",
-    "feature-project-long-description": "The second commision undertaken for Workshed Animation and their upcoming feature film. A silicone skin over a ball and socket armature, painted with pigmented silicone. The puppet features replaceable tusks, moving jaw, front and back flippers as well as articulation within the neck and body.",
+    "feature-project-long-description": "The second commission undertaken for Workshed Animation and their upcoming feature film. A silicone skin over a ball and socket armature, painted with pigmented silicone. The puppet features replaceable tusks, moving jaw, front and back flippers as well as articulation within the neck and body.",
     "feature-project-thumbnail": "feature-img-beta/feature-1.jpg",
     "feature-project-gallery": [
-      { "image": "feature-img-beta/feature-1-1.jpg", "description": "", "alt-text": "", "order": 1 },
-      { "image": "feature-img-beta/feature-1-2.jpg", "description": "", "alt-text": "", "order": 2 },
-      { "image": "feature-img-beta/feature-1-3.jpg", "description": "", "alt-text": "", "order": 3 },
-      { "image": "feature-img-beta/feature-1-4.jpg", "description": "", "alt-text": "", "order": 4 },
-      { "image": "feature-img-beta/feature-1-5.jpg", "description": "", "alt-text": "", "order": 5 },
-      { "image": "feature-img-beta/feature-1-6.jpg", "description": "", "alt-text": "", "order": 6 },
-      { "image": "feature-img-beta/feature-1-7.jpg", "description": "", "alt-text": "", "order": 7 },
-      { "image": "feature-img-beta/feature-1-8.jpg", "description": "", "alt-text": "", "order": 8 },
-      { "image": "feature-img-beta/feature-1-9.jpg", "description": "", "alt-text": "", "order": 9 }
+      {
+        "image": "feature-img-beta/feature-1-1.jpg",
+        "description": "Walrus puppet head with textured skin, whiskers and long tusks",
+        "alt-text": "Walrus puppet head with textured skin, whiskers and long tusks",
+        "order": 1
+      },
+      {
+        "image": "feature-img-beta/feature-1-2.jpg",
+        "description": "Exposed metal jaw and skull armature inside the walrus puppet",
+        "alt-text": "Exposed metal jaw and skull armature inside the walrus puppet",
+        "order": 2
+      },
+      {
+        "image": "feature-img-beta/feature-1-3.jpg",
+        "description": "Finished walrus puppet sitting upright, front view",
+        "alt-text": "Finished walrus puppet sitting upright, front view",
+        "order": 3
+      },
+      {
+        "image": "feature-img-beta/feature-1-4.jpg",
+        "description": "Walrus puppet posed with one flipper extended on an icy backdrop",
+        "alt-text": "Walrus puppet posed with one flipper extended on an icy backdrop",
+        "order": 4
+      },
+      {
+        "image": "feature-img-beta/feature-1-5.jpg",
+        "description": "Close view of the walrus puppet face and chest",
+        "alt-text": "Close view of the walrus puppet face and chest",
+        "order": 5
+      },
+      {
+        "image": "feature-img-beta/feature-1-6.jpg",
+        "description": "Side view of the walrus puppet head and tusks",
+        "alt-text": "Side view of the walrus puppet head and tusks",
+        "order": 6
+      },
+      {
+        "image": "feature-img-beta/feature-1-7.jpg",
+        "description": "Walrus puppet sitting upright with its front flippers spread",
+        "alt-text": "Walrus puppet sitting upright with its front flippers spread",
+        "order": 7
+      },
+      {
+        "image": "feature-img-beta/feature-1-8.jpg",
+        "description": "Detail of the walrus puppet whiskers and skin folds",
+        "alt-text": "Detail of the walrus puppet whiskers and skin folds",
+        "order": 8
+      },
+      {
+        "image": "feature-img-beta/feature-1-9.jpg",
+        "description": "Full side view of the walrus puppet and rear flippers",
+        "alt-text": "Full side view of the walrus puppet and rear flippers",
+        "order": 9
+      }
     ],
     "feature-project-link": "https://puppetcraft.com/shadow-odyssey",
     "feature-project-start-year": 2021,
     "feature-project-end-year": 2021,
     "feature-project-company-name": null,
-    "feature-project-skills": ["stop-motion fabrication", "silicone moulding", "armature construction", "painting"],
+    "feature-project-skills": [
+      "stop-motion fabrication",
+      "silicone moulding",
+      "armature construction",
+      "painting"
+    ],
     "feature-project-job-category": "Lead creature fabricator.",
     "feature-project-client": "Workshed Animation’s feature film ‘The Iron Leech’",
     "feature-project-type": "highlighted",
@@ -43,36 +93,84 @@
     "feature-project-long-description": "My responsibilities included fabricating two character heads, each with adjustable eyes and alternative expressions. This involved making replacement eyes, lids, and brows to allow for a range of expressions. I also sculpted the hands and feet for the puppets. Once sculpted, I oversaw the process of moulding these pieces and then casting them in both resin and silicone. Additionally, I was responsible for overseeing the building of the wire armatures that formed the internal structure of the puppets. Finally, I also assisted with set dressing during the shoot itself.",
     "feature-project-thumbnail": "feature-img-beta/feature-2-9.jpg",
     "feature-project-gallery": [
-      { "image": "feature-img-beta/feature-2-1.jpg", "description": "", "alt-text": "", "order": 1 },
-      { "image": "feature-img-beta/feature-2-2.jpg", "description": "", "alt-text": "", "order": 2 },
-      { "image": "feature-img-beta/feature-2-3.jpg", "description": "", "alt-text": "", "order": 3 },
-      { "image": "feature-img-beta/feature-2-4.jpg", "description": "", "alt-text": "", "order": 4 },
-      { "image": "feature-img-beta/feature-2-5.jpg", "description": "", "alt-text": "", "order": 5 },
-      { "image": "feature-img-beta/feature-2-6.jpg", "description": "", "alt-text": "", "order": 6 },
-      { "image": "feature-img-beta/feature-2-7.jpg", "description": "", "alt-text": "", "order": 7 },
-      { "image": "feature-img-beta/feature-2-8.jpg", "description": "", "alt-text": "", "order": 8 },
-      { "image": "feature-img-beta/feature-2-9.jpg", "description": "", "alt-text": "", "order": 9 },
-      { "image": "feature-img-beta/feature-2.jpg", "description": "", "alt-text": "", "order": 10 }
+      {
+        "image": "feature-img-beta/feature-2-1.jpg",
+        "description": "Sculpting the hair on a small character head for the Olbas Oil advert",
+        "alt-text": "Sculpting the hair on a small character head for the Olbas Oil advert",
+        "order": 1
+      },
+      {
+        "image": "feature-img-beta/feature-2-2.jpg",
+        "description": "Two puppet face casts with openings for the eyes",
+        "alt-text": "Two puppet face casts with openings for the eyes",
+        "order": 2
+      },
+      {
+        "image": "feature-img-beta/feature-2-3.jpg",
+        "description": "Matthew working on a puppet component at the workbench",
+        "alt-text": "Matthew working on a puppet component at the workbench",
+        "order": 3
+      },
+      {
+        "image": "feature-img-beta/feature-2-4.jpg",
+        "description": "Fitting an eye into a puppet head",
+        "alt-text": "Fitting an eye into a puppet head",
+        "order": 4
+      },
+      {
+        "image": "feature-img-beta/feature-2-5.jpg",
+        "description": "Sculpting a small puppet hand",
+        "alt-text": "Sculpting a small puppet hand",
+        "order": 5
+      },
+      {
+        "image": "feature-img-beta/feature-2-6.jpg",
+        "description": "Fitting hair onto a puppet character head",
+        "alt-text": "Fitting hair onto a puppet character head",
+        "order": 6
+      },
+      {
+        "image": "feature-img-beta/feature-2-7.jpg",
+        "description": "Sculpted puppet hands and feet ready for mould making",
+        "alt-text": "Sculpted puppet hands and feet ready for mould making",
+        "order": 7
+      },
+      {
+        "image": "feature-img-beta/feature-2-8.jpg",
+        "description": "Miniature house and garden set under coloured lighting",
+        "alt-text": "Miniature house and garden set under coloured lighting",
+        "order": 8
+      },
+      {
+        "image": "feature-img-beta/feature-2-9.jpg",
+        "description": "Finished puppet character seated on a sofa in the Olbas Oil advert",
+        "alt-text": "Finished puppet character seated on a sofa in the Olbas Oil advert",
+        "order": 9
+      },
+      {
+        "image": "feature-img-beta/feature-2.jpg",
+        "description": "Close view of the finished puppet head with hair and expressive eyes",
+        "alt-text": "Close view of the finished puppet head with hair and expressive eyes",
+        "order": 10
+      }
     ],
     "feature-project-link": "https://stringtheorycreations.com/marionette-revival",
     "feature-project-start-year": 2022,
     "feature-project-end-year": 2022,
     "feature-project-company-name": null,
-    "feature-project-skills": ["sculpting", "moulding", "casting", "armature construction", "set dressing"],
+    "feature-project-skills": [
+      "sculpting",
+      "moulding",
+      "casting",
+      "armature construction",
+      "set dressing"
+    ],
     "feature-project-job-category": "Sculptor, model maker, and set dresser",
     "feature-project-client": "Television ad campaign for Olbas Oil - ‘The power to breathe’",
     "feature-project-type": "highlighted",
     "project-feature-main-category-id": 1,
     "feature-project-order": 2,
-    "feature-project-testimonial": [
-      {
-        "testimonial-name": null,
-        "testimonial-client-name": null,
-        "testimonial-employer-name": null,
-        "testimonial-quote": null,
-        "testimonial-role": null
-      }
-    ],
+    "feature-project-testimonial": [],
     "feature-project-youtube-link": [
       {
         "url": "https://www.youtube.com/embed/vSfF1Bn8Wdc",
@@ -89,31 +187,52 @@
     "feature-project-long-description": "I built and painted the scale model of Alexander Stadium for the final shot of the advert, and also assisted with set dressing during the shoot.",
     "feature-project-thumbnail": "feature-img-beta/feature-3.jpg",
     "feature-project-gallery": [
-      { "image": "feature-img-beta/feature-3-1.jpg", "description": "", "alt-text": "", "order": 1 },
-      { "image": "feature-img-beta/feature-3-2.jpg", "description": "", "alt-text": "", "order": 2 },
-      { "image": "feature-img-beta/feature-3-3.jpg", "description": "", "alt-text": "", "order": 3 },
-      { "image": "feature-img-beta/feature-3-4.jpg", "description": "", "alt-text": "", "order": 4 },
-      { "image": "feature-img-beta/feature-3-5.jpg", "description": "", "alt-text": "", "order": 5 }
+      {
+        "image": "feature-img-beta/feature-3-1.jpg",
+        "description": "Matthew working on the Alexander Stadium scale model",
+        "alt-text": "Matthew working on the Alexander Stadium scale model",
+        "order": 1
+      },
+      {
+        "image": "feature-img-beta/feature-3-2.jpg",
+        "description": "White and blue stadium model during construction",
+        "alt-text": "White and blue stadium model during construction",
+        "order": 2
+      },
+      {
+        "image": "feature-img-beta/feature-3-3.jpg",
+        "description": "Fitting details to the curved stadium model",
+        "alt-text": "Fitting details to the curved stadium model",
+        "order": 3
+      },
+      {
+        "image": "feature-img-beta/feature-3-4.jpg",
+        "description": "Making miniature stadium seating at the workbench",
+        "alt-text": "Making miniature stadium seating at the workbench",
+        "order": 4
+      },
+      {
+        "image": "feature-img-beta/feature-3-5.jpg",
+        "description": "Completed stadium facade with roof supports",
+        "alt-text": "Completed stadium facade with roof supports",
+        "order": 5
+      }
     ],
     "feature-project-link": "https://greenpuppets.org/eco-series",
     "feature-project-start-year": 2022,
     "feature-project-end-year": null,
     "feature-project-company-name": null,
-    "feature-project-skills": ["scale model construction", "painting", "set dressing"],
+    "feature-project-skills": [
+      "scale model construction",
+      "painting",
+      "set dressing"
+    ],
     "feature-project-job-category": "Model maker, painter, and set dresser",
     "feature-project-client": "Television ad for BBC 2022 Commonwealth Games",
     "feature-project-type": "highlighted",
     "project-feature-main-category-id": 3,
     "feature-project-order": 6,
-    "feature-project-testimonial": [
-      {
-        "testimonial-name": null,
-        "testimonial-client-name": null,
-        "testimonial-employer-name": null,
-        "testimonial-quote": null,
-        "testimonial-role": null
-      }
-    ],
+    "feature-project-testimonial": [],
     "feature-project-youtube-link": [
       {
         "url": "https://www.youtube.com/embed/RDssdQDWwEg",
@@ -130,43 +249,127 @@
     "feature-project-long-description": "I sculpted a clay maquette based on a 2D design of ‘The Dude’ and adapted a doll to create the cyclist character. I constructed ball-and-socket armatures, sculpted the hands and feet, then moulded and cast them in silicone before painting. Additionally, I created scale roof tiles for the falling shot and provided puppet maintenance throughout the shoot.",
     "feature-project-thumbnail": "feature-img-beta/feature-4-15.jpg",
     "feature-project-gallery": [
-      { "image": "feature-img-beta/feature-4-1.jpg", "description": "", "alt-text": "", "order": 1 },
-      { "image": "feature-img-beta/feature-4-2.jpg", "description": "", "alt-text": "", "order": 2 },
-      { "image": "feature-img-beta/feature-4-3.jpg", "description": "", "alt-text": "", "order": 3 },
-      { "image": "feature-img-beta/feature-4-4.jpg", "description": "", "alt-text": "", "order": 4 },
-      { "image": "feature-img-beta/feature-4-5.jpg", "description": "", "alt-text": "", "order": 5 },
-      { "image": "feature-img-beta/feature-4-6.jpg", "description": "", "alt-text": "", "order": 3 },
-      { "image": "feature-img-beta/feature-4-7.jpg", "description": "", "alt-text": "", "order": 7 },
-      { "image": "feature-img-beta/feature-4-8.jpg", "description": "", "alt-text": "", "order": 8 },
-      { "image": "feature-img-beta/feature-4-9.jpg", "description": "", "alt-text": "", "order": 9 },
-      { "image": "feature-img-beta/feature-4-10.jpg", "description": "", "alt-text": "", "order": 10 },
-      { "image": "feature-img-beta/feature-4-11.jpg", "description": "", "alt-text": "", "order": 11 },
-      { "image": "feature-img-beta/feature-4-12.jpg", "description": "", "alt-text": "", "order": 12 },
-      { "image": "feature-img-beta/feature-4-13.jpg", "description": "", "alt-text": "", "order": 13 },
-      { "image": "feature-img-beta/feature-4-14.jpg", "description": "", "alt-text": "", "order": 14 },
-      { "image": "feature-img-beta/feature-4-16.jpg", "description": "", "alt-text": "", "order": 15 },
-       { "image": "feature-img-beta/feature-4-17.jpg", "description": "", "alt-text": "", "order": 16 },
-      { "image": "feature-img-beta/feature-4-18.jpg", "description": "", "alt-text": "", "order": 17 }
+      {
+        "image": "feature-img-beta/feature-4-1.jpg",
+        "description": "Metal puppet armature with articulated limbs",
+        "alt-text": "Metal puppet armature with articulated limbs",
+        "order": 1
+      },
+      {
+        "image": "feature-img-beta/feature-4-2.jpg",
+        "description": "Unfinished character sculpture supported on a stand",
+        "alt-text": "Unfinished character sculpture supported on a stand",
+        "order": 2
+      },
+      {
+        "image": "feature-img-beta/feature-4-3.jpg",
+        "description": "Matthew adjusting a puppet on a miniature set",
+        "alt-text": "Matthew adjusting a puppet on a miniature set",
+        "order": 3
+      },
+      {
+        "image": "feature-img-beta/feature-4-4.jpg",
+        "description": "Miniature roof tiles and ridge pieces",
+        "alt-text": "Miniature roof tiles and ridge pieces",
+        "order": 4
+      },
+      {
+        "image": "feature-img-beta/feature-4-5.jpg",
+        "description": "Puppet cyclist posed on a miniature bicycle",
+        "alt-text": "Puppet cyclist posed on a miniature bicycle",
+        "order": 5
+      },
+      {
+        "image": "feature-img-beta/feature-4-6.jpg",
+        "description": "Painting the shoes and legs of a puppet",
+        "alt-text": "Painting the shoes and legs of a puppet",
+        "order": 3
+      },
+      {
+        "image": "feature-img-beta/feature-4-7.jpg",
+        "description": "Unfinished puppet face with eye openings",
+        "alt-text": "Unfinished puppet face with eye openings",
+        "order": 7
+      },
+      {
+        "image": "feature-img-beta/feature-4-8.jpg",
+        "description": "Painting a puppet character wearing a yellow shirt",
+        "alt-text": "Painting a puppet character wearing a yellow shirt",
+        "order": 8
+      },
+      {
+        "image": "feature-img-beta/feature-4-9.jpg",
+        "description": "Animation preview displayed on a studio monitor",
+        "alt-text": "Animation preview displayed on a studio monitor",
+        "order": 9
+      },
+      {
+        "image": "feature-img-beta/feature-4-10.jpg",
+        "description": "Clay character sculpture showing clothing and limbs",
+        "alt-text": "Clay character sculpture showing clothing and limbs",
+        "order": 10
+      },
+      {
+        "image": "feature-img-beta/feature-4-11.jpg",
+        "description": "Sculpted character head with detailed hair",
+        "alt-text": "Sculpted character head with detailed hair",
+        "order": 11
+      },
+      {
+        "image": "feature-img-beta/feature-4-12.jpg",
+        "description": "Opening a mould containing a small hand impression",
+        "alt-text": "Opening a mould containing a small hand impression",
+        "order": 12
+      },
+      {
+        "image": "feature-img-beta/feature-4-13.jpg",
+        "description": "Working on a puppet character wearing blue shorts",
+        "alt-text": "Working on a puppet character wearing blue shorts",
+        "order": 13
+      },
+      {
+        "image": "feature-img-beta/feature-4-14.jpg",
+        "description": "Deutsche Telekom logo on a magenta background",
+        "alt-text": "Deutsche Telekom logo on a magenta background",
+        "order": 14
+      },
+      {
+        "image": "feature-img-beta/feature-4-16.jpg",
+        "description": "Orange-haired puppet and another character on a miniature set",
+        "alt-text": "Orange-haired puppet and another character on a miniature set",
+        "order": 15
+      },
+      {
+        "image": "feature-img-beta/feature-4-17.jpg",
+        "description": "Full-length clay character sculpture on a wooden base",
+        "alt-text": "Full-length clay character sculpture on a wooden base",
+        "order": 16
+      },
+      {
+        "image": "feature-img-beta/feature-4-18.jpg",
+        "description": "Puppet cyclist on a miniature street set",
+        "alt-text": "Puppet cyclist on a miniature street set",
+        "order": 17
+      }
     ],
     "feature-project-link": "https://futurepuppet.tech/animatronic-x1",
     "feature-project-start-year": 2022,
     "feature-project-end-year": 2022,
     "feature-project-company-name": null,
-    "feature-project-skills": ["sculpting", "armature construction", "moulding", "casting", "painting", "puppet maintenance"],
+    "feature-project-skills": [
+      "sculpting",
+      "armature construction",
+      "moulding",
+      "casting",
+      "painting",
+      "puppet maintenance"
+    ],
     "feature-project-job-category": "Sculptor, model maker, armature constructor, and on-set puppet maintenance",
     "feature-project-client": "Deutsche Telekom Magenta.",
     "feature-project-type": "highlighted",
     "project-feature-main-category-id": 1,
     "feature-project-order": 3,
-    "feature-project-testimonial": [
-      {
-        "testimonial-name": null,
-        "testimonial-client-name": null,
-        "testimonial-employer-name": null,
-        "testimonial-quote": null,
-        "testimonial-role": null
-      }
-    ]
+    "feature-project-testimonial": []
   },
   {
     "id": 5,
@@ -175,32 +378,59 @@
     "feature-project-long-description": "My role involved fabricating a sword grip for the master prop, mould making and casting of the sword to create a lightweight duplicate and replicating the weathered and rusty finish with paint. The work also extended to creating, casting and finishing other soft prop duplicates.",
     "feature-project-thumbnail": "feature-img-beta/feature-5.jpg",
     "feature-project-gallery": [
-      { "image": "feature-img-beta/feature-5-1.jpg", "description": "", "alt-text": "", "order": 1 },
-      { "image": "feature-img-beta/feature-5-2.jpg", "description": "", "alt-text": "", "order": 2 },
-      { "image": "feature-img-beta/feature-5-3.jpg", "description": "", "alt-text": "", "order": 3 },
-      { "image": "feature-img-beta/feature-5-4.jpg", "description": "", "alt-text": "", "order": 4 },
-      { "image": "feature-img-beta/feature-5-5.jpg", "description": "", "alt-text": "", "order": 5 },
-      { "image": "feature-img-beta/feature-5-6.jpg", "description": "", "alt-text": "", "order": 5 }
+      {
+        "image": "feature-img-beta/feature-5-1.jpg",
+        "description": "Scene from The Famous Five showing a sword prop",
+        "alt-text": "Scene from The Famous Five showing a sword prop",
+        "order": 1
+      },
+      {
+        "image": "feature-img-beta/feature-5-2.jpg",
+        "description": "Another view of the sword prop in The Famous Five",
+        "alt-text": "Another view of the sword prop in The Famous Five",
+        "order": 2
+      },
+      {
+        "image": "feature-img-beta/feature-5-3.jpg",
+        "description": "Two finished textured prop components",
+        "alt-text": "Two finished textured prop components",
+        "order": 3
+      },
+      {
+        "image": "feature-img-beta/feature-5-4.jpg",
+        "description": "Aged skeletal prop pieces on the set",
+        "alt-text": "Aged skeletal prop pieces on the set",
+        "order": 4
+      },
+      {
+        "image": "feature-img-beta/feature-5-5.jpg",
+        "description": "Red sword component during fabrication",
+        "alt-text": "Red sword component during fabrication",
+        "order": 5
+      },
+      {
+        "image": "feature-img-beta/feature-5-6.jpg",
+        "description": "Finished sword props laid out side by side",
+        "alt-text": "Finished sword props laid out side by side",
+        "order": 5
+      }
     ],
     "feature-project-link": "https://bigpuppets.co/parade-series",
     "feature-project-start-year": 2023,
     "feature-project-end-year": 2023,
     "feature-project-company-name": null,
-    "feature-project-skills": ["prop fabrication", "moulding", "casting", "painting"],
+    "feature-project-skills": [
+      "prop fabrication",
+      "moulding",
+      "casting",
+      "painting"
+    ],
     "feature-project-job-category": "Prop fabricator and model maker",
     "feature-project-client": "BBC",
     "feature-project-type": "highlighted",
     "project-feature-main-category-id": 3,
     "feature-project-order": 4,
-    "feature-project-testimonial": [
-      {
-        "testimonial-name": null,
-        "testimonial-client-name": null,
-        "testimonial-employer-name": null,
-        "testimonial-quote": null,
-        "testimonial-role": null
-      }
-    ]
+    "feature-project-testimonial": []
   },
   {
     "id": 6,
@@ -209,66 +439,121 @@
     "feature-project-long-description": "This is a 1:6 scale model based directly off an antique Edwards and Roberts ladies' writing desk. The legs have been lathed and the barley twists hand-carved into them. The lion head carvings were individually sculpted in clay and cast in resin and the same process for the green man drawer fronts. The edge leaf patterns were carefully hand- carved into the wood itself, as well as tiny handmade functioning dovetail joints in the drawer!",
     "feature-project-thumbnail": "feature-img-beta/feature-6.jpg",
     "feature-project-gallery": [
-      { "image": "feature-img-beta/feature-6-1.jpg", "description": "", "alt-text": "", "order": 1 },
-      { "image": "feature-img-beta/feature-6-2.jpg", "description": "", "alt-text": "", "order": 2 },
-      { "image": "feature-img-beta/feature-6-3.jpg", "description": "", "alt-text": "", "order": 3 },
-      { "image": "feature-img-beta/feature-6-4.jpg", "description": "", "alt-text": "", "order": 4 },
-      { "image": "feature-img-beta/feature-6-5.jpg", "description": "", "alt-text": "", "order": 5 },
-      { "image": "feature-img-beta/feature-6-6.jpg", "description": "", "alt-text": "", "order": 5 }
+      {
+        "image": "feature-img-beta/feature-6-1.jpg",
+        "description": "Front view of the miniature writing desk with green writing surface",
+        "alt-text": "Front view of the miniature writing desk with green writing surface",
+        "order": 1
+      },
+      {
+        "image": "feature-img-beta/feature-6-2.jpg",
+        "description": "Completed 1:6 scale writing desk showing drawers and turned legs",
+        "alt-text": "Completed 1:6 scale writing desk showing drawers and turned legs",
+        "order": 2
+      },
+      {
+        "image": "feature-img-beta/feature-6-3.jpg",
+        "description": "Side view of the miniature desk and raised cabinet",
+        "alt-text": "Side view of the miniature desk and raised cabinet",
+        "order": 3
+      },
+      {
+        "image": "feature-img-beta/feature-6-4.jpg",
+        "description": "Close view of carved miniature drawer fronts",
+        "alt-text": "Close view of carved miniature drawer fronts",
+        "order": 4
+      },
+      {
+        "image": "feature-img-beta/feature-6-5.jpg",
+        "description": "Rear view of the desk showing small drawers and carved detailing",
+        "alt-text": "Rear view of the desk showing small drawers and carved detailing",
+        "order": 5
+      },
+      {
+        "image": "feature-img-beta/feature-6-6.jpg",
+        "description": "Open miniature drawer and carved desk apron",
+        "alt-text": "Open miniature drawer and carved desk apron",
+        "order": 5
+      }
     ],
     "feature-project-link": "https://greenpuppets.org/eco-series",
     "feature-project-start-year": 2022,
     "feature-project-end-year": null,
     "feature-project-company-name": null,
-    "feature-project-skills": ["scale modeling", "woodworking", "carving", "resin casting", "joinery"],
+    "feature-project-skills": [
+      "scale modeling",
+      "woodworking",
+      "carving",
+      "resin casting",
+      "joinery"
+    ],
     "feature-project-job-category": "Scale model fabricator and woodworker",
     "feature-project-client": null,
     "feature-project-type": "highlighted",
     "project-feature-main-category-id": 4,
     "feature-project-order": 5,
-    "feature-project-testimonial": [
-      {
-        "testimonial-name": null,
-        "testimonial-client-name": null,
-        "testimonial-employer-name": null,
-        "testimonial-quote": null,
-        "testimonial-role": null
-      }
-    ]
+    "feature-project-testimonial": []
   },
   {
     "id": 7,
     "feature-project-name": "Sperm Whale (stop-motion puppet)",
-    "feature-project-description": "A commision undertaken for Workshed Animation and their upcoming feature film. A silicone skin over a ball and socket armature, painted with pigmented silicone.",
-    "feature-project-long-description": "A commision undertaken for Workshed Animation and their upcoming feature film. A silicone skin over a ball and socket armature, painted with pigmented silicone.",
+    "feature-project-description": "A commission undertaken for Workshed Animation and their upcoming feature film. A silicone skin over a ball and socket armature, painted with pigmented silicone.",
+    "feature-project-long-description": "A commission undertaken for Workshed Animation and their upcoming feature film. A silicone skin over a ball and socket armature, painted with pigmented silicone.",
     "feature-project-thumbnail": "feature-img-beta/feature-7.jpg",
     "feature-project-gallery": [
-      { "image": "feature-img-beta/feature-7-1.jpg", "description": "", "alt-text": "", "order": 1 },
-      { "image": "feature-img-beta/feature-7-2.jpg", "description": "", "alt-text": "", "order": 2 },
-      { "image": "feature-img-beta/feature-7-3.jpg", "description": "", "alt-text": "", "order": 3 },
-      { "image": "feature-img-beta/feature-7-4.jpg", "description": "", "alt-text": "", "order": 4 },
-      { "image": "feature-img-beta/feature-7-5.jpg", "description": "", "alt-text": "", "order": 5 },
-      { "image": "feature-img-beta/feature-7-6.jpg", "description": "", "alt-text": "", "order": 5 }
+      {
+        "image": "feature-img-beta/feature-7-1.jpg",
+        "description": "Sperm whale puppet with its mouth open on a display stand",
+        "alt-text": "Sperm whale puppet with its mouth open on a display stand",
+        "order": 1
+      },
+      {
+        "image": "feature-img-beta/feature-7-2.jpg",
+        "description": "Opened mould used to form the sperm whale puppet",
+        "alt-text": "Opened mould used to form the sperm whale puppet",
+        "order": 2
+      },
+      {
+        "image": "feature-img-beta/feature-7-3.jpg",
+        "description": "Side view of the sperm whale puppet with raised tail",
+        "alt-text": "Side view of the sperm whale puppet with raised tail",
+        "order": 3
+      },
+      {
+        "image": "feature-img-beta/feature-7-4.jpg",
+        "description": "Close view of the whale puppet head and teeth",
+        "alt-text": "Close view of the whale puppet head and teeth",
+        "order": 4
+      },
+      {
+        "image": "feature-img-beta/feature-7-5.jpg",
+        "description": "Whale puppet posed vertically on its display stand",
+        "alt-text": "Whale puppet posed vertically on its display stand",
+        "order": 5
+      },
+      {
+        "image": "feature-img-beta/feature-7-6.jpg",
+        "description": "Full side view of the whale puppet and flippers",
+        "alt-text": "Full side view of the whale puppet and flippers",
+        "order": 5
+      }
     ],
     "feature-project-link": "https://puppetcraft.com/shadow-odyssey",
     "feature-project-start-year": 2021,
     "feature-project-end-year": 2021,
     "feature-project-company-name": null,
-    "feature-project-skills": ["stop-motion fabrication", "silicone moulding", "armature construction", "painting"],
+    "feature-project-skills": [
+      "stop-motion fabrication",
+      "silicone moulding",
+      "armature construction",
+      "painting"
+    ],
     "feature-project-job-category": "Lead creature fabricator.",
     "feature-project-client": "Workshed Animation’s feature film ‘The Iron Leech’",
     "feature-project-type": "un-highlighted",
     "project-feature-main-category-id": 1,
     "feature-project-order": null,
-    "feature-project-testimonial": [
-      {
-        "testimonial-name": null,
-        "testimonial-client-name": null,
-        "testimonial-employer-name": null,
-        "testimonial-quote": null,
-        "testimonial-role": null
-      }
-    ]
+    "feature-project-testimonial": []
   },
   {
     "id": 8,
@@ -277,32 +562,60 @@
     "feature-project-long-description": "A character sculpted from hard oil clay, over a metal armature, silicone moulded and cast in polyurethane resin. This Uruk-Hai was inspired by Peter Jacksons Lord of the Rings film trilogy.",
     "feature-project-thumbnail": "feature-img-beta/feature-8.jpg",
     "feature-project-gallery": [
-      { "image": "feature-img-beta/feature-8-1.jpg", "description": "", "alt-text": "", "order": 1 },
-      { "image": "feature-img-beta/feature-8-2.jpg", "description": "", "alt-text": "", "order": 2 },
-      { "image": "feature-img-beta/feature-8-3.jpg", "description": "", "alt-text": "", "order": 3 },
-      { "image": "feature-img-beta/feature-8-4.jpg", "description": "", "alt-text": "", "order": 4 },
-      { "image": "feature-img-beta/feature-8-5.jpg", "description": "", "alt-text": "", "order": 5 },
-      { "image": "feature-img-beta/feature-8-6.jpg", "description": "", "alt-text": "", "order": 5 }
+      {
+        "image": "feature-img-beta/feature-8-1.jpg",
+        "description": "Finished Uruk-Hai figure holding tools",
+        "alt-text": "Finished Uruk-Hai figure holding tools",
+        "order": 1
+      },
+      {
+        "image": "feature-img-beta/feature-8-2.jpg",
+        "description": "Uruk-Hai figure displayed beside a miniature anvil",
+        "alt-text": "Uruk-Hai figure displayed beside a miniature anvil",
+        "order": 2
+      },
+      {
+        "image": "feature-img-beta/feature-8-3.jpg",
+        "description": "Unpainted Uruk-Hai sculpture before finishing",
+        "alt-text": "Unpainted Uruk-Hai sculpture before finishing",
+        "order": 3
+      },
+      {
+        "image": "feature-img-beta/feature-8-4.jpg",
+        "description": "Painted Uruk-Hai figure with anvil under dramatic lighting",
+        "alt-text": "Painted Uruk-Hai figure with anvil under dramatic lighting",
+        "order": 4
+      },
+      {
+        "image": "feature-img-beta/feature-8-5.jpg",
+        "description": "Uruk-Hai sculpture inside a mould casing",
+        "alt-text": "Uruk-Hai sculpture inside a mould casing",
+        "order": 5
+      },
+      {
+        "image": "feature-img-beta/feature-8-6.jpg",
+        "description": "Opened silicone mould for the Uruk-Hai figure",
+        "alt-text": "Opened silicone mould for the Uruk-Hai figure",
+        "order": 5
+      }
     ],
     "feature-project-link": "https://greenpuppets.org/eco-series",
     "feature-project-start-year": 2022,
     "feature-project-end-year": null,
     "feature-project-company-name": null,
-    "feature-project-skills": ["sculpting", "armature construction", "silicone moulding", "polyurethane casting", "painting"],
+    "feature-project-skills": [
+      "sculpting",
+      "armature construction",
+      "silicone moulding",
+      "polyurethane casting",
+      "painting"
+    ],
     "feature-project-job-category": "Sculptor and model maker",
     "feature-project-client": null,
     "feature-project-type": "un-highlighted",
     "project-feature-main-category-id": 2,
     "feature-project-order": null,
-    "feature-project-testimonial": [
-      {
-        "testimonial-name": null,
-        "testimonial-client-name": null,
-        "testimonial-employer-name": null,
-        "testimonial-quote": null,
-        "testimonial-role": null
-      }
-    ],
+    "feature-project-testimonial": [],
     "feature-project-youtube-link": [
       {
         "url": "https://www.youtube.com/embed/JK-PMQdTpPE?si=qFBXAqp2557-yuaO",
@@ -319,32 +632,60 @@
     "feature-project-long-description": "Stealy is a puppet I made during university based on the character from the animated series Rick and Morty. Part of the challenge was converting a 2D design into a three-dimensional functioning puppet. This project featured my greatest learning of new disciplines so far, I developed new skills in foam work, pattern making, different varieties of stitching and creating a working hand mechanism. All of this, while adapting Stealy’s eccentric characteristics and movements into puppet form.",
     "feature-project-thumbnail": "feature-img-beta/feature-9.jpg",
     "feature-project-gallery": [
-      { "image": "feature-img-beta/feature-9-1.jpg", "description": "", "alt-text": "", "order": 1 },
-      { "image": "feature-img-beta/feature-9-2.jpg", "description": "", "alt-text": "", "order": 2 },
-      { "image": "feature-img-beta/feature-9-3.jpg", "description": "", "alt-text": "", "order": 3 },
-      { "image": "feature-img-beta/feature-9-4.jpg", "description": "", "alt-text": "", "order": 4 },
-      { "image": "feature-img-beta/feature-9-5.jpg", "description": "", "alt-text": "", "order": 5 },
-      { "image": "feature-img-beta/feature-9-6.jpg", "description": "", "alt-text": "", "order": 5 }
+      {
+        "image": "feature-img-beta/feature-9-1.jpg",
+        "description": "Finished Mr Stealy puppet seated on a stool",
+        "alt-text": "Finished Mr Stealy puppet seated on a stool",
+        "order": 1
+      },
+      {
+        "image": "feature-img-beta/feature-9-2.jpg",
+        "description": "Matthew operating the Mr Stealy puppet",
+        "alt-text": "Matthew operating the Mr Stealy puppet",
+        "order": 2
+      },
+      {
+        "image": "feature-img-beta/feature-9-3.jpg",
+        "description": "Control rods for the Mr Stealy puppet",
+        "alt-text": "Control rods for the Mr Stealy puppet",
+        "order": 3
+      },
+      {
+        "image": "feature-img-beta/feature-9-4.jpg",
+        "description": "Puppet lower legs and shoes during construction",
+        "alt-text": "Puppet lower legs and shoes during construction",
+        "order": 4
+      },
+      {
+        "image": "feature-img-beta/feature-9-5.jpg",
+        "description": "Puppet hand templates and palm construction",
+        "alt-text": "Puppet hand templates and palm construction",
+        "order": 5
+      },
+      {
+        "image": "feature-img-beta/feature-9-6.jpg",
+        "description": "Articulated puppet hand with exposed finger mechanisms",
+        "alt-text": "Articulated puppet hand with exposed finger mechanisms",
+        "order": 5
+      }
     ],
     "feature-project-link": "https://greenpuppets.org/eco-series",
     "feature-project-start-year": 2022,
     "feature-project-end-year": null,
     "feature-project-company-name": null,
-    "feature-project-skills": ["puppet fabrication", "foam work", "pattern making", "stitching", "mechanism design"],
+    "feature-project-skills": [
+      "puppet fabrication",
+      "foam work",
+      "pattern making",
+      "stitching",
+      "mechanism design"
+    ],
     "feature-project-job-category": "Student puppet fabrication project",
     "feature-project-client": null,
     "feature-project-type": "un-highlighted",
     "project-feature-main-category-id": 1,
     "feature-project-order": null,
-    "feature-project-testimonial": [
-      {
-        "testimonial-name": null,
-        "testimonial-client-name": null,
-        "testimonial-employer-name": null,
-        "testimonial-quote": null,
-        "testimonial-role": null
-      }
-    ]
+    "feature-project-testimonial": []
   },
   {
     "id": 10,
@@ -353,30 +694,46 @@
     "feature-project-long-description": "A 1:6 scale model of a Windsor chair, originally created by green woodworker Jason Mosseri, made using a variety of techniques, created out of oak and epoxy putty.",
     "feature-project-thumbnail": "feature-img-beta/feature-10.jpg",
     "feature-project-gallery": [
-      { "image": "feature-img-beta/feature-10-1.jpg", "description": "", "alt-text": "", "order": 1 },
-      { "image": "feature-img-beta/feature-10-2.jpg", "description": "", "alt-text": "", "order": 2 },
-      { "image": "feature-img-beta/feature-10-3.jpg", "description": "", "alt-text": "", "order": 3 },
-      { "image": "feature-img-beta/feature-10-4.jpg", "description": "", "alt-text": "", "order": 4 }
+      {
+        "image": "feature-img-beta/feature-10-1.jpg",
+        "description": "Three-quarter view of the miniature Windsor chair",
+        "alt-text": "Three-quarter view of the miniature Windsor chair",
+        "order": 1
+      },
+      {
+        "image": "feature-img-beta/feature-10-2.jpg",
+        "description": "Front view of the 1:6 scale Windsor chair",
+        "alt-text": "Front view of the 1:6 scale Windsor chair",
+        "order": 2
+      },
+      {
+        "image": "feature-img-beta/feature-10-3.jpg",
+        "description": "Full view of the miniature chair with tall spindle back",
+        "alt-text": "Full view of the miniature chair with tall spindle back",
+        "order": 3
+      },
+      {
+        "image": "feature-img-beta/feature-10-4.jpg",
+        "description": "Side view of the Windsor chair and curved back",
+        "alt-text": "Side view of the Windsor chair and curved back",
+        "order": 4
+      }
     ],
     "feature-project-link": "https://greenpuppets.org/eco-series",
     "feature-project-start-year": 2022,
     "feature-project-end-year": null,
     "feature-project-company-name": null,
-    "feature-project-skills": ["scale modeling", "woodworking", "epoxy finishing"],
+    "feature-project-skills": [
+      "scale modeling",
+      "woodworking",
+      "epoxy finishing"
+    ],
     "feature-project-job-category": "Scale model fabricator and woodworker",
     "feature-project-client": null,
     "feature-project-type": "un-highlighted",
     "project-feature-main-category-id": 4,
     "feature-project-order": null,
-    "feature-project-testimonial": [
-      {
-        "testimonial-name": null,
-        "testimonial-client-name": null,
-        "testimonial-employer-name": null,
-        "testimonial-quote": null,
-        "testimonial-role": null
-      }
-    ]
+    "feature-project-testimonial": []
   },
   {
     "id": 11,
@@ -385,36 +742,85 @@
     "feature-project-long-description": "My recreation of Peter Jackson’s Lothlórien as depicted in the 2001 film ‘Lord of the Rings: The Fellowship of the Ring’ home of Galadriel and the elves. All made from my small student accommodation room during the second lockdown.Began as a 3D Sketch-Up model, every component was worked out and built from scratch. The trees poly-carved, the stairway arches carved from chemi-wood and cast 40+ times, and the stair treads laser cut, amongst other processes",
     "feature-project-thumbnail": "feature-img-beta/feature-11.jpg",
     "feature-project-gallery": [
-      { "image": "feature-img-beta/feature-11-1.jpg", "description": "", "alt-text": "", "order": 1 },
-      { "image": "feature-img-beta/feature-11-2.jpg", "description": "", "alt-text": "", "order": 2 },
-      { "image": "feature-img-beta/feature-11-3.jpg", "description": "", "alt-text": "", "order": 3 },
-      { "image": "feature-img-beta/feature-11-4.jpg", "description": "", "alt-text": "", "order": 4 },
-      { "image": "feature-img-beta/feature-11-5.jpg", "description": "", "alt-text": "", "order": 5 },
-      { "image": "feature-img-beta/feature-11-6.jpg", "description": "", "alt-text": "", "order": 6 },
-      { "image": "feature-img-beta/feature-11-7.jpg", "description": "", "alt-text": "", "order": 7 },
-      { "image": "feature-img-beta/feature-11-8.jpg", "description": "", "alt-text": "", "order": 8 },
-      { "image": "feature-img-beta/feature-11-9.jpg", "description": "", "alt-text": "", "order": 9 },
-      { "image": "feature-img-beta/feature-11-10.jpg", "description": "", "alt-text": "", "order": 10 }
+      {
+        "image": "feature-img-beta/feature-11-1.jpg",
+        "description": "Illuminated Lothlorien staircase winding around the model tree",
+        "alt-text": "Illuminated Lothlorien staircase winding around the model tree",
+        "order": 1
+      },
+      {
+        "image": "feature-img-beta/feature-11-2.jpg",
+        "description": "CAD drawing of the spiral staircase with dimensions",
+        "alt-text": "CAD drawing of the spiral staircase with dimensions",
+        "order": 2
+      },
+      {
+        "image": "feature-img-beta/feature-11-3.jpg",
+        "description": "Close view of the illuminated staircase and railings",
+        "alt-text": "Close view of the illuminated staircase and railings",
+        "order": 3
+      },
+      {
+        "image": "feature-img-beta/feature-11-4.jpg",
+        "description": "Unlit view of the Lothlorien tree and stair construction",
+        "alt-text": "Unlit view of the Lothlorien tree and stair construction",
+        "order": 4
+      },
+      {
+        "image": "feature-img-beta/feature-11-5.jpg",
+        "description": "Matthew assembling details on the Lothlorien model",
+        "alt-text": "Matthew assembling details on the Lothlorien model",
+        "order": 5
+      },
+      {
+        "image": "feature-img-beta/feature-11-6.jpg",
+        "description": "Full model tree with illuminated staircase",
+        "alt-text": "Full model tree with illuminated staircase",
+        "order": 6
+      },
+      {
+        "image": "feature-img-beta/feature-11-7.jpg",
+        "description": "Mould and cast pieces for the model architecture",
+        "alt-text": "Mould and cast pieces for the model architecture",
+        "order": 7
+      },
+      {
+        "image": "feature-img-beta/feature-11-8.jpg",
+        "description": "CAD views of the spiral staircase and architectural components",
+        "alt-text": "CAD views of the spiral staircase and architectural components",
+        "order": 8
+      },
+      {
+        "image": "feature-img-beta/feature-11-9.jpg",
+        "description": "Full view of the finished tree and sweeping staircase",
+        "alt-text": "Full view of the finished tree and sweeping staircase",
+        "order": 9
+      },
+      {
+        "image": "feature-img-beta/feature-11-10.jpg",
+        "description": "Detailed line drawing for the staircase construction",
+        "alt-text": "Detailed line drawing for the staircase construction",
+        "order": 10
+      }
     ],
     "feature-project-link": "https://greenpuppets.org/eco-series",
     "feature-project-start-year": 2022,
     "feature-project-end-year": null,
     "feature-project-company-name": null,
-    "feature-project-skills": ["scale modeling", "3D modeling", "wood carving", "laser cutting", "moulding", "casting"],
+    "feature-project-skills": [
+      "scale modeling",
+      "3D modeling",
+      "wood carving",
+      "laser cutting",
+      "moulding",
+      "casting"
+    ],
     "feature-project-job-category": "Scale model fabricator and model maker",
     "feature-project-client": null,
     "feature-project-type": "highlighted",
     "project-feature-main-category-id": 3,
     "feature-project-order": 6,
-    "feature-project-testimonial": [
-      {
-        "testimonial-name": null,
-        "testimonial-client-name": null,
-        "testimonial-employer-name": null,
-        "testimonial-quote": null,
-        "testimonial-role": null
-      }
-    ]
+    "feature-project-testimonial": []
   },
   {
     "id": 12,
@@ -423,32 +829,60 @@
     "feature-project-long-description": "A client project, a comic bookstore in Horsham, where I, alongside a small team of people, all worked to create a life-size ceiling installation of a Xenomorph from the original 1979 Alien. During the project, I was needed to sculpt, both additively and reductively, alongside fibreglassing and finishing effects that included learning to airbrush. I fabricated this hand from carving Celotex, overlaying it with fibreglass and finishing it using epoxy putty. Other areas I was able to contribute to were in the paint finishes, I applied a subtle mottling effect with an airbrush to certain areas.",
     "feature-project-thumbnail": "feature-img-beta/feature-12.jpg",
     "feature-project-gallery": [
-      { "image": "feature-img-beta/feature-12-1.jpg", "description": "", "alt-text": "", "order": 1 },
-      { "image": "feature-img-beta/feature-12-2.jpg", "description": "", "alt-text": "", "order": 2 },
-      { "image": "feature-img-beta/feature-12-3.jpg", "description": "", "alt-text": "", "order": 3 },
-      { "image": "feature-img-beta/feature-12-4.jpg", "description": "", "alt-text": "", "order": 4 },
-      { "image": "feature-img-beta/feature-12-5.jpg", "description": "", "alt-text": "", "order": 5 },
-      { "image": "feature-img-beta/feature-12-6.jpg", "description": "", "alt-text": "", "order": 5 }
+      {
+        "image": "feature-img-beta/feature-12-1.jpg",
+        "description": "Xenomorph hand prop with elongated fingers and ribbed detail",
+        "alt-text": "Xenomorph hand prop with elongated fingers and ribbed detail",
+        "order": 1
+      },
+      {
+        "image": "feature-img-beta/feature-12-2.jpg",
+        "description": "Close view of the painted Xenomorph arm surface",
+        "alt-text": "Close view of the painted Xenomorph arm surface",
+        "order": 2
+      },
+      {
+        "image": "feature-img-beta/feature-12-3.jpg",
+        "description": "Complete Xenomorph arm and hand against a plain background",
+        "alt-text": "Complete Xenomorph arm and hand against a plain background",
+        "order": 3
+      },
+      {
+        "image": "feature-img-beta/feature-12-4.jpg",
+        "description": "Xenomorph arm prop on the workshop bench",
+        "alt-text": "Xenomorph arm prop on the workshop bench",
+        "order": 4
+      },
+      {
+        "image": "feature-img-beta/feature-12-5.jpg",
+        "description": "Close view of the clawed hand on the workbench",
+        "alt-text": "Close view of the clawed hand on the workbench",
+        "order": 5
+      },
+      {
+        "image": "feature-img-beta/feature-12-6.jpg",
+        "description": "Finished Xenomorph display emerging through a hazard-striped frame",
+        "alt-text": "Finished Xenomorph display emerging through a hazard-striped frame",
+        "order": 5
+      }
     ],
     "feature-project-link": "https://greenpuppets.org/eco-series",
     "feature-project-start-year": 2022,
     "feature-project-end-year": null,
     "feature-project-company-name": null,
-    "feature-project-skills": ["sculpting", "fiberglassing", "airbrushing", "carving", "epoxy finishing"],
+    "feature-project-skills": [
+      "sculpting",
+      "fiberglassing",
+      "airbrushing",
+      "carving",
+      "epoxy finishing"
+    ],
     "feature-project-job-category": "Sculptor and installation fabricator",
     "feature-project-client": "Comic Bookstore in Horsham",
     "feature-project-type": "un-highlighted",
     "project-feature-main-category-id": 2,
     "feature-project-order": null,
-    "feature-project-testimonial": [
-      {
-        "testimonial-name": null,
-        "testimonial-client-name": null,
-        "testimonial-employer-name": null,
-        "testimonial-quote": null,
-        "testimonial-role": null
-      }
-    ]
+    "feature-project-testimonial": []
   },
   {
     "id": 13,
@@ -457,34 +891,72 @@
     "feature-project-long-description": "A large and ancient tomb for an independent upcoming movie ‘Plaguepits’. A team project I helped take the lead on, from designing, scheduling, welding, Celotex carving, fibreglassing and finishing and painting. To be used in a pivotal moment at the end of the film!",
     "feature-project-thumbnail": "feature-img-beta/feature-13.jpg",
     "feature-project-gallery": [
-      { "image": "feature-img-beta/feature-13-1.jpg", "description": "", "alt-text": "", "order": 1 },
-      { "image": "feature-img-beta/feature-13-2.jpg", "description": "", "alt-text": "", "order": 2 },
-      { "image": "feature-img-beta/feature-13-3.jpg", "description": "", "alt-text": "", "order": 3 },
-      { "image": "feature-img-beta/feature-13-4.jpg", "description": "", "alt-text": "", "order": 4 },
-      { "image": "feature-img-beta/feature-13-5.jpg", "description": "", "alt-text": "", "order": 5 },
-      { "image": "feature-img-beta/feature-13-6.jpg", "description": "", "alt-text": "", "order": 5 },
-      { "image": "feature-img-beta/feature-13-7.jpg", "description": "", "alt-text": "", "order": 7 },
-      { "image": "feature-img-beta/feature-13-8.jpg", "description": "", "alt-text": "", "order": 8 }
+      {
+        "image": "feature-img-beta/feature-13-1.jpg",
+        "description": "Completed Plaguepits tomb prop on its stepped base",
+        "alt-text": "Completed Plaguepits tomb prop on its stepped base",
+        "order": 1
+      },
+      {
+        "image": "feature-img-beta/feature-13-2.jpg",
+        "description": "Recumbent skeletal figure sculpted into the tomb lid",
+        "alt-text": "Recumbent skeletal figure sculpted into the tomb lid",
+        "order": 2
+      },
+      {
+        "image": "feature-img-beta/feature-13-3.jpg",
+        "description": "Top view of the tomb lid and skeleton relief",
+        "alt-text": "Top view of the tomb lid and skeleton relief",
+        "order": 3
+      },
+      {
+        "image": "feature-img-beta/feature-13-4.jpg",
+        "description": "Close view of the aged skull and rib details",
+        "alt-text": "Close view of the aged skull and rib details",
+        "order": 4
+      },
+      {
+        "image": "feature-img-beta/feature-13-5.jpg",
+        "description": "Front view of the tomb with relief carving",
+        "alt-text": "Front view of the tomb with relief carving",
+        "order": 5
+      },
+      {
+        "image": "feature-img-beta/feature-13-6.jpg",
+        "description": "Detail of the skeletal figure clasping a sword",
+        "alt-text": "Detail of the skeletal figure clasping a sword",
+        "order": 5
+      },
+      {
+        "image": "feature-img-beta/feature-13-7.jpg",
+        "description": "CAD drawing showing the tomb dimensions and elevations",
+        "alt-text": "CAD drawing showing the tomb dimensions and elevations",
+        "order": 7
+      },
+      {
+        "image": "feature-img-beta/feature-13-8.jpg",
+        "description": "Alternative CAD view of the tomb proportions",
+        "alt-text": "Alternative CAD view of the tomb proportions",
+        "order": 8
+      }
     ],
     "feature-project-link": "https://greenpuppets.org/eco-series",
     "feature-project-start-year": 2022,
     "feature-project-end-year": null,
     "feature-project-company-name": null,
-    "feature-project-skills": ["project leadership", "design", "welding", "carving", "painting"],
+    "feature-project-skills": [
+      "project leadership",
+      "design",
+      "welding",
+      "carving",
+      "painting"
+    ],
     "feature-project-job-category": "Project leader and fabrication specialist",
     "feature-project-client": "Independent film 'Plaguepits'",
     "feature-project-type": "highlighted",
     "project-feature-main-category-id": 3,
     "feature-project-order": 7,
-    "feature-project-testimonial": [
-      {
-        "testimonial-name": null,
-        "testimonial-client-name": null,
-        "testimonial-employer-name": null,
-        "testimonial-quote": null,
-        "testimonial-role": null
-      }
-    ]
+    "feature-project-testimonial": []
   },
   {
     "id": 14,
@@ -493,27 +965,29 @@
     "feature-project-long-description": "My first major venture into sculpting and what re-launched my passion for this craft, a real labour of love! Made out of a medium hardness oil-based clay over a metal armature, the teeth, nails and eyes were created using polymer clay.",
     "feature-project-thumbnail": "feature-img-beta/feature-14.jpg",
     "feature-project-gallery": [
-      { "image": "feature-img-beta/feature-14.jpg", "description": "", "alt-text": "", "order": 1 }
+      {
+        "image": "feature-img-beta/feature-14.jpg",
+        "description": "Tyrannosaurus rex sculpture with open jaws and long tail on a textured base",
+        "alt-text": "Tyrannosaurus rex sculpture with open jaws and long tail on a textured base",
+        "order": 1
+      }
     ],
     "feature-project-link": "https://greenpuppets.org/eco-series",
     "feature-project-start-year": 2022,
     "feature-project-end-year": null,
     "feature-project-company-name": null,
-    "feature-project-skills": ["sculpting", "clay sculpting", "armature construction", "polymer clay work"],
+    "feature-project-skills": [
+      "sculpting",
+      "clay sculpting",
+      "armature construction",
+      "polymer clay work"
+    ],
     "feature-project-job-category": "Sculptor and model maker",
     "feature-project-client": null,
     "feature-project-type": "un-highlighted",
     "project-feature-main-category-id": 2,
     "feature-project-order": null,
-    "feature-project-testimonial": [
-      {
-        "testimonial-name": null,
-        "testimonial-client-name": null,
-        "testimonial-employer-name": null,
-        "testimonial-quote": null,
-        "testimonial-role": null
-      }
-    ]
+    "feature-project-testimonial": []
   },
   {
     "id": 15,
@@ -522,31 +996,52 @@
     "feature-project-long-description": "A selection of characters created from plasticine, a more fun and lighthearted approach to model making! Some my own and some inspired by TV and films I enjoy. ",
     "feature-project-thumbnail": "feature-img-beta/feature-15.jpg",
     "feature-project-gallery": [
-      { "image": "feature-img-beta/feature-15-1.jpg", "description": "", "alt-text": "", "order": 1 },
-      { "image": "feature-img-beta/feature-15-2.jpg", "description": "", "alt-text": "", "order": 2 },
-      { "image": "feature-img-beta/feature-15-3.jpg", "description": "", "alt-text": "", "order": 3 },
-      { "image": "feature-img-beta/feature-15-4.jpg", "description": "", "alt-text": "", "order": 4 },
-      { "image": "feature-img-beta/feature-15-5.jpg", "description": "", "alt-text": "", "order": 5 }
+      {
+        "image": "feature-img-beta/feature-15-1.jpg",
+        "description": "Purple plasticine character standing with folded arms",
+        "alt-text": "Purple plasticine character standing with folded arms",
+        "order": 1
+      },
+      {
+        "image": "feature-img-beta/feature-15-2.jpg",
+        "description": "Tall plasticine character wearing a top hat",
+        "alt-text": "Tall plasticine character wearing a top hat",
+        "order": 2
+      },
+      {
+        "image": "feature-img-beta/feature-15-3.jpg",
+        "description": "Green plasticine creature with oversized eyes",
+        "alt-text": "Green plasticine creature with oversized eyes",
+        "order": 3
+      },
+      {
+        "image": "feature-img-beta/feature-15-4.jpg",
+        "description": "Small white-bearded plasticine character held in a hand",
+        "alt-text": "Small white-bearded plasticine character held in a hand",
+        "order": 4
+      },
+      {
+        "image": "feature-img-beta/feature-15-5.jpg",
+        "description": "Pink worm-like plasticine character among plants",
+        "alt-text": "Pink worm-like plasticine character among plants",
+        "order": 5
+      }
     ],
     "feature-project-link": "https://greenpuppets.org/eco-series",
     "feature-project-start-year": 2022,
     "feature-project-end-year": null,
     "feature-project-company-name": null,
-    "feature-project-skills": ["plasticine modeling", "character design", "model making"],
+    "feature-project-skills": [
+      "plasticine modeling",
+      "character design",
+      "model making"
+    ],
     "feature-project-job-category": "Plasticine model maker",
     "feature-project-client": null,
     "feature-project-type": "un-highlighted",
     "project-feature-main-category-id": 2,
     "feature-project-order": null,
-    "feature-project-testimonial": [
-      {
-        "testimonial-name": null,
-        "testimonial-client-name": null,
-        "testimonial-employer-name": null,
-        "testimonial-quote": null,
-        "testimonial-role": null
-      }
-    ]
+    "feature-project-testimonial": []
   },
   {
     "id": 16,
@@ -555,29 +1050,41 @@
     "feature-project-long-description": "A collaborative team-based project for the in-house University production. I was tasked to interpret and convert the scaled modelled designs and construct them out of timber and ply. As well as building a structural frame for the flying flats.",
     "feature-project-thumbnail": "feature-img-beta/feature-16.jpg",
     "feature-project-gallery": [
-      { "image": "feature-img-beta/feature-16-1.jpg", "description": "", "alt-text": "", "order": 1 },
-      { "image": "feature-img-beta/feature-16-2.jpg", "description": "", "alt-text": "", "order": 2 },
-      { "image": "feature-img-beta/feature-16.jpg", "description": "", "alt-text": "", "order": 3 }
+      {
+        "image": "feature-img-beta/feature-16-1.jpg",
+        "description": "Rent stage set during theatre preparation",
+        "alt-text": "Rent stage set during theatre preparation",
+        "order": 1
+      },
+      {
+        "image": "feature-img-beta/feature-16-2.jpg",
+        "description": "CAD drawing for a section of the Rent set",
+        "alt-text": "CAD drawing for a section of the Rent set",
+        "order": 2
+      },
+      {
+        "image": "feature-img-beta/feature-16.jpg",
+        "description": "Timber-framed scenery panel under construction",
+        "alt-text": "Timber-framed scenery panel under construction",
+        "order": 3
+      }
     ],
     "feature-project-link": "https://greenpuppets.org/eco-series",
     "feature-project-start-year": 2022,
     "feature-project-end-year": null,
     "feature-project-company-name": null,
-    "feature-project-skills": ["woodworking", "set construction", "structural framing", "collaborative design"],
+    "feature-project-skills": [
+      "woodworking",
+      "set construction",
+      "structural framing",
+      "collaborative design"
+    ],
     "feature-project-job-category": "Set construction and model fabrication",
     "feature-project-client": "University production",
     "feature-project-type": "un-highlighted",
     "project-feature-main-category-id": 3,
     "feature-project-order": null,
-    "feature-project-testimonial": [
-      {
-        "testimonial-name": null,
-        "testimonial-client-name": null,
-        "testimonial-employer-name": null,
-        "testimonial-quote": null,
-        "testimonial-role": null
-      }
-    ]
+    "feature-project-testimonial": []
   },
   {
     "id": 17,
@@ -586,29 +1093,40 @@
     "feature-project-long-description": "Here are some of the carpentry projects I've undertaken.",
     "feature-project-thumbnail": "feature-img-beta/feature-17.jpg",
     "feature-project-gallery": [
-      { "image": "feature-img-beta/feature-17.jpg", "description": "", "alt-text": "", "order": 1 },
-      { "image": "feature-img-beta/feature-17-1.jpg", "description": "", "alt-text": "", "order": 2 },
-      { "image": "feature-img-beta/feature-17-2.jpg", "description": "", "alt-text": "", "order": 2 }
+      {
+        "image": "feature-img-beta/feature-17.jpg",
+        "description": "Handmade wooden storage chest with dovetail corners",
+        "alt-text": "Handmade wooden storage chest with dovetail corners",
+        "order": 1
+      },
+      {
+        "image": "feature-img-beta/feature-17-1.jpg",
+        "description": "Wooden chessboard with alternating light and dark squares",
+        "alt-text": "Wooden chessboard with alternating light and dark squares",
+        "order": 2
+      },
+      {
+        "image": "feature-img-beta/feature-17-2.jpg",
+        "description": "Decorative wood carving mounted beside a staircase",
+        "alt-text": "Decorative wood carving mounted beside a staircase",
+        "order": 2
+      }
     ],
     "feature-project-link": "https://greenpuppets.org/eco-series",
     "feature-project-start-year": 2022,
     "feature-project-end-year": null,
     "feature-project-company-name": null,
-    "feature-project-skills": ["carpentry", "woodworking", "joinery"],
+    "feature-project-skills": [
+      "carpentry",
+      "woodworking",
+      "joinery"
+    ],
     "feature-project-job-category": "Independent carpentry projects",
     "feature-project-client": null,
     "feature-project-type": "un-highlighted",
     "project-feature-main-category-id": 4,
     "feature-project-order": null,
-    "feature-project-testimonial": [
-      {
-        "testimonial-name": null,
-        "testimonial-client-name": null,
-        "testimonial-employer-name": null,
-        "testimonial-quote": null,
-        "testimonial-role": null
-      }
-    ]
+    "feature-project-testimonial": []
   },
   {
     "id": 18,
@@ -617,29 +1135,40 @@
     "feature-project-long-description": "Here are a few 'honourable' mentions.",
     "feature-project-thumbnail": "feature-img-beta/feature-18.jpg",
     "feature-project-gallery": [
-      { "image": "feature-img-beta/feature-18.jpg", "description": "", "alt-text": "", "order": 1 },
-      { "image": "feature-img-beta/feature-18-1.jpg", "description": "", "alt-text": "", "order": 2 },
-      { "image": "feature-img-beta/feature-18-2.jpg", "description": "", "alt-text": "", "order": 4 }
+      {
+        "image": "feature-img-beta/feature-18.jpg",
+        "description": "CAD design of a spiral staircase around a cylindrical column",
+        "alt-text": "CAD design of a spiral staircase around a cylindrical column",
+        "order": 1
+      },
+      {
+        "image": "feature-img-beta/feature-18-1.jpg",
+        "description": "CAD elevations and dimensions for a stepped tomb prop",
+        "alt-text": "CAD elevations and dimensions for a stepped tomb prop",
+        "order": 2
+      },
+      {
+        "image": "feature-img-beta/feature-18-2.jpg",
+        "description": "CAD design of a mechanical component with rounded joints",
+        "alt-text": "CAD design of a mechanical component with rounded joints",
+        "order": 4
+      }
     ],
     "feature-project-link": "https://greenpuppets.org/eco-series",
     "feature-project-start-year": 2022,
     "feature-project-end-year": null,
     "feature-project-company-name": null,
-    "feature-project-skills": ["CAD design", "3D modeling", "technical drafting"],
+    "feature-project-skills": [
+      "CAD design",
+      "3D modeling",
+      "technical drafting"
+    ],
     "feature-project-job-category": "CAD Designer and 3D modeler",
     "feature-project-client": null,
     "feature-project-type": "un-highlighted",
     "project-feature-main-category-id": 3,
     "feature-project-order": null,
-    "feature-project-testimonial": [
-      {
-        "testimonial-name": null,
-        "testimonial-client-name": null,
-        "testimonial-employer-name": null,
-        "testimonial-quote": null,
-        "testimonial-role": null
-      }
-    ]
+    "feature-project-testimonial": []
   },
   {
     "id": 19,
@@ -648,35 +1177,76 @@
     "feature-project-long-description": "Here are a few 'honourable' mentions.",
     "feature-project-thumbnail": "feature-img-beta/feature-19-2.jpg",
     "feature-project-gallery": [
-      { "image": "feature-img-beta/feature-19.jpg", "description": "Grey Alien", "alt-text": "Grey Alien", "order": 1 },
-      { "image": "feature-img-beta/feature-19-1.jpg", "description": "Icing Cake Topper", "alt-text": "Icing Cake Topper", "order": 2 },
-      { "image": "feature-img-beta/feature-19-2.jpg", "description": "A Shell-less Snail", "alt-text": "A Shell-less Snail", "order": 3 },
-      { "image": "feature-img-beta/feature-19-3.jpg", "description": "3:1 Scale Ear", "alt-text": "3:1 Scale Ear", "order": 4 },
-      { "image": "feature-img-beta/feature-19-4.jpg", "description": "Female Form", "alt-text": "Female Form", "order": 5 },
-      { "image": "feature-img-beta/feature-19-5.jpg", "description": "Female Form", "alt-text": "Female Form", "order": 6 },
-      { "image": "feature-img-beta/feature-19-6.jpeg", "description": "A Poly-Carved Gargoyle", "alt-text": "A Poly-Carved Gargoyle", "order": 7 },
-      { "image": "feature-img-beta/feature-19-7.jpg", "description": "Stomach", "alt-text": "Stomach", "order": 8 },
-      { "image": "feature-img-beta/feature-19-8.jpg", "description": "Frog", "alt-text": "Frog", "order": 9 }
+      {
+        "image": "feature-img-beta/feature-19.jpg",
+        "description": "Grey Alien",
+        "alt-text": "Sculpted grey alien head with large eyes",
+        "order": 1
+      },
+      {
+        "image": "feature-img-beta/feature-19-1.jpg",
+        "description": "Icing Cake Topper",
+        "alt-text": "Miniature camper van cake topper",
+        "order": 2
+      },
+      {
+        "image": "feature-img-beta/feature-19-2.jpg",
+        "description": "A Shell-less Snail",
+        "alt-text": "Slug sculpture with textured skin",
+        "order": 3
+      },
+      {
+        "image": "feature-img-beta/feature-19-3.jpg",
+        "description": "3:1 Scale Ear",
+        "alt-text": "Sculpted ear relief on an oval backing",
+        "order": 4
+      },
+      {
+        "image": "feature-img-beta/feature-19-4.jpg",
+        "description": "Female Form",
+        "alt-text": "Front view of a figure sculpture during modelling",
+        "order": 5
+      },
+      {
+        "image": "feature-img-beta/feature-19-5.jpg",
+        "description": "Female Form",
+        "alt-text": "Rear view of the figure sculpture",
+        "order": 6
+      },
+      {
+        "image": "feature-img-beta/feature-19-6.jpeg",
+        "description": "A Poly-Carved Gargoyle",
+        "alt-text": "Small seated dragon-like creature sculpture",
+        "order": 7
+      },
+      {
+        "image": "feature-img-beta/feature-19-7.jpg",
+        "description": "Stomach",
+        "alt-text": "Red creature head during fabrication",
+        "order": 8
+      },
+      {
+        "image": "feature-img-beta/feature-19-8.jpg",
+        "description": "Frog",
+        "alt-text": "Clay frog sculpture with large eyes",
+        "order": 9
+      }
     ],
     "feature-project-link": "https://greenpuppets.org/eco-series",
     "feature-project-start-year": 2022,
     "feature-project-end-year": null,
     "feature-project-company-name": null,
-    "feature-project-skills": ["sculpting", "model making", "mixed media"],
+    "feature-project-skills": [
+      "sculpting",
+      "model making",
+      "mixed media"
+    ],
     "feature-project-job-category": "Miscellaneous creative projects",
     "feature-project-client": null,
     "feature-project-type": "un-highlighted",
     "project-feature-main-category-id": 2,
     "feature-project-order": null,
-    "feature-project-testimonial": [
-      {
-        "testimonial-name": null,
-        "testimonial-client-name": null,
-        "testimonial-employer-name": null,
-        "testimonial-quote": null,
-        "testimonial-role": null
-      }
-    ]
+    "feature-project-testimonial": []
   },
   {
     "id": 20,
@@ -685,42 +1255,118 @@
     "feature-project-long-description": "A stop-motion puppet, complete with inner ball and socket armature. Based on a Styxosaurus. I built the composite armature to maximise all possible movements. Special measures were taken to enable future maintenance, to ensure the life of the model, and to assure maximum functionality when it comes to animating! It features three mounting points, full motion in its neck, tail, fins, mouth, and body. To finish, I built a custom base to showcase the finished puppet.",
     "feature-project-thumbnail": "feature-img-beta/feature-20.gif",
     "feature-project-gallery": [
-      { "image": "feature-img-beta/feature-20.gif", "description": "", "alt-text": "", "order": 1 },
-      { "image": "feature-img-beta/feature-20-1.jpg", "description": "", "alt-text": "", "order": 2 },
-      { "image": "feature-img-beta/feature-20-2.jpg", "description": "", "alt-text": "", "order": 3 },
-      { "image": "feature-img-beta/feature-20-3.jpg", "description": "", "alt-text": "", "order": 4 },
-      { "image": "feature-img-beta/feature-20-4.jpg", "description": "", "alt-text": "", "order": 5 },
-      { "image": "feature-img-beta/feature-20-5.jpg", "description": "", "alt-text": "", "order": 6 },
-      { "image": "feature-img-beta/feature-20-6.jpg", "description": "", "alt-text": "", "order": 7 },
-      { "image": "feature-img-beta/feature-20-7.jpg", "description": "", "alt-text": "", "order": 8 },
-      { "image": "feature-img-beta/feature-20-8.jpg", "description": "", "alt-text": "", "order": 9 },
-      { "image": "feature-img-beta/feature-20-9.jpg", "description": "", "alt-text": "", "order": 10 },
-      { "image": "feature-img-beta/feature-20-10.jpg", "description": "", "alt-text": "", "order": 10 },
-      { "image": "feature-img-beta/feature-20-11.jpg", "description": "", "alt-text": "", "order": 10 },
-      { "image": "feature-img-beta/feature-20-12.jpg", "description": "", "alt-text": "", "order": 10 },
-      { "image": "feature-img-beta/feature-20-13.jpg", "description": "", "alt-text": "", "order": 10 },
-      { "image": "feature-img-beta/feature-20-14.jpg", "description": "", "alt-text": "", "order": 10 },
-      { "image": "feature-img-beta/feature-20-15.jpg", "description": "", "alt-text": "", "order": 10 }
+      {
+        "image": "feature-img-beta/feature-20.gif",
+        "description": "Animated display of the Styxosaurus puppet on its wooden base",
+        "alt-text": "Animated display of the Styxosaurus puppet on its wooden base",
+        "order": 1
+      },
+      {
+        "image": "feature-img-beta/feature-20-1.jpg",
+        "description": "Styxosaurus puppet composited into an underwater scene",
+        "alt-text": "Styxosaurus puppet composited into an underwater scene",
+        "order": 2
+      },
+      {
+        "image": "feature-img-beta/feature-20-2.jpg",
+        "description": "Front view of the Styxosaurus puppet with flippers spread",
+        "alt-text": "Front view of the Styxosaurus puppet with flippers spread",
+        "order": 3
+      },
+      {
+        "image": "feature-img-beta/feature-20-3.jpg",
+        "description": "Side view of the Styxosaurus puppet and curved neck",
+        "alt-text": "Side view of the Styxosaurus puppet and curved neck",
+        "order": 4
+      },
+      {
+        "image": "feature-img-beta/feature-20-4.jpg",
+        "description": "Rear view showing the puppet tail and flippers",
+        "alt-text": "Rear view showing the puppet tail and flippers",
+        "order": 5
+      },
+      {
+        "image": "feature-img-beta/feature-20-5.jpg",
+        "description": "Complete curved display backdrop and wooden base",
+        "alt-text": "Complete curved display backdrop and wooden base",
+        "order": 6
+      },
+      {
+        "image": "feature-img-beta/feature-20-6.jpg",
+        "description": "Close view of the Styxosaurus puppet face",
+        "alt-text": "Close view of the Styxosaurus puppet face",
+        "order": 7
+      },
+      {
+        "image": "feature-img-beta/feature-20-7.jpg",
+        "description": "Puppet posed with its neck curving down towards the base",
+        "alt-text": "Puppet posed with its neck curving down towards the base",
+        "order": 8
+      },
+      {
+        "image": "feature-img-beta/feature-20-8.jpg",
+        "description": "Full side profile of the puppet on its display stand",
+        "alt-text": "Full side profile of the puppet on its display stand",
+        "order": 9
+      },
+      {
+        "image": "feature-img-beta/feature-20-9.jpg",
+        "description": "Styxosaurus puppet photographed beside a stream",
+        "alt-text": "Styxosaurus puppet photographed beside a stream",
+        "order": 10
+      },
+      {
+        "image": "feature-img-beta/feature-20-10.jpg",
+        "description": "Styxosaurus sculpture in a mould casing",
+        "alt-text": "Styxosaurus sculpture in a mould casing",
+        "order": 10
+      },
+      {
+        "image": "feature-img-beta/feature-20-11.jpg",
+        "description": "Top view of the Styxosaurus sculpture and mould",
+        "alt-text": "Top view of the Styxosaurus sculpture and mould",
+        "order": 10
+      },
+      {
+        "image": "feature-img-beta/feature-20-12.jpg",
+        "description": "Exposed metal armature for the Styxosaurus body and neck",
+        "alt-text": "Exposed metal armature for the Styxosaurus body and neck",
+        "order": 10
+      },
+      {
+        "image": "feature-img-beta/feature-20-13.jpg",
+        "description": "Underside of the puppet showing textured skin",
+        "alt-text": "Underside of the puppet showing textured skin",
+        "order": 10
+      },
+      {
+        "image": "feature-img-beta/feature-20-14.jpg",
+        "description": "Puppet armature mounted upright during construction",
+        "alt-text": "Puppet armature mounted upright during construction",
+        "order": 10
+      },
+      {
+        "image": "feature-img-beta/feature-20-15.jpg",
+        "description": "Close view of the puppet with its jaw open beside a stream",
+        "alt-text": "Close view of the puppet with its jaw open beside a stream",
+        "order": 10
+      }
     ],
     "feature-project-link": "https://greenpuppets.org/eco-series",
     "feature-project-start-year": 2022,
     "feature-project-end-year": null,
     "feature-project-company-name": null,
-    "feature-project-skills": ["sculpting", "model making", "mixed media"],
+    "feature-project-skills": [
+      "sculpting",
+      "model making",
+      "mixed media"
+    ],
     "feature-project-job-category": "Miscellaneous creative projects",
     "feature-project-client": null,
     "feature-project-type": "highlighted",
     "project-feature-main-category-id": 2,
     "feature-project-order": 8,
-    "feature-project-testimonial": [
-      {
-        "testimonial-name": null,
-        "testimonial-client-name": null,
-        "testimonial-employer-name": null,
-        "testimonial-quote": null,
-        "testimonial-role": null
-      }
-    ],
+    "feature-project-testimonial": [],
     "feature-project-youtube-link": [
       {
         "url": "https://www.youtube.com/embed/IbZ-8gHaqcU?si=5QWrY_bY-MwsCrcY",
@@ -737,41 +1383,27 @@
     "feature-project-long-description": "Arthur the snail puppet was sculpted, moulded, cast, and built with an armature, alongside other characters, involving the creation of small props like tiny carved spoons, set carving, detailing, base carpentry, dressing, and contributions to character and world designs as well as the story.",
     "feature-project-thumbnail": "feature-img-beta/feature-21.jpg",
     "feature-project-gallery": [
-      { "image": "feature-img-beta/feature-20.gif", "description": "", "alt-text": "", "order": 1 },
-      { "image": "feature-img-beta/feature-20-1.jpg", "description": "", "alt-text": "", "order": 2 },
-      { "image": "feature-img-beta/feature-20-2.jpg", "description": "", "alt-text": "", "order": 3 },
-      { "image": "feature-img-beta/feature-20-3.jpg", "description": "", "alt-text": "", "order": 4 },
-      { "image": "feature-img-beta/feature-20-4.jpg", "description": "", "alt-text": "", "order": 5 },
-      { "image": "feature-img-beta/feature-20-5.jpg", "description": "", "alt-text": "", "order": 6 },
-      { "image": "feature-img-beta/feature-20-6.jpg", "description": "", "alt-text": "", "order": 7 },
-      { "image": "feature-img-beta/feature-20-7.jpg", "description": "", "alt-text": "", "order": 8 },
-      { "image": "feature-img-beta/feature-20-8.jpg", "description": "", "alt-text": "", "order": 9 },
-      { "image": "feature-img-beta/feature-20-9.jpg", "description": "", "alt-text": "", "order": 10 },
-      { "image": "feature-img-beta/feature-20-10.jpg", "description": "", "alt-text": "", "order": 10 },
-      { "image": "feature-img-beta/feature-20-11.jpg", "description": "", "alt-text": "", "order": 10 },
-      { "image": "feature-img-beta/feature-20-12.jpg", "description": "", "alt-text": "", "order": 10 },
-      { "image": "feature-img-beta/feature-20-13.jpg", "description": "", "alt-text": "", "order": 10 },
-      { "image": "feature-img-beta/feature-20-14.jpg", "description": "", "alt-text": "", "order": 10 },
-      { "image": "feature-img-beta/feature-20-15.jpg", "description": "", "alt-text": "", "order": 10 }
+      {
+        "image": "feature-img-beta/feature-21.jpg",
+        "description": "Characters and woodland set from Arthur the Mail Snail.",
+        "alt-text": "Two puppet characters cooking beside a tree in the Arthur the Mail Snail woodland set",
+        "order": 1
+      }
     ],
     "feature-project-link": "https://greenpuppets.org/eco-series",
     "feature-project-start-year": 2021,
     "feature-project-end-year": null,
     "feature-project-company-name": null,
-    "feature-project-skills": ["sculpting", "model making", "mixed media"],
+    "feature-project-skills": [
+      "sculpting",
+      "model making",
+      "mixed media"
+    ],
     "feature-project-job-category": "Miscellaneous creative projects",
     "feature-project-client": "University group project",
     "feature-project-type": "un-highlighted",
     "project-feature-main-category-id": 2,
     "feature-project-order": null,
-    "feature-project-testimonial": [
-      {
-        "testimonial-name": null,
-        "testimonial-client-name": null,
-        "testimonial-employer-name": null,
-        "testimonial-quote": null,
-        "testimonial-role": null
-      }
-    ]
+    "feature-project-testimonial": []
   }
 ]

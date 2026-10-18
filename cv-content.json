@@ -1,0 +1,19 @@
+{
+  "about": "I am a model and prop maker with a keen affinity for sculpting, based in the UK. My interests in stop-motion animation, history, Tolkienesque fantasy and English folklore inform my work. My experience includes stop-motion creature fabrication, architectural models, moulding, casting and prop making.",
+  "sections": [
+    {"heading":"Experience", "entries":[
+      {"title":"Timothy Richards & Modern Souvenir", "date":"Listed in the 2024 CV", "text":"Sculptor, crafts person and model maker. Sculpting, mould making, finishing and batch production of plaster souvenirs and architectural models, including new product development and origination of architectural models."},
+      {"title":"Mangostone", "date":"June to July 2023", "text":"Model maker and sculptor. Mould making, casting, fabrication and painting of props and models for the BBC's Famous Five production."},
+      {"title":"Yamination Studios", "date":"January to November 2022", "text":"Sculptor and model maker. Model, set and puppet making, character maquette sculpting, and work with directors on stop-motion television and commercials."},
+      {"title":"Workshed Animation", "date":"2020 to 2021", "text":"Stop-motion puppet fabricator. Multiple commissions for a film studio in the USA, interpreting the client brief to design, build and finish detailed puppets."},
+      {"title":"Prop Making & SFX: client projects", "date":"2019 to 2020", "text":"Helped lead a collaborative team project for Peter Thorndike's debut film, PlaguePits."},
+      {"title":"Other employment: ASDA", "date":"2015 to 2017", "text":"Employment listed in the original CV."}
+    ]},
+    {"heading":"Education", "entries":[
+      {"title":"Greater Brighton Metropolitan College", "date":"2021", "text":"First Class BA (Hons) Prop Making & Special Effects."},
+      {"title":"Greater Brighton Metropolitan College", "date":"2020", "text":"Distinction, FdA Theatre Arts: Prop Making & Special Effects."},
+      {"title":"Weston College", "date":"2015", "text":"Level 2 Diploma, Woodwork & Joinery."}
+    ]}
+  ],
+  "skills": ["Woodwork and construction", "Sculpting in clay and reductive poly-carving", "Fibreglassing", "Silicone, fibreglass and plaster moulding", "Urethane casting", "Basic foam construction", "Basic MIG welding", "Painting and finishing", "Silver soldering", "Model making", "Platinum silicone casting, patching and painting", "Basic CAD", "Full driving licence"]
+}
