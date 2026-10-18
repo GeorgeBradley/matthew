@@ -1,1 +1,5 @@
-/projects/:slug   /details.html?slug=:slug   200
+/index.html / 301
+/index2.html / 301
+/test.html / 301
+/test2.html / 301
+/feature-project.html /#projects-container 301
