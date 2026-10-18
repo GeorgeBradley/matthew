@@ -157,17 +157,17 @@
       ]
     ]
   },
-  "feature-img-beta/feature-5.jpg": {
-    "width": 750,
-    "height": 422,
+  "feature-img-beta/feature-5-6.jpg": {
+    "width": 570,
+    "height": 759,
     "versions": [
       [
         480,
-        "/assets/optimized/feature-5-0b08a2b4-480.webp"
+        "/assets/optimized/feature-5-6-a3aa20f3-480.webp"
       ],
       [
-        750,
-        "/assets/optimized/feature-5-0b08a2b4-750.webp"
+        570,
+        "/assets/optimized/feature-5-6-a3aa20f3-570.webp"
       ]
     ]
   },
@@ -1095,17 +1095,17 @@
       ]
     ]
   },
-  "feature-img-beta/feature-5-6.jpg": {
-    "width": 570,
-    "height": 759,
+  "feature-img-beta/feature-5.jpg": {
+    "width": 750,
+    "height": 422,
     "versions": [
       [
         480,
-        "/assets/optimized/feature-5-6-a3aa20f3-480.webp"
+        "/assets/optimized/feature-5-0b08a2b4-480.webp"
       ],
       [
-        570,
-        "/assets/optimized/feature-5-6-a3aa20f3-570.webp"
+        750,
+        "/assets/optimized/feature-5-0b08a2b4-750.webp"
       ]
     ]
   },

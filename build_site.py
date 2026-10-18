@@ -63,11 +63,12 @@ def image_data(source):
     MANIFEST[source] = {'width': width, 'height': height, 'versions': versions}
     return MANIFEST[source]
 
-def img(source, alt, eager=False, sizes='(max-width: 600px) 100vw, (max-width: 1000px) 50vw, 33vw', cls=''):
+def img(source, alt, eager=False, sizes='(max-width: 600px) 100vw, (max-width: 1000px) 50vw, 33vw', cls='', position=None):
     d = image_data(source)
     src = d['versions'][min(1, len(d['versions']) - 1)][1]
     srcset = ', '.join(f'{url} {w}w' for w, url in d['versions'])
-    return f'<img src="{src}" srcset="{srcset}" sizes="{sizes}" width="{d["width"]}" height="{d["height"]}" alt="{h(alt)}" loading="{"eager" if eager else "lazy"}" decoding="async" {"fetchpriority=\"high\"" if eager else ""} class="{cls}">'
+    focal_style = f' style="object-position:{h(position)}"' if position else ''
+    return f'<img src="{src}" srcset="{srcset}" sizes="{sizes}" width="{d["width"]}" height="{d["height"]}" alt="{h(alt)}" loading="{"eager" if eager else "lazy"}" decoding="async" {"fetchpriority=\"high\"" if eager else ""} class="{cls}"{focal_style}>'
 
 def year(p):
     a, b = p.get('feature-project-start-year'), p.get('feature-project-end-year')
@@ -108,7 +109,7 @@ def page(title, description, path, body, photo='feature-img-beta/feature-1.jpg',
 def card(p):
     category = next(c for c in CATEGORIES if c['id'] == p['project-feature-main-category-id'])
     search = ' '.join([name(p), p['feature-project-description'], category['categoryName'], ' '.join(p.get('feature-project-skills') or []), p.get('feature-project-company-name') or '', p.get('feature-project-client') or ''])
-    return f'''<article class="project-card" data-category="{category['id']}" data-featured="{str(p.get('feature-project-type') == 'highlighted').lower()}" data-search="{h(search)}"><a href="{route(p)}">{img(p['feature-project-thumbnail'], name(p))}<div class="card-copy"><p class="card-category">{h(category['categoryName'])}</p><h3>{h(name(p))}</h3><p class="card-description">{h(p['feature-project-description'])}</p><div class="card-footer"><span class="year">{h(year(p))}</span><span class="card-action">View project <span aria-hidden="true">↗</span></span></div></div></a></article>'''
+    return f'''<article class="project-card" data-category="{category['id']}" data-featured="{str(p.get('feature-project-type') == 'highlighted').lower()}" data-search="{h(search)}"><a href="{route(p)}">{img(p.get('feature-project-card-image') or p['feature-project-thumbnail'], p.get('feature-project-card-alt') or name(p), position=p.get('feature-project-card-position'))}<div class="card-copy"><p class="card-category">{h(category['categoryName'])}</p><h3>{h(name(p))}</h3><p class="card-description">{h(p['feature-project-description'])}</p><div class="card-footer"><span class="year">{h(year(p))}</span><span class="card-action">View project <span aria-hidden="true">↗</span></span></div></div></a></article>'''
 
 def testimonial(p):
     items = [t for t in p.get('feature-project-testimonial', []) if t.get('testimonial-quote')]
